@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="shortcut icon" href="../../Content/IMG/BG/logo.png">
+    <link rel="stylesheet" href="../../Content/CSS/grid.css">
+    <link rel="stylesheet" href="../../Content/CSS/base.css">
+    <link rel="stylesheet" href="../../Content/CSS/main.css">
+    <link rel="stylesheet" href="../../Content/CSS/layout.css">
+    <link rel="stylesheet" href="../../Content/CSS/admin.css">
+    <link rel="stylesheet" href="../../Content/CSS/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <div class="header__logo">
+                <a href="" class="header__logo-image">
+                    <img src="../../Content/IMG/BG/Untitled-2.png" alt="" class="header__logo-image--img">
+                </a>
+                <div class="header__logo-body">
+                    <h3 class="header__logo-name">TOUR VN</h3>
+                    <p class="header__logo-status">
+                        <i class=""><ion-icon name="wifi"></ion-icon></i>
+                        online
+                    </p>
+                </div>
+            </div>
+            <ul class="header__nav-list">
+
+                <li class="header__nav-item">
+                    <a href="../index.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="map"></ion-icon></i>
+                        Địa điểm
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./localSide.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="navigate"></ion-icon></i>
+                        Vùng miền
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourCategory.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="paper"></ion-icon></i>
+                        Danh mục tuor
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./newsCategory.html" class="header__nav-link active">
+                        <i class="header__nav-icon"><ion-icon name="today"></ion-icon></i>
+                        Danh mục tin tức
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./newsPage.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="wallet"></ion-icon></i>
+                        Bài viết
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourItem.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="bus"></ion-icon></i>
+                        Tour du lịch
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./userList.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="contacts"></ion-icon></i>
+                        Khách hàng
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./adminAccount.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="logo-octocat"></ion-icon></i>
+                        Quản lý Admin
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourBill.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="print"></ion-icon></i>
+                        Hóa đơn
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourTicket.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="cash"></ion-icon></i>
+                        Quản lý vé
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="" class="header__nav-link warn">
+                        <i class="header__nav-icon"><ion-icon name="power"></ion-icon></i>
+                        Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="content__header">
+            <ul class="sub__nav-list">
+                <li class="sub__nav-item active JS-li--item">
+                    Thêm mới danh mục tour
+                </li>
+                <li class="sub__nav-item JS-li--item">
+                    Danh sách danh mục tour
+                </li>
+            </ul>
+        </div>
+
+        <div class="content__body">
+            <div class="content__tap active JS-tap--item">
+                <div class="content__tap-heading">
+                    <h3 class="content__tap-heading-text">Thêm mới danh mục tin tức</h3>
+                </div>
+                <div class="content__tap-main">
+                    <form action="" class="form-box">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="categoryName" class="form-label">Tên danh mục</label>
+                                <input type="text" id="categoryName" name="categoryName" class="input-control" placeholder="VD: Cẩm nang du lịch">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <button class="btn btn-form">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="content__tap JS-tap--item">
+                <div class="content__tap-heading">
+                    <h3 class="content__tap-heading-text">Danh sách danh mục tin tức</h3>
+                </div>
+                <div class="content__tap-main">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="tbl-2">STT</th>
+                                <th class="tbl-4">Tên danh mục</th>
+                                <th class="tbl-2">Thao tác</th>
+                                <th class="tbl-2">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="text-left">Cẩm nang du lịch</td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="text-left">Kinh nghiệm du lịch</td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="text-left">Tin tức du lịch</td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+    <script src="../../Content/JS/admin.js"></script>
+    <script>
+        showTapConTent('.sub__nav-item', '.content__tap');
+    </script>
+</body>
+</html>

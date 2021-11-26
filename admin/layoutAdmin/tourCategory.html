@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="shortcut icon" href="../../Content/IMG/BG/logo.png">
+    <link rel="stylesheet" href="../../Content/CSS/grid.css">
+    <link rel="stylesheet" href="../../Content/CSS/base.css">
+    <link rel="stylesheet" href="../../Content/CSS/main.css">
+    <link rel="stylesheet" href="../../Content/CSS/layout.css">
+    <link rel="stylesheet" href="../../Content/CSS/admin.css">
+    <link rel="stylesheet" href="../../Content/CSS/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <div class="header__logo">
+                <a href="" class="header__logo-image">
+                    <img src="../../Content/IMG/BG/Untitled-2.png" alt="" class="header__logo-image--img">
+                </a>
+                <div class="header__logo-body">
+                    <h3 class="header__logo-name">TOUR VN</h3>
+                    <p class="header__logo-status">
+                        <i class=""><ion-icon name="wifi"></ion-icon></i>
+                        online
+                    </p>
+                </div>
+            </div>
+            <ul class="header__nav-list">
+
+                <li class="header__nav-item">
+                    <a href="../index.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="map"></ion-icon></i>
+                        Địa điểm
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./localSide.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="navigate"></ion-icon></i>
+                        Vùng miền
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourCategory.html" class="header__nav-link active">
+                        <i class="header__nav-icon"><ion-icon name="paper"></ion-icon></i>
+                        Danh mục tuor
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./newsCategory.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="today"></ion-icon></i>
+                        Danh mục tin tức
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./newsPage.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="wallet"></ion-icon></i>
+                        Bài viết
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourItem.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="bus"></ion-icon></i>
+                        Tour du lịch
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./userList.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="contacts"></ion-icon></i>
+                        Khách hàng
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./adminAccount.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="logo-octocat"></ion-icon></i>
+                        Quản lý Admin
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourBill.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="print"></ion-icon></i>
+                        Hóa đơn
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourTicket.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="cash"></ion-icon></i>
+                        Quản lý vé
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="" class="header__nav-link warn">
+                        <i class="header__nav-icon"><ion-icon name="power"></ion-icon></i>
+                        Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="content__header">
+            <ul class="sub__nav-list">
+                <li class="sub__nav-item active JS-li--item">
+                    Thêm mới danh mục tour
+                </li>
+                <li class="sub__nav-item JS-li--item">
+                    Danh sách danh mục tour
+                </li>
+            </ul>
+        </div>
+
+        <div class="content__body">
+            <div class="content__tap active JS-tap--item">
+                <div class="content__tap-heading">
+                    <h3 class="content__tap-heading-text">Thêm mới danh mục tour</h3>
+                </div>
+                <div class="content__tap-main">
+                    <form action="" class="form-box">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="categoryName" class="form-label">Tên danh mục</label>
+                                <input type="text" id="categoryName" name="categoryName" class="input-control" placeholder="VD: Tour biển đảo">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="localiMage2" class="form-label">Hình ảnh</label>
+                                <label for="localiMage2" class="form-sub-label">Hình ảnh dùng làm ảnh đại diện danh mục</label>
+                                <input type="file" id="localiMage2" name="localiMage2" class="input-control-img">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="categoryDesc" class="form-label">Mô tả</label>
+                                <textarea name="categoryDesc" id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả"></textarea>
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <button class="btn btn-form">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="content__tap JS-tap--item">
+                <div class="content__tap-heading">
+                    <h3 class="content__tap-heading-text">Danh sách danh mục tour</h3>
+                </div>
+                <div class="content__tap-main">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="tbl-1">STT</th>
+                                <th class="tbl-3">Tên danh mục</th>
+                                <th class="tbl-1">Hình ảnh</th>
+                                <th class="tbl-3">Mô tả</th>
+                                <th class="tbl-1">Thao tác</th>
+                                <th class="tbl-1">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="text-left">Tour hành trình xanh</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Category/htx.jfif" alt="" class="img__tbl"></td>
+                                <td class="tbl__desc">
+                                    <p class="tbl__desc-box text-left">
+                                        This is exactly the kind of music that I like the most : this is very 
+                                        relaxing and passionate, it releases all my stress. Thank you  !
+                                    </p>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td class="text-left">Tour hành xe tự lái</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Category/txcanva.jpg" alt="" class="img__tbl"></td>
+                                <td class="tbl__desc">
+                                    <p class="tbl__desc-box text-left">
+                                        I haven't realized until now that almost 90% of the hidden gems in my playlist came from Syrex. This is another one.
+                                    </p>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td class="text-left">Tour hành văn hóa Việt Nam</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Category/htx.jfif" alt="" class="img__tbl"></td>
+                                <td class="tbl__desc">
+                                    <p class="tbl__desc-box text-left">
+                                        Edm is Electric Dance music which is literally this. My favorite genres are Edm
+                                    </p>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td class="text-left">Tour hành thanh lọc cơ thể</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Category/ttlct.jpg" alt="" class="img__tbl"></td>
+                                <td class="tbl__desc">
+                                    <p class="tbl__desc-box text-left">
+                                        This music feels like you were in different world specially if you were wearing headphones! I love it!!💖✨
+                                    </p>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>5</td>
+                                <td class="text-left">Tour Biển đảo</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Category/tbd.jpg" alt="" class="img__tbl"></td>
+                                <td>
+                                    <p class="tbl__desc-box text-left">
+                                        I love my twin sweetie, we are currently listening to this mashup, i hope we 
+                                        will be this close next year as we are now. I dont want to loose her 💕
+                                    </p>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination__block">
+                    <div class="pagination__list">
+                        <div class="pagination__prev">
+                            <a href="" class="pagination__item pagination__prev-item">
+                                <i class="pagination__prev-icon"><ion-icon name="arrow-dropleft"></ion-icon></i>
+                            </a>
+                        </div>
+        
+                        <div class="pagination__num">
+                            <a href="" class="pagination__item active pagination__num-item">1</a>
+                            <a href="" class="pagination__item pagination__num-item">2</a>
+                            <a href="" class="pagination__item pagination__num-item">3</a>
+                        </div>
+        
+                        <div class="pagination__next">
+                            <a href="" class="pagination__item pagination__next-item">
+                                <i class="pagination__next-icon"><ion-icon name="arrow-dropright"></ion-icon></i>
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        
+
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+    <script src="../../Content/JS/admin.js"></script>
+    <script>
+        showTapConTent('.sub__nav-item', '.content__tap');
+    </script>
+</body>
+</html>

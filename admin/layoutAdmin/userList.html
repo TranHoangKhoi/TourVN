@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="shortcut icon" href="../../Content/IMG/BG/logo.png">
+    <link rel="stylesheet" href="../../Content/CSS/grid.css">
+    <link rel="stylesheet" href="../../Content/CSS/base.css">
+    <link rel="stylesheet" href="../../Content/CSS/main.css">
+    <link rel="stylesheet" href="../../Content/CSS/layout.css">
+    <link rel="stylesheet" href="../../Content/CSS/admin.css">
+    <link rel="stylesheet" href="../../Content/CSS/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <div class="header__logo">
+                <a href="" class="header__logo-image">
+                    <img src="../../Content/IMG/BG/Untitled-2.png" alt="" class="header__logo-image--img">
+                </a>
+                <div class="header__logo-body">
+                    <h3 class="header__logo-name">TOUR VN</h3>
+                    <p class="header__logo-status">
+                        <i class=""><ion-icon name="wifi"></ion-icon></i>
+                        online
+                    </p>
+                </div>
+            </div>
+            <ul class="header__nav-list">
+
+                <li class="header__nav-item">
+                    <a href="../index.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="map"></ion-icon></i>
+                        Địa điểm
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./localSide.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="navigate"></ion-icon></i>
+                        Vùng miền
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourCategory.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="paper"></ion-icon></i>
+                        Danh mục tuor
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./newsCategory.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="today"></ion-icon></i>
+                        Danh mục tin tức
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./newsPage.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="wallet"></ion-icon></i>
+                        Bài viết
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourItem.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="bus"></ion-icon></i>
+                        Tour du lịch
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./userList.html" class="header__nav-link active">
+                        <i class="header__nav-icon"><ion-icon name="contacts"></ion-icon></i>
+                        Khách hàng
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./adminAccount.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="logo-octocat"></ion-icon></i>
+                        Quản lý Admin
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourBill.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="print"></ion-icon></i>
+                        Hóa đơn
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="./tourTicket.html" class="header__nav-link">
+                        <i class="header__nav-icon"><ion-icon name="cash"></ion-icon></i>
+                        Quản lý vé
+                    </a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="" class="header__nav-link warn">
+                        <i class="header__nav-icon"><ion-icon name="power"></ion-icon></i>
+                        Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="content__header">
+            <ul class="sub__nav-list">
+                <li class="sub__nav-item active JS-li--item">
+                    Danh sách khách hàng
+                </li>
+                <li class="sub__nav-item JS-li--item">
+                    Danh sách admin
+                </li>
+                <li class="sub__nav-item JS-li--item">
+                    Thêm mới tài khoản admin
+                </li>
+            </ul>
+        </div>
+
+        <div class="content__body">
+            <div class="content__tap active JS-tap--item">
+                <div class="content__tap-heading">
+                    <h3 class="content__tap-heading-text">Danh sách khách hàng</h3>
+                </div>
+
+                <div class="content__tap-main">
+                    <div class="table__control">
+                        <form action="" class="table__control-group">
+                            <div class="filter__id-tour">
+                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập tên khách hàng...">
+                            </div>
+                            <span>Hoặc tìm theo</span>
+                            <div class="filter__id-tour">
+                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập mã khách hàng...">
+                            </div>
+                            
+                            <button class="btn filter__tour--btn">Tìm</button>
+                        </form>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="tbl-0-5">STT</th>
+                                <th class="tbl-2">Họ tên</th>
+                                <th class="tbl-1">Số CMND</th>
+                                <th class="tbl-1">Số ĐT</th>
+                                <th class="tbl-1">Địa chỉ</th>
+                                <th class="tbl-1">Email</th>
+                                <th class="tbl-1">Hình ảnh</th>
+                                <th class="tbl-0-5">Thao tác</th>
+                                <th class="tbl-0-5">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="text-left">Trần Hoàng Khôi</td>
+                                <td>0903*******</td>
+                                <td>0393******</td>
+                                <td>Cần Thơ</td>
+                                <td>khoithpc02042@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user2.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td class="text-left">Phạm Nhật Vượng</td>
+                                <td>0903*******</td>
+                                <td>0393******</td>
+                                <td>Cần Thơ</td>
+                                <td>vuongdz@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user3.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td class="text-left">Khoa PUG</td>
+                                <td>0903*******</td>
+                                <td>0393******</td>
+                                <td>Cần Thơ</td>
+                                <td>khoadz@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user3.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td class="text-left">Jonny Dang</td>
+                                <td>0903*******</td>
+                                <td>0393******</td>
+                                <td>Cần Thơ</td>
+                                <td>dangdiomond@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user3.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td class="text-left">Sơn Tùng</td>
+                                <td>0903*******</td>
+                                <td>0393******</td>
+                                <td>Cần Thơ</td>
+                                <td>tungmtp@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user3.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination__block">
+                    <div class="pagination__list">
+                        <div class="pagination__prev">
+                            <a href="" class="pagination__item pagination__prev-item">
+                                <i class="pagination__prev-icon"><ion-icon name="arrow-dropleft"></ion-icon></i>
+                            </a>
+                        </div>
+        
+                        <div class="pagination__num">
+                            <a href="" class="pagination__item active pagination__num-item">1</a>
+                            <a href="" class="pagination__item pagination__num-item">2</a>
+                            <a href="" class="pagination__item pagination__num-item">3</a>
+                        </div>
+        
+                        <div class="pagination__next">
+                            <a href="" class="pagination__item pagination__next-item">
+                                <i class="pagination__next-icon"><ion-icon name="arrow-dropright"></ion-icon></i>
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <div class="content__tap JS-tap--item">
+                <div class="content__tap-heading">
+                    <h3 class="content__tap-heading-text">Danh sách admin</h3>
+                </div>
+
+                <div class="content__tap-main">
+                    <div class="table__control">
+                        <form action="" class="table__control-group">
+                            <div class="filter__id-tour">
+                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập tên admin...">
+                            </div>
+                            <span>Hoặc tìm theo</span>
+                            <div class="filter__id-tour">
+                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập mã admin...">
+                            </div>
+                            
+                            <button class="btn filter__tour--btn">Tìm</button>
+                        </form>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="tbl-1">STT</th>
+                                <th class="tbl-2">Họ tên</th>
+                                <th class="tbl-1">Số ĐT</th>
+                                <th class="tbl-2">Email</th>
+                                <th class="tbl-1">Hình ảnh</th>
+                                <th class="tbl-1">Thao tác</th>
+                                <th class="tbl-1">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="text-left">Trần Hoàng Khôi</td>
+                                <td>0903*******</td>
+                                <td>khoithpc02042@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user2.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td class="text-left">Phạm Nhật Vượng</td>
+                                <td>0903*******</td>
+                                <td>vuongdz@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user3.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td class="text-left">Khoa PUG</td>
+                                <td>0903*******</td>
+                                <td>khoadz@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user3.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td class="text-left">Jonny Dang</td>
+                                <td>0903*******</td>
+                                <td>dangdiomond@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user3.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td class="text-left">Sơn Tùng</td>
+                                <td>0903*******</td>
+                                <td>tungmtp@gmail.com</td>
+                                <td class="not-lh"><img src="../../Content/IMG/Usser/user3.jpg" alt="" class="img__tbl"></td>
+
+                                <td>
+                                    <a href="" class="btn btn__tbl">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination__block">
+                    <div class="pagination__list">
+                        <div class="pagination__prev">
+                            <a href="" class="pagination__item pagination__prev-item">
+                                <i class="pagination__prev-icon"><ion-icon name="arrow-dropleft"></ion-icon></i>
+                            </a>
+                        </div>
+        
+                        <div class="pagination__num">
+                            <a href="" class="pagination__item active pagination__num-item">1</a>
+                            <a href="" class="pagination__item pagination__num-item">2</a>
+                            <a href="" class="pagination__item pagination__num-item">3</a>
+                        </div>
+        
+                        <div class="pagination__next">
+                            <a href="" class="pagination__item pagination__next-item">
+                                <i class="pagination__next-icon"><ion-icon name="arrow-dropright"></ion-icon></i>
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <div class="content__tap JS-tap--item">
+                <div class="content__tap-heading">
+                    <h3 class="content__tap-heading-text">Thêm mới tài khoản admin</h3>
+                </div>
+                <div class="content__tap-main">
+                    <form action="" class="form-box">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="adminUserName" class="form-label">Tài khoản</label>
+                                <input type="text" id="adminUserName" name="adminUserName" class="input-control" placeholder="VD: admin123123">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="adminPass" class="form-label">Mật khẩu</label>
+                                <input type="password" id="adminPass" name="adminPass" class="input-control" placeholder="VD: AZ123456">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="adminPass" class="form-label">Họ và tên</label>
+                                <input type="password" id="adminPass" name="adminPass" class="input-control" placeholder="VD: Trần Văn A">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="adminPhone" class="form-label">Số điện thoại</label>
+                                <input type="number" id="adminPhone" name="adminPhone" class="input-control" placeholder="VD: 0971123123">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="adminEmail" class="form-label">Email</label>
+                                <input type="email" id="adminEmail" name="adminEmail" class="input-control" placeholder="VD: khoi189@gmail.com">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="adminImg" class="form-label">Hình ảnh</label>
+                                <label for="adminImg" class="form-sub-label">Hình ảnh dùng làm ảnh đại diện cho tài khoản</label>
+                                <input type="file" id="adminImg" name="adminImg" class="input-control-img">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-form">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+    <script src="../../Content/JS/admin.js"></script>
+    <script>
+        showTapConTent('.sub__nav-item', '.content__tap');
+        showContentTour();
+    </script>
+</body>
+</html>
