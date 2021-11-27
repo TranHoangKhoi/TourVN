@@ -27,8 +27,8 @@ function delete_one($ma_loai)
     pdo_execute($sql);
 }
 // Hàm cập nhật loai tin 
-function update_news($id, $tenloai)
+function update_news($tenloai, $id)
 {
-    $sql = "update loai_tin set ten_loai='" . $tenloai . "' where id=" . $id;
-    pdo_execute($sql);
+    $sql = "UPDATE loai_tin set ten_loai=?  where ma_loai= ?";
+    pdo_execute($sql, $tenloai, $id);
 }

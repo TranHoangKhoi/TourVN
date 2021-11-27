@@ -27,14 +27,39 @@ if ($_GET['ql'] && $_GET['ql'] != '') {
             break;
         case 'tourCate':
             if (isset($_GET['listCate'])) {
+                // $list_category = load_all_tour();
+                // xóa 
+                if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
+                    delete_one_category($_GET['ma_loai']);
+                }
                 $list_category = load_all_tour();
-
                 include './danhmuctour/list.php';
+                //
+                //
             } elseif (isset($_GET['updateCate'])) {
-
-
+                if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
+                    // kiểm tra nếu người dùng có nhắn vào 
+                    if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                        $tenloai = $_POST['categoryName'];
+                        $mota = $_POST['categoryDesc'];
+                        $hinh = $_FILES['localiMage2']['name'];
+                        $target_dir = "../Upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["localiMage2"]["name"]);
+                        if (move_uploaded_file($_FILES["localiMage2"]["tmp_name"], $target_file)) {
+                            //echo "The file ". htmlspecialchars( basename( $_FILES["anhsp"]["name"])). " has been uploaded.";//thông báo upload
+                        } else {
+                            // echo "Xin lỗi không thể tải ảnh.";
+                        }
+                        $id = $_GET['ma_loai'];
+                        update_newss($tenloai, $mota, $hinh, $id);
+                    }
+                    $list_ones = loadone_loai_tour($_GET['ma_loai']);
+                }
                 include './danhmuctour/update.php';
+                //
+                //
             } elseif (isset($_GET['add'])) {
+                //Kiểm tra người dùng có clip vào nút thêm mới ko
                 if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                     $tenloai = $_POST['categoryName'];
                     $mota = $_POST['categoryDesc'];
@@ -49,35 +74,33 @@ if ($_GET['ql'] && $_GET['ql'] != '') {
                     insert_tour($tenloai, $mota, $hinhanh);
                     $tt = 'Đã Thêm Thành Công';
                 }
-                //Kiểm tra người dùng có clip vào nút thêm mới ko
                 include './danhmuctour/add.php';
-            } elseif (isset($_GET['deleteCate'])) {
-                if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
-                    delete_one_category($_GET['ma_loai']);
-                }
-                $list_category = load_all_tour();
-                include './danhmuctour/list.php';
             }
             break;
         case 'newsCate':
             if (isset($_GET['listnewsCate'])) {
+                // $list_news = list_load_all();
+                // xóa tên loại 
+
+                if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
+                    delete_one($_GET['ma_loai']);
+                }
                 $list_news = list_load_all();
                 include './danhmuctintuc/list.php';
                 //
             } elseif (isset($_GET['updatenewsCate'])) {
                 if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
+                    // kiểm tra nếu người dùng có nhắn vào 
+                    if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+
+                        $tenloai = $_POST['categoryName'];
+                        $id = $_GET['ma_loai'];
+                        update_news($tenloai, $id);
+                    }
+
                     $list_one = loadone_loai_tin($_GET['ma_loai']);
                 }
                 include './danhmuctintuc/update.php';
-                //
-            } elseif (isset($_GET['updatenewsCateten_loai'])) {
-                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
-                    $tenloai = $_POST['categoryName'];
-                    $id = $_POST['id'];
-                    update_news($id, $tenloai);
-                }
-                $list_news = list_load_all();
-                include './danhmuctintuc/list.php';
                 //
             } elseif (isset($_GET['add'])) {
                 if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
@@ -86,12 +109,6 @@ if ($_GET['ql'] && $_GET['ql'] != '') {
                 }
                 include './danhmuctintuc/add.php';
                 //
-            } elseif (isset($_GET['deletenewsCate'])) {
-                if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
-                    delete_one($_GET['ma_loai']);
-                }
-                $list_news = list_load_all();
-                include './danhmuctintuc/list.php';
             }
             break;
         case 'newsPage':

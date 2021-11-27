@@ -20,22 +20,22 @@
                         </tr>
                     </thead>
                     <tbody>
+
+
                         <?php
                         foreach ($list_category as $category) {
                             extract($category);
-                            $hinh = $img_path . $img;
-                            if (is_file($hinh)) {
-                                $anh = "<img src='" .  $hinh . "'>";
-                            } else {
-                                $anh = "Không có hình";
+                            $hinhpath = "../Upload/" . $hinh_anh; //đặt biến tạm
+                            if (is_file($hinhpath)) {
+                                $hinh = "<img src='" . $hinhpath . "'height='80'>";
                             }
-                            $delete_cate = "index.php?ql=tourCate&deleteCate&ma_loai=" . $ma_loai;
+                            $delete_cate = "index.php?ql=tourCate&listCate&ma_loai=" . $ma_loai;
                             $update_cate = "index.php?ql=tourCate&updateCate&ma_loai=" . $ma_loai;
 
                             echo '   <tr>
                                 <td>' . $ma_loai . '</td>
                                 <td class="text-left">' . $ten_loai . '</td>
-                                <td class="not-lh">' . $anh . '</td>
+                                <td class="not-lh">' . $hinh . '</td>
                                 <td class="tbl__desc">
                                     <p class="tbl__desc-box text-left">
                                         ' . $mota . '

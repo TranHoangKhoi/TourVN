@@ -20,7 +20,7 @@
                         <?php
                         foreach ($list_news as $news) {
                             extract($news);
-                            $delete_news = "index.php?ql=newsCate&deletenewsCate&ma_loai=" . $ma_loai;
+                            $delete_news = "index.php?ql=newsCate&listnewsCate&ma_loai=" . $ma_loai;
                             $update_news = "index.php?ql=newsCate&updatenewsCate&ma_loai=" . $ma_loai;
                             echo '
                             <tr>

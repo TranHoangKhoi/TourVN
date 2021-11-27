@@ -13,7 +13,7 @@ if (is_array($list_one)) {
                 <h3 class="content__tap-heading-text">Cập nhật danh mục tin tức</h3>
             </div>
             <div class="content__tap-main">
-                <form action="index.php?ql=newsCate&updatenewsCate&ten_loai" class="form-box" method="POST">
+                <form action="" class="form-box" method="POST">
                     <div class="form-group">
                         <div class="form-field">
                             <label for="categoryName" class="form-label">Tên danh mục</label>
@@ -23,7 +23,6 @@ if (is_array($list_one)) {
                     </div>
 
                     <div class="form-group">
-                        <input type="hidden" name="id" value="<?php if (isset($id) && ($id > 0)) echo $id; ?>">
                         <input type="submit" class="btn btn-form" name="capnhat" value="Cập nhật">
 
                     </div>
