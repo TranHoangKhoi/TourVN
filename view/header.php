@@ -1,6 +1,7 @@
 <!-- Header -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="./Content/CSS/layout.css">
     <link rel="stylesheet" href="./Content/CSS/responsive.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
@@ -36,7 +38,9 @@
                                 <li class="header__top-item">
                                     <a href="#" class="header__top-link">
                                         Du lịch
-                                        <i class="header__top-link--icon"><ion-icon name="arrow-dropdown"></ion-icon></i>
+                                        <i class="header__top-link--icon">
+                                            <ion-icon name="arrow-dropdown"></ion-icon>
+                                        </i>
                                     </a>
                                     <!-- Sub Nav -->
                                     <div class="header__top-subnav--tour">
@@ -141,18 +145,23 @@
                                 </li>
 
                                 <li class="header__top-item">
+
                                     <a href="#" class="header__top-link">
                                         Tin tức
-                                        <i class="header__top-link--icon"><ion-icon name="arrow-dropdown"></ion-icon></i>
+                                        <i class="header__top-link--icon">
+                                            <ion-icon name="arrow-dropdown"></ion-icon>
+                                        </i>
                                     </a>
                                     <!-- SubNav News -->
                                     <ul class="subnav-news__list">
                                         <li class="subnav-news__item">
                                             <a href="./layout/newsList.html" class="subnav-news__link">Tin tức du lịch</a>
                                         </li>
+
                                         <li class="subnav-news__item">
                                             <a href="./layout/newsList.html" class="subnav-news__link">Cẩm nang du lịch</a>
                                         </li>
+
                                         <li class="subnav-news__item">
                                             <a href="./layout/newsList.html" class="subnav-news__link">Kinh nghiệm du lịch</a>
                                         </li>
@@ -177,21 +186,27 @@
                                     <input type="text" class="header__top-search--control" placeholder="Bắt đầu tìm kiếm...">
                                     <!-- <input type="submit" class="header__top-search--box" value> -->
                                     <button class="header__top-search--box">
-                                        <i class="header__top-search--icon"><ion-icon name="search"></ion-icon></i>
+                                        <i class="header__top-search--icon">
+                                            <ion-icon name="search"></ion-icon>
+                                        </i>
                                     </button>
                                 </div>
                             </form>
 
                             <div class="header__top-login">
                                 <a href="" class="header__top-login--link">
-                                    <i class="header__top-login--icon"><ion-icon name="contacts"></ion-icon></i>
+                                    <i class="header__top-login--icon">
+                                        <ion-icon name="contacts"></ion-icon>
+                                    </i>
                                 </a>
                             </div>
                         </div>
 
                         <!-- Icon Check Nav Mobile -->
                         <label for="checkNavMobile" class="header__top-mobile--check">
-                            <i class="header__top-mobile--icon"><ion-icon name="menu"></ion-icon></i>
+                            <i class="header__top-mobile--icon">
+                                <ion-icon name="menu"></ion-icon>
+                            </i>
                         </label>
                         <input type="checkbox" name="" id="checkNavMobile" class="header__top-mobile--checkbox">
 
@@ -199,20 +214,24 @@
                         <nav class="header__top-mobile--nav">
                             <!-- Icon Close -->
                             <label for="checkNavMobile" class="header__top-mobile--nav-label">
-                                <i class="header__top-mobile--nav-icon--close"><ion-icon name="close"></ion-icon></i>
+                                <i class="header__top-mobile--nav-icon--close">
+                                    <ion-icon name="close"></ion-icon>
+                                </i>
                             </label>
 
                             <!-- List -->
                             <ul class="header__top-mobile--list">
                                 <li class="header__top-mobile--item">
-                                    <div  class="header__top-mobile--link">
+                                    <div class="header__top-mobile--link">
                                         <label for="checkSubNav" class="header__top-mobile--label">
                                             Du lịch
-                                            <i class="header__top-link--icon"><ion-icon name="arrow-dropdown"></ion-icon></i>
+                                            <i class="header__top-link--icon">
+                                                <ion-icon name="arrow-dropdown"></ion-icon>
+                                            </i>
                                         </label>
                                         <input type="checkbox" name="" hidden id="checkSubNav" class="sub-nav__mobile-checkbox">
                                         <div class="sub-nav__mobile sub-nav__mobile-tour">
-                                            <div class="grid"> 
+                                            <div class="grid">
                                                 <div class="row">
                                                     <div class="col m-6">
                                                         <ul class="sub-nav__mobile-list">
@@ -294,7 +313,7 @@
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -304,7 +323,9 @@
                                     <div class="header__top-mobile--link">
                                         <label for="checkSubNav-news" class="header__top-mobile--label">
                                             Tin tức
-                                            <i class="header__top-link--icon"><ion-icon name="arrow-dropdown"></ion-icon></i>
+                                            <i class="header__top-link--icon">
+                                                <ion-icon name="arrow-dropdown"></ion-icon>
+                                            </i>
                                         </label>
                                         <!-- List -->
                                         <input type="checkbox" name="" hidden id="checkSubNav-news" class="sub-nav__mobile-checkbox-news">
@@ -335,50 +356,58 @@
                 </div>
 
                 <?php
-                    if(!isset($_GET['call'])) {
+                if (!isset($_GET['call'])) {
                 ?>
-                <!-- Background -->
-                <div class="header__background">
-                    <img src="./Content/IMG/BG/Backgound.jpg" alt="" class="header__background--img">
-                </div>
+                    <!-- Background -->
+                    <div class="header__background">
+                        <img src="./Content/IMG/BG/Backgound.jpg" alt="" class="header__background--img">
+                    </div>
 
-                <!-- Selection -->
-                <div class="header__selection">
-                    <div class="grid wide">
+                    <!-- Selection -->
+                    <div class="header__selection">
+                        <div class="grid wide">
                             <!-- Selection Header -->
-                        <div class="row header__selection-header">
-                            <div class="col l-4 m-4 c-4 header__selection-header--block active">
-                                <div class="header__selection-item">
-                                    <i class="header__selection-item--icon"><ion-icon name="logo-model-s"></ion-icon></i>
-                                    <p class="header__selection-item--text">Tour Du Lịch</p>
+                            <div class="row header__selection-header">
+                                <div class="col l-4 m-4 c-4 header__selection-header--block active">
+                                    <div class="header__selection-item">
+                                        <i class="header__selection-item--icon">
+                                            <ion-icon name="logo-model-s"></ion-icon>
+                                        </i>
+                                        <p class="header__selection-item--text">Tour Du Lịch</p>
+                                    </div>
+                                </div>
+
+                                <div class="col l-4 m-4 c-4 header__selection-header--block">
+                                    <div class="header__selection-item">
+                                        <i class="header__selection-item--icon">
+                                            <ion-icon name="clipboard"></ion-icon>
+                                        </i>
+                                        <p class="header__selection-item--text">Tra Cứu Booking</p>
+                                    </div>
+                                </div>
+
+                                <div class="col l-4 m-4 c-4 header__selection-header--block">
+                                    <div class="header__selection-item">
+                                        <i class="header__selection-item--icon">
+                                            <ion-icon name="help-circle"></ion-icon>
+                                        </i>
+                                        <p class="header__selection-item--text">Tại Sao Nên Chọn TOUR VN</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col l-4 m-4 c-4 header__selection-header--block">
-                                <div class="header__selection-item">
-                                    <i class="header__selection-item--icon"><ion-icon name="clipboard"></ion-icon></i>
-                                    <p class="header__selection-item--text">Tra Cứu Booking</p>
-                                </div>
-                            </div>
-
-                            <div class="col l-4 m-4 c-4 header__selection-header--block">
-                                <div class="header__selection-item">
-                                    <i class="header__selection-item--icon"><ion-icon name="help-circle"></ion-icon></i>
-                                    <p class="header__selection-item--text">Tại Sao Nên Chọn TOUR VN</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Selection Content -->
-                        <div class="row header__selection-content">
-                            <!-- Select Local -->
-                            <div class="col m-12 conTenTapJS active">
-                                <form action="#" method="post">
-                                    <div class="grid">
-                                        <div class="row">
-                                            <div class="col l-4 m-5 c-6">
-                                                <div class="content__section-local">
-                                                        <i class="content__section-local--icon"><ion-icon name="pin"></ion-icon></i>
+                            <!-- Selection Content -->
+                            <div class="row header__selection-content">
+                                <!-- Select Local -->
+                                <div class="col m-12 conTenTapJS active">
+                                    <form action="#" method="post">
+                                        <div class="grid">
+                                            <div class="row">
+                                                <div class="col l-4 m-5 c-6">
+                                                    <div class="content__section-local">
+                                                        <i class="content__section-local--icon">
+                                                            <ion-icon name="pin"></ion-icon>
+                                                        </i>
                                                         <div class="content__section-local--text">
                                                             <span class="content__section-local--text-heading">Điểm đi</span>
                                                             <label for="localStartCheck" id="localStartBox" class="content__section-local--text-local">
@@ -398,79 +427,87 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                </div>
-                                            </div>
-    
-                                            <div class="col l-1 m-0 c-0">
-                                                <div class="content__section-icon--item">
-                                                    <i class="content__section-icon"><ion-icon name="shuffle"></ion-icon></i>
-                                                </div>
-                                            </div>
-    
-                                            <div class="col l-4 m-5 c-6">
-                                                <div class="content__section-local">
-                                                    <i class="content__section-local--icon"><ion-icon name="navigate"></ion-icon></i>
-                                                    <div class="content__section-local--text">
-                                                        <span class="content__section-local--text-heading">Điểm đến</span>
-                                                        <label for="localEndCheck" id="localEndBox" class="content__section-local--text-local">
-                                                            Chọn điểm đến
-                                                        </label>
-                                                        <input type="text" hidden id="loCalValueEnd">
-                                                        <input type="checkbox" hidden name="" id="localEndCheck" class="content__section-local--end-Check">
-                                                        <ul id="loCalListEndJS" class="content__section-local--list content__section-local--list-end">
-                                                            <li class="content__section-local--item">
-                                                                <label for="localEndCheck" class="content__section-local--link">Cần Thơ</label>
-                                                            </li>
-                                                            <li class="content__section-local--item">
-                                                                <label for="localEndCheck" class="content__section-local--link">Đà Nẵng</label>
-                                                            </li>
-                                                            <li class="content__section-local--item">
-                                                                <label for="localEndCheck" class="content__section-local--link">Hà Nội</label>
-                                                            </li>
-                                                        </ul>
                                                     </div>
                                                 </div>
-                                            </div>
-    
-                                            <div class="col l-3 m-2 c-12">
-                                                <!-- <div class="content__section-local"> -->
+
+                                                <div class="col l-1 m-0 c-0">
+                                                    <div class="content__section-icon--item">
+                                                        <i class="content__section-icon">
+                                                            <ion-icon name="shuffle"></ion-icon>
+                                                        </i>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col l-4 m-5 c-6">
+                                                    <div class="content__section-local">
+                                                        <i class="content__section-local--icon">
+                                                            <ion-icon name="navigate"></ion-icon>
+                                                        </i>
+                                                        <div class="content__section-local--text">
+                                                            <span class="content__section-local--text-heading">Điểm đến</span>
+                                                            <label for="localEndCheck" id="localEndBox" class="content__section-local--text-local">
+                                                                Chọn điểm đến
+                                                            </label>
+                                                            <input type="text" hidden id="loCalValueEnd">
+                                                            <input type="checkbox" hidden name="" id="localEndCheck" class="content__section-local--end-Check">
+                                                            <ul id="loCalListEndJS" class="content__section-local--list content__section-local--list-end">
+                                                                <li class="content__section-local--item">
+                                                                    <label for="localEndCheck" class="content__section-local--link">Cần Thơ</label>
+                                                                </li>
+                                                                <li class="content__section-local--item">
+                                                                    <label for="localEndCheck" class="content__section-local--link">Đà Nẵng</label>
+                                                                </li>
+                                                                <li class="content__section-local--item">
+                                                                    <label for="localEndCheck" class="content__section-local--link">Hà Nội</label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col l-3 m-2 c-12">
+                                                    <!-- <div class="content__section-local"> -->
                                                     <div class="content__section-btn--block">
                                                         <button class="btn content__section-btn--item">
-                                                            <i class="content__section-btn--icon"><ion-icon name="send"></ion-icon></i>
-                                                         </button>
+                                                            <i class="content__section-btn--icon">
+                                                                <ion-icon name="send"></ion-icon>
+                                                            </i>
+                                                        </button>
                                                     </div>
-                                                <!-- </div> -->
+                                                    <!-- </div> -->
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                </form>
-                            </div>
 
-                            <!-- Find Info Booking -->
-                                <div  class="col m-12 c-12 conTenTapJS">
-                                <form action="">
-                                    <div class="grid">
-                                        <div class="row">
-                                            <!-- Input find -->
-                                            <div class="col l-9 m-9 c-9 mt-8-mb">
-                                                <div class="content__section-find">
-                                                    <input type="text" class="content__section-input--control" placeholder="Nhập số Booking của quý khách">
+                                    </form>
+                                </div>
+
+                                <!-- Find Info Booking -->
+                                <div class="col m-12 c-12 conTenTapJS">
+                                    <form action="">
+                                        <div class="grid">
+                                            <div class="row">
+                                                <!-- Input find -->
+                                                <div class="col l-9 m-9 c-9 mt-8-mb">
+                                                    <div class="content__section-find">
+                                                        <input type="text" class="content__section-input--control" placeholder="Nhập số Booking của quý khách">
+                                                    </div>
                                                 </div>
-                                            </div>
                                                 <!-- Input Btn -->
-                                            <div class="col l-3 m-3 c-3 mt-8-mb">
-                                                <div class="content__section-btn--block">
-                                                    <button class="btn content__section-btn--item content__section-btn--mini">
-                                                        <i class="content__section-btn--icon"><ion-icon name="send"></ion-icon></i>
-                                                    </button>
+                                                <div class="col l-3 m-3 c-3 mt-8-mb">
+                                                    <div class="content__section-btn--block">
+                                                        <button class="btn content__section-btn--item content__section-btn--mini">
+                                                            <i class="content__section-btn--icon">
+                                                                <ion-icon name="send"></ion-icon>
+                                                            </i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                </form> 
-                                    
+
+                                    </form>
+
                                 </div>
 
                                 <!-- Introduce The Web -->
@@ -486,7 +523,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-    
+
                                             <div class="col l-3 m-3 c-6 mt-8-mb">
                                                 <div class="content__section-intro">
                                                     <img src="./Content/IMG/Icon/kindof.png" alt="" class="content__section-intro--img">
@@ -496,7 +533,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-    
+
                                             <div class="col l-3 m-3 c-6 mt-8-mb">
                                                 <div class="content__section-intro">
                                                     <img src="./Content/IMG/Icon/inter.png" alt="" class="content__section-intro--img">
@@ -506,7 +543,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-    
+
                                             <div class="col l-3 m-3 c-6 mt-8-mb ">
                                                 <div class="content__section-intro">
                                                     <img src="./Content/IMG/Icon/savemoney.png" alt="" class="content__section-intro--img">
@@ -519,11 +556,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
+
                     </div>
-                        
-                </div>
                 <?php } ?>
-                
+
             </div>
         </header>

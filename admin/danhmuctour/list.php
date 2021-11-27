@@ -1,44 +1,58 @@
 <main class="container">
-        <?php include'subMenu.php' ?>
+    <?php include 'subMenu.php' ?>
 
-        <div class="content__body">
+    <div class="content__body">
 
-            <div class="content__tap active">
-                <div class="content__tap-heading">
-                    <h3 class="content__tap-heading-text">Danh sách danh mục tour</h3>
-                </div>
-                <div class="content__tap-main">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="tbl-1">STT</th>
-                                <th class="tbl-3">Tên danh mục</th>
-                                <th class="tbl-1">Hình ảnh</th>
-                                <th class="tbl-3">Mô tả</th>
-                                <th class="tbl-1">Thao tác</th>
-                                <th class="tbl-1">Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td class="text-left">Tour hành trình xanh</td>
-                                <td class="not-lh"><img src="../Content/IMG/Category/htx.jfif" alt="" class="img__tbl"></td>
+        <div class="content__tap active">
+            <div class="content__tap-heading">
+                <h3 class="content__tap-heading-text">Danh sách danh mục tour</h3>
+            </div>
+            <div class="content__tap-main">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="tbl-1">STT</th>
+                            <th class="tbl-3">Tên danh mục</th>
+                            <th class="tbl-1">Hình ảnh</th>
+                            <th class="tbl-3">Mô tả</th>
+                            <th class="tbl-1">Thao tác</th>
+                            <th class="tbl-1">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($list_category as $category) {
+                            extract($category);
+                            $hinh = $img_path . $img;
+                            if (is_file($hinh)) {
+                                $anh = "<img src='" .  $hinh . "'>";
+                            } else {
+                                $anh = "Không có hình";
+                            }
+                            $delete_cate = "index.php?ql=tourCate&deleteCate&ma_loai=" . $ma_loai;
+                            $update_cate = "index.php?ql=tourCate&updateCate&ma_loai=" . $ma_loai;
+
+                            echo '   <tr>
+                                <td>' . $ma_loai . '</td>
+                                <td class="text-left">' . $ten_loai . '</td>
+                                <td class="not-lh">' . $anh . '</td>
                                 <td class="tbl__desc">
                                     <p class="tbl__desc-box text-left">
-                                        This is exactly the kind of music that I like the most : this is very 
-                                        relaxing and passionate, it releases all my stress. Thank you  !
+                                        ' . $mota . '
                                     </p>
                                 </td>
+                              
                                 <td>
-                                    <a href="?ql=tourCate&updateCate" class="btn btn__tbl">Sửa</a>
+                                    <a href="' . $update_cate . '" class="btn btn__tbl">Sửa</a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                    <a href="' . $delete_cate . '" class="btn btn__tbl">Xóa</a>
                                 </td>
-                            </tr>
+                            </tr>';
+                        }
 
-                            <tr>
+                        ?>
+                        <!-- <tr>
                                 <td>2</td>
                                 <td class="text-left">Tour hành xe tự lái</td>
                                 <td class="not-lh"><img src="../Content/IMG/Category/txcanva.jpg" alt="" class="img__tbl"></td>
@@ -106,39 +120,43 @@
                                 <td>
                                     <a href="" class="btn btn__tbl">Xóa</a>
                                 </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="pagination__block">
-                    <div class="pagination__list">
-                        <div class="pagination__prev">
-                            <a href="" class="pagination__item pagination__prev-item">
-                                <i class="pagination__prev-icon"><ion-icon name="arrow-dropleft"></ion-icon></i>
-                            </a>
-                        </div>
-        
-                        <div class="pagination__num">
-                            <a href="" class="pagination__item active pagination__num-item">1</a>
-                            <a href="" class="pagination__item pagination__num-item">2</a>
-                            <a href="" class="pagination__item pagination__num-item">3</a>
-                        </div>
-        
-                        <div class="pagination__next">
-                            <a href="" class="pagination__item pagination__next-item">
-                                <i class="pagination__next-icon"><ion-icon name="arrow-dropright"></ion-icon></i>
-                            </a>
-                        </div>
-        
-                    </div>
-                </div>
+                            </tr> -->
+                    </tbody>
+                </table>
             </div>
 
+            <div class="pagination__block">
+                <div class="pagination__list">
+                    <div class="pagination__prev">
+                        <a href="" class="pagination__item pagination__prev-item">
+                            <i class="pagination__prev-icon">
+                                <ion-icon name="arrow-dropleft"></ion-icon>
+                            </i>
+                        </a>
+                    </div>
 
+                    <div class="pagination__num">
+                        <a href="" class="pagination__item active pagination__num-item">1</a>
+                        <a href="" class="pagination__item pagination__num-item">2</a>
+                        <a href="" class="pagination__item pagination__num-item">3</a>
+                    </div>
+
+                    <div class="pagination__next">
+                        <a href="" class="pagination__item pagination__next-item">
+                            <i class="pagination__next-icon">
+                                <ion-icon name="arrow-dropright"></ion-icon>
+                            </i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
 
-        
+    </div>
 
-    </main>
+
+
+
+</main>

@@ -1,26 +1,34 @@
-<main class="container">
-        <?php include'subMenu.php' ?>
+<?php
+if (is_array($list_one)) {
+    extract($list_one);
+}
+?>
 
-        <div class="content__body">
-            <div class="content__tap active">
-                <div class="content__tap-heading">
-                    <h3 class="content__tap-heading-text">Cập nhật danh mục tin tức</h3>
-                </div>
-                <div class="content__tap-main">
-                    <form action="" class="form-box">
-                        <div class="form-group">
-                            <div class="form-field">
-                                <label for="categoryName" class="form-label">Tên danh mục</label>
-                                <input type="text" id="categoryName" name="categoryName" class="input-control" placeholder="VD: Cẩm nang du lịch">
-                            </div>
-                            <span class="test-masage"></span>
+<main class="container">
+    <?php include 'subMenu.php' ?>
+
+    <div class="content__body">
+        <div class="content__tap active">
+            <div class="content__tap-heading">
+                <h3 class="content__tap-heading-text">Cập nhật danh mục tin tức</h3>
+            </div>
+            <div class="content__tap-main">
+                <form action="index.php?ql=newsCate&updatenewsCate&ten_loai" class="form-box" method="POST">
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label for="categoryName" class="form-label">Tên danh mục</label>
+                            <input type="text" id="categoryName" name="categoryName" class="input-control" placeholder="VD: Cẩm nang du lịch" value="<?php if (isset($ten_loai) && ($ten_loai != "")) echo $ten_loai; ?>">
                         </div>
-                    
-                        <div class="form-group">
-                            <button class="btn btn-form">Thêm</button>
-                        </div>
-                    </form>
-                </div>
+                        <span class="test-masage"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" name="id" value="<?php if (isset($id) && ($id > 0)) echo $id; ?>">
+                        <input type="submit" class="btn btn-form" name="capnhat" value="Cập nhật">
+
+                    </div>
+                </form>
             </div>
         </div>
-    </main>
+    </div>
+</main>

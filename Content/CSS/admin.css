@@ -17,7 +17,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: var(--background-nav-color);
+     background-color: var(--background-nav-color); 
     width: var(--nav-bar-width);
     z-index: 10;
 }
