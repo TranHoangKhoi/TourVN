@@ -68,16 +68,12 @@ if ($_GET['ql'] && $_GET['ql'] != '') {
                 if (isset($_GET['ma_loai']) && ($_GET['ma_loai'] > 0)) {
                     $list_one = loadone_loai_tin($_GET['ma_loai']);
                 }
-                include './danhmuctintuc/update.php';
-                //
-            } elseif (isset($_GET['updatenewsCateten_loai'])) {
                 if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                     $tenloai = $_POST['categoryName'];
                     $id = $_POST['id'];
                     update_news($id, $tenloai);
                 }
-                $list_news = list_load_all();
-                include './danhmuctintuc/list.php';
+                include './danhmuctintuc/update.php';
                 //
             } elseif (isset($_GET['add'])) {
                 if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
