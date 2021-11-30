@@ -31,7 +31,7 @@
                                 <td>
                                     <a href="index.php?ql=newsCate&listnewsCate&deletenewsCate&ma_loai=<?php echo $ma_loai ?>" >Xóa</a>
                                 </td>
-                            </tr>';
+                            </tr>
                        <?php } ?>
                     </tbody>
                 </table>

@@ -6,6 +6,8 @@ include $model_path.'/danhmuc_tour.php';
 include $model_path.'/danhmuc_tintuc.php';
 include $model_path.'/localSide.php';
 include $model_path.'/diadiem.php';
+include $model_path.'/baiviet.php';
+include $model_path.'/user.php';
 
     $ql = '';
     if(isset($_GET['ql'])) {
@@ -159,10 +161,71 @@ include $model_path.'/diadiem.php';
             // News Page
         case 'newsPage':
             if (isset($_GET['listnewsPage'])) {
+                // Detele News
+                if(isset($_GET['deleteNews'])) {
+                    if(isset($_GET['ma_tin'])) {
+                        delete_news($_GET['ma_tin']);
+                    }
+                }
+
+                // Load list News
+                $maLoai = 0;
+                if(isset($_POST['findNews'])) {
+                    $maLoai = $_POST['newsCate'];
+                }
+                // Panigation
+                $itemNum = 10;
+                $starItem = 0;
+                if(isset($_GET['page'])) {
+                    $starItem = ($_GET['page'] - 1) * $itemNum;
+                }
+                $countList = load_all_news();
+                $pageNum = pagination($itemNum, $countList);
+
+                // load
+                $list_news = get_news($starItem, $itemNum, $maLoai);
                 include './baiviet/list.php';
             } elseif (isset($_GET['updatenewsPage'])) {
+                $mess = '';
+                if(isset($_GET['ma_tin']) && $_GET['ma_tin'] > 0) {
+                    if(isset($_POST['updateNewBtn'])) {
+                        $cateID = $_POST['newsCategoryUD'];
+                        $newsNameUD = $_POST['newsNameUD'];
+                        $newsDescUD = $_POST['newsDescUD'];
+                        $newsContentUD = $_POST['newsContentUD'];
+
+                        $newsImgUD = $_FILES['newImageUD']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["newImageUD"]["name"]);
+                        move_uploaded_file($_FILES["newImageUD"]["tmp_name"], $target_file);
+
+
+                        if(!update_news_page($cateID, $newsNameUD, $newsDescUD, $newsContentUD, $newsImgUD, $_GET['ma_tin'])) {
+                            $mess = "Cập nhật bài viết thành công";
+                        }
+                    }
+                    $newsItem = load_one_news($_GET['ma_tin']);
+                }
+
                 include './baiviet/update.php';
             } elseif (isset($_GET['add'])) {
+                $mess = '';
+                if(isset($_POST['addNews'])) {
+                    $newsCate = $_POST['newsCategory'];
+                    $newsName = $_POST['newsName'];
+                    $newsDesc = $_POST['newsDesc'];
+                    $newsContent = $_POST['newsContent'];
+
+                    $newsImg = $_FILES['newsImage']['name'];
+                    $target_dir = "../upload/"; //lấy từ thư mục upload
+                    $target_file = $target_dir . basename($_FILES["newsImage"]["name"]);
+                    move_uploaded_file($_FILES["newsImage"]["tmp_name"], $target_file);
+
+                    if(!add_news($newsCate, 2, $newsName, $newsDesc, $newsContent, $newsImg)) {
+                        $mess = 'Thêm bài viết thành công';
+                    }
+
+                }
                 include './baiviet/add.php';
             }
             break;

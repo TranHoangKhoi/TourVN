@@ -102,7 +102,7 @@
                             <span class="test-masage"></span>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="form-field">
                                 <label for="localNum" class="form-label">Số lượng địa điểm</label>
                                 <select name="localNum" id="localNum" class="input-control-select">
@@ -120,10 +120,10 @@
                                 </select>
                             </div>
                             <span class="test-masage"></span>
-                        </div>
+                        </div> -->
                         
                         <div class="tour__content">
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <div class="form-field">
                                     <label for="localTour" class="form-label">Địa điểm 1</label>
                                     
@@ -173,7 +173,7 @@
                                     <textarea id="content1" name="localTourMain" required id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày ${i + 1}"></textarea>
                                 </div>
                                 <span class="test-masage"></span>
-                            </div> -->
+                            </div>
                         </div>
 
                         <div class="form-group">

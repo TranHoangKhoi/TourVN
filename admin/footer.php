@@ -6,8 +6,10 @@
     <script src="../admin/ckeditor/ckeditor.js"></script>
     <script>
         // showTapConTent('.sub__nav-item', '.content__tap');
-        showContentTour();
+        // showContentTour();
         CKEDITOR.replace('content1');
+        CKEDITOR.replace('contentNews');
+        CKEDITOR.replace('newsContenUD');
     </script>
 </body>
 </html>

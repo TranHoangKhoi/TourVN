@@ -241,12 +241,17 @@ table, th, td {
 
 .tbl__desc-box {
     margin: 0;
-    max-height: 4rem;
+    max-height: 6rem;
     line-height: 2rem;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    max-width: 300px;
+}
+
+.tbl__desc-box p {
+    margin: 0;
 }
 
 .btn__tbl {

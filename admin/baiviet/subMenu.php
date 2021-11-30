@@ -15,7 +15,7 @@
                 <li class="sub__nav-item">
                     <a href="?ql=newsPage&listnewsPage" class="sub__nav-item--link 
                     <?php
-                            if(isset($_GET['listCate'])) {
+                            if(isset($_GET['listnewsPage'])) {
                                 echo 'active';
                             }
                     ?>
