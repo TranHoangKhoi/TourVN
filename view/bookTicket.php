@@ -132,6 +132,11 @@
                                                         <label for="" class="info__customer-adults--label">Họ tên</label>
                                                         <input type="text" class="info__customer-adults--control" placeholder="Họ và tên">
                                                     </div>
+
+                                                    <div class="info__customer-adults--form-item w-100">
+                                                        <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
+                                                        <input type="number" class="info__customer-adults--control" placeholder="CCCD">
+                                                    </div>
     
                                                     <div class="info__customer-adults--form-item info__customer-adults--form-select">
                                                         <label for="" class="info__customer-adults--label">Giới tính</label>
@@ -145,11 +150,6 @@
                                                     <div class="info__customer-adults--form-item info__customer-adults--form-select">
                                                         <label for="" class="info__customer-adults--label">Ngày sinh</label>
                                                         <input type="date" class="info__customer-adults--control">
-                                                    </div>
-    
-                                                    <div class="info__customer-adults--form-item w-100">
-                                                        <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
-                                                        <input type="number" class="info__customer-adults--control" placeholder="CCCD">
                                                     </div>
 
                                                     <!-- <div class="info__customer-adults--form-item info__customer-adults--form-text">

@@ -44,13 +44,13 @@ function showContentTour() {
                         </select>
                         <div class="line"></div>
                         <label for="localTourName" class="form-sub-label">Tiêu đề ngày ${i + 1}</label>
-                        <textarea name="localTourName" required id="" cols="30" rows="10" maxlength="300" class="input-control--textarea-sm" placeholder="VD: Ngày ${i + 1} sẽ đi đâu"></textarea>
+                        <textarea name="localTourName" required id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày ${i + 1} sẽ đi đâu"></textarea>
                         <div class="line"></div>
                         <label for="localDatein" class="form-sub-label">Ngày đến</label>
                         <input type="date" required id="localDatein" name="localDatein" class="input-control">
                         <div class="line"></div>
                         <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
-                        <textarea name="localTourMain" required id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày ${i + 1}"></textarea>
+                        <textarea id="content${i + 1}" name="localTourMain" required id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày ${i + 1}"></textarea>
                     </div>
                     <span class="test-masage"></span>
             `;

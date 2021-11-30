@@ -1,7 +1,9 @@
 <?php
-
+    if (is_array($cate_item)) {
+        extract($cate_item);
+        $hinh = $img_path . $hinh_anh; 
+    }
 ?>
-
 <main class="container">
     <?php include 'subMenu.php' ?>
 
@@ -11,20 +13,23 @@
                 <h3 class="content__tap-heading-text">Cập nhật danh mục tour</h3>
             </div>
             <div class="content__tap-main">
-                <form action="" class="form-box">
+                <form action="" method="POST" enctype="multipart/form-data" class="form-box">
                     <div class="form-group">
                         <div class="form-field">
                             <label for="categoryName" class="form-label">Tên danh mục</label>
-                            <input type="text" id="categoryName" name="categoryName" class="input-control" placeholder="VD: Tour biển đảo" value="">
+                            <input type="text" id="categoryName" name="categoryNameUD" class="input-control" placeholder="VD: Tour biển đảo" value="<?php echo $ten_loai ?>">
                         </div>
                         <span class="test-masage"></span>
                     </div>
 
                     <div class="form-group">
                         <div class="form-field">
-                            <label for="localiMage2" class="form-label">Hình ảnh</label>
-                            <label for="localiMage2" class="form-sub-label">Hình ảnh dùng làm ảnh đại diện danh mục</label>
-                            <input type="file" id="localiMage2" name="localiMage2" class="input-control-img" value="">
+                            <label for="tourCateImg" class="form-label">Hình ảnh</label>
+                            <label for="tourCateImg" class="form-sub-label">Hình ảnh dùng làm ảnh đại diện danh mục</label>
+                            <div class="img__block">
+                                <img src="<?php echo $hinh ?>" alt="" class="img__tbl">
+                                <input type="file" id="tourCateImg" name="tourCateImgUD" class="input-control-img" value="">
+                            </div>
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -32,14 +37,25 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="categoryDesc" class="form-label">Mô tả</label>
-                            <textarea name="categoryDesc" id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả" value=""></textarea>
+                            <textarea name="categoryDescUD" id="categoryDesc" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả" ><?php echo $mota?></textarea>
                         </div>
                         <span class="test-masage"></span>
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-form">Thêm</button>
+                        <button name="updateCate" class="btn btn-form">Cập nhật</button>
                     </div>
+
+                    <?php
+                        if(isset($mess) && $mess != '') {
+                    ?>
+                    <div class="mess-form success">
+                        <span>
+                            <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                            <?php echo $mess?>
+                        </span>
+                    </div>
+                    <?php } ?>
                 </form>
             </div>
         </div>

@@ -13,6 +13,13 @@ function list_load_all()
     $list_news = pdo_query($sql);
     return  $list_news;
 }
+
+function get_news_cate($starItem, $itemNum)
+{
+    $sql = "select * from loai_tin order by ma_loai DESC limit $starItem,$itemNum";
+    return  pdo_query($sql);
+}
+
 // hmaf load 1 danh muc
 function loadone_loai_tin($ma_loai)
 {
@@ -29,6 +36,6 @@ function delete_one($ma_loai)
 // Hàm cập nhật loai tin 
 function update_news($id, $tenloai)
 {
-    $sql = "update loai_tin set ten_loai='" . $tenloai . "' where id=" . $id;
+    $sql = "update loai_tin set ten_loai='" . $tenloai . "' where ma_loai=" . $id;
     pdo_execute($sql);
 }

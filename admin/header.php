@@ -35,11 +35,14 @@
                 </div>
             </div>
             <ul class="header__nav-list">
-                <?php $url = $_GET['ql']; ?>
+                <?php if(isset($_GET['ql'])) {
+                    $url = $_GET['ql'];
+                } ?>
+
                 <li class="header__nav-item">
                     <a href="?ql=local&add" class="header__nav-link 
                         <?php
-                        if ($url === 'local') {
+                        if (!isset($_GET['ql']) || ($_GET['ql'] == 'local')) {
                             echo 'active';
                         }
                         ?>

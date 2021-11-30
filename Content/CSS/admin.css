@@ -330,3 +330,28 @@ table, th, td {
 .pagination__item {
     font-size: 1.4rem;
 }
+
+.success {
+    color: #00C300;
+}
+
+.mess-form span {
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mess-form i {
+    position: relative;
+    top: 1px;
+    margin-right: 4px;
+    font-size: 1.8rem;
+}
+
+.img__block {
+    display: flex;
+    align-items: center;
+    margin: 8px  0 8px 8px;
+}

@@ -57,7 +57,7 @@ body {
 }
 
 .w-100 {
-    width: 100%;
+    width: 100% !important;
 }
 
 .w-h-100 {
@@ -166,6 +166,7 @@ body {
     border: 2px solid #b8c1ec;
     outline: none;
     font-size: 1.4rem;
+    line-height: 2rem;
     margin: 0 8px;
 }
 
@@ -196,6 +197,7 @@ body {
     outline: none;
     font-size: 1.4rem;
     margin: 0 8px;
+    flex: 1;
 }
 
 /* Chrome, Safari, Edge, Opera */

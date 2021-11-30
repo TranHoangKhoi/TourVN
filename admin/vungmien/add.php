@@ -8,11 +8,11 @@
                     <h3 class="content__tap-heading-text">Thêm mới vùng miền</h3>
                 </div>
                 <div class="content__tap-main">
-                    <form action="" class="form-box">
+                    <form action="index.php?ql=localSide&add" method="post" class="form-box">
                         <div class="form-group">
                             <div class="form-field">
-                                <label for="localSide" class="form-label">Tên vùng miền</label>
-                                <input type="text" id="localSide" name="localSide" class="input-control" placeholder="VD: Miền Nam">
+                                <label for="localSideName" class="form-label">Tên vùng miền</label>
+                                <input type="text" id="localSideName" name="localSideName" class="input-control" placeholder="VD: Miền Nam">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -26,8 +26,19 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-form">Thêm</button>
+                            <button name="addLocal" class="btn btn-form">Thêm</button>
                         </div>
+
+                        <?php
+                            if(isset($mess) && $mess != '') {
+                        ?>
+                        <div class="mess-form success">
+                            <span>
+                                <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                <?php echo $mess?>
+                            </span>
+                        </div>
+                        <?php } ?>
                     </form>
                 </div>
             </div>

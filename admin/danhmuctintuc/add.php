@@ -19,6 +19,16 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-form" name="themmoi" value="Thêm">
                     </div>
+                    <?php
+                        if(isset($mess) && $mess != '') {
+                    ?>
+                    <div class="mess-form success">
+                        <span>
+                            <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                            <?php echo $mess?>
+                        </span>
+                    </div>
+                    <?php } ?>
                 </form>
             </div>
         </div>

@@ -123,10 +123,58 @@
                         </div>
                         
                         <div class="tour__content">
+                            <!-- <div class="form-group">
+                                <div class="form-field">
+                                    <label for="localTour" class="form-label">Địa điểm 1</label>
+                                    
+                                    <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
+                                    <select name="localTourSelect" required id="localTourSelect" class="input-control-select">
+                                        <option value="">Chọn địa điểm</option>
+                                        <option value="1">Cần Thơ</option>
+                                        <option value="2">Đà Nẵng</option>
+                                        <option value="3">Hà Nội</option>
+                                        <option value="4">Phú quốc</option>
+                                        <option value="5">Kiên Giang</option>
+                                    </select>
+                                    <div class="line"></div>
+                                    <label for="localTourName" class="form-sub-label">Tiêu đề ngày 1</label>
+                                    <textarea name="localTourName" required id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày ${i + 1} sẽ đi đâu"></textarea>
+                                    <div class="line"></div>
+                                    <label for="localDatein" class="form-sub-label">Ngày đến</label>
+                                    <input type="date" required id="localDatein" name="localDatein" class="input-control">
+                                    <div class="line"></div>
+                                    <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
+                                    <textarea id="content1" name="localTourMain" required id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày ${i + 1}"></textarea>
+                                </div>
+                                <span class="test-masage"></span>
+                            </div>
 
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="localTour" class="form-label">Địa điểm 2</label>
+                                    
+                                    <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
+                                    <select name="localTourSelect" required id="localTourSelect" class="input-control-select">
+                                        <option value="">Chọn địa điểm</option>
+                                        <option value="1">Cần Thơ</option>
+                                        <option value="2">Đà Nẵng</option>
+                                        <option value="3">Hà Nội</option>
+                                        <option value="4">Phú quốc</option>
+                                        <option value="5">Kiên Giang</option>
+                                    </select>
+                                    <div class="line"></div>
+                                    <label for="localTourName" class="form-sub-label">Tiêu đề ngày 2</label>
+                                    <textarea name="localTourName" required id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày ${i + 1} sẽ đi đâu"></textarea>
+                                    <div class="line"></div>
+                                    <label for="localDatein" class="form-sub-label">Ngày đến</label>
+                                    <input type="date" required id="localDatein" name="localDatein" class="input-control">
+                                    <div class="line"></div>
+                                    <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
+                                    <textarea id="content1" name="localTourMain" required id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày ${i + 1}"></textarea>
+                                </div>
+                                <span class="test-masage"></span>
+                            </div> -->
                         </div>
-
-
 
                         <div class="form-group">
                             <button class="btn btn-form">Thêm</button>

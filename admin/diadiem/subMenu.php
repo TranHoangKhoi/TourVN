@@ -3,7 +3,7 @@
                 <li class="sub__nav-item">
                     <a href="?ql=local&add" class="sub__nav-item--link 
                     <?php
-                            if(isset($_GET['add'])) {
+                            if(isset($_GET['add']) || (!isset($_GET['ql']))) {
                                 echo 'active';
                             }
                     ?>

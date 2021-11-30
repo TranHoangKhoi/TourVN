@@ -566,6 +566,7 @@
 .tour__schedule-content--info {
     position: relative;
 }
+
 .tour__schedule-content--info-line {
     border-left: 1px dashed var(--btn-color);
     height: 100%;
@@ -878,6 +879,10 @@
     font-size: 1.5rem;
 }
 
+.form__custtomer-item--select {
+    width: 23%;
+}
+
 /* Change Customer Number */
 .inner__customer,
 .info__customer,
@@ -954,12 +959,33 @@
     font-size: 1.4rem;
 }
 
+.info__customer-adults--checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 12px 0 22px 0;
+    border-radius: 4px;
+}
+
+.info__customer-adults--checkbox-item {
+    margin-right: 8px;
+}
+
+.info__customer-adults--checkbox-title {
+
+}
+
+
 .info__customer-adults--form {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 8px 0 36px 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 16px;
 }
 
 .info__customer-adults--form-item {
@@ -984,11 +1010,15 @@
 }
 
 .info__customer-adults--form-text {
-    width: 40%;
+    width: 50%;
 }
 
 .info__customer-adults--form-select {
-    width: 25%;
+    width: 20%;
+}
+
+.info__customer-adults--form-select-text {
+    width: 32%;
 }
 
 /* Customer Save Inner */
