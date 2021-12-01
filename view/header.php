@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./Content/CSS/main.css">
     <link rel="stylesheet" href="./Content/CSS/layout.css">
     <link rel="stylesheet" href="./Content/CSS/responsive.css">
+    <link rel="stylesheet" href="./Content/CSS/plugin_lienhe.css">
 </head>
 
 <body>
