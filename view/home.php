@@ -1,37 +1,6 @@
 <!-- Main -->
 <main>
-<div class="fab-wrapper">
-   <input id="fabCheckbox" type="checkbox" class="fab-checkbox">
-   <label class="fab" for="fabCheckbox">
-      <i class="icon-cps-fab-menu"></i>
-      <!-- <i class="icon-cps-close"></i> -->
-   </label>
-   <div class="fab-wheel">
-      <a class="fab-action fab-action-1" href="https://www.facebook.com/profile.php?id=100014297884994" rel="nofollow" target="_blank">
-         <span class="fab-title">Tìm cửa hàng</span>
-         <div class="fab-button fab-button-1"><i class="icon-cps-local"></i></div>
-      </a>
-      <a class="fab-action fab-action-2" href="tel:0328711028" rel="nofollow">
-         <span class="fab-title">Gọi trực tiếp</span>
-         <div class="fab-button fab-button-2"><i class="icon-cps-phone"></i></div>
-      </a>
-      <a class="fab-action fab-action-3" onclick="Tawk_API.showWidget();Tawk_API.maximize();" rel="nofollow">
-         <span class="fab-title">Chat ngay</span>
-         <div class="fab-button fab-button-3"><i class="icon-cps-chat"></i></div>
-      </a>
-      <a class="fab-action fab-action-4" href="https://www.facebook.com/profile.php?id=100014297884994" target="_blank" rel="nofollow">
-         <span class="fab-title">Chat trên Zalo</span>
-         <div class="fab-button fab-button-4"><i class="icon-cps-chat-zalo"></i></div>
-      </a>
-   </div>
-   <div class="suggestions-chat-box hidden" style="display: none;">
-      <div class="box-content d-flex justify-content-around align-items-center">
-         <i class="fa fa-times-circle" aria-hidden="true" id="btnClose" onclick="jQuery('.suggestions-chat-box').hide()"></i>
-         <p class="mb-0 font-14">Liên hệ ngay <i class="fa fa-hand-o-right" aria-hidden="true"></i></p>
-      </div>
-   </div>
-   <div class="devvn_bg"></div>
-</div>
+
  
     <!-- Category -->
     <div class="grid wide">

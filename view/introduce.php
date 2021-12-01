@@ -106,5 +106,7 @@
                     </div>
                 </div>
             </div>
-
+            <script type="text/javascript">
+   plugin_lienhe();
+</script>
         </main>
