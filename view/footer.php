@@ -130,9 +130,10 @@
     </div>
     <script src="./Content/JS/js.js"></script>
     <script>
-        checkLocal();
+        checkLocal();   
         checkOutLocal();
         seLectTionHeader();
+        selectForm();
         cateGorySile();
     </script>
     <!--Start of Tawk.to Script-->

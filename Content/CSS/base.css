@@ -60,6 +60,10 @@ body {
     width: 100% !important;
 }
 
+.w-20 {
+    width: 20% !important;
+}
+
 .w-h-100 {
     width: 100%;
     height: 100%;
@@ -150,7 +154,7 @@ body {
 .input-control {
     height: 50px;
     /* width: 100%; */
-    padding: 20px;
+    padding: 0 20px;
     border-radius: 8px;
     border: 2px solid #b8c1ec;
     outline: none;

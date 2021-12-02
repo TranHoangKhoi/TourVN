@@ -9,7 +9,9 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
         case 'hotline':
             include './view/hotLine.php';
             break;
-
+        case 'login':
+            include './view/loginAndRes.php';
+            break;
         default:
             include './view/home.php';
             break;

@@ -8,6 +8,7 @@ include $model_path.'/localSide.php';
 include $model_path.'/diadiem.php';
 include $model_path.'/baiviet.php';
 include $model_path.'/user.php';
+include $model_path.'/tourdulich.php';
 
     $ql = '';
     if(isset($_GET['ql'])) {
@@ -237,6 +238,128 @@ include $model_path.'/user.php';
             } elseif (isset($_GET['updatetour'])) {
                 include './tourdulich/update.php';
             } elseif (isset($_GET['add'])) {
+                if(isset($_POST['addTour'])) {
+                    // Add Tour Information
+                    $tourName = $_POST['tourName'];
+                    $localCategory = $_POST['localCategory'];
+                    $dateNum = $_POST['dateNum'];
+                    $tourDateStart = $_POST['tourDateStart'];
+                    $tourTimeStart = $_POST['tourTimeStart'];
+                    $tourDateEnd = $_POST['tourDateEnd'];
+                    $localFocus = $_POST['localFocus'];
+                    $tourPriceAdult = $_POST['tourPriceAdult'];
+                    $tourPriceKid = $_POST['tourPriceKid'];
+                    $tourNumppl = $_POST['tourNumppl'];
+                    $tourSales = $_POST['tourSales'];
+
+                    $matour = add_info_tour($localCategory, $tourName, $dateNum, $tourDateStart, $tourTimeStart, $tourDateEnd, $tourPriceKid, $tourPriceAdult, $tourNumppl, $localFocus, $tourSales);
+                    // Upload IMG
+                    if(isset($_FILES['tourImg1'])) {
+                        $hinh_anh = $_FILES['tourImg1']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg1"]["name"]);
+                        move_uploaded_file($_FILES["tourImg1"]["tmp_name"], $target_file);
+
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+                    if(isset($_FILES['tourImg2'])) {
+                        $hinh_anh = $_FILES['tourImg2']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg2"]["name"]);
+                        move_uploaded_file($_FILES["tourImg2"]["tmp_name"], $target_file);
+                        
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+                    if(isset($_FILES['tourImg3'])) {
+                        $hinh_anh = $_FILES['tourImg3']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg3"]["name"]);
+                        move_uploaded_file($_FILES["tourImg3"]["tmp_name"], $target_file);
+                        
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+                    if(isset($_FILES['tourImg4'])) {
+                        $hinh_anh = $_FILES['tourImg4']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg4"]["name"]);
+                        move_uploaded_file($_FILES["tourImg4"]["tmp_name"], $target_file);
+                        
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+                    if(isset($_FILES['tourImg5'])) {
+                        $hinh_anh = $_FILES['tourImg5']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg5"]["name"]);
+                        move_uploaded_file($_FILES["tourImg5"]["tmp_name"], $target_file);
+                        
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+                    if(isset($_FILES['tourImg6'])) {
+                        $hinh_anh = $_FILES['tourImg6']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg6"]["name"]);
+                        move_uploaded_file($_FILES["tourImg6"]["tmp_name"], $target_file);
+                        
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+                    if(isset($_FILES['tourImg7'])) {
+                        $hinh_anh = $_FILES['tourImg7']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg7"]["name"]);
+                        move_uploaded_file($_FILES["tourImg7"]["tmp_name"], $target_file);
+                        
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+                    if(isset($_FILES['tourImg8'])) {
+                        $hinh_anh = $_FILES['tourImg8']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg8"]["name"]);
+                        move_uploaded_file($_FILES["tourImg8"]["tmp_name"], $target_file);
+                        
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+                    if(isset($_FILES['tourImg9'])) {
+                        $hinh_anh = $_FILES['tourImg9']['name'];
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir . basename($_FILES["tourImg9"]["name"]);
+                        move_uploaded_file($_FILES["tourImg9"]["tmp_name"], $target_file);
+                        
+                        add_img_tour($hinh_anh, $matour);
+                    };
+
+
+                    // Hành trình tour
+                    if(isset($_POST["localTourSelect"]) && (isset($_POST["localTourName"])) && (isset($_POST["localDatein"])) && (isset($_POST["localTourMain"]))) {
+                        $localSelect = $_POST['localTourSelect'];
+                        $localTourName = $_POST['localTourName'];
+                        $localDatein = $_POST['localDatein'];
+                        $localTourMain = $_POST['localTourMain'];
+                        $listContent = [];
+                        
+                        // Lọc ra các input có vulue khác rỗng để thêm vào mãng
+                        for($i = 0; $i <7; ++$i) {
+                            if((empty($localTourName[$i]) != 1) && (empty($localSelect[$i]) != 1) && (empty($localDatein[$i]) !=1) && (empty($localTourMain[$i]) !=1)) {
+                                $listContentOfDay = [$localSelect[$i], $localTourName[$i], $localDatein[$i], $localTourMain[$i]];
+                                array_push($listContent, $listContentOfDay);
+                            } 
+                        }
+
+                        $temp = 0;
+                        foreach($listContent as $item) {
+                            add__journeys($matour, $item[0], $item[1], $item[2], $item[3]);
+                        }
+
+                    }
+                    }
+
                 include './tourdulich/add.php';
             }
             break;

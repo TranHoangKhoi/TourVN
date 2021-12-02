@@ -227,13 +227,41 @@
                                 </div>
                             </form>
 
-                            <div class="header__top-login">
-                                <a href="" class="header__top-login--link">
+                            <!-- <div class="header__top-login">
+                                <a href="?call=login" class="header__top-login--link">
                                     <i class="header__top-login--icon">
                                         <ion-icon name="contacts"></ion-icon>
                                     </i>
                                 </a>
+                            </div> -->
+
+                            <div class="header__top-login">
+                                <div class="user__box">
+                                    <img src="./upload/kakashi.jpg" alt="" class="user__img">
+                                    <p class="user__name">Trần Hoàng Khôi</p>
+                                        <!-- <ul class="user_options">
+                                        <li class="user_options--item">
+                                            <a href="" class="user_options--item-link">
+                                                <i class="user_options--item-icon"><ion-icon name="settings"></ion-icon></i>
+                                                Cập nhật tài khoản
+                                            </a>
+                                        </li>
+                                        <li class="user_options--item">
+                                            <a href="" class="user_options--item-link">
+                                                <i class="user_options--item-icon"><ion-icon name="journal"></ion-icon></i>
+                                                Các tour đã đặt
+                                            </a>
+                                        </li>
+                                        <li class="user_options--item">
+                                            <a href="" class="user_options--item-link check-out">
+                                                <i class="user_options--item-icon"><ion-icon name="power"></ion-icon></i>
+                                                Đăng xuất
+                                            </a>
+                                        </li>
+                                    </ul>    -->
+                                </div>
                             </div>
+
                         </div>
 
                         <!-- Icon Check Nav Mobile -->
