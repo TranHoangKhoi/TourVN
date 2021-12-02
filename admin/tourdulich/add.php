@@ -7,7 +7,7 @@
                     <h3 class="content__tap-heading-text">Thêm mới tour du lịch</h3>
                 </div>
                 <div class="content__tap-main">
-                    <form action="" class="form-box">
+                    <form action="" method="post" class="form-box" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <div class="form-field">
@@ -22,10 +22,13 @@
                                 <label for="localCategory" class="form-label">Loại tour</label>
                                 <select name="localCategory" id="" class="input-control-select">
                                     <option value="">Chọn Loại tour</option>
-                                    <option value="1">Tour hành trình xanh</option>
-                                    <option value="2">Tour biển đảo</option>
-                                    <option value="3">Tour thanh lọc cơ thể</option>
-                                    <option value="4">Tour Văn hóa Việt Nam</option>
+                                    <?php 
+                                        $listTourCate  = load_all_tour();
+                                        foreach($listTourCate as $tourCateItem) {
+                                            extract($tourCateItem);
+                                    ?>
+                                    <option value="<?php echo $ma_loai ?>"><?php echo $ten_loai ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <span class="test-masage"></span>
@@ -96,11 +99,92 @@
 
                         <div class="form-group">
                             <div class="form-field">
-                                <label for="tourNumppl" class="form-label">Khuyến mãi(%)</label>
-                                <input type="number" id="tourNumppl" name="tourNumppl" class="input-control" placeholder="VD: 10">
+                                <label for="tourSales" class="form-label">Khuyến mãi(%)</label>
+                                <input type="number" id="tourSales" name="tourSales" class="input-control" placeholder="VD: 10">
                             </div>
                             <span class="test-masage"></span>
                         </div>
+
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg1" class="form-label">Hình ảnh 1</label>
+                              <label for="tourImg1" class="form-sub-label">Hình ảnh 1 dùng làm ảnh đại diện cho tour</label>
+                              <input type="file" id="tourImg1" name="tourImg1" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg2" class="form-label">Hình ảnh 2</label>
+                              <label for="tourImg2" class="form-sub-label">Hình ảnh 2 dùng làm ảnh giới thiệu tour</label>
+                              <input type="file" id="tourImg2" name="tourImg2" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg3" class="form-label">Hình ảnh 3</label>
+                              <label for="tourImg3" class="form-sub-label">Hình ảnh 3 dùng làm ảnh giới thiệu tour</label>
+                              <input type="file" id="tourImg3" name="tourImg3" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg4" class="form-label">Hình ảnh 4</label>
+                              <label for="tourImg4" class="form-sub-label">Hình ảnh 4 dùng làm ảnh giới thiệu tour</label>
+                              <input type="file" id="tourImg4" name="tourImg4" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg5" class="form-label">Hình ảnh 5</label>
+                              <label for="tourImg5" class="form-sub-label">Hình ảnh 5 dùng làm ảnh giới thiệu tour</label>
+                              <input type="file" id="tourImg5" name="tourImg5" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg6" class="form-label">Hình ảnh 6</label>
+                              <label for="tourImg6" class="form-sub-label">Hình ảnh 6 dùng làm ảnh giới thiệu tour</label>
+                              <input type="file" id="tourImg6" name="tourImg6" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg7" class="form-label">Hình ảnh 7</label>
+                              <label for="tourImg7" class="form-sub-label">Hình ảnh 7 dùng làm ảnh giới thiệu tour</label>
+                              <input type="file" id="tourImg7" name="tourImg7" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg8" class="form-label">Hình ảnh 8</label>
+                              <label for="tourImg8" class="form-sub-label">Hình ảnh 8 dùng làm ảnh giới thiệu tour</label>
+                              <input type="file" id="tourImg8" name="tourImg8" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-field">
+                              <label for="tourImg9" class="form-label">Hình ảnh 9</label>
+                              <label for="tourImg9" class="form-sub-label">Hình ảnh 9 dùng làm ảnh giới thiệu tour</label>
+                              <input type="file" id="tourImg9" name="tourImg9" class="input-control-img">
+                          </div>
+                          <span class="test-masage"></span>
+                        </div>
+                    
 
                         <!-- <div class="form-group">
                             <div class="form-field">
@@ -123,229 +207,202 @@
                         </div> -->
                         
                         <div class="tour__content">
+                            <?php $localList = load_all_local(); ?>
+                            <!-- Ngày 1 -->
                             <div class="form-group">
                                 <div class="form-field">
-                                    <label for="localTour" class="form-label">Địa điểm 1</label>
+                                    <label for="localTour" class="form-label">Ngày 1</label>
                                     
                                     <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
-                                    <select name="localTourSelect" required id="localTourSelect" class="input-control-select">
+                                    <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
                                         <option value="">Chọn địa điểm</option>
-                                        <option value="1">Cần Thơ</option>
-                                        <option value="2">Đà Nẵng</option>
-                                        <option value="3">Hà Nội</option>
-                                        <option value="4">Phú quốc</option>
-                                        <option value="5">Kiên Giang</option>
+                                        <?php
+                                            foreach ($localList as $localItem) {
+                                                extract($localItem);
+                                        ?>
+                                        <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                        <?php } ?>
                                     </select>
                                     <div class="line"></div>
                                     <label for="localTourName" class="form-sub-label">Tiêu đề ngày 1</label>
-                                    <textarea name="localTourName" required id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày ${i + 1} sẽ đi đâu"></textarea>
+                                    <textarea name="localTourName[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 1 sẽ đi đâu"></textarea>
                                     <div class="line"></div>
                                     <label for="localDatein" class="form-sub-label">Ngày đến</label>
-                                    <input type="date" required id="localDatein" name="localDatein" class="input-control">
+                                    <input type="date"  id="localDatein" name="localDatein[]" class="input-control">
                                     <div class="line"></div>
                                     <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
-                                    <textarea id="content1" name="localTourMain" required id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày ${i + 1}"></textarea>
+                                    <textarea id="content1" name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
                                 </div>
                                 <span class="test-masage"></span>
                             </div>
 
                             <div class="form-group">
                                 <div class="form-field">
-                                    <label for="localTour" class="form-label">Địa điểm 2</label>
+                                    <label for="localTour" class="form-label">Ngày 2</label>
                                     
                                     <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
-                                    <select name="localTourSelect" required id="localTourSelect" class="input-control-select">
+                                    <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
                                         <option value="">Chọn địa điểm</option>
-                                        <option value="1">Cần Thơ</option>
-                                        <option value="2">Đà Nẵng</option>
-                                        <option value="3">Hà Nội</option>
-                                        <option value="4">Phú quốc</option>
-                                        <option value="5">Kiên Giang</option>
+                                        <?php
+                                            foreach ($localList as $localItem) {
+                                                extract($localItem);
+                                        ?>
+                                        <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                        <?php } ?>
                                     </select>
                                     <div class="line"></div>
                                     <label for="localTourName" class="form-sub-label">Tiêu đề ngày 2</label>
-                                    <textarea name="localTourName" required id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày ${i + 1} sẽ đi đâu"></textarea>
+                                    <textarea name="localTourName[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 2 sẽ đi đâu"></textarea>
                                     <div class="line"></div>
                                     <label for="localDatein" class="form-sub-label">Ngày đến</label>
-                                    <input type="date" required id="localDatein" name="localDatein" class="input-control">
+                                    <input type="date"  id="localDatein" name="localDatein[]" class="input-control">
                                     <div class="line"></div>
                                     <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
-                                    <textarea id="content1" name="localTourMain" required id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày ${i + 1}"></textarea>
+                                    <textarea id="content2" name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
+                                </div>
+                                <span class="test-masage"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="localTour" class="form-label">Ngày 3</label>
+                                    
+                                    <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
+                                    <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
+                                        <option value="">Chọn địa điểm</option>
+                                        <?php
+                                            foreach ($localList as $localItem) {
+                                                extract($localItem);
+                                        ?>
+                                        <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <div class="line"></div>
+                                    <label for="localTourName" class="form-sub-label">Tiêu đề ngày 3</label>
+                                    <textarea name="localTourName[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 3 sẽ đi đâu"></textarea>
+                                    <div class="line"></div>
+                                    <label for="localDatein" class="form-sub-label">Ngày đến</label>
+                                    <input type="date"  id="localDatein" name="localDatein[]" class="input-control">
+                                    <div class="line"></div>
+                                    <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
+                                    <textarea id="content3" name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
+                                </div>
+                                <span class="test-masage"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="localTour" class="form-label">Ngày 4</label>
+                                    
+                                    <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
+                                    <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
+                                        <option value="">Chọn địa điểm</option>
+                                        <?php
+                                            foreach ($localList as $localItem) {
+                                                extract($localItem);
+                                        ?>
+                                        <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <div class="line"></div>
+                                    <label for="localTourName" class="form-sub-label">Tiêu đề ngày 4</label>
+                                    <textarea name="localTourName[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 4 sẽ đi đâu"></textarea>
+                                    <div class="line"></div>
+                                    <label for="localDatein" class="form-sub-label">Ngày đến</label>
+                                    <input type="date"  id="localDatein" name="localDatein[]" class="input-control">
+                                    <div class="line"></div>
+                                    <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
+                                    <textarea id="content4" name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
+                                </div>
+                                <span class="test-masage"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="localTour" class="form-label">Ngày 5</label>
+                                    
+                                    <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
+                                    <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
+                                        <option value="">Chọn địa điểm</option>
+                                        <?php
+                                            foreach ($localList as $localItem) {
+                                                extract($localItem);
+                                        ?>
+                                        <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <div class="line"></div>
+                                    <label for="localTourName" class="form-sub-label">Tiêu đề ngày 5</label>
+                                    <textarea name="localTourName[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 5 sẽ đi đâu"></textarea>
+                                    <div class="line"></div>
+                                    <label for="localDatein" class="form-sub-label">Ngày đến</label>
+                                    <input type="date"  id="localDatein" name="localDatein[]" class="input-control">
+                                    <div class="line"></div>
+                                    <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
+                                    <textarea id="content5" name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
+                                </div>
+                                <span class="test-masage"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="localTour" class="form-label">Ngày 6</label>
+                                    
+                                    <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
+                                    <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
+                                        <option value="">Chọn địa điểm</option>
+                                        <?php
+                                            foreach ($localList as $localItem) {
+                                                extract($localItem);
+                                        ?>
+                                        <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <div class="line"></div>
+                                    <label for="localTourName" class="form-sub-label">Tiêu đề ngày 6</label>
+                                    <textarea name="localTourName[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 6 sẽ đi đâu"></textarea>
+                                    <div class="line"></div>
+                                    <label for="localDatein" class="form-sub-label">Ngày đến</label>
+                                    <input type="date"  id="localDatein" name="localDatein[]" class="input-control">
+                                    <div class="line"></div>
+                                    <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
+                                    <textarea id="content6" name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
+                                </div>
+                                <span class="test-masage"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="localTour" class="form-label">Ngày 7</label>
+                                    
+                                    <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
+                                    <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
+                                        <option value="">Chọn địa điểm</option>
+                                        <?php
+                                            foreach ($localList as $localItem) {
+                                                extract($localItem);
+                                        ?>
+                                        <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <div class="line"></div>
+                                    <label for="localTourName" class="form-sub-label">Tiêu đề ngày 7</label>
+                                    <textarea name="localTourName[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 7 sẽ đi đâu"></textarea>
+                                    <div class="line"></div>
+                                    <label for="localDatein" class="form-sub-label">Ngày đến</label>
+                                    <input type="date"  id="localDatein" name="localDatein[]" class="input-control">
+                                    <div class="line"></div>
+                                    <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
+                                    <textarea id="content7" name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
                                 </div>
                                 <span class="test-masage"></span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-form">Thêm</button>
+                            <button name="addTour" class="btn btn-form">Thêm</button>
                         </div>
                     </form>
-                </div>
-            </div>
-
-            <div class="content__tap JS-tap--item">
-                <div class="content__tap-heading">
-                    <h3 class="content__tap-heading-text">Danh sách tour du lịch</h3>
-                </div>
-                <div class="content__tap-main">
-                    <div class="table__control">
-                        <form action="" class="table__control-group">
-                            <div class="filter__category">
-                                <select name="" id="" class="filter__category-select">
-                                    <option value="">Lọc theo loại tour</option>
-                                    <option value="">Tour hành trình xanh</option>
-                                    <option value="">Tour hành xe tự lái</option>
-                                    <option value="">Tour hành văn hóa Việt Nam</option>
-                                </select>
-                            </div>
-                            <span>Hoặc tìm theo</span>
-                            <div class="filter__id-tour">
-                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập mã tour...">
-                            </div>
-                            
-                            <button class="btn filter__tour--btn">Tìm</button>
-                        </form>
-                    </div>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="tbl-0-5">STT</th>
-                                <th class="tbl-0-5">Mã tour</th>
-                                <th class="tbl-2">Tiêu đề</th>
-                                <th class="tbl-1">Loại tour</th>
-                                <th class="tbl-1">Số lượng ngày</th>
-                                <th class="tbl-1">Ngày khởi hành</th>
-                                <th class="tbl-1">Giờ khởi hành</th>
-                                <th class="tbl-1">Ngày về</th>
-                                <th class="tbl-1">Nơi tập trung</th>
-                                <th class="tbl-1">Điểm đến</th>
-                                <th class="tbl-1">Giá trẻ em</th>
-                                <th class="tbl-1">Giá người lớn</th>
-                                <th class="tbl-1">Khuyến mãi</th>
-                                <th class="tbl-1">Hành trình</th>
-                                <th class="tbl-0-5">Thao tác</th>
-                                <th class="tbl-0-5">Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>12</td>
-                                <td class="text-left">Tour Cần Thơ 4 ngày</td>
-                                <td>Tour Biển đảo</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>13</td>
-                                <td class="text-left">Tour TP Hồ Chí Minh 4 ngày</td>
-                                <td>Tour văn hóa Việt Nam</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>14</td>
-                                <td class="text-left">Tour Cần Giờ 4 ngày</td>
-                                <td>Tour thanh lọc cơ thể</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>18</td>
-                                <td class="text-left">Tour Hội An 4 ngày</td>
-                                <td>Tour thanh lọc cơ thể</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>20</td>
-                                <td class="text-left">Tour Vũng Tàu 4 ngày</td>
-                                <td>Tour Biển đảo</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
                 </div>
             </div>
 

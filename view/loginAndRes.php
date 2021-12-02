@@ -14,8 +14,8 @@
     
                                     <div class="form__cart-body">
                                         <div class="form__cart-tap">
-                                            <span class="log__btn JS-Form-Tap active">Đăng nhập</span>
-                                            <span class="res__btn JS-Form-Tap ">Đăng ký</span>
+                                            <span class="res__btn JS-Form-Tap active">Đăng nhập</span>
+                                            <span class="log__btn JS-Form-Tap ">Đăng ký</span>
                                         </div>
 
                                         <form action="" class="form__cart-control JS-Form-Control active">
@@ -68,12 +68,52 @@
                                                 <span class="test-masage"></span>
                                             </div>
 
-                                            <div class="form-group">
-                                                <div class="form-field">
-                                                    <label for="resAddress" class="form-label">Địa chỉ</label>
-                                                    <input type="text" id="resAddress" name="resAddress" class="input-control" placeholder="VD: Cần Thơ">
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <div class="form-field">
+                                                        <label for="" class="form-label">Tỉnh / TP</label>
+                                                            <select name="" id="" class="input-control">
+                                                                <option value="">Tỉnh/TP</option>
+                                                                <option value="male">Nam</option>
+                                                                <option value="female">Nữ</option>
+                                                            </select>
+                                                    </div>
+                                                    <span class="test-masage"></span>
                                                 </div>
-                                                <span class="test-masage"></span>
+
+                                                <div class="form-group">
+                                                    <div class="form-field">
+                                                        <label for="" class="form-label">Quận / Huyện</label>
+                                                            <select name="" id="" class="input-control">
+                                                                <option value="">Tỉnh/TP</option>
+                                                                <option value="male">Nam</option>
+                                                                <option value="female">Nữ</option>
+                                                            </select>
+                                                    </div>
+                                                    <span class="test-masage"></span>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="form-field">
+                                                        <label for="" class="form-label">Phường / Xã</label>
+                                                            <select name="" id="" class="input-control">
+                                                                <option value="">Tỉnh/TP</option>
+                                                                <option value="male">Nam</option>
+                                                                <option value="female">Nữ</option>
+                                                            </select>
+                                                    </div>
+                                                    <span class="test-masage"></span>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="form-field">
+                                                        <label for="" class="form-label">Địa chỉ cụ thể</label>
+                                                        <input type="text" class="input-control" placeholder="VD: 271 / Nguyễn Văn Linh">
+                                                    </div>
+                                                    <span class="test-masage"></span>
+                                                </div>
+
+
                                             </div>
 
                                             <div class="form-group">

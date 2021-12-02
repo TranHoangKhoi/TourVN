@@ -1,50 +1,58 @@
 function checkLocal() {
     var localList = document.querySelector('#loCalListStarJS');
-    var localSpan = document.querySelector('#localStartBox');
     if(localList) {
-        var loCalValueBox = document.querySelector('#loCalValueStart');
-        var locals = localList.querySelectorAll('.content__section-local--item');
-        locals.forEach(function(item) {
-            item.onclick = function() {
-                localSpan.innerText = item.innerText;
-                loCalValueBox.setAttribute('value', item.innerText);
-            }
-        })
+        var localSpan = document.querySelector('#localStartBox');
+        if(localList) {
+            var loCalValueBox = document.querySelector('#loCalValueStart');
+            var locals = localList.querySelectorAll('.content__section-local--item');
+            locals.forEach(function(item) {
+                item.onclick = function() {
+                    localSpan.innerText = item.innerText;
+                    loCalValueBox.setAttribute('value', item.innerText);
+                }
+            })
+        }
     }
+    
 }
 
 function checkOutLocal() {
     var localList = document.querySelector('#loCalListEndJS');
-    var localEndSpan = document.querySelector('#localEndBox');
     if(localList) {
-            var loCalValueBox = document.querySelector('#loCalValueEnd');
-            var localEnd = localList.querySelectorAll('.content__section-local--item');
-            localEnd.forEach(function(item) {
-                item.onclick = function() {
-                    localEndSpan.innerText = item.innerText;
-                    loCalValueBox.setAttribute('value', item.innerText);
-                }
-            })
+        var localEndSpan = document.querySelector('#localEndBox');
+        if(localList) {
+                var loCalValueBox = document.querySelector('#loCalValueEnd');
+                var localEnd = localList.querySelectorAll('.content__section-local--item');
+                localEnd.forEach(function(item) {
+                    item.onclick = function() {
+                        localEndSpan.innerText = item.innerText;
+                        loCalValueBox.setAttribute('value', item.innerText);
+                    }
+                })
+        }
     }
 }
 
 function seLectTionHeader() {
     var seLectTion = document.querySelectorAll('.header__selection-header--block');
-    var conTents = document.querySelectorAll('.conTenTapJS');
-    seLectTion.forEach(function(item, index) {
-        var conTent = conTents[index];
-        item.onclick = function() {
-            document.querySelector('.header__selection-header--block.active').classList.remove('active');
-            document.querySelector('.conTenTapJS.active').classList.remove('active');
-            
-            conTent.classList.add('active');
-            this.classList.add('active');
-        }
-    }) ;
+    if(seLectTion) {
+        var conTents = document.querySelectorAll('.conTenTapJS');
+        seLectTion.forEach(function(item, index) {
+            var conTent = conTents[index];
+            item.onclick = function() {
+                document.querySelector('.header__selection-header--block.active').classList.remove('active');
+                document.querySelector('.conTenTapJS.active').classList.remove('active');
+                
+                conTent.classList.add('active');
+                this.classList.add('active');
+            }
+        }) ;
+    }
 }
 
 function cateGorySile() {
     var slideList = document.querySelector('.category__list');
+    if(slideList) {
     var slideItems = slideList.querySelectorAll('.category__item');
     var prevBtn = document.querySelector('.category__btn-left');
     var nextBtn = document.querySelector('.category__btn-right');
@@ -77,184 +85,187 @@ function cateGorySile() {
             
         }
     }
+    }
 }
 
 function bookTicket() {
     var changeAdult = document.querySelector('#JSchangeAdult');
-    var changeKid = document.querySelector('#JSchangeKid');
-    var slotTourItem =  document.querySelector('#JSslot');
-    var slotTourNum = Number(slotTourItem.innerText);
+    if(changeAdult) {
+        var changeKid = document.querySelector('#JSchangeKid');
+        var slotTourItem =  document.querySelector('#JSslot');
+        var slotTourNum = Number(slotTourItem.innerText);
 
-    // Btn Adult Form
-    var changeAdultMinus = changeAdult.querySelector('.js__minus-btn--adults');
-    var changeAdultNum = changeAdult.querySelector('.js__num-btn--adults');
-    var changeAdultPlus = changeAdult.querySelector('.js__add-btn--adults');
+        // Btn Adult Form
+        var changeAdultMinus = changeAdult.querySelector('.js__minus-btn--adults');
+        var changeAdultNum = changeAdult.querySelector('.js__num-btn--adults');
+        var changeAdultPlus = changeAdult.querySelector('.js__add-btn--adults');
 
-    // Btn Kid Form
-    var changeKidMinus = changeKid.querySelector('.js__minus-btn--kids');
-    var changeKidNum = changeKid.querySelector('.js__num-btn--kids');
-    var changeKidPlus = changeKid.querySelector('.js__add-btn--kids');
+        // Btn Kid Form
+        var changeKidMinus = changeKid.querySelector('.js__minus-btn--kids');
+        var changeKidNum = changeKid.querySelector('.js__num-btn--kids');
+        var changeKidPlus = changeKid.querySelector('.js__add-btn--kids');
 
 
-    var customerAdultsBox = document.querySelector('#JSCustomerAdultsBox');
-    var customerKidsBox = document.querySelector('#JSCustomerKidsBox');
+        var customerAdultsBox = document.querySelector('#JSCustomerAdultsBox');
+        var customerKidsBox = document.querySelector('#JSCustomerKidsBox');
 
-    // Form Adult
-    changeAdultPlus.onclick = function() {
-        addNumAdultsForm();
-    }
-
-    changeAdultMinus.onclick = function() {
-        minNumAdultsForm();
-    }
-
-    function minNumAdultsForm() {
-        var numAdult = Number(changeAdultNum.innerText);
-        if(numAdult > 1) {
-            changeAdultNum.innerText = numAdult - 1;
-            
-            var formAdultActiveNum = (document.querySelectorAll('.js__form-adults').length) - 1;
-            var formAdultActive = document.querySelectorAll('.js__form-adults')[formAdultActiveNum];
-
-                customerAdultsBox.removeChild(formAdultActive);
+        // Form Adult
+        changeAdultPlus.onclick = function() {
+            addNumAdultsForm();
         }
-    }
 
-    function addNumAdultsForm() {
-        var numAdult = Number(changeAdultNum.innerText);
-        var numKid = Number(changeKidNum.innerText);
-        var numAll = numKid + numAdult;
-        if(numAll < slotTourNum) {
-            changeAdultNum.innerText = numAdult + 1;
+        changeAdultMinus.onclick = function() {
+            minNumAdultsForm();
+        }
 
-            if(customerAdultsBox) {
-                var formAdult = document.createElement('div');
-                formAdult.classList.add('info__customer-adults--form', 'js__form-adults');
-                formAdult.innerHTML = `
-                <div class="info__customer-adults--form-item info__customer-adults--form-text">
-                                                        <label for="" class="info__customer-adults--label">Họ tên</label>
-                                                        <input type="text" class="info__customer-adults--control" placeholder="Họ và tên">
-                                                    </div>
-    
-                                                    <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                        <label for="" class="info__customer-adults--label">Giới tính</label>
-                                                        <select name="" id="" class="info__customer-adults--control">
-                                                            <option value="">Giới tính</option>
-                                                            <option value="male">Nam</option>
-                                                            <option value="female">Nữ</option>
-                                                        </select>
-                                                    </div>
-    
-                                                    <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                        <label for="" class="info__customer-adults--label">Ngày sinh</label>
-                                                        <input type="date" class="info__customer-adults--control">
-                                                    </div>
-    
-                                                    <div class="info__customer-adults--form-item w-100">
-                                                        <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
-                                                        <input type="number" class="info__customer-adults--control" placeholder="CCCD">
-                                                    </div>
+        function minNumAdultsForm() {
+            var numAdult = Number(changeAdultNum.innerText);
+            if(numAdult > 1) {
+                changeAdultNum.innerText = numAdult - 1;
+                
+                var formAdultActiveNum = (document.querySelectorAll('.js__form-adults').length) - 1;
+                var formAdultActive = document.querySelectorAll('.js__form-adults')[formAdultActiveNum];
 
-                                                    <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Tỉnh / TP</label>
-                                                            <select name="" id="" class="info__customer-adults--control">
-                                                                <option value="">Tỉnh/TP</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
-                                                            </select>
-                                                        </div>
-    
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Quận / Huyện</label>
-                                                            <select name="" id="" class="info__customer-adults--control">
-                                                                <option value="">Quận/Huyện</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
-                                                            </select>
-                                                        </div>
-    
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Phường Xã</label>
-                                                            <select name="" id="" class="info__customer-adults--control">
-                                                                <option value="">Phường Xã</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
-                                                            </select>
-                                                        </div>
-    
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select-text">
-                                                            <label for="" class="info__customer-adults--label">Địa chỉ</label>
-                                                            <input type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
-                                                        </div>
-                `;
-
-                customerAdultsBox.appendChild(formAdult);
+                    customerAdultsBox.removeChild(formAdultActive);
             }
         }
-    }
 
-    // Form Kid
-    changeKidPlus.onclick = function() {
-        addNumKidsForm();
-    }
+        function addNumAdultsForm() {
+            var numAdult = Number(changeAdultNum.innerText);
+            var numKid = Number(changeKidNum.innerText);
+            var numAll = numKid + numAdult;
+            if(numAll < slotTourNum) {
+                changeAdultNum.innerText = numAdult + 1;
 
-    changeKidMinus.onclick = function() {
-        var numKid = Number(changeKidNum.innerText);
-        if(numKid > 0) {
-            changeKidNum.innerText = numKid - 1;
+                if(customerAdultsBox) {
+                    var formAdult = document.createElement('div');
+                    formAdult.classList.add('info__customer-adults--form', 'js__form-adults');
+                    formAdult.innerHTML = `
+                    <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                                                            <label for="" class="info__customer-adults--label">Họ tên</label>
+                                                            <input type="text" class="info__customer-adults--control" placeholder="Họ và tên">
+                                                        </div>
+        
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                                                            <label for="" class="info__customer-adults--label">Giới tính</label>
+                                                            <select name="" id="" class="info__customer-adults--control">
+                                                                <option value="">Giới tính</option>
+                                                                <option value="male">Nam</option>
+                                                                <option value="female">Nữ</option>
+                                                            </select>
+                                                        </div>
+        
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                                                            <label for="" class="info__customer-adults--label">Ngày sinh</label>
+                                                            <input type="date" class="info__customer-adults--control">
+                                                        </div>
+        
+                                                        <div class="info__customer-adults--form-item w-100">
+                                                            <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
+                                                            <input type="number" class="info__customer-adults--control" placeholder="CCCD">
+                                                        </div>
 
-            var formKidActiveNum = (document.querySelectorAll('.js__form-kid').length) - 1;
-            var formKidActive = document.querySelectorAll('.js__form-kid')[formKidActiveNum];
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                                                                <label for="" class="info__customer-adults--label">Tỉnh / TP</label>
+                                                                <select name="" id="" class="info__customer-adults--control">
+                                                                    <option value="">Tỉnh/TP</option>
+                                                                    <option value="male">Nam</option>
+                                                                    <option value="female">Nữ</option>
+                                                                </select>
+                                                            </div>
+        
+                                                            <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                                                                <label for="" class="info__customer-adults--label">Quận / Huyện</label>
+                                                                <select name="" id="" class="info__customer-adults--control">
+                                                                    <option value="">Quận/Huyện</option>
+                                                                    <option value="male">Nam</option>
+                                                                    <option value="female">Nữ</option>
+                                                                </select>
+                                                            </div>
+        
+                                                            <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                                                                <label for="" class="info__customer-adults--label">Phường Xã</label>
+                                                                <select name="" id="" class="info__customer-adults--control">
+                                                                    <option value="">Phường Xã</option>
+                                                                    <option value="male">Nam</option>
+                                                                    <option value="female">Nữ</option>
+                                                                </select>
+                                                            </div>
+        
+                                                            <div class="info__customer-adults--form-item info__customer-adults--form-select-text">
+                                                                <label for="" class="info__customer-adults--label">Địa chỉ</label>
+                                                                <input type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
+                                                            </div>
+                    `;
 
-            console.log(numKid);
-            customerKidsBox.removeChild(formKidActive);
-            if(numKid == 1 ){
-                var kidTitle = document.querySelector('.js__form-kid--title');
-                customerKidsBox.removeChild(kidTitle);
-            }
-        }
-    }
-
-    function addNumKidsForm() {
-        var numKid = Number(changeKidNum.innerText);
-        var numAdult = Number(changeAdultNum.innerText);
-        var numAll = numKid + numAdult;
-        console.log(numKid)
-
-        if(numAll < slotTourNum) {
-            changeKidNum.innerText = numKid + 1;
-            if(customerKidsBox) {
-                var kidTitle = document.querySelector('.js__form-kid--title');
-                if(!kidTitle) {
-                    var formKidAddTitle = document.createElement('div');
-                    formKidAddTitle.classList.add('info__customer-adults--title', 'js__form-kid--title');
-                    formKidAddTitle.innerHTML = `<h4>Trẻ em</h4>`;
-
-                    customerKidsBox.appendChild(formKidAddTitle);
+                    customerAdultsBox.appendChild(formAdult);
                 }
-                var formKid = document.createElement('div');
-                formKid.classList.add('info__customer-adults--form', 'js__form-kid');
-                formKid.innerHTML = `
-                                                    <div class="info__customer-adults--form-item info__customer-adults--form-text">
-                                                        <label for="" class="info__customer-adults--label">Họ tên</label>
-                                                        <input type="text" class="info__customer-adults--control">
-                                                    </div>
-    
-                                                    <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                        <label for="" class="info__customer-adults--label">Giới tính</label>
-                                                        <select name="" id="" class="info__customer-adults--control">
-                                                            <option value="">Giới tính</option>
-                                                            <option value="male">Nam</option>
-                                                            <option value="female">Nữ</option>
-                                                        </select>
-                                                    </div>
-    
-                                                    <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                        <label for="" class="info__customer-adults--label">Ngày sinh</label>
-                                                        <input type="date" class="info__customer-adults--control">
-                                                    </div>
-                `;
-                customerKidsBox.appendChild(formKid);
+            }
+        }
+
+        // Form Kid
+        changeKidPlus.onclick = function() {
+            addNumKidsForm();
+        }
+
+        changeKidMinus.onclick = function() {
+            var numKid = Number(changeKidNum.innerText);
+            if(numKid > 0) {
+                changeKidNum.innerText = numKid - 1;
+
+                var formKidActiveNum = (document.querySelectorAll('.js__form-kid').length) - 1;
+                var formKidActive = document.querySelectorAll('.js__form-kid')[formKidActiveNum];
+
+                console.log(numKid);
+                customerKidsBox.removeChild(formKidActive);
+                if(numKid == 1 ){
+                    var kidTitle = document.querySelector('.js__form-kid--title');
+                    customerKidsBox.removeChild(kidTitle);
+                }
+            }
+        }
+
+        function addNumKidsForm() {
+            var numKid = Number(changeKidNum.innerText);
+            var numAdult = Number(changeAdultNum.innerText);
+            var numAll = numKid + numAdult;
+            console.log(numKid)
+
+            if(numAll < slotTourNum) {
+                changeKidNum.innerText = numKid + 1;
+                if(customerKidsBox) {
+                    var kidTitle = document.querySelector('.js__form-kid--title');
+                    if(!kidTitle) {
+                        var formKidAddTitle = document.createElement('div');
+                        formKidAddTitle.classList.add('info__customer-adults--title', 'js__form-kid--title');
+                        formKidAddTitle.innerHTML = `<h4>Trẻ em</h4>`;
+
+                        customerKidsBox.appendChild(formKidAddTitle);
+                    }
+                    var formKid = document.createElement('div');
+                    formKid.classList.add('info__customer-adults--form', 'js__form-kid');
+                    formKid.innerHTML = `
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                                                            <label for="" class="info__customer-adults--label">Họ tên</label>
+                                                            <input type="text" class="info__customer-adults--control">
+                                                        </div>
+        
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                                                            <label for="" class="info__customer-adults--label">Giới tính</label>
+                                                            <select name="" id="" class="info__customer-adults--control">
+                                                                <option value="">Giới tính</option>
+                                                                <option value="male">Nam</option>
+                                                                <option value="female">Nữ</option>
+                                                            </select>
+                                                        </div>
+        
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                                                            <label for="" class="info__customer-adults--label">Ngày sinh</label>
+                                                            <input type="date" class="info__customer-adults--control">
+                                                        </div>
+                    `;
+                    customerKidsBox.appendChild(formKid);
+                }
             }
         }
     }

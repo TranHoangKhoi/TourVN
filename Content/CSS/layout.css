@@ -1508,3 +1508,170 @@
     top: 2px;
     font-size: 1.7rem;
 }
+
+/* Account */
+.account__right,
+.account__cate {
+    margin: 20px;
+}
+
+.account__right {
+    display: none;
+}
+
+.account__right.active {
+    display: block;
+}
+
+.account__cate-item {
+    margin: 16px 0;
+}
+
+.account__cate-item-choose {
+    display: block;
+    padding: 16px 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.account__cate-item-choose.active {
+    background-color: var(--btn-color);
+    color: #fff;
+}
+
+.account__cate-item-choose:hover {
+    color: var(--btn-color);
+    cursor: pointer;
+}
+
+.account__cate-item-icon {
+    position: relative;
+    top: 3px;
+    padding-right: 4px;
+    font-size: 1.8rem;
+}
+
+.img__body {
+    display: flex;
+    align-items: center;
+}
+
+.img__item {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.form_flex {
+    display: flex;
+}
+
+.btn__50 {
+    width: 50%;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.6rem;
+    height: 48px;
+    background-color: var(--sub-btn-color);
+    border-radius: 8px;
+}
+
+.ticket__block {
+    margin-bottom: 30px;
+}
+
+.ticket__basic {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 2px solid var(--sub-btn-color);
+    border-radius: 4px;
+}
+
+.ticket__basic-item {
+    padding: 4px 16px;
+    font-size: 1.4rem;
+    flex: 1;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.ticket__basic-label {
+    font-weight: 600;
+}
+
+.ticket__basic-content {
+
+}
+
+.ticket__basic-id {
+
+}
+
+.ticket__basic-user {
+
+}
+
+.ticket__basic-date {
+
+}
+
+.ticket__basic-total {
+
+}
+
+.ticket__basic-icon i {
+    font-size: 2.8rem;
+    color: var(--btn-color);
+    font-weight: 600;
+    padding: 10px;
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+}
+
+.ticket__basic-icon--item {
+    display: none;
+}
+
+.ticket__basic-icon--item.active {
+    display: block;
+}
+
+.ticket__details {
+    align-items: center;
+    padding: 4px 16px;
+    display: none;
+    /* display: flex; */
+    animation: toTop linear 0.3s;
+}
+
+@keyframes toTop {
+    from {
+        opacity: 0;
+        top: 0;
+    }to {
+        opacity: 1;
+        top: 100%;
+    }
+}
+
+.ticket__details.active {
+    display: flex;
+}
+
+.ticket__details-item {
+    flex: 1;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.ticket__details-label {
+    font-weight: 600;
+}
+
+.ticket__details-content {
+
+}
