@@ -11,42 +11,18 @@
 
                     <div class="category-wrap">
                         <div class="category__list">
+                            <?php
+                                $listCateTour = load_all_tour();
+                                foreach($listCateTour as $cateTourItem) {
+                                    extract($cateTourItem);
+                            ?>
                             <div class="category__item">
                                 <a href="./layout/listTour.html" class="category__item-link">
-                                    <img src="./Content/IMG/Category/htx.jfif" alt="" class="category__item-img">
+                                    <img src="./upload/<?php echo $hinh_anh ?>" alt="" class="category__item-img">
                                 </a>
-                                <span class="category__item-info">TOUR HÀNH TRÌNH XANH</span>
+                                <span class="category__item-info"><?php echo $ten_loai ?></span>
                             </div>
-                            <div class="category__item">
-                                <a href="./layout/listTour.html" class="category__item-link">
-                                    <img src="./Content/IMG/Category/txcanva.jpg" alt="" class="category__item-img">
-                                </a>
-                                <span class="category__item-info">TOUR BẰNG XE TỰ LÁI CANVA</span>
-                            </div>
-                            <div class="category__item">
-                                <a href="./layout/listTour.html" class="category__item-link">
-                                    <img src="./Content/IMG/Category/tbd.jpg" alt="" class="category__item-img">
-                                </a>
-                                <span class="category__item-info">TOUR BIỂN ĐẢO</span>
-                            </div>
-                            <div class="category__item">
-                                <a href="./layout/listTour.html" class="category__item-link">
-                                    <img src="./Content/IMG/Category/ttlct.jpg" alt="" class="category__item-img">
-                                </a>
-                                <span class="category__item-info">TOUR THANH LỌC CƠ THỂ</span>
-                            </div>
-                            <div class="category__item">
-                                <a href="./layout/listTour.html" class="category__item-link">
-                                    <img src="./Content/IMG/Category/ttlct.jpg" alt="" class="category__item-img">
-                                </a>
-                                <span class="category__item-info">TOUR THANH LỌC CƠ THỂ</span>
-                            </div>
-                            <div class="category__item">
-                                <a href="./layout/listTour.html" class="category__item-link">
-                                    <img src="./Content/IMG/Category/ttlct.jpg" alt="" class="category__item-img">
-                                </a>
-                                <span class="category__item-info">TOUR THANH LỌC CƠ THỂ</span>
-                            </div>
+                            <?php } ?>
                         </div>
 
                         <!-- Category Button -->

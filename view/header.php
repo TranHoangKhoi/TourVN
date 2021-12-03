@@ -46,98 +46,34 @@
                                     <div class="header__top-subnav--tour">
                                         <div class="grid wide">
                                             <div class="row">
-                                                <div class="col l-3 subnav-tour__block">
-                                                    <h3 class="subnav-tour__text-heading">TOUR MIỀN BẮC</h3>
-                                                    <ul class="subnav-tour__list">
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hà Nội</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hải Phòng</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hà Giang</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Bắc Ninh</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hạ Long</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link subnav-tour__link--text-decoration">Xem tất cả</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col l-3 subnav-tour__block">
-                                                    <h3 class="subnav-tour__text-heading">TOUR MIỀN BẮC</h3>
-                                                    <ul class="subnav-tour__list">
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hà Nội</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hải Phòng</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hà Giang</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Bắc Ninh</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hạ Long</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link subnav-tour__link--text-decoration">Xem tất cả</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col l-3 subnav-tour__block">
-                                                    <h3 class="subnav-tour__text-heading">TOUR MIỀN BẮC</h3>
-                                                    <ul class="subnav-tour__list">
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hà Nội</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hải Phòng</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hà Giang</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Bắc Ninh</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hạ Long</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link subnav-tour__link--text-decoration">Xem tất cả</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col l-3 subnav-tour__block">
-                                                    <h3 class="subnav-tour__text-heading">TOUR MIỀN BẮC</h3>
-                                                    <ul class="subnav-tour__list">
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hà Nội</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hải Phòng</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hà Giang</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Bắc Ninh</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link">Du lịch Hạ Long</a>
-                                                        </li>
-                                                        <li class="subnav-tour__item">
-                                                            <a href="./layout/listTour.html" class="subnav-tour__link subnav-tour__link--text-decoration">Xem tất cả</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                <?php
+                                                    $listLocalSide = list_Side();
+                                                    foreach($listLocalSide as $localSideItem) {
+                                                        extract($localSideItem);
+                                                        $localSideId = $ma_mien
+                                                ?>
+                                                    <div class="col l-3 subnav-tour__block">
+                                                        <h3 class="subnav-tour__text-heading"><?php echo $ten_mien ?></h3>
+                                                        <ul class="subnav-tour__list">
+                                                            <?php 
+                                                                $listLocal =  load_local_by_side($localSideId);
+                                                                foreach($listLocal as $localItem) {
+                                                                    extract($localItem);
+                                                            ?>
+                                                            <li class="subnav-tour__item">
+                                                                <a href="?call=listTour&ma_dia_diem=<?php echo $ma_diadiem ?>" class="subnav-tour__link"><?php echo $ten_diadiem ?></a>
+                                                            </li>
+                                                            <?php } ?>
+                                                            <li class="subnav-tour__item">
+                                                                <a href="?call=listTour&ma_vung_mien=<?php echo $localSideId ?>" class="subnav-tour__link subnav-tour__link--text-decoration">Xem tất cả</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                <?php
+                                                    }
+                                                ?>
+                                                
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -154,17 +90,15 @@
                                     </a>
                                     <!-- SubNav News -->
                                     <ul class="subnav-news__list">
+                                        <?php
+                                            $listCateNews = list_load_all();
+                                            foreach($listCateNews as $cateNewsItem) {
+                                                extract($cateNewsItem);
+                                        ?>
                                         <li class="subnav-news__item">
-                                            <a href="./layout/newsList.html" class="subnav-news__link">Tin tức du lịch</a>
+                                            <a href="?call=newsList&ma_loai_tin=<?php echo $ma_loai ?>" class="subnav-news__link"><?php echo $ten_loai ?></a>
                                         </li>
-
-                                        <li class="subnav-news__item">
-                                            <a href="./layout/newsList.html" class="subnav-news__link">Cẩm nang du lịch</a>
-                                        </li>
-
-                                        <li class="subnav-news__item">
-                                            <a href="./layout/newsList.html" class="subnav-news__link">Kinh nghiệm du lịch</a>
-                                        </li>
+                                        <?php } ?>
                                     </ul>
 
                                 </li>
@@ -193,40 +127,20 @@
                                 </div>
                             </form>
 
-                            <!-- <div class="header__top-login">
+                            <div class="header__top-login">
                                 <a href="?call=login" class="header__top-login--link">
                                     <i class="header__top-login--icon">
                                         <ion-icon name="contacts"></ion-icon>
                                     </i>
                                 </a>
-                            </div> -->
+                            </div>
 
-                            <div class="header__top-login">
+                            <!-- <div class="header__top-login">
                                 <div class="user__box">
                                     <img src="./upload/kakashi.jpg" alt="" class="user__img">
                                     <p class="user__name">Trần Hoàng Khôi</p>
-                                        <!-- <ul class="user_options">
-                                        <li class="user_options--item">
-                                            <a href="" class="user_options--item-link">
-                                                <i class="user_options--item-icon"><ion-icon name="settings"></ion-icon></i>
-                                                Cập nhật tài khoản
-                                            </a>
-                                        </li>
-                                        <li class="user_options--item">
-                                            <a href="" class="user_options--item-link">
-                                                <i class="user_options--item-icon"><ion-icon name="journal"></ion-icon></i>
-                                                Các tour đã đặt
-                                            </a>
-                                        </li>
-                                        <li class="user_options--item">
-                                            <a href="" class="user_options--item-link check-out">
-                                                <i class="user_options--item-icon"><ion-icon name="power"></ion-icon></i>
-                                                Đăng xuất
-                                            </a>
-                                        </li>
-                                    </ul>    -->
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -261,86 +175,30 @@
                                         <div class="sub-nav__mobile sub-nav__mobile-tour">
                                             <div class="grid">
                                                 <div class="row">
+                                                    <?php
+                                                        $listLocalSide = list_Side();
+                                                        foreach($listLocalSide as $localSideItem) {
+                                                            extract($localSideItem);
+                                                            $localSideId = $ma_mien
+                                                    ?>
                                                     <div class="col m-6">
                                                         <ul class="sub-nav__mobile-list">
-                                                            <h5 class="sub-nav__mobile-text--heading">TOUR MIỀN BẮC</h5>
+                                                            <h5 class="sub-nav__mobile-text--heading"><?php echo $ten_mien ?></h5>
+                                                            <?php
+                                                                $listLocal =  load_local_by_side($localSideId);
+                                                                foreach($listLocal as $localItem) {
+                                                                    extract($localItem);
+                                                            ?>
                                                             <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
+                                                                <a href="?call=listTour&ma_dia_diem=<?php echo $ma_diadiem ?>" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
                                                             </li>
+                                                            <?php } ?>
                                                             <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Hà Giang</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Phú Thọ</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="subnav-tour__link--text-decoration">Xem thêm</a>
+                                                                <a href="?call=listTour&ma_vung_mien=<?php echo $localSideId ?>" class="subnav-tour__link--text-decoration">Xem thêm</a>
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    <div class="col m-6">
-                                                        <ul class="sub-nav__mobile-list">
-                                                            <h5 class="sub-nav__mobile-text--heading">TOUR MIỀN BẮC</h5>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Hà Giang</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Phú Thọ</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="subnav-tour__link--text-decoration">Xem thêm</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col m-6">
-                                                        <ul class="sub-nav__mobile-list">
-                                                            <h5 class="sub-nav__mobile-text--heading">TOUR MIỀN BẮC</h5>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Hà Giang</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Phú Thọ</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="subnav-tour__link--text-decoration">Xem thêm</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col m-6">
-                                                        <ul class="sub-nav__mobile-list">
-                                                            <h5 class="sub-nav__mobile-text--heading">TOUR MIỀN BẮC</h5>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Bắc Ninh</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Hà Giang</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="sub-nav__mobile-link">Du lịch Phú Thọ</a>
-                                                            </li>
-                                                            <li class="sub-nav__mobile-item">
-                                                                <a href="./layout/listTour.html" class="subnav-tour__link--text-decoration">Xem thêm</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                    <?php } ?>
 
                                                 </div>
                                             </div>
@@ -359,24 +217,24 @@
                                         <input type="checkbox" name="" hidden id="checkSubNav-news" class="sub-nav__mobile-checkbox-news">
                                         <div class="sub-nav__mobile sub-nav__mobile-news">
                                             <ul class="sub-nav__mobile-list">
+                                            <?php
+                                                $listCateNews = list_load_all();
+                                                foreach($listCateNews as $cateNewsItem) {
+                                                    extract($cateNewsItem);
+                                            ?>
                                                 <li class="sub-nav__mobile-item">
-                                                    <a href="./layout/newsList.html" class="sub-nav__mobile-link">Tin tức du lịch</a>
+                                                    <a href="?call=newsList&ma_loai_tin=<?php echo $ma_loai ?>" class="sub-nav__mobile-link"><?php echo $ten_loai ?></a>
                                                 </li>
-                                                <li class="sub-nav__mobile-item">
-                                                    <a href="./layout/newsList.html" class="sub-nav__mobile-link">Cẩm nang du lịch</a>
-                                                </li>
-                                                <li class="sub-nav__mobile-item">
-                                                    <a href="./layout/newsList.html" class="sub-nav__mobile-link">Kinh nghiệm du lịch</a>
-                                                </li>
+                                            <?php } ?>
                                             </ul>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="header__top-mobile--item">
-                                    <a href="./layout/introduce.html" class="header__top-mobile--link">Giới thiệu</a>
+                                    <a href="?call=intro" class="header__top-mobile--link">Giới thiệu</a>
                                 </li>
                                 <li class="header__top-mobile--item">
-                                    <a href="./layout/hotLine.html" class="header__top-mobile--link">Liên Hệ</a>
+                                    <a href="?call=hotline" class="header__top-mobile--link">Liên Hệ</a>
                                 </li>
                             </ul>
                         </nav>
