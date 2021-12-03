@@ -15,7 +15,7 @@
                 <li class="sub__nav-item">
                     <a href="?ql=tourItem&listtour" class="sub__nav-item--link 
                     <?php
-                            if(isset($_GET['listCate'])) {
+                            if(isset($_GET['listtour'])) {
                                 echo 'active';
                             }
                     ?>

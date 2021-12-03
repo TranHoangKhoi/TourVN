@@ -234,8 +234,79 @@ include $model_path.'/tourdulich.php';
             // Tour Item
         case 'tourItem':
             if (isset($_GET['listtour'])) {
+                // Delete Tour
+                if(isset($_GET['deteletour'])) {
+                    if(isset($_GET['ma_tour'])) {
+                        delete_info_tour($_GET['ma_tour']);
+                        delete_img_tour($_GET['ma_tour']);
+                        delete_journeys($_GET['ma_tour']);
+                    }
+                }
+
+                // Panigation
+                $itemNum = 10;
+                $starItem = 0;
+                if(isset($_GET['page'])) {
+                    $starItem = ($_GET['page'] - 1) * $itemNum;
+                }
+                $countList = load_all_tour_trip();
+                $pageNum = pagination($itemNum, $countList);
+
+                $list_tour = load_all_tour_trip($starItem, $itemNum, 0, '');
+
                 include './tourdulich/list.php';
             } elseif (isset($_GET['updatetour'])) {
+                if(isset($_GET['ma_tour'])) {
+                    if(isset($_POST['updateTourbtn'])) {
+                        // Update tour info
+                        $tourNameUD = $_POST['tourNameUD'];
+                        $localCategoryUD = $_POST['localCategoryUD'];
+                        $dateNumUD = $_POST['dateNumUD'];
+                        $tourDateStartUD = $_POST['tourDateStartUD'];
+                        $tourTimeStartUD = $_POST['tourTimeStartUD'];
+                        $localFocusUD = $_POST['localFocusUD'];
+                        $tourPriceAdultUD = $_POST['tourPriceAdultUD'];
+                        $tourPriceKidUD = $_POST['tourPriceKidUD'];
+                        $tourNumpplUD = $_POST['tourNumpplUD'];
+                        $tourSalesUD = $_POST['tourSalesUD'];
+
+                        update_tour_info($localCategoryUD, $tourNameUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD , $_GET['ma_tour']);
+
+                        // Update IMG
+                        $hinh_anh = $_FILES['tourImageUD'];
+                        for($i = 0; $i < 9; $i++) {
+                            if(empty($hinh_anh['name'][$i]) != 1) {
+                                $idImg = $_POST['idImg'];
+                                $target_dir = "../upload/"; //lấy từ thư mục upload
+                                $target_file = $target_dir . basename($hinh_anh['name'][$i]);
+                                move_uploaded_file($hinh_anh['tmp_name'][$i], $target_file);
+                                
+                                update_img_tour($idImg[$i], $hinh_anh['name'][$i]);
+                            }
+                        }
+
+                        // Update Journeys
+                        $journeyID = $_POST['journeyID'];
+                        $localTourSelectUD = $_POST['localTourSelectUD'];
+                        $localTourNameUD = $_POST['localTourNameUD'];
+                        $localDateinUD = $_POST['localDateinUD'];
+                        $localTourMainUD = $_POST['localTourMainUD'];
+
+                        $temp = 0;
+                        foreach($journeyID as $item) {
+                            // echo $temp;
+                            if((empty($localTourSelectUD[$temp]) != 1) && (empty($localTourNameUD[$temp]) != 1) && (empty($localDateinUD[$temp]) != 1) && (empty($localTourMainUD[$temp]) != 1)) {
+                                update_tour_journeys($localTourSelectUD[$temp], $localTourNameUD[$temp], $localDateinUD[$temp], $localTourMainUD[$temp], $journeyID[$temp]);
+                                echo $temp;
+                            }
+                            $temp++;
+                        }
+                    }
+                    $tourInfo = get_tour_info($_GET['ma_tour']);
+                    $tourImg = get_img_tour($_GET['ma_tour']);
+                    $tourJourneys = get_journeys($_GET['ma_tour']);
+
+                }
                 include './tourdulich/update.php';
             } elseif (isset($_GET['add'])) {
                 if(isset($_POST['addTour'])) {
@@ -245,14 +316,14 @@ include $model_path.'/tourdulich.php';
                     $dateNum = $_POST['dateNum'];
                     $tourDateStart = $_POST['tourDateStart'];
                     $tourTimeStart = $_POST['tourTimeStart'];
-                    $tourDateEnd = $_POST['tourDateEnd'];
+                    // $tourDateEnd = $_POST['tourDateEnd'];
                     $localFocus = $_POST['localFocus'];
                     $tourPriceAdult = $_POST['tourPriceAdult'];
                     $tourPriceKid = $_POST['tourPriceKid'];
                     $tourNumppl = $_POST['tourNumppl'];
                     $tourSales = $_POST['tourSales'];
 
-                    $matour = add_info_tour($localCategory, $tourName, $dateNum, $tourDateStart, $tourTimeStart, $tourDateEnd, $tourPriceKid, $tourPriceAdult, $tourNumppl, $localFocus, $tourSales);
+                    $matour = add_info_tour($localCategory, $tourName, $dateNum, $tourDateStart, $tourTimeStart, $tourPriceKid, $tourPriceAdult, $tourNumppl, $localFocus, $tourSales);
                     // Upload IMG
                     if(isset($_FILES['tourImg1'])) {
                         $hinh_anh = $_FILES['tourImg1']['name'];

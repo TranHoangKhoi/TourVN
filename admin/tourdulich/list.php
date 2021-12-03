@@ -11,16 +11,19 @@
                     <div class="table__control">
                         <form action="" class="table__control-group">
                             <div class="filter__category">
-                                <select name="" id="" class="filter__category-select">
+                                <select name="selectTourCate" id="" class="filter__category-select">
                                     <option value="">Lọc theo loại tour</option>
-                                    <option value="">Tour hành trình xanh</option>
-                                    <option value="">Tour hành xe tự lái</option>
-                                    <option value="">Tour hành văn hóa Việt Nam</option>
+                                    <?php $tourcateList = load_all_tour(); 
+                                        foreach($tourcateList as $tourcateItem) {
+                                            extract($tourcateItem);
+                                    ?>
+                                    <option value="<?php echo $ma_loai ?>"><?php echo $ten_loai ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <span>Hoặc tìm theo</span>
                             <div class="filter__id-tour">
-                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập mã tour...">
+                                <input type="text" name="tourID" class="filter__id-tour--input" placeholder="Nhập mã tour...">
                             </div>
                             
                             <button class="btn filter__tour--btn">Tìm</button>
@@ -37,9 +40,7 @@
                                 <th class="tbl-1">Số lượng ngày</th>
                                 <th class="tbl-1">Ngày khởi hành</th>
                                 <th class="tbl-1">Giờ khởi hành</th>
-                                <th class="tbl-1">Ngày về</th>
                                 <th class="tbl-1">Nơi tập trung</th>
-                                <th class="tbl-1">Điểm đến</th>
                                 <th class="tbl-1">Giá trẻ em</th>
                                 <th class="tbl-1">Giá người lớn</th>
                                 <th class="tbl-1">Khuyến mãi</th>
@@ -49,123 +50,76 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php 
+                                foreach($list_tour as $tourItem){
+                                    extract($tourItem);
+                                    $tourCateOne = load_one_tour($ma_loai);
+                                    extract($tourCateOne);
+                            ?>
                             <tr>
-                                <td>1</td>
-                                <td>12</td>
-                                <td class="text-left">Tour Cần Thơ 4 ngày</td>
-                                <td>Tour Biển đảo</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
+                                <td><?php echo ++$starItem ?></td>
+                                <td><?php echo $ma_tour ?></td>
+                                <td>
+                                    <div class="tbl__desc-box text-left">
+                                        <?php echo $tieu_de ?>
+                                    </div>
+                                </td>
+                                <td><?php echo $ten_loai ?></td>
+                                <td><?php echo $goi_ngay ?></td>
+                                <td><?php echo $ngay_khoihanh ?></td>
+                                <td><?php echo $gio_khoihanh ?></td>
+                                <td><?php echo $noi_tap_trung ?></td>
+                                <td><?php echo number_format($gia_treem) ?>đ</td>
+                                <td><?php echo number_format($gia_nguoilon) ?>đ</td>
+                                <td><?php echo number_format($khuyen_mai)?>%</td>
                                 <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
                                 <td>
-                                    <a href="?ql=tourItem&updatetour" class="btn btn__tbl">Sửa</a>
+                                    <a href="?ql=tourItem&updatetour&ma_tour=<?php echo $ma_tour ?>" class="btn btn__tbl">Sửa</a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
+                                    <a href="?ql=tourItem&listtour&deteletour&ma_tour=<?php echo $ma_tour ?>" class="btn btn__tbl">Xóa</a>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>13</td>
-                                <td class="text-left">Tour TP Hồ Chí Minh 4 ngày</td>
-                                <td>Tour văn hóa Việt Nam</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="?ql=tourItem&updatetour" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>14</td>
-                                <td class="text-left">Tour Cần Giờ 4 ngày</td>
-                                <td>Tour thanh lọc cơ thể</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="?ql=tourItem&updatetour" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>18</td>
-                                <td class="text-left">Tour Hội An 4 ngày</td>
-                                <td>Tour thanh lọc cơ thể</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="?ql=tourItem&updatetour" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>20</td>
-                                <td class="text-left">Tour Vũng Tàu 4 ngày</td>
-                                <td>Tour Biển đảo</td>
-                                <td>3 Ngày 2 đêm</td>
-                                <td>21/11/2021</td>
-                                <td>08:00</td>
-                                <td>27/11/2021</td>
-                                <td>Cần Thơ</td>
-                                <td>4</td>
-                                <td>4,790,000đ</td>
-                                <td>3,590,000đ</td>
-                                <td>7%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
-                                <td>
-                                    <a href="?ql=tourItem&updatetour" class="btn btn__tbl">Sửa</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn__tbl">Xóa</a>
-                                </td>
-                            </tr>
+                            <?php } ?>
                             
                         </tbody>
                     </table>
+                </div>
+
+                <div class="pagination__block">
+                    <div class="pagination__list">
+                        <?php 
+                            $page = 1;
+                            if(isset($_GET['page'])) {
+                                $page = $_GET['page'];
+                            }
+                            if($page > 1) { 
+                        ?>
+                        <div class="pagination__prev">
+                            <a href="index.php?ql=newsPage&listnewsPage&page=<?php echo $page - 1 ?>" class="pagination__item pagination__prev-item">
+                                <i class="pagination__prev-icon"><ion-icon name="rewind"></ion-icon></i>
+                            </a>
+                        </div>
+                        <?php } ?>
+        
+                        <div class="pagination__num">
+                            <?php for($i = 1; $i <= $pageNum; $i++) { ?>
+                                <?php if($page == $i) { ?>
+                                <a href="index.php?ql=newsPage&listnewsPage&page=<?php echo $i ?>" class="pagination__item active pagination__num-item"><?php echo $i ?></a>
+                            <?php } else { ?>
+                                <a href="index.php?ql=newsPage&listnewsPage&page=<?php echo $i ?>" class="pagination__item pagination__num-item"><?php echo $i ?></a>
+                            <?php } 
+                                } ?>
+                        </div>
+                        
+                        <?php if($page < $pageNum) { ?>
+                        <div class="pagination__next">
+                            <a href="index.php?ql=newsPage&listnewsPage&page=<?php echo $page + 1 ?>" class="pagination__item pagination__next-item">
+                                <i class="pagination__next-icon"><ion-icon name="fastforward"></ion-icon></i>
+                            </a>
+                        </div>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
 

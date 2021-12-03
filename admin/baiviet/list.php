@@ -121,7 +121,7 @@
                         </div>
                         <?php } ?>
                     </div>
-            </div>
+                </div>
             </div>
         </div>
     </main>

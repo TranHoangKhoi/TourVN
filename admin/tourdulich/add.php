@@ -52,16 +52,8 @@
 
                         <div class="form-group">
                             <div class="form-field">
-                                <label for="tourDateEnd" class="form-label">Ngày trở về</label>
-                                <input type="date" id="tourDateEnd" name="tourDateEnd" class="input-control" placeholder="VD: Combo TripU 3N2Đ Khách sạn căn hộ Vinpearl Beachfront Nha Trang">
-                            </div>
-                            <span class="test-masage"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="form-field">
                                 <label for="tourTimeStart" class="form-label">Giờ khởi hành</label>
-                                <input type="time" id="tourTimeStart" name="tourTimeStart" class="input-control" placeholder="VD: Combo TripU 3N2Đ Khách sạn căn hộ Vinpearl Beachfront Nha Trang">
+                                <input type="time" id="tourTimeStart" name="tourTimeStart" class="input-control">
                             </div>
                             <span class="test-masage"></span>
                         </div>

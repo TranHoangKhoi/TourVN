@@ -9,6 +9,11 @@ function load_all_local() {
     return pdo_query($sql);
 }
 
+function load_local_by_side($ma_mien) {
+    $sql = "SELECT * FROM dia_diem WHERE ma_mien = $ma_mien ORDER By ma_diadiem DESC LIMIT 0,5";
+    return pdo_query($sql);
+}
+
 function load_one_local($ma_diadiem) {
     $sql = "SELECT * FROM dia_diem WHERE ma_diadiem = $ma_diadiem";
     return pdo_query_one($sql);
