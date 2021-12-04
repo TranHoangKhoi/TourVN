@@ -54,13 +54,43 @@
         return pdo_query_one($sql);
     }
 
+    function get_tour_info_by_side_count($ma_mien) {
+        $sql = "SELECT * FROM tour_du_lich WHERE ma_mien  = $ma_mien ";
+        return pdo_query($sql);
+    }
+
+    function get_tour_info_by_side($ma_mien, $startItem, $showItem) {
+        $sql = "SELECT * FROM tour_du_lich WHERE ma_mien  = $ma_mien LIMIT $startItem,$showItem";
+        return pdo_query($sql);
+    }
+
+    function get_tour_info_by_cate_count($loai_tour) {
+        $sql = "SELECT * FROM tour_du_lich WHERE loai_tour = $loai_tour";
+        return pdo_query($sql);
+    }
+
+    function get_tour_info_by_cate($loai_tour , $startItem, $showItem) {
+        $sql = "SELECT * FROM tour_du_lich WHERE loai_tour   = $loai_tour  LIMIT $startItem,$showItem";
+        return pdo_query($sql);
+    }
+
     function get_img_tour($ma_tour) {
         $sql = "SELECT * FROM hinh_anh_tour WHERE ma_tour = $ma_tour";
         return pdo_query($sql);
     }
 
     function get_journeys($ma_tour) {
-        $sql = "SELECT * FROM hanh_trinh WHERE ma_tour = $ma_tour";
+        $sql = "SELECT * FROM hanh_trinh WHERE ma_tour = $ma_tour ORDER BY ngay_di ASC";
+        return pdo_query($sql);
+    }
+
+    function get_journeys_by_local_count($ma_dia_diem) {
+        $sql = "SELECT * FROM hanh_trinh WHERE ma_dia_diem = $ma_dia_diem";
+        return pdo_query($sql);
+    }
+
+    function get_journeys_by_local($ma_dia_diem, $startItem, $showItem) {
+        $sql = "SELECT * FROM hanh_trinh WHERE ma_dia_diem = $ma_dia_diem LIMIT $startItem,$showItem";
         return pdo_query($sql);
     }
 
@@ -77,5 +107,10 @@
     function update_tour_info($loai_tour, $tieu_de, $goi_ngay, $ngay_khoihanh, $gio_khoihanh, $gia_treem, $gia_nguoilon, $soluong, $noi_tap_trung, $khuyen_mai , $ma_tour) {
         $sql = "UPDATE tour_du_lich SET loai_tour= '$loai_tour', tieu_de = '$tieu_de', goi_ngay = '$goi_ngay', ngay_khoihanh = '$ngay_khoihanh', gio_khoihanh = '$gio_khoihanh', gia_treem = '$gia_treem', gia_nguoilon = '$gia_nguoilon', soluong = '$soluong', noi_tap_trung = '$noi_tap_trung', khuyen_mai= '$khuyen_mai'  WHERE ma_tour   = $ma_tour ";
         pdo_execute($sql);
+    }
+
+    function load_tour_speacial() {
+        $sql = "SELECT * FROM tour_du_lich WHERE 1 ORDER BY khuyen_mai DESC LIMIT 0,5";
+        return pdo_query($sql);
     }
 ?>

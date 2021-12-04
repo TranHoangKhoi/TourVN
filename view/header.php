@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://pagecdn.io/lib/normalize/8.0.1/normalize.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="shortcut icon" href="./Content/IMG/BG/logo.png">
     <link rel="stylesheet" href="./Content/CSS/grid.css">
     <link rel="stylesheet" href="./Content/CSS/base.css">

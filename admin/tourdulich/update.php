@@ -150,11 +150,13 @@
                             $stt = 1;
                             foreach($tourJourneys as $journeyItem){ 
                                 extract($journeyItem);
+                                $date = $stt++;
+
                         ?>
                         <!-- Ngày 1 -->
                         <div class="form-group">
                             <div class="form-field">
-                                <label for="localTour" class="form-label">Ngày <?php echo $stt++ ?></label>
+                                <label for="localTour" class="form-label">Ngày <?php echo $date ?></label>
                                 
                                 <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
                                 <select name="localTourSelectUD[]" id="localTourSelect" class="input-control-select">
@@ -171,14 +173,14 @@
                                     <?php } }?>
                                 </select>
                                 <div class="line"></div>
-                                <label for="localTourName" class="form-sub-label">Tiêu đề ngày <?php echo $stt + 1 ?></label>
+                                <label for="localTourName" class="form-sub-label">Tiêu đề ngày <?php echo $date ?></label>
                                 <textarea name="localTourNameUD[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 1 sẽ đi đâu"><?php echo $tieu_de ?></textarea>
                                 <div class="line"></div>
                                 <label for="localDateinUD" class="form-sub-label">Ngày đến</label>
                                 <input type="date"  id="localDateinUD" name="localDateinUD[]" value="<?php echo $ngay_di ?>" class="input-control">
                                 <div class="line"></div>
                                 <label for="localTourMainUD" class="form-sub-label">Mô tả hành trình</label>
-                                <textarea id="content<?php echo $stt +1 ?>" name="localTourMainUD[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"><?php echo $noi_dung ?></textarea>
+                                <textarea id="content<?php echo $date ?>" name="localTourMainUD[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"><?php echo $noi_dung ?></textarea>
                                 <input type="hidden" name="journeyID[]" value="<?php echo $ma_hanh_trinh  ?>">
                             </div>
                             <span class="test-masage"></span>

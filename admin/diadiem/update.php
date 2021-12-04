@@ -70,6 +70,22 @@
                             </div>
                             <span class="test-masage"></span>
                         </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="localCheckFavarite" class="form-label">Đặc biệt</label>
+                                <div class="check-box--group">
+                                    <div class="check-box--item">
+                                        
+                                        <input type="radio" <?php if($dac_biet == 0) echo 'checked' ?> name="localCheckFavariteUD" id="" value="0"> Địa điểm thường
+                                    </div>
+                                    <div class="check-box--item">
+                                        <input type="radio" <?php if($dac_biet == 1) echo 'checked' ?> name="localCheckFavariteUD" id="" value="1"> Địa điểm yêu thích
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
                     
                         <div class="form-group">
                             <button name="updateLocal" class="btn btn-form">Thêm</button>

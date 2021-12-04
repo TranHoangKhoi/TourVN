@@ -1,3 +1,8 @@
+<?php 
+    if(is_array($tourDetail)) {
+        extract($tourDetail);
+    }
+?>
 <!-- Tour Details -->
 <main>
             <div class="tour__details content__block">
@@ -9,12 +14,12 @@
                                 <div class="tour__details-code">
                                     <p class="tour__details-code-item">
                                         <i class="tour__details-code-icon"><ion-icon name="paper"></ion-icon></i>
-                                        NDSGN687-104-201121VJ-D-F
+                                        <?php echo $ma_tour ?>
                                     </p>
                                 </div>
 
                                 <div class="tour__details-local">
-                                    <h1 class="tour__details-local--name">Quy Nhơn - Eo Gió - Kỳ Co (Tour Hành trình xanh)</h1>
+                                    <h1 class="tour__details-local--name"><?php echo $tieu_de ?></h1>
                                 </div>
                             </div>
                         </div>
@@ -22,11 +27,11 @@
                         <div class="col l-4">
                             <div class="tour__details-btn">
                                 <div class="tour__details-btn--price">
-                                    <p class="tour__details-btn--price-item"><span>4,890,000đ</span>/Khách</p>
+                                    <p class="tour__details-btn--price-item"><span><?php echo number_format($gia_nguoilon) ?>đ</span>/Khách</p>
                                 </div>
 
                                 <div class="tour__details-btn--block">
-                                    <a href="./bookTicket.html" class="btn tour__details-btn--item">
+                                    <a href="index.php?call=bookTicket&ma_tour=<?php echo $ma_tour ?>" class="btn tour__details-btn--item">
                                         <i class="tour__details-btn--icon"><ion-icon name="cart"></ion-icon></i>
                                         Đặt ngay
                                     </a>
@@ -35,11 +40,15 @@
                         </div>
                     </div>
 
+                    <?php 
+                        $listImgTour = get_img_tour($ma_tour);
+                    ?>
+
                     <!-- Tour Details Imgae -->
                     <div class="row sm-gutter tour__detail-imgage--block">
                         <div class="col l-7 w-h-100">
                             <div class="tour__detail-image--big tour__detail-image--box">
-                                <img src="../Content/IMG/Tour/danang.jpg" alt="" class="tour__detail-image--big-img tour__detail-image--all">
+                                <img src="<?php echo $upload_path.$listImgTour[0]['ten_hinh'] ?>" alt="" class="tour__detail-image--big-img tour__detail-image--all">
                             </div>
                         </div>
                         <div class="col l-5 w-h-100">
@@ -49,14 +58,15 @@
                                         <div class="grid">
                                             <div class="row sm-gutter">
                                                 <div class="col l-6">
+                                                    
                                                     <div class="tour__detail-image--sml tour__detail-image--box">
-                                                        <img src="../Content/IMG/Tour/dalat.jpg" alt="" class="tour__detail-image--sml-img tour__detail-image--all">
+                                                        <img src="<?php echo $upload_path.$listImgTour[1]['ten_hinh'] ?>" alt="" class="tour__detail-image--sml-img tour__detail-image--all">
                                                     </div>
                                                 </div>
         
                                                 <div class="col l-6">
                                                     <div class="tour__detail-image--sml tour__detail-image--box">
-                                                        <img src="../Content/IMG/Tour/hanoi.jpg" alt="" class="tour__detail-image--sml-img tour__detail-image--all">
+                                                        <img src="<?php echo $upload_path.$listImgTour[2]['ten_hinh'] ?>" alt="" class="tour__detail-image--sml-img tour__detail-image--all">
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,7 +74,7 @@
                                     </div>
                                     <div class="col l-12">
                                         <div class="tour__detail-image--md tour__detail-image--box">
-                                            <img src="../Content/IMG/Tour/ninhthuan.jpg" alt="" class="tour__detail-image--md-img tour__detail-image--all">
+                                            <img src="<?php echo $upload_path.$listImgTour[3]['ten_hinh'] ?>" alt="" class="tour__detail-image--md-img tour__detail-image--all">
                                         </div>
                                     </div>
                                 </div>
@@ -78,22 +88,19 @@
                             <div class="tour__desc-tour">
                                 <div class="tour__desc--tour-local">
                                     <p class="tour__desc--tour-local--text">
-                                        Khám phá biển xanh miền duyên hải Quy Nhơn với các điểm nổi bật: Khu du lịch Hầm Hô: Lâm viên hoang dã với dòng suối mát yên bình và nên thơ, 
-                                        đoàn khám phá cảnh non nước hữu tình… Đảo Kỳ Co - với màu nước trong xanh, bãi cát dài trắng mịn và những cơn sóng biển êm ái Eo Gió: Nơi vẫn 
-                                        còn giữ được cho mình vẻ đẹp tự nhiên đầy hoang sơ. Đứng từ trên cao nhìn xuống, Eo Gió như một bức tranh sơn thủy hữu tình với trời, mây, 
-                                        nước… biển núi ôm nhau vừa gợi cảm, vừa hoang sơ đầy quyến rũ.
+                                        <?php echo $gioi_thieu ?>
                                     </p>
                                 </div>
 
                                 <div class="tour__desc--tour-item">
                                     <p class="tour__desc--tour-item-date">
-                                        Khởi hành: <span>24/11/2021</span>
+                                        Khởi hành: <span><?php echo $ngay_khoihanh ?></span>
                                     </p>
                                     <p class="tour__desc--tour-item-time">
-                                        Thời gian: <span>3 Ngày</span>
+                                        Thời gian: <span style="text-transform: capitalize"><?php echo $goi_ngay ?></span>
                                     </p>
                                     <p class="tour__desc--tour-item-local">
-                                        Nơi khởi hành: <span>TP CẦN THƠ</span>
+                                        Nơi khởi hành: <span style="text-transform: capitalize"><?php echo $noi_tap_trung ?></span>
                                     </p>
                                 </div>
                             </div>
@@ -111,19 +118,19 @@
                                 </div>
                                 <ul class="tour__details-beaty--list">
                                     <li class="tour__details-beaty--item">
-                                        <img src="../Content/IMG/Tour/sapa.jpg" alt="" class="tour__details-beaty--img">
+                                        <img src="<?php echo $upload_path.$listImgTour[4]['ten_hinh'] ?>" alt="" class="tour__details-beaty--img">
                                     </li>
                                     <li class="tour__details-beaty--item">
-                                        <img src="../Content/IMG/Tour/baclieu.jpg" alt="" class="tour__details-beaty--img">
+                                        <img src="<?php echo $upload_path.$listImgTour[5]['ten_hinh'] ?>" alt="" class="tour__details-beaty--img">
                                     </li>
                                     <li class="tour__details-beaty--item">
-                                        <img src="../Content/IMG/Tour/dalat.jpg" alt="" class="tour__details-beaty--img">
+                                        <img src="<?php echo $upload_path.$listImgTour[6]['ten_hinh'] ?>" alt="" class="tour__details-beaty--img">
                                     </li>
                                     <li class="tour__details-beaty--item">
-                                        <img src="../Content/IMG/Tour/danang.jpg" alt="" class="tour__details-beaty--img">
+                                        <img src="<?php echo $upload_path.$listImgTour[7]['ten_hinh'] ?>" alt="" class="tour__details-beaty--img">
                                     </li>
                                     <li class="tour__details-beaty--item">
-                                        <img src="../Content/IMG/Tour/honson.jpg" alt="" class="tour__details-beaty--img">
+                                        <img src="<?php echo $upload_path.$listImgTour[8]['ten_hinh'] ?>" alt="" class="tour__details-beaty--img">
                                     </li>
                                 </ul>
                             </div>
@@ -142,18 +149,24 @@
 
                         <!-- Tour Schedule Left -->
                         <div class="col l-4">
+                            <?php 
+                                $listJourneys = get_journeys($ma_tour); 
+                                $fl = 1;
+                                foreach($listJourneys as $journeysItem) {
+                                    extract($journeysItem);
+                            ?>
                             <div class="tour__schedule-mini">
                                 <div class="tour__schedule-mini--item">
                                     <span class="tour__schedule-mini--item-date-left">Ngày</span>
-                                    <span class="tour__schedule-mini--item-date-center">1</span>
+                                    <span class="tour__schedule-mini--item-date-center"><?php echo $fl++ ?></span>
                                     <span class="tour__schedule-mini--item-date-right">
-                                        <span class="date">02/12/2021</span>
-                                        <span class="location">TP Cần Thơ - Nội Bài (Hà Nội) - Lào Cai - SAPA</span>
+                                        <span class="date"><?php echo $ngay_di ?></span>
+                                        <span class="location"><?php echo $tieu_de ?></span>
                                     </span>
                                 </div>
                             </div>
-
-                            <div class="tour__schedule-mini">
+                            <?php } ?>
+                            <!-- <div class="tour__schedule-mini">
                                 <div class="tour__schedule-mini--item">
                                     <span class="tour__schedule-mini--item-date-left">Ngày</span>
                                     <span class="tour__schedule-mini--item-date-center">2</span>
@@ -162,66 +175,30 @@
                                         <span class="location">SA PA – FANSIPAN HÙNG VĨ - LÀO CAI</span>
                                     </span>
                                 </div>
-                            </div>
-
-                            <div class="tour__schedule-mini">
-                                <div class="tour__schedule-mini--item">
-                                    <span class="tour__schedule-mini--item-date-left">Ngày</span>
-                                    <span class="tour__schedule-mini--item-date-center">3</span>
-                                    <span class="tour__schedule-mini--item-date-right">
-                                        <span class="date">04/12/2021</span>
-                                        <span class="location">LÀO CAI - HÀ NỘI (Ăn sáng, trưa, chiều)</span>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="tour__schedule-mini">
-                                <div class="tour__schedule-mini--item">
-                                    <span class="tour__schedule-mini--item-date-left">Ngày</span>
-                                    <span class="tour__schedule-mini--item-date-center">4</span>
-                                    <span class="tour__schedule-mini--item-date-right">
-                                        <span class="date">05/12/2021</span>
-                                        <span class="location">HÀ NỘI - YÊN TỬ - HẠ LONG</span>
-                                    </span>
-                                </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- Tour Schedule Right -->
                         <div class="col l-8">
                             <div class="tour__schedule-content">
-                                <div class="tour__schedule-content--item">
-                                    <h2 class="tour__schedule-content--lcoal">
-                                        Ngày 1 - TP. HỒ CHÍ MINH - NỘI BÀI (HÀ NỘI) - LÀO CAI – SAPA
-                                    </h2>
-                                    <div class="tour__schedule-content--info">
-                                        <span class="tour__schedule-content--info-line"></span>
-                                        <div class="tour__schedule-content--text">
-                                            <div class="tour__schedule-content--text-item">
-                                                Quý khách tập trung tại sân bay Tân Sơn Nhất - ga đi trong nước. Hướng dẫn viên làm thủ tục cho đoàn đáp chuyến bay đi Hà Nội.
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                Xe Vietravel đón đoàn tại sân bay Nội Bài, khởi hành đi Sa Pa theo cung đường cao tốc hiện đại và dài nhất Việt Nam. 
-                                                Trên đường dừng tham quan Đền Quốc Tổ Lạc Long Quân được tọa lạc trên đồi Sim có hình thể giống một con rùa lớn, 
-                                                hai bên có Thanh Long, Bạch Hổ, phía trước là hồ Hóc Trai và sông Hồng chảy xuôi về biển, biểu hiện sự linh thiêng, 
-                                                huyền bí với thế "sơn chầu thủy tụ" vô cùng đắc địa.
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                - Bản Cát Cát đẹp như một bức tranh giữa vùng phố cổ Sapa, nơi đây thu hút du khách bởi cầu treo, thác nước, 
-                                                guồng nước và những mảng màu hoa mê hoặc du khách khi lạc bước đến đây.
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                - Thăm những nếp nhà của người Mông, Dao, Giáy trong bản, du khách sẽ không khỏi ngỡ ngàng trước vẻ đẹp bình dị, mộc mạc. 
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                Buổi tối Quý khách dạo phố, ngắm nhà thờ Đá Sapa, tự do thưởng thức đặc sản vùng cao như: thịt lợn cấp nách nướng, 
-                                                trứng nướng, rượu táo mèo, giao lưu với người dân tộc vùng cao. Nghỉ đêm tại Sapa.
+                                <?php 
+                                    $day = 1;
+                                    foreach($listJourneys as $journeysItemB) { 
+                                        extract($journeysItemB);
+                                ?>
+                                    <div class="tour__schedule-content--item">
+                                        <h2 class="tour__schedule-content--lcoal">
+                                            Ngày <?php echo $day++ ?> - <?php echo $tieu_de ?>
+                                        </h2>
+                                        <div class="tour__schedule-content--info">
+                                            <span class="tour__schedule-content--info-line"></span>
+                                            <div class="tour__schedule-content--text">
+                                                <?php echo $noi_dung ?>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                <div class="tour__schedule-content--item">
+                                <?php } ?>
+                                <!-- <div class="tour__schedule-content--item">
                                     <h2 class="tour__schedule-content--lcoal">
                                         Ngày 2 - SA PA – FANSIPAN HÙNG VĨ - LÀO CAI
                                     </h2>
@@ -251,72 +228,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="tour__schedule-content--item">
-                                    <h2 class="tour__schedule-content--lcoal">
-                                        Ngày 3 - LÀO CAI - HÀ NỘI
-                                    </h2>
-                                    <div class="tour__schedule-content--info">
-                                        <span class="tour__schedule-content--info-line"></span>
-                                        <div class="tour__schedule-content--text">
-                                            <div class="tour__schedule-content--text-item">
-                                                Trả phòng khách sạn, quý khách tham quan.
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                - Cửa khẩu biên giới Việt - Trung “Lào Cai- Hà Khẩu”
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                - Mua sắm tại chợ Cốc Lếu - Trung tâm thương mại lớn nhất, của thành phố nói riêng và Tỉnh Lào Cai nói chung. 
-                                                Nơi đây bày bán đa dạng đủ các loại mặt hàng từ thủ công mỹ nghệ, tranh nghệ thuật phong cảnh đến quần áo…sẽ 
-                                                là một điểm mua sắm tuyệt vời với du khách.
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                Theo cung đường cao tốc trở về Hà Nội, nhận phòng nghỉ ngơi. Xe đưa Quý khách dạo quanh Hồ Hoàn Kiếm ngắm Tháp Rùa, Đền Ngọc Sơn, Cầu Thê Húc.  
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                Sau bữa ăn chiều, Quý Khách tự do khám phá Hà Nội hoặc lựa chọn chương trình thư giãn (chi phí tự túc):
-                                                Trải nghiệm massage bấm huyệt kiểu Việt Nam truyền thống tại Spa Sen Garden, ít nhất 75 phút gồm các công đoạn tắm trắng,
-                                                massage, bấm huyệt, sau đó dùng bữa nhẹ buffet mini gồm 10 món nhẹ + nước uống, chè.
-                                                Nghỉ đêm tại Hà Nội. 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tour__schedule-content--item">
-                                    <h2 class="tour__schedule-content--lcoal">
-                                        Ngày 4 - HÀ NỘI - YÊN TỬ - HẠ LONG
-                                    </h2>
-                                    <div class="tour__schedule-content--info">
-                                        <span class="tour__schedule-content--info-line"></span>
-                                        <div class="tour__schedule-content--text">
-                                            <div class="tour__schedule-content--text-item">
-                                                Sau khi ăn sáng, xe đưa Quý khách tham quan: 
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                -  Lăng Hồ Chủ Tịch – tìm hiểu về cuộc đời và sự nghiệp của vị cha già kính yêu của dân tộc (không viếng vào thứ 2, 
-                                                thứ 6 hàng tuần và giai đoạn bảo trì định kì hàng năm 15/6 – 15/8), Nhà Sàn Bác Hồ, Bảo Tàng Hồ Chí Minh, Chùa Một Cột.
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                - Văn Miếu - Nơi thờ Khổng Tử và các bậc hiền triết của Nho Giáo, Quốc Tử Giám - Trường đại học đầu tiên của Việt Nam, 
-                                                tìm về cội nguồn lịch sử của các vị Nho học.
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                Tiếp tục hành trình đi Hạ Long, trên đường đi Quý khách ghé tham quan:  
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                - Núi Yên Tử - Thắng cảnh thiên nhiên còn lưu giữ nhiều di tích lịch sử với mệnh danh “Đất tổ Phật giáo Việt Nam”. 
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                - Chùa Hoa Yên - Ngôi chùa to và đẹp, nằm trên lưng chừng núi ở độ cao 516m, thăm Tháp Tổ (chi phí cáp treo tự túc). 
-                                            </div>
-                                            <div class="tour__schedule-content--text-item">
-                                                Chiều về Hạ Long nhận phòng. Buổi tối xe đưa Quý khách ngắm cầu Bãi Cháy và thành phố Hạ Long về đêm. Nghỉ đêm tại Hạ Long.  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div> -->
 
                                 <!-- Tour Warning -->
                                 <div class="tour__schedule-content--warning">
@@ -359,11 +271,11 @@
                                         </tr>
                                         <tr>
                                             <td>Người lớn (Từ 12 tuổi trỏ lên)</td>
-                                            <td class="tour__info-price--tbl-price">10,490,000đ</td>
+                                            <td class="tour__info-price--tbl-price"><?php echo number_format($gia_nguoilon) ?> VNĐ</td>
                                         </tr>
                                         <tr>
                                             <td>Trẻ em (Dưới 12 tuổi)</td>
-                                            <td class="tour__info-price--tbl-price">7,850,000đ</td>
+                                            <td class="tour__info-price--tbl-price"><?php echo number_format($gia_treem) ?> VNĐ</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -382,15 +294,15 @@
                                 <div class="tour__info-ready--item">
                                     <span class="tour__info-ready--item-label">Ngày giờ tập trung</span>
                                     <div class="tour__info-ready--item-date">
-                                        <span class="tour__info-ready--item-date-time">08:00</span>
-                                        <span class="tour__info-ready--item-date-item">02/12/2021</span>
+                                        <span class="tour__info-ready--item-date-time"><?php echo $gio_khoihanh ?></span>
+                                        <span class="tour__info-ready--item-date-item"><?php echo $ngay_khoihanh ?></span>
                                     </div>
                                 </div>
 
                                 <div class="tour__info-ready--item">
                                     <span class="tour__info-ready--item-label">Nơi tập trung</span>
                                     <div class="tour__info-ready--local">
-                                        <span class="tour__info-ready--local-time">Bến Ninh Kiều, TP Cần Thơ</span>
+                                        <span class="tour__info-ready--local-time"><?php echo $noi_tap_trung ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -400,105 +312,47 @@
                     <!-- Maybe You Will Like -->
                     <div class="row">
                         <div class="col l-12">
-                            <div class="text__heaing-block tour__wlike-block">
-                                <h2 class="text__heaing-block--item">
-                                    Có thể bạn sẽ thích
-                                </h2>
-                            </div>
-                        </div>
-
-                        <div class="col l-3">
-                            <div class="tour__wlike-item">
-                                <a href="./listTour.html" class="tour__wlike-item--image">
-                                    <img src="../Content/IMG/Tour/vungtau.jpg" alt="" class="tour__wlike-item--img">
-                                </a>
-                                <div class="tour__wlike-item--body">
-                                    <div class="tour__wlike-item--date">
-                                        <span class="tour__wlike-item--date-item">04/11/2021</span>
-                                    </div>
-                                    <div class="tour__wlike-item--local">
-                                        <span class="tour__wlike-item--local-item">Hà Nội - Bái Bính - Tràng An - Hạ Long - Yên Tử</span>
-                                    </div>
-                                    <div class="tour__wlike-item--start">
-                                        <span class="tour__wlike-item--start-item">Nơi khởi hành: TP Hồ Chí Minh</span>
-                                    </div>
-                                    <div class="tour__wlike-item--price">
-                                        Giá vé: 
-                                        <span class="tour__wlike-item--price-item">7,120,000đ</span>
-                                    </div>
-
+                            <div class="favorite__place content__block">
+                                <div class="text-heading">
+                                    <h3>ĐIỂM ĐẾN YÊU THÍCH</h3>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="grid">
+                                    <div class="row">
+                                        <?php 
+                                            $listLocalFavarite = load_local_by_special_limit();
+                                            foreach ($listLocalFavarite as $localItem) {
+                                                extract($localItem);
+                                        ?>
+                                        <div class="col l-3 m-6 c-6">
+                                            <div class="favorite__place-item">
+                                                <div class="favorite__place-main">
+                                                    <a href="index.php?call=listTour&ma_dia_diem=<?php echo $ma_diadiem ?>" class="favorite__place-link">
+                                                        <img src="<?php echo $upload_path.$hinh_anh?>" alt="" class="favorite__place-img">
+                                                    </a>
+                                                 </div>
+                                                <div class="favorite__place-body">
+                                                    <p class="favorite__place-name"><?php echo $ten_diadiem ?></p>
+                                                    <p class="favorite__place-view">Đã có 176,120 lượt khách</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                        <?php } ?>
+                                                        <!-- <div class="col l-3 m-6 c-6">
+                                                            <div class="favorite__place-item">
+                                                                <div class="favorite__place-main">
+                                                                    <a href="./listTour.html" class="favorite__place-link">
+                                                                        <img src="../Content/IMG/Tour/danang.jpg" alt="" class="favorite__place-img">
+                                                                        
+                                                                    </a>
+                                                                </div>
+                                                                <div class="favorite__place-body">
+                                                                    <p class="favorite__place-name">Đà Nẵng</p>
+                                                                    <p class="favorite__place-view">Đã có 176,120 lượt khách</p>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
 
-                        <div class="col l-3">
-                            <div class="tour__wlike-item">
-                                <a href="./listTour.html" class="tour__wlike-item--image">
-                                    <img src="../Content/IMG/Tour/dalat.jpg" alt="" class="tour__wlike-item--img">
-                                </a>
-                                <div class="tour__wlike-item--body">
-                                    <div class="tour__wlike-item--date">
-                                        <span class="tour__wlike-item--date-item">04/11/2021</span>
                                     </div>
-                                    <div class="tour__wlike-item--local">
-                                        <span class="tour__wlike-item--local-item">Hà Nội - Bái Bính - Tràng An - Hạ Long - Yên Tử</span>
-                                    </div>
-                                    <div class="tour__wlike-item--start">
-                                        <span class="tour__wlike-item--start-item">Nơi khởi hành: TP Hồ Chí Minh</span>
-                                    </div>
-                                    <div class="tour__wlike-item--price">
-                                        Giá vé: 
-                                        <span class="tour__wlike-item--price-item">7,120,000đ</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col l-3">
-                            <div class="tour__wlike-item">
-                                <a href="./listTour.html" class="tour__wlike-item--image">
-                                    <img src="../Content/IMG/Tour/condao.jpg" alt="" class="tour__wlike-item--img">
-                                </a>
-                                <div class="tour__wlike-item--body">
-                                    <div class="tour__wlike-item--date">
-                                        <span class="tour__wlike-item--date-item">04/11/2021</span>
-                                    </div>
-                                    <div class="tour__wlike-item--local">
-                                        <span class="tour__wlike-item--local-item">Hà Nội - Bái Bính - Tràng An - Hạ Long - Yên Tử</span>
-                                    </div>
-                                    <div class="tour__wlike-item--start">
-                                        <span class="tour__wlike-item--start-item">Nơi khởi hành: TP Hồ Chí Minh</span>
-                                    </div>
-                                    <div class="tour__wlike-item--price">
-                                        Giá vé: 
-                                        <span class="tour__wlike-item--price-item">7,120,000đ</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col l-3">
-                            <div class="tour__wlike-item">
-                                <a href="./listTour.html" class="tour__wlike-item--image">
-                                    <img src="../Content/IMG/Tour/sapa.jpg" alt="" class="tour__wlike-item--img">
-                                </a>
-                                <div class="tour__wlike-item--body">
-                                    <div class="tour__wlike-item--date">
-                                        <span class="tour__wlike-item--date-item">04/11/2021</span>
-                                    </div>
-                                    <div class="tour__wlike-item--local">
-                                        <span class="tour__wlike-item--local-item">Hà Nội - Bái Bính - Tràng An - Hạ Long - Yên Tử</span>
-                                    </div>
-                                    <div class="tour__wlike-item--start">
-                                        <span class="tour__wlike-item--start-item">Nơi khởi hành: TP Hồ Chí Minh</span>
-                                    </div>
-                                    <div class="tour__wlike-item--price">
-                                        Giá vé: 
-                                        <span class="tour__wlike-item--price-item">7,120,000đ</span>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>

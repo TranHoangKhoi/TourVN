@@ -105,6 +105,44 @@ function bookTicket() {
         var changeKidNum = changeKid.querySelector('.js__num-btn--kids');
         var changeKidPlus = changeKid.querySelector('.js__add-btn--kids');
 
+        // toltal
+        var numAdultToltal = document.querySelector('#JS-num_adult');
+        var numKidToltal = document.querySelector('#JS-num_kid');
+        toltalMoney();
+
+        function toltalMoney() {
+            var numAdultToltalValue = Number(numAdultToltal.innerText);
+            var priceAdultTick = document.querySelector('#JS-money_adult');
+            var priceAdultTickValue = Number(priceAdultTick.value);
+            var numKidToltalValue = Number(numKidToltal.innerText);
+            var priceKidTick = document.querySelector('#JS-money_kid');
+            var priceKidTickValue = Number(priceKidTick.value);
+            var toltalMoneyBox = document.querySelector('#JS-Total-Money-All');
+            var toltalMoneyBoxSub = document.querySelector('.toltalMoneyBox');
+            var priceAdultTickBox = document.querySelector('.JS-money_adult-box');
+            var priceKidTickBox = document.querySelector('.JS-money_kid-box');
+
+            var toltalMoneyAdult = numAdultToltalValue * priceAdultTickValue;
+            var toltalMoneyKid = numKidToltalValue * priceKidTickValue;
+            var toltalMoneyAll = toltalMoneyAdult + toltalMoneyKid;
+            var toltalMoneyAllValue = toltalMoneyAll.toLocaleString('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND'
+                })
+
+                toltalMoneyBox.innerHTML = toltalMoneyAllValue;
+                toltalMoneyBoxSub.value = toltalMoneyAll;
+                priceAdultTickBox.innerHTML = priceAdultTickValue.toLocaleString('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND'
+                });
+                priceKidTickBox.innerHTML = priceKidTickValue.toLocaleString('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND'
+                });
+
+        }
+
 
         var customerAdultsBox = document.querySelector('#JSCustomerAdultsBox');
         var customerKidsBox = document.querySelector('#JSCustomerKidsBox');
@@ -127,6 +165,8 @@ function bookTicket() {
                 var formAdultActive = document.querySelectorAll('.js__form-adults')[formAdultActiveNum];
 
                     customerAdultsBox.removeChild(formAdultActive);
+                    numAdultToltal.innerText = numAdult - 1;
+                    toltalMoney();
             }
         }
 
@@ -199,6 +239,9 @@ function bookTicket() {
                     `;
 
                     customerAdultsBox.appendChild(formAdult);
+                    numAdultToltal.innerText = numAdult + 1;
+                    toltalMoney();
+                    
                 }
             }
         }
@@ -216,8 +259,9 @@ function bookTicket() {
                 var formKidActiveNum = (document.querySelectorAll('.js__form-kid').length) - 1;
                 var formKidActive = document.querySelectorAll('.js__form-kid')[formKidActiveNum];
 
-                console.log(numKid);
                 customerKidsBox.removeChild(formKidActive);
+                numKidToltal.innerHTML = numKid - 1;
+                toltalMoney();
                 if(numKid == 1 ){
                     var kidTitle = document.querySelector('.js__form-kid--title');
                     customerKidsBox.removeChild(kidTitle);
@@ -229,7 +273,6 @@ function bookTicket() {
             var numKid = Number(changeKidNum.innerText);
             var numAdult = Number(changeAdultNum.innerText);
             var numAll = numKid + numAdult;
-            console.log(numKid)
 
             if(numAll < slotTourNum) {
                 changeKidNum.innerText = numKid + 1;
@@ -265,6 +308,8 @@ function bookTicket() {
                                                         </div>
                     `;
                     customerKidsBox.appendChild(formKid);
+                    numKidToltal.innerHTML = numKid + 1;
+                    toltalMoney();
                 }
             }
         }

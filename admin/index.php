@@ -488,6 +488,7 @@ include $model_path.'/tourdulich.php';
                         $ma_mien = $_POST['localSideUD'];
                         $ma_tinh = $_POST['localIDUD'];
                         $mota = $_POST['localDescUD'];
+                        $dia_diem = $_POST['localCheckFavariteUD'];
                         $hinh_anh = $_FILES['localImageUD']['name'];
                         $target_dir = "../upload/"; //lấy từ thư mục upload
                         $target_file = $target_dir . basename($_FILES["localImageUD"]["name"]);
@@ -495,7 +496,7 @@ include $model_path.'/tourdulich.php';
 
                         echo $ten_diadiem, $ma_mien, $ma_tinh, $mota, $hinh_anh;
     
-                        if(!update_local($ten_diadiem, $ma_mien, $mota, $hinh_anh, $ma_tinh, $_GET['ma_diadiem'])) {
+                        if(!update_local($ten_diadiem, $ma_mien, $mota, $hinh_anh, $ma_tinh, $dia_diem, $_GET['ma_diadiem'])) {
                             $mess = 'Cập nhật thành công';
                         }
 
@@ -510,12 +511,13 @@ include $model_path.'/tourdulich.php';
                     $ma_tinh = $_POST['localID'];
                     $ma_mien = $_POST['localSide'];
                     $mota = $_POST['localDesc'];
+                    $dac_biet = $_POST['localCheckFavarite'];
                     $hinh_anh = $_FILES['localiMage']['name'];
                     $target_dir = "../upload/"; //lấy từ thư mục upload
                     $target_file = $target_dir . basename($_FILES["localiMage"]["name"]);
                     move_uploaded_file($_FILES["localiMage"]["tmp_name"], $target_file);
 
-                    if(!add_local($ma_mien, $ten_diadiem, $mota, $ma_tinh, $hinh_anh)) {
+                    if(!add_local($ma_mien, $ten_diadiem, $mota, $ma_tinh, $hinh_anh, $dac_biet)) {
                         $mess = 'Thêm mới thành công thành công';
                     }
                 }
