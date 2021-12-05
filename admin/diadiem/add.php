@@ -57,6 +57,21 @@
                             </div>
                             <span class="test-masage"></span>
                         </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="localCheckFavarite" class="form-label">Đặc biệt</label>
+                                <div class="check-box--group">
+                                    <div class="check-box--item">
+                                        <input type="radio" checked name="localCheckFavarite" id="" value="0"> Địa điểm thường
+                                    </div>
+                                    <div class="check-box--item">
+                                        <input type="radio" name="localCheckFavarite" id="" value="1"> Địa điểm yêu thích
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
                     
                         <div class="form-group">
                             <button name="addLocal" class="btn btn-form">Thêm</button>

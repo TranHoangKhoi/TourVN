@@ -129,12 +129,17 @@
         </footer>
     </div>
     <script src="./Content/JS/js.js"></script>
+    <script src="./Content/JS/ajax.js"></script>
     <script>
         checkLocal();   
         checkOutLocal();
         seLectTionHeader();
         selectForm();
         cateGorySile();
+        bookTicket();
+
+        // Ajax
+        // loadAddresses();
     </script>
     <!--Start of Tawk.to Script-->
 ><script type="text/javascript">

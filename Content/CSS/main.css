@@ -812,7 +812,7 @@ main {
 }
 
 .home__service-body {
-    padding: 12px;
+    padding: 0 12px;
 }
 
 .home__service-body--sale {
@@ -1063,6 +1063,10 @@ main {
 }
 
 /* Footer */
+footer {
+    border-top: 1px solid var(--btn-color);
+}
+
 .footer__top {
     margin: 16px 0 32px 0;
 }

@@ -72,10 +72,15 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Tỉnh / TP</label>
-                                                            <select name="" id="" class="input-control">
+                                                            <select name="" id="" class="input-control provinceAcc">
                                                                 <option value="">Tỉnh/TP</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
+                                                                <?php 
+                                                                $listProvince = load_all_province(); 
+                                                                foreach($listProvince as $province) {    
+                                                                    extract($province);
+                                                                ?>
+                                                                    <option value="<?php echo $id ?>"><?php echo $_name ?></option>
+                                                                <?php } ?>
                                                             </select>
                                                     </div>
                                                     <span class="test-masage"></span>
@@ -84,10 +89,8 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Quận / Huyện</label>
-                                                            <select name="" id="" class="input-control">
-                                                                <option value="">Tỉnh/TP</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
+                                                            <select name="" id="" class="input-control districtAcc">
+                                                                <option value="">Quận / Huyện</option>
                                                             </select>
                                                     </div>
                                                     <span class="test-masage"></span>
@@ -96,10 +99,8 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Phường / Xã</label>
-                                                            <select name="" id="" class="input-control">
-                                                                <option value="">Tỉnh/TP</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
+                                                            <select name="" id="" class="input-control wardAcc">
+                                                                <option value="">Phường / Xã</option>
                                                             </select>
                                                     </div>
                                                     <span class="test-masage"></span>

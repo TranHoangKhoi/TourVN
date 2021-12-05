@@ -10,8 +10,7 @@ function insert_news($tenloai)
 function list_load_all()
 {
     $sql = "select * from loai_tin ";
-    $list_news = pdo_query($sql);
-    return  $list_news;
+    return  pdo_query($sql);
 }
 
 function get_news_cate($starItem, $itemNum)

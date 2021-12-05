@@ -9,9 +9,19 @@
         return pdo_query($sql);
     }
 
+    function load_all_news_limit() {
+        $sql = "SELECT * FROM tin_tuc ORDER BY ma_tin DESC LIMIT 0,10";
+        return pdo_query($sql);
+    }
+
     function load_one_news($ma_tin) {
         $sql = "SELECT * FROM tin_tuc WHERE ma_tin = $ma_tin";
         return pdo_query_one($sql);
+    }
+
+    function load_news_by_ma_loai($ma_loai ) {
+        $sql = "SELECT * FROM tin_tuc WHERE ma_loai  = $ma_loai ";
+        return pdo_query($sql);
     }
 
     function get_news($starItem, $itemNum, $maLoai) {
