@@ -114,16 +114,40 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 
         //acount
         case 'account':
+             //Cập nhật
+             if(isset($_POST['update'])&&($_POST['update'])){
+                $hoten=$_POST['hoten'];
+                $cccd=$_POST['cccd'];
+                $sdt=$_POST['sdt'];
+                $tp=$_POST['tp'];
+                $quan=$_POST['quan'];
+                $phuong=$_POST['phuong'];
+                $dia_chi_cu_the=$_POST['dia_chi_cu_the'];
+                $ma_taikhoan=$_POST['ma_taikhoan'];
+                $hinh_anh = $_FILES['hinh_anh']['name'];
+                $target_dir = "../upload/"; //lấy từ thư mục upload
+                    $target_file = $target_dir . basename($_FILES["hinh_anh"]["name"]);
+                    move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file);
+
+                update_account($hoten, $cccd, $sdt,$hinh_anh,$tp,$quan,$phuong,$dia_chi_cu_the,$ma_taikhoan);
+                $_SESSION['account']=check_account($email,$matkhau);    
+                header('location: ?call=account ');
+            }
             if(isset($_GET['log_out'])){
                 session_unset();
                  header("location: index.php");
             }
-                
+
+           
             include $view_path.'account.php';
             break;
+            
+
+
             // Form Login
         case 'login':
             $mess='';
+            //Đăng ký
             if(isset($_POST['register'])&&($_POST['register'])){
                 $hoten=$_POST['hoten'];
                 $cccd=$_POST['cccd'];
@@ -136,39 +160,39 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 
                 $matkhau = md5($matkhau);
 
-                // kiểm tra xem người dùng có nhập đầy đủ thông tin hay không
-                check_not_null($hoten,$matkhau,$email,$sdt,$cccd);   
-               //Kiểm tra email có hợp lệ hay không 
-                check_email_valid($email);
-                //Kiểm tra xem số điện thoại có hợp lệ hạy không
-                check_phone_valid($sdt);
+            //     // kiểm tra xem người dùng có nhập đầy đủ thông tin hay không
+            //     check_not_null($hoten,$matkhau,$email,$sdt,$cccd);   
+            //    //Kiểm tra email có hợp lệ hay không 
+            //     check_email_valid($email);
+            //     //Kiểm tra xem số điện thoại có hợp lệ hạy không
+            //     check_phone_valid($sdt);
                 
 
-                insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong);
-                $mess='Chúc mừng! Bạn đã đăng Ký thành công';
+                 insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong);
+                 $mess='Chúc mừng! Bạn đã đăng Ký thành công';
             }
             //đăng nhập
             $mess_fail="";
-            $mess_success="";
-            if(isset($_POST['Log_in'])&&($_POST['Log_in'])){
-                $email=$_POST['emailLg'];
-                $matkhau=$_POST['matkhauLg'];
-                $check_account=check_account($email,$matkhau);
+            if(isset($_POST['Log_in'])&&($_POST['Log_in'])){     
+                $email = $_POST['emailLG'];
+                $matkhau = $_POST['matkhauLG'];
+                
+                $matkhau = md5($matkhau);
+                $check_account = check_account($email,$matkhau);
+
                 if(is_array($check_account)){
                     $_SESSION['account']=$check_account;
-                     header("location: index.php");
+                    header("Location: index.php");
                     // $mess_success="Bạn đã đăng nhập thành công";
                     // include $view_path.'account.php';
-                    break;      
-
+                    // break;      
                 }else{
                     $mess_fail="Tài khoản này không tồn tại. Vui lòng kiểm tra hoặc đăng ký!";
                 }
             }
             include $view_path.'loginAndRes.php';
             break;
-        //     
-            
+        
         // Home
         default:
             include $view_path.'home.php';

@@ -22,26 +22,45 @@
    
         if(isset($_POST['provinceid'])) {
             $key = $_POST['provinceid'];
+
+            $idQuan = $_POST['disid'];
             $listDistrict = load_district_by_id($key);
         ?>
-            <option value="">Quận / Huyện</option>
+            <!-- <option value="">Quận / Huyện</option> -->
         <?php
             foreach ($listDistrict as $district) {
                 extract($district);
+                if($id == $idQuan ) {
+            ?>
+                <option selected value="<?php echo $id ?>"><?php echo $_name ?></option>
+
+                
+            <?php
+                } else {
             ?>
                 <option value="<?php echo $id ?>"><?php echo $_name ?></option>
             <?php
+            
+                }
             }
         }
 
         if(isset($_POST['wardid'])) {
             $wardid = $_POST['wardid'];
+            $wardidAcc = $_POST['wardidAcc'];
+
             $listWardid = load_ward_by_id($wardid);
             foreach ($listWardid as $ward) {
                 extract($ward);
+                if($id == $wardidAcc ) {
             ?>
-                <option value="<?php echo $id ?>"><?php echo $_name ?></option>
+                <option selected value="<?php echo $id ?>"><?php echo $_name ?></option>
             <?php
+                } else {
+            ?>
+                <option value="<?php echo $id ?>"><?php echo $_name  ?></option>
+            <?php 
+                }
             }
         }
     // }

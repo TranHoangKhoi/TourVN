@@ -130,6 +130,7 @@
     </div>
     <script src="./Content/JS/js.js"></script>
     <script src="./Content/JS/ajax.js"></script>
+    <script src="./Content/JS/plugin.js"></script>
     <script>
         checkLocal();   
         checkOutLocal();
@@ -137,6 +138,7 @@
         selectForm();
         cateGorySile();
         bookTicket();
+        showTapConTent('.account__cate-item-choose', '.account__right');
 
         // Ajax
         // loadAddresses();

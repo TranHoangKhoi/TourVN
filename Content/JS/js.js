@@ -330,3 +330,19 @@ function selectForm() {
         }
     }) ;
 }
+
+function showTapConTent(liClass, tapClass) {
+    var liItems = document.querySelectorAll(liClass);
+    var tapItems = document.querySelectorAll(tapClass);
+    
+    liItems.forEach(function(liItem, index) {
+        var tapItem = tapItems[index];
+        liItem.onclick = function() { 
+            document.querySelector(liClass+'.active').classList.remove('active');
+            document.querySelector(tapClass+'.active').classList.remove('active');
+
+            tapItem.classList.add('active');
+            this.classList.add('active');
+        }
+    })
+}

@@ -299,6 +299,10 @@
     align-items: center;
 }
 
+.form_top {
+    margin: 0;
+}
+
 :root {
     --input-height: 46px;
 }
@@ -364,7 +368,10 @@
     position: relative;
 }
 
-
+.user__box-link {
+    color: var(--text-color);
+    text-decoration: none;
+}
 
 .user__img {
     width: 30px;
@@ -372,6 +379,8 @@
     object-fit: cover;
     border-radius: 50%;
     margin-right: 4px;
+    border: 1px solid var(--btn-color);
+    box-shadow: 0 0 4px var(--btn-color);
 }
 
 .user__name {
@@ -936,7 +945,7 @@ main {
 
 .favorite__place-main {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .favorite__place-link {
