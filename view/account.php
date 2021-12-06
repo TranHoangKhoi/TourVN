@@ -36,20 +36,19 @@
                             </div>
 
                             <div class="account__cate-item">
-                                <span class="account__cate-item-choose check-out">
-                                <a href="?call=log_out" style="Text-decoration:none;">
+                                
+                                <a href="?call=account&log_out" class="account__cate-item-choose check-out" >
                                     <i class="account__cate-item-icon"><ion-icon name="power"></ion-icon></i>
                                     Đăng xuất
                                     </a>
-                                </span>
                                 
                             </div>
                         </div>
                     </div>
 
                     <div class="col l-9 ">
-                        <div class="account__right">
-                            <form action="">
+                        <div class="account__right active">
+                            <form action="?call-account.php" method="POST">
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="resUserName" class="form-label">Họ và tên</label>
@@ -149,7 +148,7 @@
                             </form>
                         </div>
 
-                        <div class="account__right active">
+                        <div class="account__right ">
                             <form action="">
                                 <div class="form-group">
                                     <div class="form-field">

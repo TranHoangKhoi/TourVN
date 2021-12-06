@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 session_start();
 include './model/pdo.php';
 include './global.php';
@@ -14,6 +14,7 @@ include './model/diachi.php';
 include './model/taikhoan.php';
 include './model/check.php';
 include $view_path.'header.php';
+
 
 if (isset($_GET['call']) && ($_GET['call'] != '')) {
     $call = $_GET['call'];
@@ -113,6 +114,11 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 
         //acount
         case 'account':
+            if(isset($_GET['log_out'])){
+                session_unset();
+                 header("location: index.php");
+            }
+                
             include $view_path.'account.php';
             break;
             // Form Login
@@ -145,14 +151,14 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
             $mess_fail="";
             $mess_success="";
             if(isset($_POST['Log_in'])&&($_POST['Log_in'])){
-                $email=$_POST['email'];
-                $matkhau=$_POST['matkhau'];
+                $email=$_POST['emailLg'];
+                $matkhau=$_POST['matkhauLg'];
                 $check_account=check_account($email,$matkhau);
                 if(is_array($check_account)){
                     $_SESSION['account']=$check_account;
-                     //header("location: ?call=login");
+                     header("location: index.php");
                     // $mess_success="Bạn đã đăng nhập thành công";
-                    include $view_path.'account.php';
+                    // include $view_path.'account.php';
                     break;      
 
                 }else{
@@ -162,11 +168,7 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
             include $view_path.'loginAndRes.php';
             break;
         //     
-            case 'log_out':
-                session_unset();
-                include "../TourVN/view/loginAndRes.php";
-                // header("location: index.php");
-                break;
+            
         // Home
         default:
             include $view_path.'home.php';
@@ -177,3 +179,5 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 }
 
 include './view/footer.php';
+ob_end_flush();
+?>

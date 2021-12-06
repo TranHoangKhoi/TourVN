@@ -22,7 +22,7 @@
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resEmail" class="form-label">Email</label>
-                                                    <input type="email" id="resEmail" name="email" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <input type="email" id="resEmail" name="emailLg" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -30,7 +30,7 @@
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resPass" class="form-label">Mật khẩu</label>
-                                                    <input type="password" id="resPass" name="matkhau" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <input type="password" id="resPass" name="matkhauLg" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
