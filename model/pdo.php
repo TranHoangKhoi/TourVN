@@ -18,6 +18,7 @@ function pdo_get_connection()
     }
 }
 
+
 // Hàm UPDATE, DETELE, INSERT
 function pdo_execute($sql)
 {

@@ -2,7 +2,7 @@
     // if(isset($_POST['id'])) {
     // Load province
     function load_all_province() {
-        $sql = "SELECT * FROM province WHERE 1";
+        $sql = "SELECT * FROM province WHERE 1 ORDER BY _name ASC";
         return pdo_query($sql);
     }
 

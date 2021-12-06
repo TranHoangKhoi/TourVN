@@ -18,11 +18,11 @@
                                             <span class="log__btn JS-Form-Tap ">Đăng ký</span>
                                         </div>
 
-                                        <form action="" class="form__cart-control JS-Form-Control active">
+                                        <form action="?call=login" class="form__cart-control JS-Form-Control active" method="POST">
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resEmail" class="form-label">Email</label>
-                                                    <input type="email" id="resEmail" name="resEmail" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <input type="email" id="resEmail" name="email" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -30,32 +30,33 @@
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resPass" class="form-label">Mật khẩu</label>
-                                                    <input type="password" id="resPass" name="resPass" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <input type="password" id="resPass" name="matkhau" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
 
                                             <div class="form-group mt-32">
-                                                <button class="btn btn__form">
+                                                <!-- <button class="btn btn__form">
                                                     Đăng nhập
                                                     <i class="btn__form-icon"><ion-icon name="log-in"></ion-icon></i>
-                                                </button>
+                                                </button> -->
+                                                <input type="submit" name="Log_in" class="btn btn__form" value="Đăng Nhập">
                                             </div>
                                         </form>
 
-                                        <form action="" class="form__cart-control JS-Form-Control ">
+                                        <form action="?call=login" class="form__cart-control JS-Form-Control" method="POST">
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resUserName" class="form-label">Họ và tên</label>
-                                                    <input type="text" id="resUserName" name="resUserName" class="input-control" placeholder="VD: Trần Văn Tèo">
+                                                    <input type="text" id="resUserName" name="hoten" class="input-control" placeholder="VD: Trần Văn Tèo">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="form-field">
-                                                    <label for="resCMND" class="form-label">CMND</label>
-                                                    <input type="number" id="resCMND" name="resCMND" class="input-control" placeholder="VD: 0123654892365">
+                                                    <label for="resCMND" class="form-label">CMND/CCCD</label>
+                                                    <input type="number" id="resCMND" name="cccd" class="input-control" placeholder="VD: 0123654892365">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -63,7 +64,7 @@
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resPhone" class="form-label">Số điện thoại</label>
-                                                    <input type="number" id="resPhone" name="resPhone" class="input-control" placeholder="VD: 0939123123">
+                                                    <input type="number" id="resPhone" name="sdt" class="input-control" placeholder="VD: 0939123123">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -72,7 +73,7 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Tỉnh / TP</label>
-                                                            <select name="" id="" class="input-control provinceAcc">
+                                                            <select name="tp" id="" class="input-control provinceAcc">
                                                                 <option value="">Tỉnh/TP</option>
                                                                 <?php 
                                                                 $listProvince = load_all_province(); 
@@ -89,7 +90,7 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Quận / Huyện</label>
-                                                            <select name="" id="" class="input-control districtAcc">
+                                                            <select name="phuong" id="" class="input-control districtAcc">
                                                                 <option value="">Quận / Huyện</option>
                                                             </select>
                                                     </div>
@@ -99,20 +100,20 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Phường / Xã</label>
-                                                            <select name="" id="" class="input-control wardAcc">
+                                                            <select name="quan" id="" class="input-control wardAcc">
                                                                 <option value="">Phường / Xã</option>
                                                             </select>
                                                     </div>
                                                     <span class="test-masage"></span>
                                                 </div>
 
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Địa chỉ cụ thể</label>
-                                                        <input type="text" class="input-control" placeholder="VD: 271 / Nguyễn Văn Linh">
+                                                        <input type="text"  class="input-control" placeholder="VD: 271 / Nguyễn Văn Linh">
                                                     </div>
                                                     <span class="test-masage"></span>
-                                                </div>
+                                                </div> -->
 
 
                                             </div>
@@ -120,7 +121,7 @@
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resEmail" class="form-label">Email</label>
-                                                    <input type="email" id="resEmail" name="resEmail" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <input type="email" id="resEmail" name="email" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -128,7 +129,7 @@
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resPass" class="form-label">Mật khẩu</label>
-                                                    <input type="password" id="resPass" name="resPass" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <input type="password" id="resPass" name="matkhau" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -142,14 +143,46 @@
                                             </div>
 
                                             <div class="form-group mt-32">
-                                                <button class="btn btn__form">
+                                                <!-- <button name="register" class="btn btn__form">
                                                     Đăng ký ngay
                                                     <i class="btn__form-icon"><ion-icon name="create"></ion-icon></i>
-                                                </button>
+                                                </button> -->
+                                                <input type="submit" name="register" class="btn btn__form" value="Đăng Ký">
                                             </div>
                                         </form>
                                         
+                                        <?php
+                            if(isset($mess) && $mess != '') {
+                        ?>
+                        <div class="mess-form success" style="color:green;">
+                            <span>
+                                <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                <?php echo $mess?>
+                            </span>
+                        </div>
+                        <?php } ?>
 
+                        <?php
+                            if(isset($mess_fail) && $mess_fail != '') {
+                        ?>
+                        <div class="mess-form success" style="color:red;">
+                            <span>
+                                <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                <?php echo $mess_fail?>
+                            </span>
+                        </div>
+                        <?php } ?>
+                        <?php
+                            if(isset($mess_success) && $mess_success != '') {
+                        ?>
+                        <div class="mess-form success" style="color:green;">
+                            <span>
+                                <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                <?php echo $mess_success?>
+                            </span>
+                        </div>
+                        <?php } ?>
+                       
 
 
 

@@ -1,5 +1,5 @@
 <!-- Header -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 
 <head>
@@ -161,7 +161,23 @@
                                     </button>
                                 </div>
                             </form>
+                                 <?php   
+                                    if(isset($_SESSION['account'])){
+                                       extract($_SESSION['account']); 
+                                 ?>
+                                    
+                                 <div class="header__top-login">
+                                 <a href="?call=account" style="Text-decoration:none; color:cornflowerblue">
+                                <div class="user__box">
+                                    <img src="./upload/kakashi.jpg" alt="" class="user__img">
+                                    <p class="user__name"><?=$hoten ?></p>  
+                                </div>
+                                </a>
+                            </div> 
+                                 <?php       
+                                    }else{
 
+                                 ?>
                             <div class="header__top-login">
                                 <a href="?call=login" class="header__top-login--link">
                                     <i class="header__top-login--icon">
@@ -170,13 +186,8 @@
                                 </a>
                             </div>
 
-                             <div class="header__top-login">
-                                <div class="user__box">
-                                    <img src="./upload/kakashi.jpg" alt="" class="user__img">
-                                    <p class="user__name">Trần Hoàng Khôi</p>
-                                </div>
-                            </div> 
-
+                             
+                            <?php  }?>
                         </div>
 
                         <!-- Icon Check Nav Mobile -->
