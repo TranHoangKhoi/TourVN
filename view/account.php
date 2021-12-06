@@ -1,3 +1,8 @@
+<?php
+    if(isset($_SESSION['account'])) {
+        extract($_SESSION['account']);
+    }
+?>
 <main>
             <!-- List Tour Cate -->
             <div class="grid wide">
@@ -36,24 +41,22 @@
                             </div>
 
                             <div class="account__cate-item">
-                                <span class="account__cate-item-choose check-out">
-                                <a href="?call=log_out" style="Text-decoration:none;">
+                                <a href="?call=account&log_out" class="account__cate-item-choose check-out">
                                     <i class="account__cate-item-icon"><ion-icon name="power"></ion-icon></i>
                                     Đăng xuất
                                     </a>
-                                </span>
                                 
                             </div>
                         </div>
                     </div>
 
                     <div class="col l-9 ">
-                        <div class="account__right">
+                        <div class="account__right active">
                             <form action="">
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="resUserName" class="form-label">Họ và tên</label>
-                                        <input type="text" id="resUserName" name="resUserName" class="input-control" placeholder="VD: Trần Văn Tèo">
+                                        <input type="text" id="resUserName" name="resUserName" class="input-control" value="<?php echo $hoten ?>" placeholder="VD: Trần Văn Tèo">
                                     </div>
                                     <span class="test-masage"></span>
                                 </div>
@@ -61,7 +64,7 @@
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="resCMND" class="form-label">CMND</label>
-                                        <input type="number" id="resCMND" name="resCMND" class="input-control" placeholder="VD: 0123654892365">
+                                        <input type="number" id="resCMND" name="resCMND" class="input-control" value="<?php echo $cccd ?>" placeholder="VD: 0123654892365">
                                     </div>
                                     <span class="test-masage"></span>
                                 </div>
@@ -69,7 +72,7 @@
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="resPhone" class="form-label">Số điện thoại</label>
-                                        <input type="number" id="resPhone" name="resPhone" class="input-control" placeholder="VD: 0939123123">
+                                        <input type="number" id="resPhone" name="resPhone" class="input-control" value="<?php echo $sdt ?>" placeholder="VD: 0939123123">
                                     </div>
                                     <span class="test-masage"></span>
                                 </div>
@@ -77,7 +80,7 @@
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="resEmail" class="form-label">Email</label>
-                                        <input type="email" id="resEmail" name="resEmail" class="input-control" placeholder="VD: teo@gamil.com">
+                                        <input type="email" id="resEmail" name="resEmail" class="input-control" value="<?php echo $email ?>" placeholder="VD: teo@gamil.com">
                                     </div>
                                     <span class="test-masage"></span>
                                 </div>
@@ -86,7 +89,7 @@
                                     <div class="form-field">
                                         <label for="newImage" class="form-label">Hình ảnh</label>
                                         <div class="img__body">
-                                            <img src="../upload/kakashi.jpg" alt="" class="img__item">
+                                            <img src="<?php echo $upload_path.$hinh_anh ?>" alt="" class="img__item">
                                             <input type="file" id="newImage" name="newImageUD" class="input-control-img" value="">
                                         </div>
                                     </div>
@@ -97,10 +100,18 @@
                                     <div class="form-group w-20">
                                         <div class="form-field">
                                             <label for="" class="form-label">Tỉnh / TP</label>
-                                                <select name="" id="" class="input-control">
+                                                <select name="" id="" class="input-control provinceAcc">
                                                     <option value="">Tỉnh/TP</option>
-                                                    <option value="male">Nam</option>
-                                                    <option value="female">Nữ</option>
+                                                    <?php 
+                                                    $listProvince = load_all_province(); 
+                                                    foreach($listProvince as $province) {    
+                                                        extract($province);
+                                                        if($id == $tp) {
+                                                    ?>
+                                                        <option selected value="<?php echo $id ?>"><?php echo $_name ?></option>
+                                                    <?php } else { ?>
+                                                        <option value="<?php echo $id ?>"><?php echo $_name ?></option>
+                                                    <?php } } ?>
                                                 </select>
                                         </div>
                                         <span class="test-masage"></span>
@@ -109,10 +120,9 @@
                                     <div class="form-group w-20">
                                         <div class="form-field">
                                             <label for="" class="form-label">Quận / Huyện</label>
-                                                <select name="" id="" class="input-control">
+                                            <input type="text" hidden value="<?php echo $quan ?>" class="idDis">
+                                                <select name="" id="" class="input-control districtAcc">
                                                     <option value="">Tỉnh/TP</option>
-                                                    <option value="male">Nam</option>
-                                                    <option value="female">Nữ</option>
                                                 </select>
                                         </div>
                                         <span class="test-masage"></span>
@@ -121,10 +131,9 @@
                                     <div class="form-group w-20">
                                         <div class="form-field">
                                             <label for="" class="form-label">Phường / Xã</label>
-                                                <select name="" id="" class="input-control">
+                                            <input type="text" hidden value="<?php echo $phuong ?>" class="idWard">
+                                                <select name="" id="" class="input-control wardAcc">
                                                     <option value="">Tỉnh/TP</option>
-                                                    <option value="male">Nam</option>
-                                                    <option value="female">Nữ</option>
                                                 </select>
                                         </div>
                                         <span class="test-masage"></span>
@@ -149,7 +158,7 @@
                             </form>
                         </div>
 
-                        <div class="account__right active">
+                        <div class="account__right">
                             <form action="">
                                 <div class="form-group">
                                     <div class="form-field">

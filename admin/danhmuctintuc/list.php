@@ -29,7 +29,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="index.php?ql=newsCate&listnewsCate&deletenewsCate&ma_loai=<?php echo $ma_loai ?>" >Xóa</a>
+                                    <a href="index.php?ql=newsCate&listnewsCate&deletenewsCate&ma_loai=<?php echo $ma_loai ?>" class="btn btn__tbl">Xóa</a>
                                 </td>
                             </tr>
                        <?php } ?>

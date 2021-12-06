@@ -18,11 +18,12 @@
                                             <span class="log__btn JS-Form-Tap ">Đăng ký</span>
                                         </div>
 
+                                        <!-- Login -->
                                         <form action="?call=login" class="form__cart-control JS-Form-Control active" method="POST">
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resEmail" class="form-label">Email</label>
-                                                    <input type="email" id="resEmail" name="email" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <input type="email" id="resEmail" name="emailLG" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -30,7 +31,7 @@
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resPass" class="form-label">Mật khẩu</label>
-                                                    <input type="password" id="resPass" name="matkhau" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <input type="password" id="resPass" name="matkhauLG" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -44,6 +45,7 @@
                                             </div>
                                         </form>
 
+                                        <!-- Register -->
                                         <form action="?call=login" class="form__cart-control JS-Form-Control" method="POST">
                                             <div class="form-group">
                                                 <div class="form-field">
@@ -90,7 +92,7 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Quận / Huyện</label>
-                                                            <select name="phuong" id="" class="input-control districtAcc">
+                                                            <select name="quan" class="input-control districtAcc">
                                                                 <option value="">Quận / Huyện</option>
                                                             </select>
                                                     </div>
@@ -100,7 +102,7 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Phường / Xã</label>
-                                                            <select name="quan" id="" class="input-control wardAcc">
+                                                            <select name="phuong" class="input-control wardAcc">
                                                                 <option value="">Phường / Xã</option>
                                                             </select>
                                                     </div>

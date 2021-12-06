@@ -1559,10 +1559,16 @@
     font-size: 1.4rem;
     font-weight: 600;
     border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .account__cate-item-choose.active {
     background-color: var(--btn-color);
+    color: #fff;
+}
+
+.account__cate-item-choose:hover.active {
     color: #fff;
 }
 

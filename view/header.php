@@ -1,7 +1,5 @@
-<!-- Header -->
 <!-- <!DOCTYPE html> -->
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -150,7 +148,7 @@
 
                         <!-- Input & Icon Login -->
                         <div class="header__top-width-search">
-                            <form method="post" id="formSearchHeader">
+                            <form method="post" id="formSearchHeader" class="form_top">
                                 <div class="header__top-search">
                                     <input type="text" class="header__top-search--control" placeholder="Bắt đầu tìm kiếm...">
                                     <!-- <input type="submit" class="header__top-search--box" value> -->
@@ -167,13 +165,13 @@
                                  ?>
                                     
                                  <div class="header__top-login">
-                                 <a href="?call=account" style="Text-decoration:none; color:cornflowerblue">
-                                <div class="user__box">
-                                    <img src="./upload/kakashi.jpg" alt="" class="user__img">
-                                    <p class="user__name"><?=$hoten ?></p>  
-                                </div>
-                                </a>
-                            </div> 
+                                    <a href="?call=account" class="user__box-link">
+                                        <div class="user__box">
+                                            <img src="<?php echo $upload_path.$hinh_anh ?>" alt="" class="user__img">
+                                            <p class="user__name"><?=$hoten ?></p>  
+                                        </div>
+                                    </a>
+                                </div> 
                                  <?php       
                                     }else{
 

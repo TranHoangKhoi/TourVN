@@ -7,7 +7,6 @@
 
     function check_account($email,$matkhau){
          $sql=  "SELECT * FROM tai_khoan WHERE email='".$email."' AND matkhau='".$matkhau."'";
-         pdo_query_one($sql);
          return pdo_query_one($sql);
     }
 

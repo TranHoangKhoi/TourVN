@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 session_start();
 include './model/pdo.php';
 include './global.php';
@@ -113,6 +113,10 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 
         //acount
         case 'account':
+            if(isset($_GET['log_out'])) {
+                session_unset();
+                header("location: index.php");
+            }
             include $view_path.'account.php';
             break;
             // Form Login
@@ -130,43 +134,40 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 
                 $matkhau = md5($matkhau);
 
-                // kiểm tra xem người dùng có nhập đầy đủ thông tin hay không
-                check_not_null($hoten,$matkhau,$email,$sdt,$cccd);   
-               //Kiểm tra email có hợp lệ hay không 
-                check_email_valid($email);
-                //Kiểm tra xem số điện thoại có hợp lệ hạy không
-                check_phone_valid($sdt);
+            //     // kiểm tra xem người dùng có nhập đầy đủ thông tin hay không
+            //     check_not_null($hoten,$matkhau,$email,$sdt,$cccd);   
+            //    //Kiểm tra email có hợp lệ hay không 
+            //     check_email_valid($email);
+            //     //Kiểm tra xem số điện thoại có hợp lệ hạy không
+            //     check_phone_valid($sdt);
                 
 
-                insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong);
-                $mess='Chúc mừng! Bạn đã đăng Ký thành công';
+            //     insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong);
+            //     $mess='Chúc mừng! Bạn đã đăng Ký thành công';
             }
             //đăng nhập
             $mess_fail="";
             $mess_success="";
             if(isset($_POST['Log_in'])&&($_POST['Log_in'])){
-                $email=$_POST['email'];
-                $matkhau=$_POST['matkhau'];
-                $check_account=check_account($email,$matkhau);
+                $email = $_POST['emailLG'];
+                $matkhau = $_POST['matkhauLG'];
+                
+                $matkhau = md5($matkhau);
+                $check_account = check_account($email,$matkhau);
+
                 if(is_array($check_account)){
                     $_SESSION['account']=$check_account;
-                     //header("location: ?call=login");
+                    header("Location: index.php");
                     // $mess_success="Bạn đã đăng nhập thành công";
-                    include $view_path.'account.php';
-                    break;      
-
+                    // include $view_path.'account.php';
+                    // break;      
                 }else{
                     $mess_fail="Tài khoản này không tồn tại. Vui lòng kiểm tra hoặc đăng ký!";
                 }
             }
             include $view_path.'loginAndRes.php';
             break;
-        //     
-            case 'log_out':
-                session_unset();
-                include "../TourVN/view/loginAndRes.php";
-                // header("location: index.php");
-                break;
+
         // Home
         default:
             include $view_path.'home.php';
@@ -177,3 +178,5 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 }
 
 include './view/footer.php';
+ob_end_flush();
+?>
