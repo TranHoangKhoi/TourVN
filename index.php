@@ -125,24 +125,40 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 $dia_chi_cu_the=$_POST['dia_chi_cu_the'];
                 $ma_taikhoan=$_POST['ma_taikhoan'];
                 $hinh_anh = $_FILES['hinh_anh']['name'];
-                $target_dir = "../upload/"; //lấy từ thư mục upload
-                    $target_file = $target_dir . basename($_FILES["hinh_anh"]["name"]);
-                    move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file);
+                $target_dir = "./upload/"; //lấy từ thư mục upload
+                $target_file = $target_dir.basename($_FILES["hinh_anh"]["name"]);
+                move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file);
 
                 update_account($hoten, $cccd, $sdt,$hinh_anh,$tp,$quan,$phuong,$dia_chi_cu_the,$ma_taikhoan);
-                $_SESSION['account']=check_account($email,$matkhau);    
-                header('location: ?call=account ');
+                $_SESSION['account'] = load_account($ma_taikhoan);
+                header('location: index.php?call=account&updateAcc');
             }
+
+            if(isset($_POST['updatePass'])) {
+                $mess = '';
+                $status = '';
+                $passOld = md5($_POST['passOld']);
+                $passNew = md5($_POST['passNew']);
+                $passConfirm = $_POST['passConfirm'];
+
+                $checkPass = check_pass($passOld, $_SESSION['account']['ma_taikhoan']);
+                if(is_array($checkPass)) {
+                    if(!update_pass($passNew, $_SESSION['account']['ma_taikhoan'])) {
+                        $mess = 'Đổi mật khẩu thành công';
+                        $status = 'green';
+                    }
+                } else {
+                    $mess = 'Mật khẩu không chính xác';
+                    $status = 'red';
+                }
+            }
+
             if(isset($_GET['log_out'])){
                 session_unset();
                  header("location: index.php");
             }
-
-           
             include $view_path.'account.php';
             break;
-            
-
 
             // Form Login
         case 'login':
@@ -156,9 +172,7 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 $phuong=$_POST['phuong'];
                 $quan=$_POST['quan'];
                 $email=$_POST['email'];
-                $matkhau=$_POST['matkhau'];
-
-                $matkhau = md5($matkhau);
+                $matkhau=md5($_POST['matkhau']);
 
             //     // kiểm tra xem người dùng có nhập đầy đủ thông tin hay không
             //     check_not_null($hoten,$matkhau,$email,$sdt,$cccd);   
@@ -175,9 +189,8 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
             $mess_fail="";
             if(isset($_POST['Log_in'])&&($_POST['Log_in'])){     
                 $email = $_POST['emailLG'];
-                $matkhau = $_POST['matkhauLG'];
+                $matkhau = md5($_POST['matkhauLG']);
                 
-                $matkhau = md5($matkhau);
                 $check_account = check_account($email,$matkhau);
 
                 if(is_array($check_account)){

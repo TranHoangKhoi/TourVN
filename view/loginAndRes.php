@@ -153,7 +153,7 @@
                                             </div>
                                         </form>
                                         
-                                        <?php
+                        <?php
                             if(isset($mess) && $mess != '') {
                         ?>
                         <div class="mess-form success" style="color:green;">

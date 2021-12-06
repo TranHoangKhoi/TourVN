@@ -1561,6 +1561,8 @@
     border-radius: 4px;
     text-decoration: none;
     color: var(--text-color);
+    display: flex; 
+    align-items: center;
 }
 
 .account__cate-item-choose.active {
@@ -1579,8 +1581,8 @@
 
 .account__cate-item-icon {
     position: relative;
-    top: 3px;
-    padding-right: 4px;
+    top: -1px;
+    padding-right: 16px;
     font-size: 1.8rem;
 }
 

@@ -22,39 +22,46 @@
                     <div class="col l-3">
                         <div class="account__cate">
                             <div class="account__cate-item">
-                                <span class="account__cate-item-choose active">
+                                <a href="?call=account&updateAcc" class="account__cate-item-choose 
+                                    <?php if(isset($_GET['updateAcc'])) echo 'active'?>
+                                ">
                                     <i class="account__cate-item-icon"><ion-icon name="build"></ion-icon></i>
                                     Cập nhật tài khoản
-                                </span>
+                                </a>
                             </div>
 
                             <div class="account__cate-item">
-                                <span class="account__cate-item-choose">
+                                <a href="?call=account&updatePass" class="account__cate-item-choose
+                                    <?php if(isset($_GET['updatePass'])) echo 'active'?>
+                                ">
                                     <i class="account__cate-item-icon"><ion-icon name="refresh"></ion-icon></i>
                                     Đổi mật khẩu
-                                </span>
+                                </a>
                             </div>
 
                             <div class="account__cate-item">
-                                <span class="account__cate-item-choose ">
+                                <a href="?call=account&ticket" class="account__cate-item-choose 
+                                    <?php if(isset($_GET['ticket'])) echo 'active'?>
+                                ">
                                     <i class="account__cate-item-icon"><ion-icon name="bookmarks"></ion-icon></i>
                                     Các vé đã đặt
-                                </span>
+                                </a>
                             </div>
 
                             <div class="account__cate-item">
                                 <a href="?call=account&log_out" class="account__cate-item-choose check-out">
-
                                     <i class="account__cate-item-icon"><ion-icon name="power"></ion-icon></i>
                                     Đăng xuất
-                                    </a>
+                                </a>
                                 
                             </div>
                         </div>
                     </div>
 
                     <div class="col l-9 ">
-                        <div class="account__right active">
+                        <div class="account__right 
+                            <?php if(isset($_GET['updateAcc'])) echo 'active'?>
+                        ">
                             <form action="?call=account" method="POST" enctype="multipart/form-data">
 
                                 <div class="form-group">
@@ -126,7 +133,6 @@
                                             <label for="" class="form-label">Quận / Huyện</label>
                                             <input type="text" hidden value="<?php echo $quan ?>" class="idDis">
                                                 <select name="quan" id="" class="input-control districtAcc">
-                                                    <option value="">Tỉnh/TP</option>
                                                 </select>
                                         </div>
                                         <span class="test-masage"></span>
@@ -137,7 +143,6 @@
                                             <label for="" class="form-label">Phường / Xã</label>
                                             <input type="text" hidden value="<?php echo $phuong ?>" class="idWard">
                                                 <select name="phuong" id="" class="input-control wardAcc">
-                                                    <option value="">Tỉnh/TP</option>
                                                 </select>
                                         </div>
                                         <span class="test-masage"></span>
@@ -146,7 +151,7 @@
                                     <div class="form-group">
                                         <div class="form-field">
                                             <label for="" class="form-label">Địa chỉ cụ thể</label>
-                                            <input type="text" name="dia_chi_cu_the" class="input-control" placeholder="VD: 271 / Nguyễn Văn Linh">
+                                            <input type="text" name="dia_chi_cu_the" class="input-control" value="<?php echo $dia_chi_cu_the ?>" placeholder="VD: 271 / Nguyễn Văn Linh">
                                         </div>
                                         <span class="test-masage"></span>
                                     </div>
@@ -164,42 +169,59 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="account__right">
-                            <form action="">
+                        
+                        <div class="account__right
+                            <?php if(isset($_GET['updatePass'])) echo 'active'?>
+                        ">
+                            <form action="" method="post">
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <label for="resUserName" class="form-label">Mật khẩu cũ</label>
-                                        <input type="password" id="resUserName" name="resUserName" class="input-control" placeholder="Nhập mật khẩu">
+                                        <label for="passOld" class="form-label">Mật khẩu cũ</label>
+                                        <input type="password" id="passOld" name="passOld" class="input-control" placeholder="Nhập mật khẩu">
                                     </div>
                                     <span class="test-masage"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <label for="resCMND" class="form-label">Mật khẩu mới</label>
-                                        <input type="password" id="resCMND" name="resCMND" class="input-control" placeholder="Nhập mật khẩu mới">
+                                        <label for="passNew" class="form-label">Mật khẩu mới</label>
+                                        <input type="password" id="passNew" name="passNew" class="input-control" placeholder="Nhập mật khẩu mới">
                                     </div>
                                     <span class="test-masage"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <label for="resPhone" class="form-label">Nhập lại mật khẩu mới</label>
-                                        <input type="password" id="resPhone" name="resPhone" class="input-control" placeholder="Nhập lại mật khẩu mới">
+                                        <label for="passConfirm" class="form-label">Nhập lại mật khẩu mới</label>
+                                        <input type="password" id="passConfirm" name="passConfirm" class="input-control" placeholder="Nhập lại mật khẩu mới">
                                     </div>
                                     <span class="test-masage"></span>
                                 </div>
 
                                 <div class="form-group mt-32">
-                                    <button class="btn btn__form">
+                                    <button class="btn btn__form" name="updatePass">
                                         Cập nhật
                                         <i class="btn__form-icon"><ion-icon name="create"></ion-icon></i>
                                     </button>
                                 </div>
+
+                                <?php
+                                    if(isset($mess) && $mess != '') {
+                                ?>
+                                <div class="mess-form success" style="color:<?php echo $status ?>;">
+                                    <span>
+                                        <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                        <?php echo $mess?>
+                                    </span>
+                                </div>
+                                <?php } ?>
+
                             </form>
                         </div>
 
-                        <div class="account__right ">
+                        <div class="account__right 
+                            <?php if(isset($_GET['ticket'])) echo 'active'?>
+                        ">
                             <div class="ticket__block">
                                 <div class="ticket__basic">
                                     <div class="ticket__basic-item ticket__basic-id">
@@ -247,7 +269,7 @@
 
                                 </div>
 
-                                <div class="ticket__details">
+                                <div class="ticket__details ">
                                     <div class="ticket__details-item">
                                         <p class="ticket__details-label">
                                             Số lượng vé đã đặt
@@ -338,7 +360,7 @@
 
                                 </div>
 
-                                <div class="ticket__details">
+                                <div class="ticket__details ">
                                     <div class="ticket__details-item">
                                         <p class="ticket__details-label">
                                             Số lượng vé đã đặt

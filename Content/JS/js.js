@@ -331,18 +331,25 @@ function selectForm() {
     }) ;
 }
 
-function showTapConTent(liClass, tapClass) {
-    var liItems = document.querySelectorAll(liClass);
-    var tapItems = document.querySelectorAll(tapClass);
-    
+function showTapConTent() {
+    var liItems = document.querySelectorAll('.ticket__basic-icon');
+    var tapItems = document.querySelectorAll('.ticket__details');
+
     liItems.forEach(function(liItem, index) {
         var tapItem = tapItems[index];
         liItem.onclick = function() { 
-            document.querySelector(liClass+'.active').classList.remove('active');
-            document.querySelector(tapClass+'.active').classList.remove('active');
+            if(tapItem.style.display == "flex") {
+                tapItem.style.display = 'none';
+            } else {
+                tapItem.style.display = 'flex';
 
-            tapItem.classList.add('active');
-            this.classList.add('active');
+            }
         }
+        // liItem.onclick = function() { 
+        //     document.querySelector(liClass+'.active').classList.remove('active');
+        //     document.querySelector(tapClass+'.active').classList.remove('active');
+
+        //     tapItem.classList.add('active');
+        // }
     })
 }

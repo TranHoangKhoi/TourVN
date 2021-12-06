@@ -138,7 +138,7 @@
         selectForm();
         cateGorySile();
         bookTicket();
-        showTapConTent('.account__cate-item-choose', '.account__right');
+        showTapConTent();
 
         // Ajax
         // loadAddresses();

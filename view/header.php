@@ -165,7 +165,7 @@
                                  ?>
                                     
                                  <div class="header__top-login">
-                                    <a href="?call=account" class="user__box-link">
+                                    <a href="?call=account&updateAcc" class="user__box-link">
                                         <div class="user__box">
                                             <img src="<?php echo $upload_path.$hinh_anh ?>" alt="" class="user__img">
                                             <p class="user__name"><?=$hoten?></p>  
