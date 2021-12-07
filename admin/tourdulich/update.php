@@ -2,6 +2,7 @@
     if(is_array($tourInfo)) {
         extract($tourInfo);
         $tour_cate = $loai_tour;
+        $sideTour = $ma_mien;
     }
 ?>
 <main class="container">
@@ -45,6 +46,34 @@
 
                     <div class="form-group">
                         <div class="form-field">
+                            <label for="tourDescUD" class="form-label">Giới thiệu tour</label>
+                            <textarea name="tourDescUD" id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả tour có gì đặc biệt"><?php echo $gioi_thieu ?></textarea>
+                        </div>
+                        <span class="test-masage"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label for="sideTourUD" class="form-label">Vùng miền</label>
+                            <select name="sideTourUD" id="" class="input-control-select">
+                                <option value="">Chọn vùng miền</option>
+                                <?php 
+                                    $listSide  = list_Side();
+                                    foreach($listSide as $sideItem) {
+                                        extract($sideItem);
+                                        if($ma_mien == $sideTour) {
+                                ?>
+                                <option selected value="<?php echo $ma_mien ?>"><?php echo $ten_mien ?></option>
+                                <?php } else { ?>
+                                <option value="<?php echo $ma_mien ?>"><?php echo $ten_mien ?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                        <span class="test-masage"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-field">
                             <label for="dateNum" class="form-label">Số lượng ngày (Ngày lẫn đêm)</label>
                             <input type="text" id="dateNum" name="dateNumUD" class="input-control" value="<?php echo $goi_ngay ?>" placeholder="VD: 3 ngày 2 đêm">
                         </div>
@@ -66,6 +95,15 @@
                         </div>
                         <span class="test-masage"></span>
                     </div>
+
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label for="tourDateEnd" class="form-label">Ngày về</label>
+                            <input type="date" id="tourDateEnd" name="tourDateEndUD" value="<?php echo $ngay_ve ?>" class="input-control">
+                        </div>
+                        <span class="test-masage"></span>
+                    </div>
+
                     <div class="form-group">
                         <div class="form-field">
                             <label for="localFocus" class="form-label">Nơi tập trung</label>

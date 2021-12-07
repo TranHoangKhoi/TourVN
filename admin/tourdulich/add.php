@@ -36,6 +36,31 @@
 
                         <div class="form-group">
                             <div class="form-field">
+                                <label for="tourDesc" class="form-label">Giới thiệu tour</label>
+                                <textarea name="tourDesc" id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả tour có gì đặc biệt"></textarea>
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="sideTour" class="form-label">Vùng miền</label>
+                                <select name="sideTour" id="" class="input-control-select">
+                                    <option value="">Chọn vùng miền</option>
+                                    <?php 
+                                        $listSide  = list_Side();
+                                        foreach($listSide as $sideItem) {
+                                            extract($sideItem);
+                                    ?>
+                                    <option value="<?php echo $ma_mien ?>"><?php echo $ten_mien ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
                                 <label for="dateNum" class="form-label">Số lượng ngày (Ngày lẫn đêm)</label>
                                 <input type="text" id="dateNum" name="dateNum" class="input-control" placeholder="VD: 3 ngày 2 đêm">
                             </div>
@@ -57,6 +82,15 @@
                             </div>
                             <span class="test-masage"></span>
                         </div>
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="tourDateEnd" class="form-label">Ngày về</label>
+                                <input type="date" id="tourDateEnd" name="tourDateEnd" class="input-control">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localFocus" class="form-label">Nơi tập trung</label>

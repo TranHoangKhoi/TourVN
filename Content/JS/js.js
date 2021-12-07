@@ -200,42 +200,15 @@ function bookTicket() {
                                                             <input type="date" class="info__customer-adults--control">
                                                         </div>
         
-                                                        <div class="info__customer-adults--form-item w-100">
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
                                                             <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
                                                             <input type="number" class="info__customer-adults--control" placeholder="CCCD">
                                                         </div>
-
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                                <label for="" class="info__customer-adults--label">Tỉnh / TP</label>
-                                                                <select name="" id="" class="info__customer-adults--control">
-                                                                    <option value="">Tỉnh/TP</option>
-                                                                    <option value="male">Nam</option>
-                                                                    <option value="female">Nữ</option>
-                                                                </select>
-                                                            </div>
-        
-                                                            <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                                <label for="" class="info__customer-adults--label">Quận / Huyện</label>
-                                                                <select name="" id="" class="info__customer-adults--control">
-                                                                    <option value="">Quận/Huyện</option>
-                                                                    <option value="male">Nam</option>
-                                                                    <option value="female">Nữ</option>
-                                                                </select>
-                                                            </div>
-        
-                                                            <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                                <label for="" class="info__customer-adults--label">Phường Xã</label>
-                                                                <select name="" id="" class="info__customer-adults--control">
-                                                                    <option value="">Phường Xã</option>
-                                                                    <option value="male">Nam</option>
-                                                                    <option value="female">Nữ</option>
-                                                                </select>
-                                                            </div>
-        
-                                                            <div class="info__customer-adults--form-item info__customer-adults--form-select-text">
-                                                                <label for="" class="info__customer-adults--label">Địa chỉ</label>
-                                                                <input type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
-                                                            </div>
+    
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                                                            <label for="" class="info__customer-adults--label">Địa chỉ</label>
+                                                            <input type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
+                                                        </div>
                     `;
 
                     customerAdultsBox.appendChild(formAdult);

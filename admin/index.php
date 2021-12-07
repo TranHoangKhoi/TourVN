@@ -261,16 +261,20 @@ include $model_path.'/tourdulich.php';
                         // Update tour info
                         $tourNameUD = $_POST['tourNameUD'];
                         $localCategoryUD = $_POST['localCategoryUD'];
+                        $sideTourUD = $_POST['sideTourUD'];
                         $dateNumUD = $_POST['dateNumUD'];
                         $tourDateStartUD = $_POST['tourDateStartUD'];
                         $tourTimeStartUD = $_POST['tourTimeStartUD'];
+                        $tourDateEndUD = $_POST['tourDateEndUD'];
                         $localFocusUD = $_POST['localFocusUD'];
                         $tourPriceAdultUD = $_POST['tourPriceAdultUD'];
                         $tourPriceKidUD = $_POST['tourPriceKidUD'];
                         $tourNumpplUD = $_POST['tourNumpplUD'];
                         $tourSalesUD = $_POST['tourSalesUD'];
+                        $tourDescUD = $_POST['tourDescUD'];
 
-                        update_tour_info($localCategoryUD, $tourNameUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD , $_GET['ma_tour']);
+                        // update_tour_info($localCategoryUD, $tourNameUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD , $_GET['ma_tour']);
+                        update_tour_info($localCategoryUD, $tourNameUD, $sideTourUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourDateEndUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD , $_GET['ma_tour'], $tourDescUD);
 
                         // Update IMG
                         $hinh_anh = $_FILES['tourImageUD'];
@@ -313,17 +317,22 @@ include $model_path.'/tourdulich.php';
                     // Add Tour Information
                     $tourName = $_POST['tourName'];
                     $localCategory = $_POST['localCategory'];
+                    $sideTour = $_POST['sideTour'];
                     $dateNum = $_POST['dateNum'];
                     $tourDateStart = $_POST['tourDateStart'];
                     $tourTimeStart = $_POST['tourTimeStart'];
-                    // $tourDateEnd = $_POST['tourDateEnd'];
+                    $tourDateEnd = $_POST['tourDateEnd'];
                     $localFocus = $_POST['localFocus'];
                     $tourPriceAdult = $_POST['tourPriceAdult'];
                     $tourPriceKid = $_POST['tourPriceKid'];
                     $tourNumppl = $_POST['tourNumppl'];
                     $tourSales = $_POST['tourSales'];
+                    $tourDesc = $_POST['tourDesc'];
 
-                    $matour = add_info_tour($localCategory, $tourName, $dateNum, $tourDateStart, $tourTimeStart, $tourPriceKid, $tourPriceAdult, $tourNumppl, $localFocus, $tourSales);
+                    // add_info_tour($localCategory, $tourName, $dateNum, $tourDateStart, $tourTimeStart, $tourPriceKid, $tourPriceAdult, $tourNumppl, $localFocus, $tourSales);
+                    $matour = add_info_tour($localCategory, $tourName, $sideTour, $dateNum, $tourDateStart, $tourTimeStart, $tourDateEnd, $tourPriceKid, $tourPriceAdult, $tourNumppl, $localFocus, $tourSales, $tourDesc);
+                    // add_info_tour($loai_tour, $tieu_de, $ma_mien, $goi_ngay, $ngay_khoihanh, $gio_khoihanh, $ngay_ve, $gia_treem, $gia_nguoilon, $soluong, $noi_tap_trung, $khuyen_mai, $gioi_thieu);
+                    
                     // Upload IMG
                     if(isset($_FILES['tourImg1'])) {
                         $hinh_anh = $_FILES['tourImg1']['name'];

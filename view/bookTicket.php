@@ -42,6 +42,11 @@
                                     </h2>
                                 </div>
                                 <div class="customer__block">
+                                    <?php
+                                        if(isset($_SESSION['account'])) { 
+                                            extract($_SESSION['account']);
+                                        } 
+                                    ?>
                                     <!-- Form Customer -->
                                     <div class="form__custtomer">
                                         <div class="text__sub-heaing-block tour__overview">
@@ -52,16 +57,16 @@
                                         <div action="" class="form__custtomer-box">
                                             <div class="form__custtomer-item">
                                                 <label for="namePLE" class="form__custtomer-item--label">Họ và Tên</label>
-                                                <input type="text" id="namePLE" class="form__custtomer-item--control">
+                                                <input type="text" id="namePLE" value="<?php echo $hoten ?>" class="form__custtomer-item--control">
                                             </div>
                                             <div class="form__custtomer-item">
                                                 <label for="emailPLE" class="form__custtomer-item--label">Email</label>
-                                                <input type="email" id="emailPLE" class="form__custtomer-item--control">
+                                                <input type="email" id="emailPLE" value="<?php echo $email ?>" class="form__custtomer-item--control">
                                             </div>
     
                                             <div class="form__custtomer-item w-100">
                                                 <label for="phonePLE" class="form__custtomer-item--label">Số điện thoại</label>
-                                                <input type="number" id="phonePLE" class="form__custtomer-item--control">
+                                                <input type="number" id="phonePLE" value="<?php echo $sdt ?>" class="form__custtomer-item--control">
                                             </div>
     
                                             <div class="form__custtomer-item form__custtomer-item--select">
@@ -72,13 +77,17 @@
                                                         $listProvince = load_all_province(); 
                                                         foreach($listProvince as $province) {    
                                                             extract($province);
+                                                            if($id == $tp) {
                                                     ?>
-                                                    <option value="<?php echo $id ?>"><?php echo $_name ?></option>
-                                                    <?php } ?>
+                                                        <option selected value="<?php echo $id ?>"><?php echo $_name ?></option>
+                                                    <?php } else {?>
+                                                        <option value="<?php echo $id ?>"><?php echo $_name ?></option>
+                                                    <?php } }?>
                                                 </select>
                                             </div>
                                             <div class="form__custtomer-item form__custtomer-item--select">
                                                 <label for="phonePLE" class="form__custtomer-item--label">Quận / Huyện</label>
+                                                <input type="text" hidden value="<?php echo $quan ?>" class="idDis">
                                                 <select name="" id="" class="info__customer-adults--control districtAcc">
                                                     <option value="">Quận / Huyện</option>
                                                     
@@ -86,13 +95,15 @@
                                             </div>
                                             <div class="form__custtomer-item form__custtomer-item--select">
                                                 <label for="phonePLE" class="form__custtomer-item--label">Phường / Xã</label>
+                                                <input type="text" hidden value="<?php echo $phuong ?>" class="idWard">
                                                 <select name="" id="" class="info__customer-adults--control wardAcc">
                                                     <option value="">Phường / xã</option>
                                                 </select>
                                             </div>
+                                            
                                             <div class="form__custtomer-item form__custtomer-item--select">
                                                 <label for="phonePLE" class="form__custtomer-item--label">Địa chỉ</label>
-                                                <input type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">    
+                                                <input type="text" class="info__customer-adults--control" value="<?php echo $dia_chi_cu_the ?>" placeholder="VD: 271/Nguyễn Văn Linh">    
                                             </div>
                                             
                                             
@@ -192,40 +203,12 @@
                                                             <input type="date" class="info__customer-adults--control">
                                                         </div>
         
-                                                        <div class="info__customer-adults--form-item w-100">
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
                                                             <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
                                                             <input type="number" class="info__customer-adults--control" placeholder="CCCD">
                                                         </div>
     
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Tỉnh / TP</label>
-                                                            <select name="" id="" class="info__customer-adults--control provinceUS1">
-                                                                <option value="">Tỉnh/TP</option>
-                                                                <?php 
-                                                                $listProvince = load_all_province(); 
-                                                                foreach($listProvince as $province) {    
-                                                                    extract($province);
-                                                                ?>
-                                                                <option value="<?php echo $id ?>"><?php echo $_name ?></option>
-                                                                <?php } ?>
-                                                            </select>
-                                                        </div>
-    
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Quận / Huyện</label>
-                                                            <select name="" id="" class="info__customer-adults--control districtUS1">
-                                                                <option value="">Quận/Huyện</option>
-                                                            </select>
-                                                        </div>
-    
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Phường Xã</label>
-                                                            <select name="" id="" class="info__customer-adults--control wardUS1">
-                                                                <option value="">Phường Xã</option>
-                                                            </select>
-                                                        </div>
-    
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select-text">
+                                                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
                                                             <label for="" class="info__customer-adults--label">Địa chỉ</label>
                                                             <input type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
                                                         </div>

@@ -1,7 +1,8 @@
 <?php
     // Thêm thông tin tour
-    function add_info_tour($loai_tour, $tieu_de, $goi_ngay, $ngay_khoihanh, $gio_khoihanh, $gia_treem, $gia_nguoilon, $soluong, $noi_tap_trung, $khuyen_mai) {
-        $sql = "INSERT INTO tour_du_lich(loai_tour, tieu_de, goi_ngay, ngay_khoihanh, gio_khoihanh, gia_treem, gia_nguoilon, soluong, noi_tap_trung, khuyen_mai) VALUES ('$loai_tour', '$tieu_de', '$goi_ngay', '$ngay_khoihanh', '$gio_khoihanh', '$gia_treem', '$gia_nguoilon', '$soluong', '$noi_tap_trung', '$khuyen_mai')";
+    function add_info_tour($loai_tour, $tieu_de, $ma_mien, $goi_ngay, $ngay_khoihanh, $gio_khoihanh, $ngay_ve, $gia_treem, $gia_nguoilon, $soluong, $noi_tap_trung, $khuyen_mai, $gioi_thieu) {
+        $sql = "INSERT INTO tour_du_lich(loai_tour, tieu_de, ma_mien, goi_ngay, ngay_khoihanh, gio_khoihanh, ngay_ve, gia_treem, gia_nguoilon, soluong, noi_tap_trung, khuyen_mai, gioi_thieu)
+        VALUES ('$loai_tour', '$tieu_de', '$ma_mien', '$goi_ngay', '$ngay_khoihanh', '$gio_khoihanh', '$ngay_ve', '$gia_treem', '$gia_nguoilon', '$soluong', '$noi_tap_trung', '$khuyen_mai', '$gioi_thieu')";
         return pdo_execute_lastInsertId($sql);
     }
 
@@ -104,8 +105,10 @@
         pdo_execute($sql);
     }
 
-    function update_tour_info($loai_tour, $tieu_de, $goi_ngay, $ngay_khoihanh, $gio_khoihanh, $gia_treem, $gia_nguoilon, $soluong, $noi_tap_trung, $khuyen_mai , $ma_tour) {
-        $sql = "UPDATE tour_du_lich SET loai_tour= '$loai_tour', tieu_de = '$tieu_de', goi_ngay = '$goi_ngay', ngay_khoihanh = '$ngay_khoihanh', gio_khoihanh = '$gio_khoihanh', gia_treem = '$gia_treem', gia_nguoilon = '$gia_nguoilon', soluong = '$soluong', noi_tap_trung = '$noi_tap_trung', khuyen_mai= '$khuyen_mai'  WHERE ma_tour   = $ma_tour ";
+    function update_tour_info($loai_tour, $tieu_de, $ma_mien, $goi_ngay, $ngay_khoihanh, $gio_khoihanh, $ngay_ve, $gia_treem, $gia_nguoilon, $soluong, $noi_tap_trung, $khuyen_mai , $ma_tour, $gioi_thieu) {
+        $sql = "UPDATE tour_du_lich SET loai_tour= '$loai_tour', tieu_de = '$tieu_de', ma_mien = '$ma_mien', goi_ngay = '$goi_ngay', 
+        ngay_khoihanh = '$ngay_khoihanh', gio_khoihanh = '$gio_khoihanh', ngay_ve = '$ngay_ve', gia_treem = '$gia_treem', gia_nguoilon = '$gia_nguoilon', 
+        soluong = '$soluong', noi_tap_trung = '$noi_tap_trung', khuyen_mai= '$khuyen_mai', gioi_thieu = '$gioi_thieu'  WHERE ma_tour   = $ma_tour ";
         pdo_execute($sql);
     }
 
