@@ -273,7 +273,7 @@ include $model_path.'/tourdulich.php';
                         $tourSalesUD = $_POST['tourSalesUD'];
                         $tourDescUD = $_POST['tourDescUD'];
 
-                        // update_tour_info($localCategoryUD, $tourNameUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD , $_GET['ma_tour']);
+                        
                         update_tour_info($localCategoryUD, $tourNameUD, $sideTourUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourDateEndUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD , $_GET['ma_tour'], $tourDescUD);
 
                         // Update IMG
