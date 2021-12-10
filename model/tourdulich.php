@@ -116,4 +116,5 @@
         $sql = "SELECT * FROM tour_du_lich WHERE 1 ORDER BY khuyen_mai DESC LIMIT 0,5";
         return pdo_query($sql);
     }
+  
 ?>

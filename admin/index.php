@@ -9,7 +9,7 @@ include $model_path.'/diadiem.php';
 include $model_path.'/baiviet.php';
 include $model_path.'/user.php';
 include $model_path.'/tourdulich.php';
-
+include $model_path.'/taikhoan.php';
     $ql = '';
     if(isset($_GET['ql'])) {
         $ql = $_GET['ql'];
@@ -18,11 +18,7 @@ include $model_path.'/tourdulich.php';
         // Local Side 
         case 'localSide':
             if (isset($_GET['listSide'])) {
-                if(isset($_GET['deleteLocal'])) {
-                    if(isset($_GET['ma_mien']) && ($_GET['ma_mien'] > 0)) {
-                        delete_Side($_GET['ma_mien']);
-                    }
-                }
+               
                 $listLocalSide = list_Side();
                 include $vungmien_path.'list.php';
 
@@ -30,9 +26,9 @@ include $model_path.'/tourdulich.php';
                 $mess = '';
                 if(isset($_GET['ma_mien']) && ($_GET['ma_mien'] > 0)) {
                     if(isset($_POST['updateLocalSide'])) {
-                        $nameLocalSide = $_POST['localSideUD'];
-                        $descLocalSide = $_POST['localSideDerscUD'];
-                        $IdLocal = $_GET['ma_mien'];
+                        $nameLocalSide=$_POST['localSideUD'];
+                        $descLocalSide=$_POST['localSideDerscUD'];
+                        $IdLocal=$_GET['ma_mien'];
 
                         if(!updateSide($nameLocalSide,$descLocalSide,$IdLocal)) {
                             $mess = 'Cập nhật thành công';
@@ -216,7 +212,6 @@ include $model_path.'/tourdulich.php';
                     $newsName = $_POST['newsName'];
                     $newsDesc = $_POST['newsDesc'];
                     $newsContent = $_POST['newsContent'];
-
                     $newsImg = $_FILES['newsImage']['name'];
                     $target_dir = "../upload/"; //lấy từ thư mục upload
                     $target_file = $target_dir . basename($_FILES["newsImage"]["name"]);
@@ -233,7 +228,9 @@ include $model_path.'/tourdulich.php';
 
             // Tour Item
         case 'tourItem':
+
             if (isset($_GET['listtour'])) {
+
                 // Delete Tour
                 if(isset($_GET['deteletour'])) {
                     if(isset($_GET['ma_tour'])) {
@@ -444,20 +441,83 @@ include $model_path.'/tourdulich.php';
             }
             break;
 
+
+
+
             // User & Admin
-        case 'user':
+        
+            case 'user':
             if (isset($_GET['listuser'])) {
-                include './user/listuser.php';
+                if(isset($_GET['deleteaccount'])) {
+                    if(isset($_GET['ma_taikhoan']) && ($_GET['ma_taikhoan'] > 0)) {
+                        delete_account($_GET['ma_taikhoan']);
+                    }
+                }
+                $list_account=list_account();
+                include $account_path.'list.php';
+
+               
             } elseif (isset($_GET['listadmin'])) {
-                include './user/listadmin.php';
+                //xóa
+                if(isset($_GET['deleteadmin'])) {
+                    if(isset($_GET['ma_taikhoan']) && ($_GET['ma_taikhoan'] > 0)) {
+                        delete_account($_GET['ma_taikhoan']);
+                    }
+                }
+                // if(isset($_POST['search'])&&($_POST['search'])){
+                //     $keyword=$_POST['keyword'];
+                //     find_admin($keyword);
+            
+                // }
+                $list_account=list_account($keyword);
+                include $account_path.'listadmin.php';
             } elseif (isset($_GET['add'])) {
-                include './user/add.php';
-            } elseif (isset($_GET['updateacc'])) {
-                include './user/update.php';
+                $mess='';
+                if(isset($_POST['add_admin'])){
+                    $hoten=$_POST['hoten'];
+                    $matkhau=md5($_POST['matkhau']);
+                    $cccd=$_POST['cccd'];
+                    $email=$_POST['email'];
+                    $sdt=$_POST['sdt'];
+                    $hinh_anh=$_FILES['hinh_anh']['name'];
+                    $target_dir = "../upload/"; //lấy từ thư mục upload
+                    $target_file = $target_dir . basename($_FILES["hinh_anh"]["name"]);
+                    move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file);
+                    //Add
+                    if(!add_admin($hoten,$matkhau,$cccd,$sdt,$email,$hinh_anh)) {
+                        $mess = 'Thêm thành công';
+                    }
+
+                }
+                include $account_path.'add.php';
+            } elseif (isset($_GET['updateacc'])) { 
+                if(isset($_GET['ma_taikhoan'])&&($_GET['ma_taikhoan'])>0){
+                    if(isset($_POST['update_admin'])){
+                        $mess='';
+                        $hoten=$_POST['hoten'];
+                        $matkhau=md5($_POST['matkhau']);
+                        $cccd=$_POST['cccd'];
+                        $sdt=$_POST['sdt'];
+                        $ma_taikhoan=$_GET['ma_taikhoan'];
+                        $hinh_anh = $_FILES['hinh_anh']['name'];    
+                        $target_dir = "../upload/"; //lấy từ thư mục upload
+                        $target_file = $target_dir.basename($_FILES["hinh_anh"]["name"]);
+                        move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file);
+                       
+                        if(!update_admin($hoten,$matkhau, $cccd, $sdt,$hinh_anh,$ma_taikhoan)) {
+                            $mess = 'Cập nhật thành công';
+                    }
+                        
+                }
+                }
+
+                $load_account= load_account($_GET['ma_taikhoan']);
+                include $account_path.'update.php';
             }
+                
             break;
 
-            // Bill Confirmated
+            // Bill Confirmateda
         case 'tourBill':
             if (isset($_GET['list'])) {
                 include './hoadon/list.php';

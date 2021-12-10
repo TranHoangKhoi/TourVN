@@ -9,7 +9,7 @@
     $danhmuctintuc_path = "$admin_path/danhmuctintuc/";
     $danhmuctour_path = "$admin_path/danhmuctour/";
     $vungmien_path = "$admin_path/vungmien/";
-
+    $account_path ="$admin_path/taikhoan/";
     function pagination($showItem, $listItem) {
         $showLocal = $showItem;
         $countLocal = count($listItem);

@@ -15,7 +15,7 @@
                                 <th class="tbl-3">Tên vùng miền</th>
                                 <th class="tbl-3">Mô tả</th>
                                 <th class="tbl-1">Thao tác</th>
-                                <th class="tbl-1">Thao tác</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -35,9 +35,7 @@
                                 <td>
                                     <a href="?ql=localSide&updateSide&ma_mien=<?php echo $ma_mien ?>" class="btn btn__tbl">Sửa</a>
                                 </td>
-                                <td>
-                                    <a href="index.php?ql=localSide&listSide&deleteLocal&ma_mien=<?php echo $ma_mien ?>" class="btn btn__tbl">Xóa</a>
-                                </td>
+                                
                             </tr>
                         <?php } ?>
                         </tbody>
