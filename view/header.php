@@ -148,12 +148,12 @@
 
                         <!-- Input & Icon Login -->
                         <div class="header__top-width-search">
-                            <form method="post" id="formSearchHeader" class="form_top">
+                            <form  method="post" id="formSearchHeader" class="form_top">
                                 <div class="header__top-search">
-                                    <input type="text" class="header__top-search--control" placeholder="Bắt đầu tìm kiếm...">
-                                    <!-- <input type="submit" class="header__top-search--box" value> -->
-                                    <button class="header__top-search--box">
-                                        <i class="header__top-search--icon">
+                                    <input type="text" name="keyword" class="header__top-search--control" placeholder="Bắt đầu tìm kiếm...">
+                                    <!-- <input type="submit" name="search"  class="header__top-search--box" value> -->
+                                    <button name="search" class="header__top-search--box">
+                                        <!-- <i class="header__top-search--icon"> -->
                                             <ion-icon name="search"></ion-icon>
                                         </i>
                                     </button>
@@ -174,7 +174,6 @@
                                 </div> 
                                  <?php       
                                     }else{
-
                                  ?>
                             <div class="header__top-login">
                                 <a href="?call=login" class="header__top-login--link">

@@ -8,27 +8,29 @@
                     <h3 class="content__tap-heading-text">Thêm mới tài khoản admin</h3>
                 </div>
                 <div class="content__tap-main">
-                    <form action="" class="form-box">
-                        <div class="form-group">
+                    <form action="?ql=user&add" method="POST" class="form-box" enctype="multipart/form-data">
+                    <div class="form-group">
                             <div class="form-field">
-                                <label for="adminUserName" class="form-label">Tài khoản</label>
-                                <input type="text" id="adminUserName" name="adminUserName" class="input-control" placeholder="VD: admin123123">
-                            </div>
-                            <span class="test-masage"></span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="form-field">
-                                <label for="adminPass" class="form-label">Mật khẩu</label>
-                                <input type="password" id="adminPass" name="adminPass" class="input-control" placeholder="VD: AZ123456">
+                                <label for="adminPass" class="form-label">Họ và tên</label>
+                                <input type="text" id="adminPass" name="hoten" class="input-control" placeholder="VD: Trần Văn A">
                             </div>
                             <span class="test-masage"></span>
                         </div>
 
                         <div class="form-group">
                             <div class="form-field">
-                                <label for="adminPass" class="form-label">Họ và tên</label>
-                                <input type="password" id="adminPass" name="adminPass" class="input-control" placeholder="VD: Trần Văn A">
+                                <label for="adminPass" class="form-label">Mật khẩu</label>
+                                <input type="password" id="adminPass" name="matkhau" class="input-control" placeholder="VD: AZ123456">
+                            </div>
+                            <span class="test-masage"></span>
+                        </div>
+                        
+                        
+
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label for="adminUserName" class="form-label">CCCD/CMND</label>
+                                <input type="number" id="adminUserName" name="adminUserName" class="input-control" placeholder="VD:0123456789">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -36,7 +38,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="adminPhone" class="form-label">Số điện thoại</label>
-                                <input type="number" id="adminPhone" name="adminPhone" class="input-control" placeholder="VD: 0971123123">
+                                <input type="number" id="adminPhone" name="sdt" class="input-control" placeholder="VD: 0971123123">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -44,7 +46,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="adminEmail" class="form-label">Email</label>
-                                <input type="email" id="adminEmail" name="adminEmail" class="input-control" placeholder="VD: khoi189@gmail.com">
+                                <input type="email" id="adminEmail" name="email" class="input-control" placeholder="VD: khoi189@gmail.com">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -53,14 +55,25 @@
                             <div class="form-field">
                                 <label for="adminImg" class="form-label">Hình ảnh</label>
                                 <label for="adminImg" class="form-sub-label">Hình ảnh dùng làm ảnh đại diện cho tài khoản</label>
-                                <input type="file" id="adminImg" name="adminImg" class="input-control-img">
+                                <input type="file" id="adminImg" name="hinh_anh" class="input-control-img">
                             </div>
                             <span class="test-masage"></span>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-form">Thêm</button>
+                            <button name="add_admin" class="btn btn-form">Thêm</button>
                         </div>
+                        
+                        <?php
+                        if(isset($mess) && $mess != '') {
+                    ?>
+                    <div class="mess-form success">
+                        <span>
+                            <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                            <?php echo $mess?>
+                        </span>
+                    </div>
+                    <?php } ?>
                     </form>
                 </div>
             </div>

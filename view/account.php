@@ -1,9 +1,8 @@
 <?php
     if(isset($_SESSION['account'])) {
         extract($_SESSION['account']);
-    }
-    
-?>
+    ?>
+  
 
 <main>
             <!-- List Tour Cate -->
@@ -47,7 +46,20 @@
                                     Các vé đã đặt
                                 </a>
                             </div>
-
+                            <?php
+                                if($vai_tro==1){
+                            ?>
+                         
+                            <div class="account__cate-item">
+                                <a href="./admin/index.php" class="account__cate-item-choose">
+                                    <i class="account__cate-item-icon"><ion-icon name="finger-print"></ion-icon></ion-icon></i>
+                                     Quản lý ADMIN
+                                </a>
+                                
+                            </div>
+                            <?php
+                                }
+                            ?>
                             <div class="account__cate-item">
                                 <a href="?call=account&log_out" class="account__cate-item-choose check-out">
                                     <i class="account__cate-item-icon"><ion-icon name="power"></ion-icon></i>
@@ -57,7 +69,9 @@
                             </div>
                         </div>
                     </div>
-
+                    <?php
+                     } 
+                    ?>
                     <div class="col l-9 ">
                         <div class="account__right 
                             <?php if(isset($_GET['updateAcc'])) echo 'active'?>

@@ -48,7 +48,7 @@
                         ?>
                     ">
                         <i class="header__nav-icon">
-                            <ion-icon name="map"></ion-icon>
+                        <ion-icon name="pin"></ion-icon>
                         </i>
                         Địa điểm
                     </a>
@@ -62,7 +62,7 @@
                         ?>
                     ">
                         <i class="header__nav-icon">
-                            <ion-icon name="navigate"></ion-icon>
+                            <ion-icon name="map"></ion-icon>
                         </i>
                         Vùng miền
                     </a>
@@ -104,7 +104,7 @@
                         ?>
                     ">
                         <i class="header__nav-icon">
-                            <ion-icon name="wallet"></ion-icon>
+                        <ion-icon name="create"></ion-icon>
                         </i>
                         Bài viết
                     </a>
@@ -134,7 +134,7 @@
                         <i class="header__nav-icon">
                             <ion-icon name="contacts"></ion-icon>
                         </i>
-                        Khách hàng
+                        Tài Khoản
                     </a>
                 </li>
                 <li class="header__nav-item">
@@ -166,7 +166,7 @@
                     </a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="" class="header__nav-link warn">
+                    <a href="../index.php" class="header__nav-link warn">
                         <i class="header__nav-icon">
                             <ion-icon name="power"></ion-icon>
                         </i>

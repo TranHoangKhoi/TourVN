@@ -133,7 +133,7 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 $_SESSION['account'] = load_account($ma_taikhoan);
                 header('location: index.php?call=account&updateAcc');
             }
-
+            //Cập nhật mật khẩu
             if(isset($_POST['updatePass'])) {
                 $mess = '';
                 $status = '';
@@ -152,7 +152,13 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                     $status = 'red';
                 }
             }
+            // Đến trang admin
+            // if(isset($_POST['go_admin'])){
+            //      header('location: /admin/index.php');
+            // }
 
+
+            //đăng xuất
             if(isset($_GET['log_out'])){
                 session_unset();
                  header("location: index.php");
