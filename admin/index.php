@@ -237,9 +237,9 @@ include $model_path.'/tourdulich.php';
                 // Delete Tour
                 if(isset($_GET['deteletour'])) {
                     if(isset($_GET['ma_tour'])) {
-                        delete_info_tour($_GET['ma_tour']);
                         delete_img_tour($_GET['ma_tour']);
                         delete_journeys($_GET['ma_tour']);
+                        delete_info_tour($_GET['ma_tour']);
                     }
                 }
 
