@@ -51,7 +51,7 @@
                                 foreach($list_news as $newsItem) {
                                     extract($newsItem);
                                     $hinh = $img_path . $hinh_anh;
-                                    $user =  get_user($ma_taikhoan);
+                                    $user =  get_user_by_maTk($ma_taikhoan);
                                     extract($user);
                                     $newCateItem = loadone_loai_tin($ma_loai);
                                     extract($newCateItem);

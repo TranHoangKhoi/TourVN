@@ -13,6 +13,7 @@ include './model/user.php';
 include './model/diachi.php';
 include './model/taikhoan.php';
 include './model/check.php';
+include './model/hoadon&ve.php';
 include $view_path.'header.php';
 
 
@@ -56,7 +57,20 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 $pageNum = pagination($itemNum, $countList);
 
                 $listTour = get_tour_info_by_cate($_GET['loai_tour'] , $starItem, $itemNum);
+            } elseif (isset($_GET['timkiem']) && ($_GET['keyword'] != '')) {
+                $keyW = $_GET['keyword'];
+                // Panigition
+                $itemNum = 12;
+                $starItem = 0;
+                if(isset($_GET['page'])) {
+                    $starItem = ($_GET['page'] - 1) * $itemNum;
+                }
+                $countList = find_count($keyW);
+                $pageNum = pagination($itemNum, $countList);
+
+                $listTour = find($keyW, $starItem,$itemNum);
             }
+             
             include $view_path.'tourList.php';
             break;
         // Tour Details
@@ -96,9 +110,101 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 
         // Book Ticket
         case 'bookTicket':
-            if(isset($_GET['ma_tour'])) {
-                $tourInfo = get_tour_info($_GET['ma_tour']);
-                include $view_path.'bookTicket.php';
+            if(isset($_SESSION['account'])) {
+                if(isset($_GET['ma_tour'])) {
+                    if(isset($_POST['bookBtn'])) {
+                        $mess = '';
+                        $status = '';
+                        $tourItem = get_tour_info($_GET['ma_tour']);
+                        extract($tourItem);
+                        // Bill
+                        $nameusBook = $_POST['namePLE'];
+                        $emailusBook = $_POST['emailPLE'];
+                        $phoneusBook = $_POST['phonePLE'];
+                        $proviceusID = $_POST['proPLE'];
+                        $districsusID = $_POST['disPLE'];
+                        $wardusID = $_POST['wardPLE'];
+                        $addressus = $_POST['addressPLE'];
+                        $userBookNote = $_POST['userBookNote'];
+                        
+                        // Tổng tiền
+                        $toltalMoney = $_POST['toltalMoney'];
+
+                        $proviceusBook =  get_province($proviceusID);
+                        $districsusBook =  get_district($districsusID);
+                        $wardusBook =  get_ward($wardusID);
+
+                        $addressBook = $proviceusBook['_name'].','. $districsusBook['_name'].','.$wardusBook['_name'].','.$addressus;
+                        // $idBill = 15;
+                        $idBill = add_bill($_SESSION['account']['ma_taikhoan'], $toltalMoney, $nameusBook, $emailusBook, $phoneusBook, $addressBook, $ma_tour, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, $userBookNote);
+                        
+                        
+                        
+                        if(isset($idBill)) {
+                            // Adult
+                            $nameUserBook = $_POST['nameUserBook'];
+                            $sexUserBook = $_POST['sexUserBook'];
+                            $birthUserBook = $_POST['birthUserBook'];
+                            $cccdUserBook = $_POST['cccdUserBook'];
+                            $addresshUserBook = $_POST['addresshUserBook'];
+                            // 
+                            $listTicket = [];
+
+                            for($i=0; $i < $soluong; $i++) {
+                                if((empty($nameUserBook[$i]) != 1) && (empty($sexUserBook[$i]) != 1) && (empty($birthUserBook[$i]) != 1) && (empty($cccdUserBook[$i]) != 1) && (empty($addresshUserBook[$i]) != 1)) {
+                                    $custom = get_user($cccdUserBook[$i]);
+                                    if(is_array($custom)) {
+                                        // $listCustomAdult = [$nameUserBook[$i], $sexUserBook[$i], $birthUserBook[$i], $cccdUserBook[$i], $addresshUserBook[$i]];
+                                        // array_push($listTicket, $listCustomAdult);
+
+                                        if(!add_tickets($ma_tour, $custom['ma_kh'], $idBill , $nameUserBook[$i], $gia_nguoilon, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Người lớn')) {
+                                            $mess = 'Đặt vé thành công';
+                                            $status = 'green';
+                                        } else {
+                                            $status = 'red';
+                                        }
+                                    }else {
+                                        $maKH = add_custom_and_get($nameUserBook[$i], $cccdUserBook[$i], '', $addresshUserBook[$i], $sexUserBook[$i], $birthUserBook[$i]);
+                                        if(!add_tickets($ma_tour, $maKH, $idBill , $nameUserBook[$i], $gia_nguoilon, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Người lớn')) {
+                                            $mess = 'Đặt vé thành công';
+                                            $status = 'green';
+                                        } else {
+                                            $status = 'red';
+                                        }
+
+                                    }
+                                    
+
+                                }
+                            }
+
+                            // Kid
+                            if(isset($_POST['nameKidBook']) && $_POST['cccdAdultBook']) {
+                                $nameKidBook = $_POST['nameKidBook'];
+                                $cccdAdultBook = $_POST['cccdAdultBook'];
+
+                                for($i=0; $i < $soluong; $i++) {
+                                    if((empty($nameKidBook[$i]) != 1) && (empty($cccdAdultBook[$i]) != 1) ) {
+                                        $customAdult = get_user($cccdAdultBook[$i]);
+                                        if(!add_tickets($ma_tour, $customAdult['ma_kh'], $idBill , $nameKidBook[$i], $gia_treem, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Trẻ em')) {
+                                            $mess = 'Đặt vé thành công';
+                                            $status = 'green';
+                                        }else {
+                                            $status = 'red';
+                                        }
+
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+    
+                    $tourInfo = get_tour_info($_GET['ma_tour']);
+                    include $view_path.'bookTicket.php';
+                }
+            } else {
+                header('location: index.php?call=login');
             }
             break;
 
@@ -152,6 +258,19 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                     $status = 'red';
                 }
             }
+
+            if(isset($_GET['ticket'])) {
+                // Panigition
+                $itemNum = 6;
+                $starItem = 0;
+                if(isset($_GET['page'])) {
+                    $starItem = ($_GET['page'] - 1) * $itemNum;
+                }
+                $countList = get_bill_by_ma_tk_count($ma_taikhoan);
+                $pageNum = pagination($itemNum, $countList);
+
+                $listBillConFirm = get_bill_by_ma_tk($ma_taikhoan, $starItem, $itemNum);
+            }
             // Đến trang admin
             // if(isset($_POST['go_admin'])){
             //      header('location: /admin/index.php');
@@ -178,7 +297,15 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 $phuong=$_POST['phuong'];
                 $quan=$_POST['quan'];
                 $email=$_POST['email'];
+                $addressus=$_POST['address'];
                 $matkhau=md5($_POST['matkhau']);
+
+                // Address Details
+                $proviceus =  get_province($tp);
+                $districsus =  get_district($quan);
+                $wardus =  get_ward($phuong);
+
+                $addressDetail = $proviceus['_name'].','. $districsus['_name'].','.$wardus['_name'].','.$addressus;
 
             //     // kiểm tra xem người dùng có nhập đầy đủ thông tin hay không
             //     check_not_null($hoten,$matkhau,$email,$sdt,$cccd);   
@@ -187,8 +314,10 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
             //     //Kiểm tra xem số điện thoại có hợp lệ hạy không
             //     check_phone_valid($sdt);
                 
-
-                 insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong);
+                // Thêm Giới tính và Ngày sinh
+                if(!insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong, $addressus)) {
+                    add_custom($hoten, $cccd, $sdt, $addressDetail, 'gioi_tinh', 'ngay_sinh');
+                };
                  $mess='Chúc mừng! Bạn đã đăng Ký thành công';
             }
             //đăng nhập
@@ -218,6 +347,9 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
             break;
     }
 } else {
+    if(isset($_GET['keyword']) && $_GET['keyword'] != ''){
+        header('location: index.php?call=listTour&timkiem&keyword='. $_GET['keyword']);
+    }
     include $view_path.'home.php';
 }
 

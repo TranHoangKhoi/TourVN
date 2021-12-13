@@ -6,6 +6,26 @@
         return pdo_query($sql);
     }
 
+    // 
+    function get_province($id) {
+        $sql = "SELECT * FROM province WHERE id = $id";
+        return pdo_query_one($sql);
+    }
+    
+    // 
+    function get_district($id) {
+        $sql = "SELECT * FROM district WHERE id = $id";
+        return pdo_query_one($sql);
+    }
+
+    // 
+    function get_ward($id) {
+        $sql = "SELECT * FROM ward WHERE id = $id";
+        return pdo_query_one($sql);
+    }
+
+
+
     // Load district
     function load_district_by_id($key) {
         include './pdo.php';

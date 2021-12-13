@@ -198,6 +198,12 @@
     margin: 0;
 }
 
+.content__tap-heading p {
+    font-size: 1.5rem;
+    color: var(--btn-color);
+    font-weight: 600;
+}
+
 .content__tap-main {
     display: flex;
     align-items: center;
@@ -376,4 +382,33 @@ table, th, td {
 
 .check-box--item input {
     margin: 0 6px 0 16px;
+}
+
+.content__tap-info--custom {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 20px;
+    margin: 20px;
+    border: 1px solid var(--btn-color);
+}
+
+.content__tap-info--custom h4 {
+    font-size: 1.6rem;
+    color: var(--btn-color);
+}
+
+.content__tap-info--custom p {
+    font-size: 1.4rem;
+    line-height: 3rem;
+    margin: 0;
+}
+
+.content__tap-info--custom span {
+    font-weight: 600;
+    min-width: 60px;
+    display: inline-block;
+}
+
+footer {
+    border: none;
 }

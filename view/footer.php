@@ -139,6 +139,7 @@
         cateGorySile();
         bookTicket();
         showTapConTent();
+        checkCCCD();
 
         // Ajax
         // loadAddresses();

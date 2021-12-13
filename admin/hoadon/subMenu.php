@@ -1,9 +1,9 @@
 <div class="content__header">
             <ul class="sub__nav-list">
                 <li class="sub__nav-item">
-                    <a href="?ql=tourItem&add" class="sub__nav-item--link 
+                    <a href="index.php?ql=tourBill&list" class="sub__nav-item--link 
                     <?php
-                            if(isset($_GET['add'])) {
+                            if(isset($_GET['list'])) {
                                 echo 'active';
                             }
                     ?>
@@ -13,10 +13,10 @@
                 </li>
 
                 <?php
-                    if(isset($_GET['updatetour'])) { ?>
+                    if(isset($_GET['detials'])) { ?>
                         <li class="sub__nav-item">
-                            <a href="" class="sub__nav-item--link active">
-                                Cập nhật tour du lịch
+                            <a href="#" class="sub__nav-item--link active">
+                                Chi tiết
                             </a>
                 <?php } ?>
             </ul>

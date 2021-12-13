@@ -9,7 +9,7 @@
 
                 <div class="content__tap-main">
                     <div class="table__control">
-                        <form action="?ql=user&listadmin" class="table__control-group">
+                        <form action="?ql=user&listadmin" method="post" class="table__control-group">
                             <div class="filter__id-tour">
                                 <input type="text" name="keyword" id="" class="filter__id-tour--input" placeholder="Nhập tên admin...">
                             </div>
@@ -40,7 +40,7 @@
                                $i = 1;
                                foreach($list_account as $account) {
                                extract($account);
-                               if($vai_tro=1){      
+                               if($vai_tro == 1){      
                                $hinh = $img_path . $hinh_anh;
                             ?>
                             <tr>

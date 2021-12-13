@@ -181,34 +181,34 @@ function bookTicket() {
                     var formAdult = document.createElement('div');
                     formAdult.classList.add('info__customer-adults--form', 'js__form-adults');
                     formAdult.innerHTML = `
-                    <div class="info__customer-adults--form-item info__customer-adults--form-text">
-                                                            <label for="" class="info__customer-adults--label">Họ tên</label>
-                                                            <input type="text" class="info__customer-adults--control" placeholder="Họ và tên">
-                                                        </div>
-        
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Giới tính</label>
-                                                            <select name="" id="" class="info__customer-adults--control">
-                                                                <option value="">Giới tính</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
-                                                            </select>
-                                                        </div>
-        
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Ngày sinh</label>
-                                                            <input type="date" class="info__customer-adults--control">
-                                                        </div>
-        
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
-                                                            <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
-                                                            <input type="number" class="info__customer-adults--control" placeholder="CCCD">
-                                                        </div>
-    
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
-                                                            <label for="" class="info__customer-adults--label">Địa chỉ</label>
-                                                            <input type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
-                                                        </div>
+                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                            <label for="" class="info__customer-adults--label">Họ tên</label>
+                            <input name="nameUserBook[]" type="text" class="info__customer-adults--control" placeholder="Họ và tên">
+                        </div>
+
+                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                            <label for="" class="info__customer-adults--label">Giới tính</label>
+                            <select name="sexUserBook[]" id="" class="info__customer-adults--control">
+                                <option value="">Giới tính</option>
+                                <option value="nam">Nam</option>
+                                <option value="nu">Nữ</option>
+                            </select>
+                        </div>
+
+                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
+                            <label for="" class="info__customer-adults--label">Ngày sinh</label>
+                            <input name="birthUserBook[]" type="date" class="info__customer-adults--control">
+                        </div>
+
+                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                            <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
+                            <input id="cccdAdult" name="cccdUserBook[]" type="number" class="info__customer-adults--control" placeholder="CCCD">
+                        </div>
+
+                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                            <label for="" class="info__customer-adults--label">Địa chỉ</label>
+                            <input name="addresshUserBook[]" type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
+                        </div>
                     `;
 
                     customerAdultsBox.appendChild(formAdult);
@@ -234,6 +234,7 @@ function bookTicket() {
 
                 customerKidsBox.removeChild(formKidActive);
                 numKidToltal.innerHTML = numKid - 1;
+                numkidVal.value = numKid - 1;
                 toltalMoney();
                 if(numKid == 1 ){
                     var kidTitle = document.querySelector('.js__form-kid--title');
@@ -243,6 +244,7 @@ function bookTicket() {
         }
 
         function addNumKidsForm() {
+            var numkidVal = document.querySelector('#numkidVal');
             var numKid = Number(changeKidNum.innerText);
             var numAdult = Number(changeAdultNum.innerText);
             var numAll = numKid + numAdult;
@@ -261,27 +263,20 @@ function bookTicket() {
                     var formKid = document.createElement('div');
                     formKid.classList.add('info__customer-adults--form', 'js__form-kid');
                     formKid.innerHTML = `
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
-                                                            <label for="" class="info__customer-adults--label">Họ tên</label>
-                                                            <input type="text" class="info__customer-adults--control">
-                                                        </div>
-        
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Giới tính</label>
-                                                            <select name="" id="" class="info__customer-adults--control">
-                                                                <option value="">Giới tính</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
-                                                            </select>
-                                                        </div>
-        
-                                                        <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                            <label for="" class="info__customer-adults--label">Ngày sinh</label>
-                                                            <input type="date" class="info__customer-adults--control">
-                                                        </div>
+                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                            <label for="" class="info__customer-adults--label">Họ tên</label>
+                            <input type="text" name="nameKidBook[]" class="info__customer-adults--control">
+                        </div>
+
+                        <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                            <label for="" class="info__customer-adults--label">Số căn cước công dân của người dám hộ</label>
+                            <input name="cccdAdultBook[]"  type="number" class="info__customer-adults--control JS-CCCD" placeholder="CCCD">
+                        </div>
+                         <span class="error-mess"></span>
                     `;
                     customerKidsBox.appendChild(formKid);
                     numKidToltal.innerHTML = numKid + 1;
+                    numkidVal.value = numKid + 1;
                     toltalMoney();
                 }
             }
@@ -325,4 +320,45 @@ function showTapConTent() {
         //     tapItem.classList.add('active');
         // }
     })
+}
+
+function checkCCCD() {
+    if(document.querySelector('#form-book--ticket')) {
+        var formBook = document.querySelector('#form-book--ticket');
+        var btnBook = document.querySelector('#JS-book-btn');
+
+        formBook.onsubmit = function(e) {
+            var listFlash = [];
+            var flash = true;
+        // btnBook.onclick = function() {
+            var listcccdAdult = document.querySelectorAll('#cccdAdult');
+            var listcccdKid = document.querySelectorAll('.JS-CCCD');
+            for(var i = 0; i < listcccdKid.length; i++) {
+                var formKid = document.querySelectorAll('.js__form-kid');
+                var errorBox = formKid[i].querySelector('.error-mess');
+
+                var cccdKid = listcccdKid[i].value;
+                for (var j = 0; j < listcccdAdult.length; j++) {
+                    var cccdAdult = listcccdAdult[j].value;
+                    if(cccdKid == cccdAdult) {
+                        errorBox.innerHTML = "";
+                        listFlash.pop();
+                        break;
+                    }else {
+                        errorBox.innerHTML = "Số cccd người dám hộ không trùng khớp với cccd người lớn đi cùng, mời quý khách kiểm tra lại";
+                        // flash = false;
+                        listFlash.push('1');
+                    }
+                }
+            }
+
+            console.log(cccdKid, cccdAdult, listFlash);
+
+            if(listFlash.length == 0) {
+                formBook.submit();
+            }else {
+                e.preventDefault();
+            }
+        }
+}
 }
