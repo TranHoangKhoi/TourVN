@@ -464,11 +464,14 @@ include $model_path.'/taikhoan.php';
                         delete_account($_GET['ma_taikhoan']);
                     }
                 }
-                // if(isset($_POST['search'])&&($_POST['search'])){
-                //     $keyword=$_POST['keyword'];
-                //     find_admin($keyword);
             
-                // }
+                if(isset($_POST['search'])&&($_POST['search'])){
+                    $keyword=$_POST['keyword'];
+                    find_admin($keyword);
+                     $list_account=list_account($keyword);
+                    include $account_path.'listadmin.php';
+                    break;
+                }
                 $list_account=list_account($keyword);
                 include $account_path.'listadmin.php';
             } elseif (isset($_GET['add'])) {
