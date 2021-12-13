@@ -41,9 +41,8 @@
                                  $i = 1;
                                  foreach($list_account as $account) {
                                  extract($account);
-                                 if($vai_tro==0){
+                                 if($vai_tro == 0){
 
-                                 
                                  $hinh = $img_path . $hinh_anh;
                             ?>
                             <tr>

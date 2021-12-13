@@ -7,7 +7,7 @@
 <!-- Book Ticket -->
         <main>
             <div class="book__ticket content__block">
-                <form action="">
+                <form action="" method="post" id="form-book--ticket">
                     <div class="grid wide">
                         <!-- Book Ticket Heading -->
                         <div class="row mb-50">
@@ -41,6 +41,7 @@
                                         Tổng quan về chuyến đi
                                     </h2>
                                 </div>
+
                                 <div class="customer__block">
                                     <?php
                                         if(isset($_SESSION['account'])) { 
@@ -57,21 +58,21 @@
                                         <div action="" class="form__custtomer-box">
                                             <div class="form__custtomer-item">
                                                 <label for="namePLE" class="form__custtomer-item--label">Họ và Tên</label>
-                                                <input type="text" id="namePLE" value="<?php echo $hoten ?>" class="form__custtomer-item--control">
+                                                <input type="text" name="namePLE" id="namePLE" value="<?php echo $hoten ?>" class="form__custtomer-item--control">
                                             </div>
                                             <div class="form__custtomer-item">
                                                 <label for="emailPLE" class="form__custtomer-item--label">Email</label>
-                                                <input type="email" id="emailPLE" value="<?php echo $email ?>" class="form__custtomer-item--control">
+                                                <input type="email" name="emailPLE" id="emailPLE" value="<?php echo $email ?>" class="form__custtomer-item--control">
                                             </div>
     
                                             <div class="form__custtomer-item w-100">
                                                 <label for="phonePLE" class="form__custtomer-item--label">Số điện thoại</label>
-                                                <input type="number" id="phonePLE" value="<?php echo $sdt ?>" class="form__custtomer-item--control">
+                                                <input type="number" name="phonePLE" id="phonePLE" value="<?php echo $sdt ?>" class="form__custtomer-item--control">
                                             </div>
     
                                             <div class="form__custtomer-item form__custtomer-item--select">
-                                                <label for="phonePLE" class="form__custtomer-item--label">Tỉnh / TP</label>
-                                                <select name="" id="" class="info__customer-adults--control provinceAcc">
+                                                <label for="proPLE" class="form__custtomer-item--label">Tỉnh / TP</label>
+                                                <select name="proPLE" id="proPLE" class="info__customer-adults--control provinceAcc">
                                                     <option value="">Tỉnh / TP</option>
                                                     <?php 
                                                         $listProvince = load_all_province(); 
@@ -86,24 +87,24 @@
                                                 </select>
                                             </div>
                                             <div class="form__custtomer-item form__custtomer-item--select">
-                                                <label for="phonePLE" class="form__custtomer-item--label">Quận / Huyện</label>
+                                                <label for="disPLE" class="form__custtomer-item--label">Quận / Huyện</label>
                                                 <input type="text" hidden value="<?php echo $quan ?>" class="idDis">
-                                                <select name="" id="" class="info__customer-adults--control districtAcc">
+                                                <select name="disPLE" id="disPLE" class="info__customer-adults--control districtAcc">
                                                     <option value="">Quận / Huyện</option>
                                                     
                                                 </select>
                                             </div>
                                             <div class="form__custtomer-item form__custtomer-item--select">
-                                                <label for="phonePLE" class="form__custtomer-item--label">Phường / Xã</label>
+                                                <label for="wardPLE" class="form__custtomer-item--label">Phường / Xã</label>
                                                 <input type="text" hidden value="<?php echo $phuong ?>" class="idWard">
-                                                <select name="" id="" class="info__customer-adults--control wardAcc">
+                                                <select name="wardPLE" id="wardPLE" class="info__customer-adults--control wardAcc">
                                                     <option value="">Phường / xã</option>
                                                 </select>
                                             </div>
                                             
                                             <div class="form__custtomer-item form__custtomer-item--select">
-                                                <label for="phonePLE" class="form__custtomer-item--label">Địa chỉ</label>
-                                                <input type="text" class="info__customer-adults--control" value="<?php echo $dia_chi_cu_the ?>" placeholder="VD: 271/Nguyễn Văn Linh">    
+                                                <label for="addressPLE" class="form__custtomer-item--label">Địa chỉ</label>
+                                                <input type="text" name="addressPLE" id="addressPLE" class="info__customer-adults--control" value="<?php echo $dia_chi_cu_the ?>" placeholder="VD: 271/Nguyễn Văn Linh">    
                                             </div>
                                             
                                             
@@ -152,6 +153,7 @@
                                                     <span class="change__customer-control--num js__num-btn--kids">
                                                         0
                                                     </span>
+                                                    <input type="hidden" name="" id="numkidVal" value="0">
                                                     <span class="change change__customer-control--plus js__add-btn--kids">
                                                         <i><ion-icon name="add"></ion-icon></i>
                                                     </span>
@@ -186,31 +188,31 @@
                                                 <div class="info__customer-adults--form js__form-adults">
                                                         <div class="info__customer-adults--form-item info__customer-adults--form-text">
                                                             <label for="" class="info__customer-adults--label">Họ tên</label>
-                                                            <input type="text" class="info__customer-adults--control" placeholder="Họ và tên">
+                                                            <input name="nameUserBook[]" type="text" class="info__customer-adults--control" placeholder="Họ và tên">
                                                         </div>
         
                                                         <div class="info__customer-adults--form-item info__customer-adults--form-select">
                                                             <label for="" class="info__customer-adults--label">Giới tính</label>
-                                                            <select name="" id="" class="info__customer-adults--control">
+                                                            <select name="sexUserBook[]" id="" class="info__customer-adults--control">
                                                                 <option value="">Giới tính</option>
-                                                                <option value="male">Nam</option>
-                                                                <option value="female">Nữ</option>
+                                                                <option value="nam">Nam</option>
+                                                                <option value="nu">Nữ</option>
                                                             </select>
                                                         </div>
         
                                                         <div class="info__customer-adults--form-item info__customer-adults--form-select">
                                                             <label for="" class="info__customer-adults--label">Ngày sinh</label>
-                                                            <input type="date" class="info__customer-adults--control">
+                                                            <input name="birthUserBook[]" type="date" class="info__customer-adults--control">
                                                         </div>
         
                                                         <div class="info__customer-adults--form-item info__customer-adults--form-text">
                                                             <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
-                                                            <input type="number" class="info__customer-adults--control" placeholder="CCCD">
+                                                            <input id="cccdAdult" name="cccdUserBook[]" type="number" class="info__customer-adults--control" placeholder="CCCD">
                                                         </div>
     
                                                         <div class="info__customer-adults--form-item info__customer-adults--form-text">
                                                             <label for="" class="info__customer-adults--label">Địa chỉ</label>
-                                                            <input type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
+                                                            <input name="addresshUserBook[]" type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
                                                         </div>
                                                 </div>
     
@@ -224,21 +226,12 @@
                                                  <!-- <div class="info__customer-adults--form js__form-kid">
                                                     <div class="info__customer-adults--form-item info__customer-adults--form-text">
                                                         <label for="" class="info__customer-adults--label">Họ tên</label>
-                                                        <input type="text" class="info__customer-adults--control">
+                                                        <input type="text" name="nameKidBook[]" class="info__customer-adults--control">
                                                     </div>
-    
-                                                    <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                        <label for="" class="info__customer-adults--label">Giới tính</label>
-                                                        <select name="" id="" class="info__customer-adults--control">
-                                                            <option value="">Giới tính</option>
-                                                            <option value="male">Nam</option>
-                                                            <option value="female">Nữ</option>
-                                                        </select>
-                                                    </div>
-    
-                                                    <div class="info__customer-adults--form-item info__customer-adults--form-select">
-                                                        <label for="" class="info__customer-adults--label">Ngày sinh</label>
-                                                        <input type="date" class="info__customer-adults--control">
+
+                                                    <div class="info__customer-adults--form-item info__customer-adults--form-text">
+                                                        <label for="" class="info__customer-adults--label">Số căn cước công dân của người dám hộ</label>
+                                                        <input name="cccdAdultBook[]" required type="number" class="info__customer-adults--control JS-CCCD" placeholder="CCCD">
                                                     </div>
                                                     
                                                 </div> -->
@@ -257,7 +250,7 @@
                                         </div>
     
                                         <div class="inner__customer-box">
-                                            <textarea name="" id="" class="inner__customer-box--control" cols="30" rows="10" placeholder="Vui lòng nhập nội dung lời nhắn bằng tiếng Anh hoặc tiếng Việt"></textarea>
+                                            <textarea name="userBookNote" id="" class="inner__customer-box--control" cols="30" rows="10" placeholder="Vui lòng nhập nội dung lời nhắn bằng tiếng Anh hoặc tiếng Việt"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -327,7 +320,21 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <button class="btn summary__trip-detail--btn">Đặt ngay</button>
+                                                        <button id="JS-book-btn" name="bookBtn" class="btn summary__trip-detail--btn">Đặt ngay</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <?php
+                                                            if(isset($mess) && $mess != '') {
+                                                        ?>
+                                                        <div class="mess-form success" style="color:<?php echo $status ?>;">
+                                                            <span>
+                                                                <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                                                <?php echo $mess?>
+                                                            </span>
+                                                        </div>
+                                                        <?php } ?>
                                                     </td>
                                                 </tr>
                                             </tbody>

@@ -109,13 +109,13 @@
                                                     <span class="test-masage"></span>
                                                 </div>
 
-                                                <!-- <div class="form-group">
+                                                <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Địa chỉ cụ thể</label>
-                                                        <input type="text"  class="input-control" placeholder="VD: 271 / Nguyễn Văn Linh">
+                                                        <input name="address" type="text"  class="input-control" placeholder="VD: 271 / Nguyễn Văn Linh">
                                                     </div>
                                                     <span class="test-masage"></span>
-                                                </div> -->
+                                                </div>
 
 
                                             </div>

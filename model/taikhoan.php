@@ -1,7 +1,7 @@
 <?php
-      function insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong) {
-        $sql = "INSERT INTO tai_khoan(hoten, cccd, sdt, email, matkhau, tp, quan, phuong) 
-        VALUES ('$hoten', '$cccd', '$sdt', '$email', '$matkhau', '$tp', '$quan', '$phuong')";
+      function insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong, $dia_chi_cu_the) {
+        $sql = "INSERT INTO tai_khoan(hoten, cccd, sdt, email, matkhau, tp, quan, phuong, dia_chi_cu_the) 
+        VALUES ('$hoten', '$cccd', '$sdt', '$email', '$matkhau', '$tp', '$quan', '$phuong', '$dia_chi_cu_the')";
         pdo_execute($sql);
     }
 
@@ -29,14 +29,17 @@
      }
      pdo_execute($sql);
     }//gọi danh sách
+
     function list_account() {
       $sql="SELECT * FROM tai_khoan ORDER BY ma_taikhoan ";
       return pdo_query($sql);
   } //xõa tài khoản
+
     function delete_account($ma_taikhoan){
       $sql="DELETE FROM tai_khoan WHERE ma_taikhoan=".$ma_taikhoan;
       pdo_execute($sql);
     }
+    
     // thêm tài khoản admin
     function add_admin($hoten,$matkhau,$cccd,$sdt,$email,$hinh_anh){
       $sql="INSERT INTO tai_khoan(hoten,matkhau, cccd, sdt, email,hinh_anh,vai_tro)

@@ -1716,3 +1716,16 @@
 .ticket__details-content {
 
 }
+
+.mess-form {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+}
+
+.mess-form i {
+    position: relative;
+    top: 3px;
+    padding-right: 3px;
+    font-size: 1.8rem;
+}

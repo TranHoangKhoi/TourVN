@@ -446,14 +446,15 @@ include $model_path.'/taikhoan.php';
 
             // User & Admin
         
-            case 'user':
+        case 'user':
             if (isset($_GET['listuser'])) {
                 if(isset($_GET['deleteaccount'])) {
                     if(isset($_GET['ma_taikhoan']) && ($_GET['ma_taikhoan'] > 0)) {
                         delete_account($_GET['ma_taikhoan']);
                     }
                 }
-                $list_account=list_account();
+                $list_account = list_account();
+                print_r($list_account['vai_tro']);
                 include $account_path.'list.php';
 
                
@@ -464,15 +465,16 @@ include $model_path.'/taikhoan.php';
                         delete_account($_GET['ma_taikhoan']);
                     }
                 }
-            
+
                 if(isset($_POST['search'])&&($_POST['search'])){
-                    $keyword=$_POST['keyword'];
-                    find_admin($keyword);
-                     $list_account=list_account($keyword);
-                    include $account_path.'listadmin.php';
-                    break;
+                    // $keyword=$_POST['keyword'];
+                    // find_admin($keyword);
+                    echo 123;
                 }
-                $list_account=list_account($keyword);
+
+                $list_account = list_account();
+
+
                 include $account_path.'listadmin.php';
             } elseif (isset($_GET['add'])) {
                 $mess='';
@@ -524,13 +526,18 @@ include $model_path.'/taikhoan.php';
         case 'tourBill':
             if (isset($_GET['list'])) {
                 include './hoadon/list.php';
+            } elseif (isset($_GET['detials'])) {
+                include './hoadon/billDetails.php';
             }
+
             break;
 
             // Ticket
         case 'tourTicket':
             if (isset($_GET['list'])) {
                 include './datve/list.php';
+            } elseif (isset($_GET['details'])) {
+                include './datve/ticketDetails.php';
             }
             break;
 

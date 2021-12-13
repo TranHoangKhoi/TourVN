@@ -116,5 +116,15 @@
         $sql = "SELECT * FROM tour_du_lich WHERE 1 ORDER BY khuyen_mai DESC LIMIT 0,5";
         return pdo_query($sql);
     }
+
+    function find_count($keyword) {
+        $sql="SELECT * FROM tour_du_lich WHERE tieu_de LIKE '%$keyword%' ORDER BY tieu_de";
+        return pdo_query($sql);
+    }
+
+    function find($keyword, $startItem,$showItem) {
+        $sql="SELECT * FROM tour_du_lich WHERE tieu_de LIKE '%$keyword%' ORDER BY tieu_de LIMIT $startItem,$showItem";
+        return pdo_query($sql);
+    }
   
 ?>

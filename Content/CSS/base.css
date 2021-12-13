@@ -208,6 +208,16 @@ strong {
     flex: 1;
 }
 
+.error-mess {
+    font-size: 1.4rem;
+    color: var(--sub-btn-color);
+}
+
+.success-mess {
+    color: var(--btn-color);
+    font-size: 1.4rem;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

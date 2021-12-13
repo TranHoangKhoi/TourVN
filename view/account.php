@@ -236,14 +236,113 @@
                         <div class="account__right 
                             <?php if(isset($_GET['ticket'])) echo 'active'?>
                         ">
+                            <?php
+                                foreach($listBillConFirm as $billItem) {
+                                    extract($billItem);
+                            ?>
                             <div class="ticket__block">
                                 <div class="ticket__basic">
                                     <div class="ticket__basic-item ticket__basic-id">
                                         <p class="ticket__basic-label">
-                                            Mã tour
+                                            Mã hóa đơn
                                         </p>
                                         <p class="ticket__basic-content">
-                                            DN-001
+                                            <?php echo $ma_hd ?>
+                                        </p>
+                                    </div>
+
+                                    <div class="ticket__basic-item ticket__basic-user">
+                                        <p class="ticket__basic-label">
+                                            Người đặt vé
+                                        </p>
+                                        <p class="ticket__basic-content">
+                                            <?php echo $ho_ten_kh ?>
+                                        </p>
+                                    </div>
+
+                                    <div class="ticket__basic-item ticket__basic-date">
+                                        <p class="ticket__basic-label">
+                                            Ngày đặt vé
+                                        </p>
+                                        <p class="ticket__basic-content">
+                                            <?php echo $ngay_dat ?>
+                                        </p>
+                                    </div>
+
+                                    <div class="ticket__basic-item ticket__basic-total">
+                                        <p class="ticket__basic-label">
+                                            Tổng tiền thanh toán
+                                        </p>
+                                        <p class="ticket__basic-content">
+                                            <?php echo number_format($gia_tien) ?> VNĐ
+                                        </p>
+                                    </div>
+
+                                    <div class="ticket__basic-item ticket__basic-icon">
+                                        <i class="ticket__basic-icon--item active"><ion-icon name="add"></ion-icon></i>
+                                        <i class="ticket__basic-icon--item "><ion-icon name="remove"></ion-icon></i>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="ticket__details ">
+                                    <div class="ticket__details-item">
+                                        <p class="ticket__details-label">
+                                            Mã tour
+                                        </p>
+                                        <p class="ticket__details-content">
+                                            <?php echo $ma_tour  ?>
+                                        </p>
+                                    </div>
+                                    <div class="ticket__details-item">
+                                        <p class="ticket__details-label">
+                                            Số lượng vé đã đặt
+                                        </p>
+                                        <p class="ticket__details-content">
+                                            <?php 
+                                                $listTicket = get_ticket_by_ma_hd($ma_hd);
+                                                echo count($listTicket);
+                                            ?>
+                                        </p>
+                                    </div>
+                                    <div class="ticket__details-item">
+                                        <p class="ticket__details-label">
+                                            Ngày khởi hành
+                                        </p>
+                                        <p class="ticket__details-content">
+                                            <?php echo $ngay_khoi_hanh ?>
+                                        </p>
+                                    </div>
+                                    <div class="ticket__details-item">
+                                        <p class="ticket__details-label">
+                                            Giờ khởi hành
+                                        </p>
+                                        <p class="ticket__details-content">
+                                            <?php echo $gio_khoi_hanh ?>
+                                        </p>
+                                    </div>
+                                    <div class="ticket__details-item">
+                                        <p class="ticket__details-label">
+                                            Nơi khởi hành
+                                        </p>
+                                        <p class="ticket__details-content">
+                                            <?php echo $noi_khoi_hanh ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+
+                            <!-- <div class="ticket__block">
+                                <div class="ticket__basic">
+                                    <div class="ticket__basic-item ticket__basic-id">
+                                        <p class="ticket__basic-label">
+                                            Mã hóa đơn
+                                        </p>
+                                        <p class="ticket__basic-content">
+                                            HD-DN-001
                                         </p>
                                     </div>
 
@@ -286,6 +385,14 @@
                                 <div class="ticket__details ">
                                     <div class="ticket__details-item">
                                         <p class="ticket__details-label">
+                                            Mã tour
+                                        </p>
+                                        <p class="ticket__details-content">
+                                            DN-001
+                                        </p>
+                                    </div>
+                                    <div class="ticket__details-item">
+                                        <p class="ticket__details-label">
                                             Số lượng vé đã đặt
                                         </p>
                                         <p class="ticket__details-content">
@@ -316,107 +423,44 @@
                                             Cần Thơ
                                         </p>
                                     </div>
-                                    <div class="ticket__details-item">
-                                        <p class="ticket__details-label">
-                                            Ngày về
-                                        </p>
-                                        <p class="ticket__details-content">
-                                            Cần Thơ
-                                        </p>
-                                    </div>
                                 </div>
-                            </div>
+                            </div> -->
                             
-                            <div class="ticket__block">
-                                <div class="ticket__basic">
-                                    <div class="ticket__basic-item ticket__basic-id">
-                                        <p class="ticket__basic-label">
-                                            Mã tour
-                                        </p>
-                                        <p class="ticket__basic-content">
-                                            DN-001
-                                        </p>
+                            <div class="pagination__block">
+                                    <div class="pagination__list">
+                                        <?php 
+                                            $page = 1;
+                                            if(isset($_GET['page'])) {
+                                                $page = $_GET['page'];
+                                            }
+                                            if($page > 1) { 
+                                        ?>
+                                        <div class="pagination__prev">
+                                            <a href="index.php?call=account&ticket&page=<?php echo $page - 1 ?>" class="pagination__item pagination__prev-item">
+                                                <i class="pagination__prev-icon"><ion-icon name="rewind"></ion-icon></i>
+                                            </a>
+                                        </div>
+                                        <?php } ?>
+                        
+                                        <div class="pagination__num">
+                                            <?php for($i = 1; $i <= $pageNum; $i++) { ?>
+                                                <?php if($page == $i) { ?>
+                                                <a href="index.php?call=account&ticket&page=<?php echo $i ?>" class="pagination__item active pagination__num-item"><?php echo $i ?></a>
+                                            <?php } else { ?>
+                                                <a href="index.php?call=account&ticket&page=<?php echo $i ?>" class="pagination__item pagination__num-item"><?php echo $i ?></a>
+                                            <?php } 
+                                                } ?>
+                                        </div>
+                                        
+                                        <?php if($page < $pageNum) { ?>
+                                        <div class="pagination__next">
+                                            <a href="index.php?call=account&ticket&page=<?php echo $page + 1 ?>" class="pagination__item pagination__next-item">
+                                                <i class="pagination__next-icon"><ion-icon name="fastforward"></ion-icon></i>
+                                            </a>
+                                        </div>
+                                        <?php } ?>
                                     </div>
-
-                                    <div class="ticket__basic-item ticket__basic-user">
-                                        <p class="ticket__basic-label">
-                                            Người đặt vé
-                                        </p>
-                                        <p class="ticket__basic-content">
-                                            Trần Hoàng Khôi
-                                        </p>
-                                    </div>
-
-                                    <div class="ticket__basic-item ticket__basic-date">
-                                        <p class="ticket__basic-label">
-                                            Ngày đặt vé
-                                        </p>
-                                        <p class="ticket__basic-content">
-                                            20/10/2021
-                                        </p>
-                                    </div>
-
-                                    <div class="ticket__basic-item ticket__basic-total">
-                                        <p class="ticket__basic-label">
-                                            Tổng tiền thanh toán
-                                        </p>
-                                        <p class="ticket__basic-content">
-                                            8,790,000đ
-                                        </p>
-                                    </div>
-
-                                    <div class="ticket__basic-item ticket__basic-icon">
-                                        <i class="ticket__basic-icon--item active"><ion-icon name="add"></ion-icon></i>
-                                        <i class="ticket__basic-icon--item "><ion-icon name="remove"></ion-icon></i>
-                                    </div>
-
-
-
-                                </div>
-
-                                <div class="ticket__details ">
-                                    <div class="ticket__details-item">
-                                        <p class="ticket__details-label">
-                                            Số lượng vé đã đặt
-                                        </p>
-                                        <p class="ticket__details-content">
-                                            6
-                                        </p>
-                                    </div>
-                                    <div class="ticket__details-item">
-                                        <p class="ticket__details-label">
-                                            Ngày khởi hành
-                                        </p>
-                                        <p class="ticket__details-content">
-                                            22/11/2021
-                                        </p>
-                                    </div>
-                                    <div class="ticket__details-item">
-                                        <p class="ticket__details-label">
-                                            Giờ khởi hành
-                                        </p>
-                                        <p class="ticket__details-content">
-                                            08:00 AM
-                                        </p>
-                                    </div>
-                                    <div class="ticket__details-item">
-                                        <p class="ticket__details-label">
-                                            Nơi khởi hành
-                                        </p>
-                                        <p class="ticket__details-content">
-                                            Cần Thơ
-                                        </p>
-                                    </div>
-                                    <div class="ticket__details-item">
-                                        <p class="ticket__details-label">
-                                            Ngày về
-                                        </p>
-                                        <p class="ticket__details-content">
-                                            Cần Thơ
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> 
                             
                         </div>
 
