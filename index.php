@@ -14,105 +14,104 @@ include './model/diachi.php';
 include './model/taikhoan.php';
 include './model/check.php';
 include './model/hoadon&ve.php';
-include $view_path.'header.php';
+include $view_path . 'header.php';
 
 
 if (isset($_GET['call']) && ($_GET['call'] != '')) {
     $call = $_GET['call'];
     switch ($call) {
         case 'listTour':
-            if(isset($_GET['ma_dia_diem']) && $_GET['ma_dia_diem'] > 0) {
+            if (isset($_GET['ma_dia_diem']) && $_GET['ma_dia_diem'] > 0) {
                 $localItem = load_one_local($_GET['ma_dia_diem']);
 
                 // Panigition
                 $itemNum = 12;
                 $starItem = 0;
-                if(isset($_GET['page'])) {
+                if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
                 $countList = get_journeys_by_local_count($_GET['ma_dia_diem']);
                 $pageNum = pagination($itemNum, $countList);
 
                 $idTour = get_journeys_by_local($_GET['ma_dia_diem'], $starItem, $itemNum);
-
-            } elseif(isset($_GET['ma_vung_mien']) && $_GET['ma_vung_mien'] > 0) {
+            } elseif (isset($_GET['ma_vung_mien']) && $_GET['ma_vung_mien'] > 0) {
                 // Panigition
                 $itemNum = 12;
                 $starItem = 0;
-                if(isset($_GET['page'])) {
+                if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
                 $countList = get_tour_info_by_side_count($_GET['ma_vung_mien']);
                 $pageNum = pagination($itemNum, $countList);
 
                 $listTours = get_tour_info_by_side($_GET['ma_vung_mien'], $starItem, $itemNum);
-            } elseif(isset($_GET['loai_tour']) && $_GET['loai_tour'] > 0) {
+            } elseif (isset($_GET['loai_tour']) && $_GET['loai_tour'] > 0) {
                 // Panigition
                 $itemNum = 12;
                 $starItem = 0;
-                if(isset($_GET['page'])) {
+                if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
                 $countList = get_tour_info_by_cate_count($_GET['loai_tour']);
                 $pageNum = pagination($itemNum, $countList);
 
-                $listTour = get_tour_info_by_cate($_GET['loai_tour'] , $starItem, $itemNum);
+                $listTour = get_tour_info_by_cate($_GET['loai_tour'], $starItem, $itemNum);
             } elseif (isset($_GET['timkiem']) && ($_GET['keyword'] != '')) {
                 $keyW = $_GET['keyword'];
                 // Panigition
                 $itemNum = 12;
                 $starItem = 0;
-                if(isset($_GET['page'])) {
+                if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
                 $countList = find_count($keyW);
                 $pageNum = pagination($itemNum, $countList);
 
-                $listTour = find($keyW, $starItem,$itemNum);
+                $listTour = find($keyW, $starItem, $itemNum);
             }
-             
-            include $view_path.'tourList.php';
+
+            include $view_path . 'tourList.php';
             break;
-        // Tour Details
+            // Tour Details
         case 'tourDetails':
-            if(isset($_GET['ma_tour'])) {
+            if (isset($_GET['ma_tour'])) {
                 $tourDetail = get_tour_info($_GET['ma_tour']);
 
-                include $view_path.'tourDetail.php';
+                include $view_path . 'tourDetail.php';
             }
             break;
 
-        // List News
+            // List News
         case 'newsList':
-            if(isset($_GET['ma_loai_tin'])) {
+            if (isset($_GET['ma_loai_tin'])) {
                 $newsList = loadone_loai_tin($_GET['ma_loai_tin']);
                 // Panigition
                 $itemNum = 10;
                 $starItem = 0;
-                if(isset($_GET['page'])) {
+                if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
                 $countList = load_news_by_ma_loai($_GET['ma_loai_tin']);
                 $pageNum = pagination($itemNum, $countList);
 
                 $listNews = get_news($starItem, $itemNum, $_GET['ma_loai_tin']);
-                include $view_path.'newsList.php';
+                include $view_path . 'newsList.php';
             }
             break;
 
-        // News Details
+            // News Details
         case 'newsDetails':
-            if(isset($_GET['ma_tin'])) {
+            if (isset($_GET['ma_tin'])) {
                 $newItem = load_one_news($_GET['ma_tin']);
-                include $view_path.'newsDetail.php';
+                include $view_path . 'newsDetail.php';
             }
             break;
 
-        // Book Ticket
+            // Book Ticket
         case 'bookTicket':
-            if(isset($_SESSION['account'])) {
-                if(isset($_GET['ma_tour'])) {
-                    if(isset($_POST['bookBtn'])) {
+            if (isset($_SESSION['account'])) {
+                if (isset($_GET['ma_tour'])) {
+                    if (isset($_POST['bookBtn'])) {
                         $mess = '';
                         $status = '';
                         $tourItem = get_tour_info($_GET['ma_tour']);
@@ -126,7 +125,7 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                         $wardusID = $_POST['wardPLE'];
                         $addressus = $_POST['addressPLE'];
                         $userBookNote = $_POST['userBookNote'];
-                        
+
                         // Tổng tiền
                         $toltalMoney = $_POST['toltalMoney'];
 
@@ -134,13 +133,13 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                         $districsusBook =  get_district($districsusID);
                         $wardusBook =  get_ward($wardusID);
 
-                        $addressBook = $proviceusBook['_name'].','. $districsusBook['_name'].','.$wardusBook['_name'].','.$addressus;
+                        $addressBook = $proviceusBook['_name'] . ',' . $districsusBook['_name'] . ',' . $wardusBook['_name'] . ',' . $addressus;
                         // $idBill = 15;
                         $idBill = add_bill($_SESSION['account']['ma_taikhoan'], $toltalMoney, $nameusBook, $emailusBook, $phoneusBook, $addressBook, $ma_tour, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, $userBookNote);
-                        
-                        
-                        
-                        if(isset($idBill)) {
+
+
+
+                        if (isset($idBill)) {
                             // Adult
                             $nameUserBook = $_POST['nameUserBook'];
                             $sexUserBook = $_POST['sexUserBook'];
@@ -150,97 +149,92 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                             // 
                             $listTicket = [];
 
-                            for($i=0; $i < $soluong; $i++) {
-                                if((empty($nameUserBook[$i]) != 1) && (empty($sexUserBook[$i]) != 1) && (empty($birthUserBook[$i]) != 1) && (empty($cccdUserBook[$i]) != 1) && (empty($addresshUserBook[$i]) != 1)) {
+                            for ($i = 0; $i < $soluong; $i++) {
+                                if ((empty($nameUserBook[$i]) != 1) && (empty($sexUserBook[$i]) != 1) && (empty($birthUserBook[$i]) != 1) && (empty($cccdUserBook[$i]) != 1) && (empty($addresshUserBook[$i]) != 1)) {
                                     $custom = get_user($cccdUserBook[$i]);
-                                    if(is_array($custom)) {
+                                    if (is_array($custom)) {
                                         // $listCustomAdult = [$nameUserBook[$i], $sexUserBook[$i], $birthUserBook[$i], $cccdUserBook[$i], $addresshUserBook[$i]];
                                         // array_push($listTicket, $listCustomAdult);
 
-                                        if(!add_tickets($ma_tour, $custom['ma_kh'], $idBill , $nameUserBook[$i], $gia_nguoilon, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Người lớn')) {
+                                        if (!add_tickets($ma_tour, $custom['ma_kh'], $idBill, $nameUserBook[$i], $gia_nguoilon, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Người lớn')) {
                                             $mess = 'Đặt vé thành công';
                                             $status = 'green';
                                         } else {
                                             $status = 'red';
                                         }
-                                    }else {
+                                    } else {
                                         $maKH = add_custom_and_get($nameUserBook[$i], $cccdUserBook[$i], '', $addresshUserBook[$i], $sexUserBook[$i], $birthUserBook[$i]);
-                                        if(!add_tickets($ma_tour, $maKH, $idBill , $nameUserBook[$i], $gia_nguoilon, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Người lớn')) {
+                                        if (!add_tickets($ma_tour, $maKH, $idBill, $nameUserBook[$i], $gia_nguoilon, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Người lớn')) {
                                             $mess = 'Đặt vé thành công';
                                             $status = 'green';
                                         } else {
                                             $status = 'red';
                                         }
-
                                     }
-                                    
-
                                 }
                             }
 
                             // Kid
-                            if(isset($_POST['nameKidBook']) && $_POST['cccdAdultBook']) {
+                            if (isset($_POST['nameKidBook']) && $_POST['cccdAdultBook']) {
                                 $nameKidBook = $_POST['nameKidBook'];
                                 $cccdAdultBook = $_POST['cccdAdultBook'];
 
-                                for($i=0; $i < $soluong; $i++) {
-                                    if((empty($nameKidBook[$i]) != 1) && (empty($cccdAdultBook[$i]) != 1) ) {
+                                for ($i = 0; $i < $soluong; $i++) {
+                                    if ((empty($nameKidBook[$i]) != 1) && (empty($cccdAdultBook[$i]) != 1)) {
                                         $customAdult = get_user($cccdAdultBook[$i]);
-                                        if(!add_tickets($ma_tour, $customAdult['ma_kh'], $idBill , $nameKidBook[$i], $gia_treem, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Trẻ em')) {
+                                        if (!add_tickets($ma_tour, $customAdult['ma_kh'], $idBill, $nameKidBook[$i], $gia_treem, $ngay_khoihanh, $gio_khoihanh, $noi_tap_trung, 'Trẻ em')) {
                                             $mess = 'Đặt vé thành công';
                                             $status = 'green';
-                                        }else {
+                                        } else {
                                             $status = 'red';
                                         }
-
                                     }
                                 }
                             }
-
                         }
                     }
-    
+
                     $tourInfo = get_tour_info($_GET['ma_tour']);
-                    include $view_path.'bookTicket.php';
+                    include $view_path . 'bookTicket.php';
                 }
             } else {
                 header('location: index.php?call=login');
             }
             break;
 
-        // Introduce
+            // Introduce
         case 'intro':
-            include $view_path.'introduce.php';
+            include $view_path . 'introduce.php';
             break;
 
-        // Contact
+            // Contact
         case 'hotline':
-            include $view_path.'hotLine.php';
+            include $view_path . 'hotLine.php';
             break;
 
-        //acount
+            //acount
         case 'account':
-             //Cập nhật
-             if(isset($_POST['update'])&&($_POST['update'])){
-                $hoten=$_POST['hoten'];
-                $cccd=$_POST['cccd'];
-                $sdt=$_POST['sdt'];
-                $tp=$_POST['tp'];
-                $quan=$_POST['quan'];
-                $phuong=$_POST['phuong'];
-                $dia_chi_cu_the=$_POST['dia_chi_cu_the'];
-                $ma_taikhoan=$_POST['ma_taikhoan'];
+            //Cập nhật
+            if (isset($_POST['update']) && ($_POST['update'])) {
+                $hoten = $_POST['hoten'];
+                $cccd = $_POST['cccd'];
+                $sdt = $_POST['sdt'];
+                $tp = $_POST['tp'];
+                $quan = $_POST['quan'];
+                $phuong = $_POST['phuong'];
+                $dia_chi_cu_the = $_POST['dia_chi_cu_the'];
+                $ma_taikhoan = $_POST['ma_taikhoan'];
                 $hinh_anh = $_FILES['hinh_anh']['name'];
                 $target_dir = "./upload/"; //lấy từ thư mục upload
-                $target_file = $target_dir.basename($_FILES["hinh_anh"]["name"]);
+                $target_file = $target_dir . basename($_FILES["hinh_anh"]["name"]);
                 move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file);
 
-                update_account($hoten, $cccd, $sdt,$hinh_anh,$tp,$quan,$phuong,$dia_chi_cu_the,$ma_taikhoan);
+                update_account($hoten, $cccd, $sdt, $hinh_anh, $tp, $quan, $phuong, $dia_chi_cu_the, $ma_taikhoan);
                 $_SESSION['account'] = load_account($ma_taikhoan);
                 header('location: index.php?call=account&updateAcc');
             }
             //Cập nhật mật khẩu
-            if(isset($_POST['updatePass'])) {
+            if (isset($_POST['updatePass'])) {
                 $mess = '';
                 $status = '';
                 $passOld = md5($_POST['passOld']);
@@ -248,8 +242,8 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 $passConfirm = $_POST['passConfirm'];
 
                 $checkPass = check_pass($passOld, $_SESSION['account']['ma_taikhoan']);
-                if(is_array($checkPass)) {
-                    if(!update_pass($passNew, $_SESSION['account']['ma_taikhoan'])) {
+                if (is_array($checkPass)) {
+                    if (!update_pass($passNew, $_SESSION['account']['ma_taikhoan'])) {
                         $mess = 'Đổi mật khẩu thành công';
                         $status = 'green';
                     }
@@ -259,14 +253,16 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 }
             }
 
-            if(isset($_GET['ticket'])) {
+            if (isset($_GET['ticket'])) {
                 // Panigition
                 $itemNum = 6;
                 $starItem = 0;
-                if(isset($_GET['page'])) {
+                if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
+
                 $countList = get_bill_by_ma_tk_count($ma_taikhoan);
+
                 $pageNum = pagination($itemNum, $countList);
 
                 $listBillConFirm = get_bill_by_ma_tk($ma_taikhoan, $starItem, $itemNum);
@@ -278,81 +274,80 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 
 
             //đăng xuất
-            if(isset($_GET['log_out'])){
+            if (isset($_GET['log_out'])) {
                 session_unset();
-                 header("location: index.php");
+                header("location: index.php");
             }
-            include $view_path.'account.php';
+            include $view_path . 'account.php';
             break;
 
             // Form Login
         case 'login':
-            $mess='';
+            $mess = '';
             //Đăng ký
-            if(isset($_POST['register'])&&($_POST['register'])){
-                $hoten=$_POST['hoten'];
-                $cccd=$_POST['cccd'];
-                $sdt=$_POST['sdt'];
-                $tp=$_POST['tp'];
-                $phuong=$_POST['phuong'];
-                $quan=$_POST['quan'];
-                $email=$_POST['email'];
-                $addressus=$_POST['address'];
-                $matkhau=md5($_POST['matkhau']);
+            if (isset($_POST['register']) && ($_POST['register'])) {
+                $hoten = $_POST['hoten'];
+                $cccd = $_POST['cccd'];
+                $sdt = $_POST['sdt'];
+                $tp = $_POST['tp'];
+                $phuong = $_POST['phuong'];
+                $quan = $_POST['quan'];
+                $email = $_POST['email'];
+                $addressus = $_POST['address'];
+                $matkhau = md5($_POST['matkhau']);
 
                 // Address Details
                 $proviceus =  get_province($tp);
                 $districsus =  get_district($quan);
                 $wardus =  get_ward($phuong);
 
-                $addressDetail = $proviceus['_name'].','. $districsus['_name'].','.$wardus['_name'].','.$addressus;
+                $addressDetail = $proviceus['_name'] . ',' . $districsus['_name'] . ',' . $wardus['_name'] . ',' . $addressus;
 
-            //     // kiểm tra xem người dùng có nhập đầy đủ thông tin hay không
-            //     check_not_null($hoten,$matkhau,$email,$sdt,$cccd);   
-            //    //Kiểm tra email có hợp lệ hay không 
-            //     check_email_valid($email);
-            //     //Kiểm tra xem số điện thoại có hợp lệ hạy không
-            //     check_phone_valid($sdt);
-                
+                //     // kiểm tra xem người dùng có nhập đầy đủ thông tin hay không
+                //     check_not_null($hoten,$matkhau,$email,$sdt,$cccd);   
+                //    //Kiểm tra email có hợp lệ hay không 
+                //     check_email_valid($email);
+                //     //Kiểm tra xem số điện thoại có hợp lệ hạy không
+                //     check_phone_valid($sdt);
+
                 // Thêm Giới tính và Ngày sinh
-                if(!insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong, $addressus)) {
+                if (!insert_account($hoten, $cccd, $sdt, $email, $matkhau, $tp, $quan, $phuong, $addressus)) {
                     add_custom($hoten, $cccd, $sdt, $addressDetail, 'gioi_tinh', 'ngay_sinh');
                 };
-                 $mess='Chúc mừng! Bạn đã đăng Ký thành công';
+                $mess = 'Chúc mừng! Bạn đã đăng Ký thành công';
             }
             //đăng nhập
-            $mess_fail="";
-            if(isset($_POST['Log_in'])&&($_POST['Log_in'])){     
+            $mess_fail = "";
+            if (isset($_POST['Log_in']) && ($_POST['Log_in'])) {
                 $email = $_POST['emailLG'];
                 $matkhau = md5($_POST['matkhauLG']);
-                
-                $check_account = check_account($email,$matkhau);
 
-                if(is_array($check_account)){
-                    $_SESSION['account']=$check_account;
+                $check_account = check_account($email, $matkhau);
+
+                if (is_array($check_account)) {
+                    $_SESSION['account'] = $check_account;
                     header("Location: index.php");
                     // $mess_success="Bạn đã đăng nhập thành công";
                     // include $view_path.'account.php';
                     // break;      
-                }else{
-                    $mess_fail="Tài khoản này không tồn tại. Vui lòng kiểm tra hoặc đăng ký!";
+                } else {
+                    $mess_fail = "Tài khoản này không tồn tại. Vui lòng kiểm tra hoặc đăng ký!";
                 }
             }
-            include $view_path.'loginAndRes.php';
+            include $view_path . 'loginAndRes.php';
             break;
-        
-        // Home
+
+            // Home
         default:
-            include $view_path.'home.php';
+            include $view_path . 'home.php';
             break;
     }
 } else {
-    if(isset($_GET['keyword']) && $_GET['keyword'] != ''){
-        header('location: index.php?call=listTour&timkiem&keyword='. $_GET['keyword']);
+    if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
+        header('location: index.php?call=listTour&timkiem&keyword=' . $_GET['keyword']);
     }
-    include $view_path.'home.php';
+    include $view_path . 'home.php';
 }
 
 include './view/footer.php';
 ob_end_flush();
-?>

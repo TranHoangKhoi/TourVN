@@ -126,5 +126,3 @@
         $sql="SELECT * FROM tour_du_lich WHERE tieu_de LIKE '%$keyword%' ORDER BY tieu_de LIMIT $startItem,$showItem";
         return pdo_query($sql);
     }
-  
-?>

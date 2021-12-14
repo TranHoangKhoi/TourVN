@@ -16,7 +16,7 @@
                             </div>
                             <span>Hoặc tìm theo</span>
                             <div class="filter__id-tour">
-                                <input type="text" name="email_acc" id="" class="filter__id-tour--input" placeholder="Nhập mã admin...">
+                                <input type="text" name="email_acc" id="" class="filter__id-tour--input" placeholder="Nhập email admin...">
                             </div>
                             
                             <input type="submit" value="Tìm"  name="search" class="btn filter__tour--btn" >
