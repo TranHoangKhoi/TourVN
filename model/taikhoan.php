@@ -39,8 +39,7 @@
         $sql.=" AND email LIKE '%$email_acc%'";
       }
       $sql.=" ORDER BY hoten DESC ";
-      $list_account=pdo_query($sql);
-      return $list_account ;
+      return pdo_query($sql);
   }
   function list_account_admin($keyword,$email_acc) {
     $sql="SELECT * FROM tai_khoan WHERE 1 AND vai_tro=1 ";
@@ -51,8 +50,8 @@
       $sql.=" AND email LIKE '%$email_acc%'";
     }
     $sql.=" ORDER BY hoten DESC ";
-    $list_account=pdo_query($sql);
-    return $list_account ;
+    
+    return pdo_query($sql);
   }
   
   //xõa tài khoản

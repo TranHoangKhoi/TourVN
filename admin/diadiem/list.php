@@ -6,7 +6,19 @@
             <div class="content__tap active">
                 <div class="content__tap-heading">
                     <h3 class="content__tap-heading-text">Danh sách các địa điểm</h3>
+                    <div class="content__tap-main">
+                    <div class="table__control">
+                        <form action="?ql=local&listLocal" method="post" class="table__control-group">
+
+                            <div class="filter__id-tour">
+                                <input type="text" name="keyword" id="" class="filter__id-tour--input" placeholder="Nhập tên địa điểm...">
+                            </div>
+                            
+                            <input type="submit" value="Tìm"  name="search" class="btn filter__tour--btn" >
+                        </form>
+                    </div>
                 </div>
+                
                 <div class="content__tap-main">
                     <table>
                         <thead>
@@ -21,7 +33,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                foreach ($localList as $localItem) {
+                                foreach ($countList as $localItem) {
                                     extract($localItem);
                                     $localSide = load_data($ma_mien);
                                     extract($localSide);

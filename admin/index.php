@@ -627,9 +627,13 @@ switch ($ql) {
             if (isset($_GET['page'])) {
                 $starItem = ($_GET['page'] - 1) * $itemNum;
             }
-            $localList = get_local($starItem, $itemNum);
+            if(isset($_POST['search'])&&($_POST['search'])) {
+                $keyword=$_POST['keyword'];
+           }else{
+            $keyword='';
+           }
 
-            $countList = load_all_local();
+            $countList = load_all_local($keyword);
             $pageNum = pagination($itemNum, $countList);
 
             include $diadiem_path . 'list.php';
