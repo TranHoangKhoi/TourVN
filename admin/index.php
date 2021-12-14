@@ -451,10 +451,18 @@ include $model_path.'/taikhoan.php';
                 if(isset($_GET['deleteaccount'])) {
                     if(isset($_GET['ma_taikhoan']) && ($_GET['ma_taikhoan'] > 0)) {
                         delete_account($_GET['ma_taikhoan']);
-                    }
+                    }   
                 }
-                $list_account = list_account();
-                print_r($list_account['vai_tro']);
+
+                if(isset($_POST['search'])&&($_POST['search'])) {
+                    $keyword=$_POST['keyword'];
+                   $email_acc=$_POST['email_acc'];
+               }else{
+                $keyword='';
+                $email_acc='';
+               }
+                $list_account = list_account($keyword,$email_acc);
+                //print_r($list_account['vai_tro']);
                 include $account_path.'list.php';
 
                
@@ -466,15 +474,14 @@ include $model_path.'/taikhoan.php';
                     }
                 }
 
-                if(isset($_POST['search'])&&($_POST['search'])){
-                    // $keyword=$_POST['keyword'];
-                    // find_admin($keyword);
-                    echo 123;
-                }
-
-                $list_account = list_account();
-
-
+                if(isset($_POST['search'])&&($_POST['search'])) {
+                    $keyword=$_POST['keyword'];
+                   $email_acc=$_POST['email_acc'];
+               }else{
+                $keyword='';
+                $email_acc='';
+               }
+                $list_account_admin = list_account_admin($keyword,$email_acc);
                 include $account_path.'listadmin.php';
             } elseif (isset($_GET['add'])) {
                 $mess='';

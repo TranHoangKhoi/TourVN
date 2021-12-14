@@ -9,16 +9,16 @@
 
                 <div class="content__tap-main">
                     <div class="table__control">
-                        <form action="" class="table__control-group">
+                        <form action="?ql=user&listuser" method="POST" class="table__control-group">
                             <div class="filter__id-tour">
-                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập tên khách hàng...">
+                                <input type="text" name="keyword" id="" class="filter__id-tour--input" placeholder="Nhập tên khách hàng...">
                             </div>
                             <span>Hoặc tìm theo</span>
                             <div class="filter__id-tour">
-                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập mã khách hàng...">
+                                <input type="text" name="email_acc" id="" class="filter__id-tour--input" placeholder="Nhập email khách hàng...">
                             </div>
                             
-                            <button class="btn filter__tour--btn">Tìm</button>
+                            <input type="submit" value="Tìm"  name="search" class="btn filter__tour--btn" >
                         </form>
                     </div>
 
@@ -41,7 +41,7 @@
                                  $i = 1;
                                  foreach($list_account as $account) {
                                  extract($account);
-                                 if($vai_tro == 0){
+                                
 
                                  $hinh = $img_path . $hinh_anh;
                             ?>
@@ -60,9 +60,7 @@
                         <?php
                                  }
                         ?>
-                         <?php
-                                 }
-                        ?>
+                        
                           
                             
                         </tbody>

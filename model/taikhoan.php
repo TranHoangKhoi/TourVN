@@ -30,10 +30,32 @@
      pdo_execute($sql);
     }//gọi danh sách
 
-    function list_account() {
-      $sql="SELECT * FROM tai_khoan ORDER BY ma_taikhoan ";
-      return pdo_query($sql);
-  } //xõa tài khoản
+    function list_account($keyword,$email_acc) {
+      $sql="SELECT * FROM tai_khoan WHERE 1 AND vai_tro=0";
+      if($keyword!=""){
+        $sql.=" AND hoten LIKE '%$keyword%'";
+      }
+      if($email_acc!=""){
+        $sql.=" AND email LIKE '%$email_acc%'";
+      }
+      $sql.=" ORDER BY hoten DESC ";
+      $list_account=pdo_query($sql);
+      return $list_account ;
+  }
+  function list_account_admin($keyword,$email_acc) {
+    $sql="SELECT * FROM tai_khoan WHERE 1 AND vai_tro=1 ";
+    if($keyword!=""){
+      $sql.=" AND hoten LIKE '%$keyword%'";
+    }
+    if($email_acc!=""){
+      $sql.=" AND email LIKE '%$email_acc%'";
+    }
+    $sql.=" ORDER BY hoten DESC ";
+    $list_account=pdo_query($sql);
+    return $list_account ;
+  }
+  
+  //xõa tài khoản
 
     function delete_account($ma_taikhoan){
       $sql="DELETE FROM tai_khoan WHERE ma_taikhoan=".$ma_taikhoan;
@@ -60,8 +82,8 @@
      pdo_execute($sql);
     }
     //Tìm kiếm admin 
-    function find_admin($keyword){
-      $sql="SELECT * FROM tai_khoan WHERE hoten LIKE '%$keyword%' ORDER BY hoten";
-      return pdo_query_one($sql);
-    }
+    // function find_admin($keyword){
+    //   $sql="SELECT * FROM tai_khoan WHERE hoten LIKE '%$keyword%' ORDER BY hoten";
+    //   return pdo_query_one($sql);
+    // }
 ?>

@@ -16,7 +16,7 @@
                             </div>
                             <span>Hoặc tìm theo</span>
                             <div class="filter__id-tour">
-                                <input type="text" name="" id="" class="filter__id-tour--input" placeholder="Nhập mã admin...">
+                                <input type="text" name="email_acc" id="" class="filter__id-tour--input" placeholder="Nhập mã admin...">
                             </div>
                             
                             <input type="submit" value="Tìm"  name="search" class="btn filter__tour--btn" >
@@ -39,9 +39,9 @@
                       
                             <?php
                                $i = 1;
-                               foreach($list_account as $account) {
+                               foreach($list_account_admin as $account) {
                                extract($account);
-                               if($vai_tro==1){      
+                                    
 
 
                                $hinh = $img_path . $hinh_anh;
@@ -65,9 +65,7 @@
                              <?php
                                }
                            ?>
-                             <?php
-                               }
-                           ?>
+                             
                         </tbody>
                     </table>
                 </div>
