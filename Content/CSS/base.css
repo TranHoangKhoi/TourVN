@@ -138,9 +138,24 @@ strong {
     margin-bottom: 20px;
 }
 
+.form-group.invalid .input-control {
+    border-color: var(--sub-btn-color);
+}
+
+.form-group.invalid .form-label,
+.form-group.invalid .test-masage {
+    color: var(--sub-btn-color);
+}
+
 .form-field {
     display: flex;
     flex-direction: column;
+    margin-bottom: 6px;
+}
+
+.test-masage {
+    font-size: 1.3rem;
+    padding-left: 8px;
 }
 
 .form-label {

@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="newsCategoryUD" class="form-label">Loại tin tức</label>
-                                <select name="newsCategoryUD" id="newsCategoryUD" class="input-control-select">
+                                <select name="newsCategoryUD" required id="newsCategoryUD" class="input-control-select">
                                     <option value="">Chọn loại tin tức</option>
                                     <?php 
                                         $listNewsCate = list_load_all();
@@ -39,7 +39,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="newsNameUD" class="form-label">Tiêu đề bài viết</label>
-                                <input type="text" id="newsNameUD" name="newsNameUD" class="input-control" value="<?php echo $tieu_de ?>"placeholder="VD: Tháng 11 12 đi du lịch ở đâu? Top 10 điển đến hot cuối năm">
+                                <input type="text" id="newsNameUD" required name="newsNameUD" class="input-control" value="<?php echo $tieu_de ?>"placeholder="VD: Tháng 11 12 đi du lịch ở đâu? Top 10 điển đến hot cuối năm">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -59,7 +59,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="newsDescUD" class="form-label">Tóm tắt bài viêt</label>
-                                <textarea name="newsDescUD" id="" cols="30" rows="10" class="input-control--textarea"  placeholder="VD: Khi những cơn gió lạnh đầu đông tràn về cũng là lúc du lịch trong nước trở nên sôi động hơn. Khắp nơi mọi trên dãy đất hình chữ S Việt Nam khoác lên mình chiếc áo mới đẹp lạ kỳ. Và nếu bạn vẫn đang băn khoăn tìm kiếm một địa điểm du lịch thú vị vào dịp cuối năm tháng 11 12 này, đừng bỏ lỡ top 10 sau đây nhé!"><?php echo $tom_tat ?></textarea>
+                                <textarea name="newsDescUD" required id="" cols="30" rows="10" class="input-control--textarea"  placeholder="VD: Khi những cơn gió lạnh đầu đông tràn về cũng là lúc du lịch trong nước trở nên sôi động hơn. Khắp nơi mọi trên dãy đất hình chữ S Việt Nam khoác lên mình chiếc áo mới đẹp lạ kỳ. Và nếu bạn vẫn đang băn khoăn tìm kiếm một địa điểm du lịch thú vị vào dịp cuối năm tháng 11 12 này, đừng bỏ lỡ top 10 sau đây nhé!"><?php echo $tom_tat ?></textarea>
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="newsContentUD" class="form-label">Nội dung bài Viết</label>
-                                <textarea name="newsContentUD" id="newsContenUD" cols="30" rows="10" class="input-control--textarea" placeholder="Nội dung bài viết"><?php echo $noi_dung ?></textarea>
+                                <textarea name="newsContentUD" required id="newsContenUD" cols="30" rows="10" class="input-control--textarea" placeholder="Nội dung bài viết"><?php echo $noi_dung ?></textarea>
                             </div>
                             <span class="test-masage"></span>
                         </div>

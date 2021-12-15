@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourName" class="form-label">Tiêu đề tour</label>
-                            <textarea id="tourName" name="tourNameUD" class="input-control--textarea" placeholder="VD: Combo TripU 3N2Đ Khách sạn căn hộ Vinpearl Beachfront Nha Trang"><?php echo $tieu_de ?></textarea>
+                            <textarea id="tourName" required name="tourNameUD" class="input-control--textarea" placeholder="VD: Combo TripU 3N2Đ Khách sạn căn hộ Vinpearl Beachfront Nha Trang"><?php echo $tieu_de ?></textarea>
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="localCategory" class="form-label">Loại tour</label>
-                            <select name="localCategoryUD" id="" class="input-control-select">
+                            <select name="localCategoryUD" required id="" class="input-control-select">
                                 <option value="">Chọn Loại tour</option>
                                 <?php 
                                     $listTourCate  = load_all_tour();
@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourDescUD" class="form-label">Giới thiệu tour</label>
-                            <textarea name="tourDescUD" id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả tour có gì đặc biệt"><?php echo $gioi_thieu ?></textarea>
+                            <textarea name="tourDescUD" required id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả tour có gì đặc biệt"><?php echo $gioi_thieu ?></textarea>
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="sideTourUD" class="form-label">Vùng miền</label>
-                            <select name="sideTourUD" id="" class="input-control-select">
+                            <select name="sideTourUD" required id="" class="input-control-select">
                                 <option value="">Chọn vùng miền</option>
                                 <?php 
                                     $listSide  = list_Side();
@@ -75,7 +75,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="dateNum" class="form-label">Số lượng ngày (Ngày lẫn đêm)</label>
-                            <input type="text" id="dateNum" name="dateNumUD" class="input-control" value="<?php echo $goi_ngay ?>" placeholder="VD: 3 ngày 2 đêm">
+                            <input type="text" required id="dateNum" name="dateNumUD" class="input-control" value="<?php echo $goi_ngay ?>" placeholder="VD: 3 ngày 2 đêm">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourDateStart" class="form-label">Ngày khởi hành</label>
-                            <input type="date" id="tourDateStart" name="tourDateStartUD" class="input-control" value="<?php echo $ngay_khoihanh ?>">
+                            <input type="date" required id="tourDateStart" name="tourDateStartUD" class="input-control" value="<?php echo $ngay_khoihanh ?>">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -91,7 +91,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourTimeStart" class="form-label">Giờ khởi hành</label>
-                            <input type="time" id="tourTimeStart" name="tourTimeStartUD" class="input-control" value="<?php echo $gio_khoihanh ?>">
+                            <input type="time" required id="tourTimeStart" name="tourTimeStartUD" class="input-control" value="<?php echo $gio_khoihanh ?>">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -99,7 +99,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourDateEnd" class="form-label">Ngày về</label>
-                            <input type="date" id="tourDateEnd" name="tourDateEndUD" value="<?php echo $ngay_ve ?>" class="input-control">
+                            <input type="date" required id="tourDateEnd" name="tourDateEndUD" value="<?php echo $ngay_ve ?>" class="input-control">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -107,7 +107,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="localFocus" class="form-label">Nơi tập trung</label>
-                            <input type="text" id="localFocus" name="localFocusUD" class="input-control" value="<?php echo $noi_tap_trung ?>" placeholder="VD: TP Cần Thơ">
+                            <input type="text" required id="localFocus" name="localFocusUD" class="input-control" value="<?php echo $noi_tap_trung ?>" placeholder="VD: TP Cần Thơ">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -115,7 +115,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourPriceAdult" class="form-label">Giá vé người lớn (VNĐ)</label>
-                            <input type="number" id="tourPriceAdult" name="tourPriceAdultUD" class="input-control" value="<?php echo $gia_nguoilon ?>" placeholder="Viết liền không kí tự đặc biệt (VD: 2490000)">
+                            <input type="number" required id="tourPriceAdult" name="tourPriceAdultUD" class="input-control" value="<?php echo $gia_nguoilon ?>" placeholder="Viết liền không kí tự đặc biệt (VD: 2490000)">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -123,7 +123,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourPriceKid" class="form-label">Giá vé trẻ em (VNĐ)</label>
-                            <input type="number" id="tourPriceKid" name="tourPriceKidUD" class="input-control" value="<?php echo $gia_treem ?>" placeholder="Viết liền không kí tự đặc biệt (VD: 220000)">
+                            <input type="number" required id="tourPriceKid" name="tourPriceKidUD" class="input-control" value="<?php echo $gia_treem ?>" placeholder="Viết liền không kí tự đặc biệt (VD: 220000)">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -131,7 +131,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourNumppl" class="form-label">Số lượng người đi</label>
-                            <input type="number" id="tourNumppl" name="tourNumpplUD" class="input-control" value="<?php echo $soluong ?>" placeholder="VD: 7">
+                            <input type="number" required id="tourNumppl" name="tourNumpplUD" class="input-control" value="<?php echo $soluong ?>" placeholder="VD: 7">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -139,7 +139,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="tourSales" class="form-label">Khuyến mãi(%)</label>
-                            <input type="number" id="tourSales" name="tourSalesUD" class="input-control" value="<?php echo $khuyen_mai ?>" placeholder="VD: 10">
+                            <input type="number" required id="tourSales" name="tourSalesUD" class="input-control" value="<?php echo $khuyen_mai ?>" placeholder="VD: 10">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -197,10 +197,10 @@
                                 <label for="localTour" class="form-label">Ngày <?php echo $date ?></label>
                                 
                                 <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
-                                <select name="localTourSelectUD[]" id="localTourSelect" class="input-control-select">
+                                <select name="localTourSelectUD[]" required id="localTourSelect" class="input-control-select">
                                     <option value="">Chọn địa điểm</option>
                                     <?php   
-                                        $localList = load_all_local();
+                                        $localList = load_all_local('');
                                         foreach ($localList as $localItem) {
                                             extract($localItem);
                                             if($ma_diadiem == $ma_dia_diem) {
@@ -212,13 +212,13 @@
                                 </select>
                                 <div class="line"></div>
                                 <label for="localTourName" class="form-sub-label">Tiêu đề ngày <?php echo $date ?></label>
-                                <textarea name="localTourNameUD[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 1 sẽ đi đâu"><?php echo $tieu_de ?></textarea>
+                                <textarea name="localTourNameUD[]" required  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 1 sẽ đi đâu"><?php echo $tieu_de ?></textarea>
                                 <div class="line"></div>
                                 <label for="localDateinUD" class="form-sub-label">Ngày đến</label>
-                                <input type="date"  id="localDateinUD" name="localDateinUD[]" value="<?php echo $ngay_di ?>" class="input-control">
+                                <input type="date" required  id="localDateinUD" name="localDateinUD[]" value="<?php echo $ngay_di ?>" class="input-control">
                                 <div class="line"></div>
                                 <label for="localTourMainUD" class="form-sub-label">Mô tả hành trình</label>
-                                <textarea id="content<?php echo $date ?>" name="localTourMainUD[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"><?php echo $noi_dung ?></textarea>
+                                <textarea required id="content<?php echo $date ?>" name="localTourMainUD[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"><?php echo $noi_dung ?></textarea>
                                 <input type="hidden" name="journeyID[]" value="<?php echo $ma_hanh_trinh  ?>">
                             </div>
                             <span class="test-masage"></span>

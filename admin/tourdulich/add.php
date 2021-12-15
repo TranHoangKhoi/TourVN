@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourName" class="form-label">Tiêu đề tour</label>
-                                <input type="text" id="tourName" name="tourName" class="input-control" placeholder="VD: Combo TripU 3N2Đ Khách sạn căn hộ Vinpearl Beachfront Nha Trang">
+                                <input type="text" required id="tourName" name="tourName" class="input-control" placeholder="VD: Combo TripU 3N2Đ Khách sạn căn hộ Vinpearl Beachfront Nha Trang">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localCategory" class="form-label">Loại tour</label>
-                                <select name="localCategory" id="" class="input-control-select">
+                                <select name="localCategory" required id="" class="input-control-select">
                                     <option value="">Chọn Loại tour</option>
                                     <?php 
                                         $listTourCate  = load_all_tour();
@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourDesc" class="form-label">Giới thiệu tour</label>
-                                <textarea name="tourDesc" id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả tour có gì đặc biệt"></textarea>
+                                <textarea name="tourDesc" required id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả tour có gì đặc biệt"></textarea>
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="sideTour" class="form-label">Vùng miền</label>
-                                <select name="sideTour" id="" class="input-control-select">
+                                <select name="sideTour" required id="" class="input-control-select">
                                     <option value="">Chọn vùng miền</option>
                                     <?php 
                                         $listSide  = list_Side();
@@ -62,7 +62,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="dateNum" class="form-label">Số lượng ngày (Ngày lẫn đêm)</label>
-                                <input type="text" id="dateNum" name="dateNum" class="input-control" placeholder="VD: 3 ngày 2 đêm">
+                                <input type="text" required id="dateNum" name="dateNum" class="input-control" placeholder="VD: 3 ngày 2 đêm">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourDateStart" class="form-label">Ngày khởi hành</label>
-                                <input type="date" id="tourDateStart" name="tourDateStart" class="input-control">
+                                <input type="date" required id="tourDateStart" name="tourDateStart" class="input-control">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -78,7 +78,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourTimeStart" class="form-label">Giờ khởi hành</label>
-                                <input type="time" id="tourTimeStart" name="tourTimeStart" class="input-control">
+                                <input type="time" required id="tourTimeStart" name="tourTimeStart" class="input-control">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -86,7 +86,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourDateEnd" class="form-label">Ngày về</label>
-                                <input type="date" id="tourDateEnd" name="tourDateEnd" class="input-control">
+                                <input type="date" required id="tourDateEnd" name="tourDateEnd" class="input-control">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localFocus" class="form-label">Nơi tập trung</label>
-                                <input type="text" id="localFocus" name="localFocus" class="input-control" placeholder="VD: TP Cần Thơ">
+                                <input type="text" required id="localFocus" name="localFocus" class="input-control" placeholder="VD: TP Cần Thơ">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -102,7 +102,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourPriceAdult" class="form-label">Giá vé người lớn</label>
-                                <input type="number" id="tourPriceAdult" name="tourPriceAdult" class="input-control" placeholder="Viết liền không kí tự đặc biệt (VD: 2490000)">
+                                <input type="number" required id="tourPriceAdult" name="tourPriceAdult" class="input-control" placeholder="Viết liền không kí tự đặc biệt (VD: 2490000)">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -110,7 +110,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourPriceKid" class="form-label">Giá vé trẻ em</label>
-                                <input type="number" id="tourPriceKid" name="tourPriceKid" class="input-control" placeholder="Viết liền không kí tự đặc biệt (VD: 220000)">
+                                <input type="number" required id="tourPriceKid" name="tourPriceKid" class="input-control" placeholder="Viết liền không kí tự đặc biệt (VD: 220000)">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -118,7 +118,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourNumppl" class="form-label">Số lượng người đi</label>
-                                <input type="number" id="tourNumppl" name="tourNumppl" class="input-control" placeholder="VD: 7">
+                                <input type="number" required id="tourNumppl" name="tourNumppl" class="input-control" placeholder="VD: 7">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -126,7 +126,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourSales" class="form-label">Khuyến mãi(%)</label>
-                                <input type="number" id="tourSales" name="tourSales" class="input-control" placeholder="VD: 10">
+                                <input type="number" required id="tourSales" name="tourSales" class="input-control" placeholder="VD: 10">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -135,7 +135,7 @@
                           <div class="form-field">
                               <label for="tourImg1" class="form-label">Hình ảnh 1</label>
                               <label for="tourImg1" class="form-sub-label">Hình ảnh 1 dùng làm ảnh đại diện cho tour</label>
-                              <input type="file" id="tourImg1" name="tourImg1" class="input-control-img">
+                              <input type="file" required id="tourImg1" name="tourImg1" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -144,7 +144,7 @@
                           <div class="form-field">
                               <label for="tourImg2" class="form-label">Hình ảnh 2</label>
                               <label for="tourImg2" class="form-sub-label">Hình ảnh 2 dùng làm ảnh giới thiệu tour</label>
-                              <input type="file" id="tourImg2" name="tourImg2" class="input-control-img">
+                              <input type="file" required id="tourImg2" name="tourImg2" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -153,7 +153,7 @@
                           <div class="form-field">
                               <label for="tourImg3" class="form-label">Hình ảnh 3</label>
                               <label for="tourImg3" class="form-sub-label">Hình ảnh 3 dùng làm ảnh giới thiệu tour</label>
-                              <input type="file" id="tourImg3" name="tourImg3" class="input-control-img">
+                              <input type="file" required id="tourImg3" name="tourImg3" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -162,7 +162,7 @@
                           <div class="form-field">
                               <label for="tourImg4" class="form-label">Hình ảnh 4</label>
                               <label for="tourImg4" class="form-sub-label">Hình ảnh 4 dùng làm ảnh giới thiệu tour</label>
-                              <input type="file" id="tourImg4" name="tourImg4" class="input-control-img">
+                              <input type="file" required id="tourImg4" name="tourImg4" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -171,7 +171,7 @@
                           <div class="form-field">
                               <label for="tourImg5" class="form-label">Hình ảnh 5</label>
                               <label for="tourImg5" class="form-sub-label">Hình ảnh 5 dùng làm ảnh giới thiệu tour</label>
-                              <input type="file" id="tourImg5" name="tourImg5" class="input-control-img">
+                              <input type="file" required id="tourImg5" name="tourImg5" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -180,7 +180,7 @@
                           <div class="form-field">
                               <label for="tourImg6" class="form-label">Hình ảnh 6</label>
                               <label for="tourImg6" class="form-sub-label">Hình ảnh 6 dùng làm ảnh giới thiệu tour</label>
-                              <input type="file" id="tourImg6" name="tourImg6" class="input-control-img">
+                              <input type="file" required id="tourImg6" name="tourImg6" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -189,7 +189,7 @@
                           <div class="form-field">
                               <label for="tourImg7" class="form-label">Hình ảnh 7</label>
                               <label for="tourImg7" class="form-sub-label">Hình ảnh 7 dùng làm ảnh giới thiệu tour</label>
-                              <input type="file" id="tourImg7" name="tourImg7" class="input-control-img">
+                              <input type="file" required id="tourImg7" name="tourImg7" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -198,7 +198,7 @@
                           <div class="form-field">
                               <label for="tourImg8" class="form-label">Hình ảnh 8</label>
                               <label for="tourImg8" class="form-sub-label">Hình ảnh 8 dùng làm ảnh giới thiệu tour</label>
-                              <input type="file" id="tourImg8" name="tourImg8" class="input-control-img">
+                              <input type="file" required id="tourImg8" name="tourImg8" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -206,7 +206,7 @@
                           <div class="form-field">
                               <label for="tourImg9" class="form-label">Hình ảnh 9</label>
                               <label for="tourImg9" class="form-sub-label">Hình ảnh 9 dùng làm ảnh giới thiệu tour</label>
-                              <input type="file" id="tourImg9" name="tourImg9" class="input-control-img">
+                              <input type="file" required id="tourImg9" name="tourImg9" class="input-control-img">
                           </div>
                           <span class="test-masage"></span>
                         </div>
@@ -233,14 +233,14 @@
                         </div> -->
                         
                         <div class="tour__content">
-                            <?php $localList = load_all_local(); ?>
+                            <?php $localList = load_all_local(''); ?>
                             <!-- Ngày 1 -->
                             <div class="form-group">
                                 <div class="form-field">
                                     <label for="localTour" class="form-label">Ngày 1</label>
                                     
                                     <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
-                                    <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
+                                    <select name="localTourSelect[]" required id="localTourSelect" class="input-control-select">
                                         <option value="">Chọn địa điểm</option>
                                         <?php
                                             foreach ($localList as $localItem) {
@@ -251,13 +251,13 @@
                                     </select>
                                     <div class="line"></div>
                                     <label for="localTourName" class="form-sub-label">Tiêu đề ngày 1</label>
-                                    <textarea name="localTourName[]"  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 1 sẽ đi đâu"></textarea>
+                                    <textarea name="localTourName[]" required  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 1 sẽ đi đâu"></textarea>
                                     <div class="line"></div>
                                     <label for="localDatein" class="form-sub-label">Ngày đến</label>
-                                    <input type="date"  id="localDatein" name="localDatein[]" class="input-control">
+                                    <input type="date" required id="localDatein" name="localDatein[]" class="input-control">
                                     <div class="line"></div>
                                     <label for="localTourMain" class="form-sub-label">Mô tả hành trình</label>
-                                    <textarea id="content1" name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
+                                    <textarea id="content1" required name="localTourMain[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"></textarea>
                                 </div>
                                 <span class="test-masage"></span>
                             </div>

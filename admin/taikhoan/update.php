@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="adminPass" class="form-label">Họ và tên</label>
-                                <input type="text" id="adminPass" name="hoten" value="<?php echo $hoten?>" class="input-control" placeholder="VD: Trần Văn A">
+                                <input type="text" required id="adminPass" name="hoten" value="<?php echo $hoten?>" class="input-control" placeholder="VD: Trần Văn A">
                             </div>
                             <span class="test-masage"></span>
                         </div> 
@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="adminPass" class="form-label">Mật khẩu</label>
-                                <input type="text" id="adminPass" name="matkhau" value="<?php echo $matkhau?>" class="input-control" placeholder="VD: AZ123456">
+                                <input type="text" required id="adminPass" name="matkhau" value="<?php echo $matkhau?>" class="input-control" placeholder="VD: AZ123456">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="adminPass" class="form-label">CCCD/CMND</label>
-                                <input type="number" id="adminPass" name="cccd" value="<?php echo $cccd?>" class="input-control" placeholder="VD: Trần Văn A">
+                                <input type="number" required id="adminPass" name="cccd" value="<?php echo $cccd?>" class="input-control" placeholder="VD: Trần Văn A">
                             </div>
                             <span class="test-masage"></span>
                         </div> 
@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="adminPhone" class="form-label">Số điện thoại</label>
-                                <input type="number" id="adminPhone" name="sdt" value="<?php echo $sdt?>" class="input-control" placeholder="VD: 0971123123">
+                                <input type="number" required id="adminPhone" name="sdt" value="<?php echo $sdt?>" class="input-control" placeholder="VD: 0971123123">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="adminEmail" class="form-label">Email</label>
-                                <input type="email" id="adminEmail" name="email" value="<?php echo $email?>" class="input-control" placeholder="VD: khoi189@gmail.com">
+                                <input type="email" required id="adminEmail" name="email" value="<?php echo $email?>" class="input-control" placeholder="VD: khoi189@gmail.com">
                             </div>
                             <span class="test-masage"></span>
                         </div>

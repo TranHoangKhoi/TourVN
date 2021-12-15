@@ -183,12 +183,12 @@ function bookTicket() {
                     formAdult.innerHTML = `
                         <div class="info__customer-adults--form-item info__customer-adults--form-text">
                             <label for="" class="info__customer-adults--label">Họ tên</label>
-                            <input name="nameUserBook[]" type="text" class="info__customer-adults--control" placeholder="Họ và tên">
+                            <input name="nameUserBook[]" required type="text" class="info__customer-adults--control" placeholder="Họ và tên">
                         </div>
 
                         <div class="info__customer-adults--form-item info__customer-adults--form-select">
                             <label for="" class="info__customer-adults--label">Giới tính</label>
-                            <select name="sexUserBook[]" id="" class="info__customer-adults--control">
+                            <select name="sexUserBook[]" required id="" class="info__customer-adults--control">
                                 <option value="">Giới tính</option>
                                 <option value="nam">Nam</option>
                                 <option value="nu">Nữ</option>
@@ -197,17 +197,17 @@ function bookTicket() {
 
                         <div class="info__customer-adults--form-item info__customer-adults--form-select">
                             <label for="" class="info__customer-adults--label">Ngày sinh</label>
-                            <input name="birthUserBook[]" type="date" class="info__customer-adults--control">
+                            <input name="birthUserBook[]" required type="date" class="info__customer-adults--control">
                         </div>
 
                         <div class="info__customer-adults--form-item info__customer-adults--form-text">
                             <label for="" class="info__customer-adults--label">Số căn cước công dân</label>
-                            <input id="cccdAdult" name="cccdUserBook[]" type="number" class="info__customer-adults--control" placeholder="CCCD">
+                            <input id="cccdAdult" name="cccdUserBook[]" required type="number" class="info__customer-adults--control" placeholder="CCCD">
                         </div>
 
                         <div class="info__customer-adults--form-item info__customer-adults--form-text">
                             <label for="" class="info__customer-adults--label">Địa chỉ</label>
-                            <input name="addresshUserBook[]" type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
+                            <input name="addresshUserBook[]" required type="text" class="info__customer-adults--control" placeholder="VD: 271/Nguyễn Văn Linh">
                         </div>
                     `;
 
@@ -265,12 +265,12 @@ function bookTicket() {
                     formKid.innerHTML = `
                         <div class="info__customer-adults--form-item info__customer-adults--form-text">
                             <label for="" class="info__customer-adults--label">Họ tên</label>
-                            <input type="text" name="nameKidBook[]" class="info__customer-adults--control">
+                            <input type="text" name="nameKidBook[]" required class="info__customer-adults--control">
                         </div>
 
                         <div class="info__customer-adults--form-item info__customer-adults--form-text">
                             <label for="" class="info__customer-adults--label">Số căn cước công dân của người dám hộ</label>
-                            <input name="cccdAdultBook[]"  type="number" class="info__customer-adults--control JS-CCCD" placeholder="CCCD">
+                            <input name="cccdAdultBook[]" required type="number" class="info__customer-adults--control JS-CCCD" placeholder="CCCD">
                         </div>
                          <span class="error-mess"></span>
                     `;

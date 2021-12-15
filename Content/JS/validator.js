@@ -76,13 +76,13 @@ function Validator(options) {
     if(formElement) {
         // Xử lý onsubmit
         formElement.onsubmit = function(e) {
-            e.preventDefault();
             var inValid = true;
             options.rules.forEach(function(rule) {
                 var inputElement = formElement.querySelector(rule.selector);
                 var formValid = validate(inputElement, rule);
                 if(!formValid) {
                     inValid = false;
+                    e.preventDefault();
                 }
             });
             if(inValid) {

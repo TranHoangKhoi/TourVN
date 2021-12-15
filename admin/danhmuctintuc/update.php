@@ -17,7 +17,7 @@ if (is_array($list_one)) {
                     <div class="form-group">
                         <div class="form-field">
                             <label for="categoryName" class="form-label">Tên danh mục</label>
-                            <input type="text" id="categoryName" name="categoryName" class="input-control" placeholder="VD: Cẩm nang du lịch" value="<?php if (isset($ten_loai) && ($ten_loai != "")) echo $ten_loai; ?>">
+                            <input type="text" required id="categoryName" name="categoryName" class="input-control" placeholder="VD: Cẩm nang du lịch" value="<?php if (isset($ten_loai) && ($ten_loai != "")) echo $ten_loai; ?>">
                         </div>
                         <span class="test-masage"></span>
                     </div>

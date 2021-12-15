@@ -44,7 +44,6 @@
                                 <th class="tbl-1">Giá trẻ em</th>
                                 <th class="tbl-1">Giá người lớn</th>
                                 <th class="tbl-1">Khuyến mãi</th>
-                                <th class="tbl-1">Hành trình</th>
                                 <th class="tbl-0-5">Thao tác</th>
                                 <th class="tbl-0-5">Thao tác</th>
                             </tr>
@@ -72,7 +71,6 @@
                                 <td><?php echo number_format($gia_treem) ?>đ</td>
                                 <td><?php echo number_format($gia_nguoilon) ?>đ</td>
                                 <td><?php echo number_format($khuyen_mai)?>%</td>
-                                <td><a href="" class="btn btn__tbl">Chi tiết</a></td>
                                 <td>
                                     <a href="?ql=tourItem&updatetour&ma_tour=<?php echo $ma_tour ?>" class="btn btn__tbl">Sửa</a>
                                 </td>

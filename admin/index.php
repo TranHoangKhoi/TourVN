@@ -16,6 +16,12 @@ $ql = '';
 if (isset($_GET['ql'])) {
     $ql = $_GET['ql'];
 }
+
+$ma_taikhoan = '';
+if(isset($_SESSION['account']['ma_taikhoan'])) {
+    $ma_taikhoan =  $_SESSION['account']['ma_taikhoan'];
+}
+
 switch ($ql) {
         // Local Side 
     case 'localSide':
@@ -215,7 +221,7 @@ switch ($ql) {
                 $target_file = $target_dir . basename($_FILES["newsImage"]["name"]);
                 move_uploaded_file($_FILES["newsImage"]["tmp_name"], $target_file);
 
-                if (!add_news($newsCate, 2, $newsName, $newsDesc, $newsContent, $newsImg)) {
+                if (!add_news($newsCate, $ma_taikhoan, $newsName, $newsDesc, $newsContent, $newsImg)) {
                     $mess = 'Thêm bài viết thành công';
                 }
             }

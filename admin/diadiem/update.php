@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localNameUD" class="form-label">Tên địa điểm đi</label>
-                                <input type="text" id="localNameUD" name="localNameUD" class="input-control" value="<?php echo $ten_diadiem ?>" placeholder="VD: Cần Thơ">
+                                <input type="text" required id="localNameUD" name="localNameUD" class="input-control" value="<?php echo $ten_diadiem ?>" placeholder="VD: Cần Thơ">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localIDUD" class="form-label">Mã Tỉnh</label>
-                                <input type="text" id="localIDUD" name="localIDUD" class="input-control" value="<?php echo $ma_tinh ?>" placeholder="VD: 65">
+                                <input type="text" required id="localIDUD" name="localIDUD" class="input-control" value="<?php echo $ma_tinh ?>" placeholder="VD: 65">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localSideUD" class="form-label">Vùng miền</label>
-                                <select name="localSideUD" id="" class="input-control-select">
+                                <select name="localSideUD" required id="" class="input-control-select">
                                     <option value="">Chọn vùng miền</option>
                                     <?php 
                                         $localtionSide = $ma_mien;
@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localDescUD" class="form-label">Mô tả</label>
-                                <textarea name="localDescUD" id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả địa điểm đến có gì đặc biệt"><?php echo $mota ?></textarea>
+                                <textarea name="localDescUD" required id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả địa điểm đến có gì đặc biệt"><?php echo $mota ?></textarea>
                             </div>
                             <span class="test-masage"></span>
                         </div>

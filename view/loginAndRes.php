@@ -19,19 +19,19 @@
                                         </div>
 
                                         <!-- Login -->
-                                        <form action="?call=login" class="form__cart-control JS-Form-Control active" method="POST">
+                                        <form action="?call=login" class="form__cart-control JS-Form-Control active" method="POST" id="formLogin">
                                             <div class="form-group">
                                                 <div class="form-field">
-                                                    <label for="resEmail" class="form-label">Email</label>
-                                                    <input type="email" id="resEmail" name="emailLG" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <label for="emailLG" class="form-label">Email</label>
+                                                    <input type="email" id="emailLG" name="emailLG" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="form-field">
-                                                    <label for="resPass" class="form-label">Mật khẩu</label>
-                                                    <input type="password" id="resPass" name="matkhauLG" class="input-control" placeholder="VD: teo@gamil.com">
+                                                    <label for="matkhauLG" class="form-label">Mật khẩu</label>
+                                                    <input type="password" id="matkhauLG" name="matkhauLG" class="input-control" placeholder="VD: teo@gamil.com">
                                                 </div>
                                                 <span class="test-masage"></span>
                                             </div>
@@ -46,7 +46,7 @@
                                         </form>
 
                                         <!-- Register -->
-                                        <form action="?call=login" class="form__cart-control JS-Form-Control" method="POST">
+                                        <form action="?call=login" class="form__cart-control JS-Form-Control" method="POST" id="formRegister" >
                                             <div class="form-group">
                                                 <div class="form-field">
                                                     <label for="resUserName" class="form-label">Họ và tên</label>
@@ -75,7 +75,7 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Tỉnh / TP</label>
-                                                            <select name="tp" id="" class="input-control provinceAcc">
+                                                            <select name="tp" id="ressCity" class="input-control provinceAcc">
                                                                 <option value="">Tỉnh/TP</option>
                                                                 <?php 
                                                                 $listProvince = load_all_province(); 
@@ -92,7 +92,7 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Quận / Huyện</label>
-                                                            <select name="quan" class="input-control districtAcc">
+                                                            <select name="quan" id="ressDistrict" class="input-control districtAcc">
                                                                 <option value="">Quận / Huyện</option>
                                                             </select>
                                                     </div>
@@ -102,7 +102,7 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Phường / Xã</label>
-                                                            <select name="phuong" class="input-control wardAcc">
+                                                            <select name="phuong" id="ressWard" class="input-control wardAcc">
                                                                 <option value="">Phường / Xã</option>
                                                             </select>
                                                     </div>
@@ -112,7 +112,7 @@
                                                 <div class="form-group">
                                                     <div class="form-field">
                                                         <label for="" class="form-label">Địa chỉ cụ thể</label>
-                                                        <input name="address" type="text"  class="input-control" placeholder="VD: 271 / Nguyễn Văn Linh">
+                                                        <input name="address" id="ressAdress" type="text"  class="input-control" placeholder="VD: 271 / Nguyễn Văn Linh">
                                                     </div>
                                                     <span class="test-masage"></span>
                                                 </div>

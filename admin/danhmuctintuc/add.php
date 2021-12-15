@@ -11,7 +11,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="categoryName" class="form-label">Tên danh mục</label>
-                            <input type="text" id="categoryName" name="categoryName" class="input-control" placeholder="VD: Cẩm nang du lịch">
+                            <input type="text" required id="categoryName" name="categoryName" class="input-control" placeholder="VD: Cẩm nang du lịch">
                         </div>
                         <span class="test-masage"></span>
                     </div>

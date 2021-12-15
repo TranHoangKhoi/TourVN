@@ -170,7 +170,7 @@
                         <i class="header__nav-icon">
                             <ion-icon name="power"></ion-icon>
                         </i>
-                        Đăng xuất
+                        Trở về trang web
                     </a>
                 </li>
             </ul>

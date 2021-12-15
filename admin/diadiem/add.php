@@ -11,7 +11,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localName" class="form-label">Tên địa điểm</label>
-                                <input type="text" id="localName" name="localName" class="input-control" placeholder="VD: Cần Thơ">
+                                <input type="text" required id="localName" name="localName" class="input-control" placeholder="VD: Cần Thơ">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localID" class="form-label">Mã Tỉnh</label>
-                                <input type="text" id="localID" name="localID" class="input-control" placeholder="VD: 65">
+                                <input type="text" required id="localID" name="localID" class="input-control" placeholder="VD: 65">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localSide" class="form-label">Vùng miền</label>
-                                <select name="localSide" id="" class="input-control-select">
+                                <select name="localSide" required id="" class="input-control-select">
                                     <option value="">Chọn vùng miền</option>
                                     <?php 
                                         $localSide = list_Side();
@@ -43,9 +43,9 @@
 
                         <div class="form-group">
                             <div class="form-field">
-                                <label for="localiMage" class="form-label">Hình ảnh</label>
+                                <label for="localiMage"  class="form-label">Hình ảnh</label>
                                 <label for="localiMage" class="form-sub-label">Hình ảnh dùng làm ảnh đại diện tour và hình lớn trong tour chi tiết</label>
-                                <input type="file" id="localiMage" name="localiMage" class="input-control-img">
+                                <input type="file" required id="localiMage" name="localiMage" class="input-control-img">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localDesc" class="form-label">Mô tả</label>
-                                <textarea name="localDesc" id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả địa điểm đến có gì đặc biệt"></textarea>
+                                <textarea name="localDesc" required id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả địa điểm đến có gì đặc biệt"></textarea>
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -63,10 +63,10 @@
                                 <label for="localCheckFavarite" class="form-label">Đặc biệt</label>
                                 <div class="check-box--group">
                                     <div class="check-box--item">
-                                        <input type="radio" checked name="localCheckFavarite" id="" value="0"> Địa điểm thường
+                                        <input type="radio" required checked name="localCheckFavarite" id="" value="0"> Địa điểm thường
                                     </div>
                                     <div class="check-box--item">
-                                        <input type="radio" name="localCheckFavarite" id="" value="1"> Địa điểm yêu thích
+                                        <input type="radio" required name="localCheckFavarite" id="" value="1"> Địa điểm yêu thích
                                     </div>
                                 </div>
                             </div>

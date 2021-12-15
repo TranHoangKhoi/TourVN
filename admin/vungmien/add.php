@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localSideName" class="form-label">Tên vùng miền</label>
-                                <input type="text" id="localSideName" name="localSideName" class="input-control" placeholder="VD: Miền Nam">
+                                <input type="text" required id="localSideName" name="localSideName" class="input-control" placeholder="VD: Miền Nam">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localSideDersc" class="form-label">Mô tả</label>
-                                <textarea name="localSideDersc" id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả về vùng miền đó"></textarea>
+                                <textarea name="localSideDersc" required id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả về vùng miền đó"></textarea>
                             </div>
                             <span class="test-masage"></span>
                         </div>

@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="categoryName" class="form-label">Tên danh mục</label>
-                            <input type="text" id="categoryName" name="categoryNameUD" class="input-control" placeholder="VD: Tour biển đảo" value="<?php echo $ten_loai ?>">
+                            <input type="text" required id="categoryName" name="categoryNameUD" class="input-control" placeholder="VD: Tour biển đảo" value="<?php echo $ten_loai ?>">
                         </div>
                         <span class="test-masage"></span>
                     </div>
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <div class="form-field">
                             <label for="categoryDesc" class="form-label">Mô tả</label>
-                            <textarea name="categoryDescUD" id="categoryDesc" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả" ><?php echo $mota?></textarea>
+                            <textarea name="categoryDescUD" required id="categoryDesc" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả" ><?php echo $mota?></textarea>
                         </div>
                         <span class="test-masage"></span>
                     </div>

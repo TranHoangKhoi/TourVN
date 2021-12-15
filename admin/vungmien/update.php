@@ -17,7 +17,7 @@ if (is_array($localSideItem)) {
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localSide" class="form-label">Tên vùng miền</label>
-                                <input type="text" id="localSide" name="localSideUD" class="input-control" placeholder="VD: Miền Nam" value="<?php echo $ten_mien ?>">
+                                <input type="text" required id="localSide" name="localSideUD" class="input-control" placeholder="VD: Miền Nam" value="<?php echo $ten_mien ?>">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -25,7 +25,7 @@ if (is_array($localSideItem)) {
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="localSideDersc" class="form-label">Mô tả</label>
-                                <textarea name="localSideDerscUD" id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả về vùng miền đó"><?php echo $mota ?></textarea>
+                                <textarea name="localSideDerscUD" required id="" cols="30" rows="10" maxlength="300" class="input-control--textarea" placeholder="Mô tả về vùng miền đó"><?php echo $mota ?></textarea>
                             </div>
                             <span class="test-masage"></span>
                         </div>
