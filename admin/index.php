@@ -237,16 +237,23 @@ switch ($ql) {
                 }
             }
 
+            $selectTourCate = 0;
+            $tourID = '';
+            if(isset($_POST['findTourItem'])) {
+                $selectTourCate = $_POST['selectTourCate'];
+                $tourID = $_POST['tourID'];
+            }
+
             // Panigation
             $itemNum = 10;
             $starItem = 0;
             if (isset($_GET['page'])) {
                 $starItem = ($_GET['page'] - 1) * $itemNum;
             }
-            $countList = load_all_tour_trip();
+            $countList = load_all_tour_trip_count();
             $pageNum = pagination($itemNum, $countList);
 
-            $list_tour = load_all_tour_trip($starItem, $itemNum, 0, '');
+            $list_tour = get_tour_trip($starItem, $itemNum, $selectTourCate, $tourID);
 
             include './tourdulich/list.php';
         } elseif (isset($_GET['updatetour'])) {
@@ -452,10 +459,21 @@ switch ($ql) {
                 $keyword=$_POST['keyword'];
                $email_acc=$_POST['email_acc'];
            }else{
-            $keyword='';
-            $email_acc='';
+                $keyword='';
+                $email_acc='';
            }
-            $list_account = list_account($keyword,$email_acc);
+           
+           // Panigition
+           $itemNum = 10;
+           $starItem = 0;
+           if (isset($_GET['page'])) {
+               $starItem = ($_GET['page'] - 1) * $itemNum;
+           }
+
+           $countList = list_account_count();
+           $pageNum = pagination($itemNum, $countList);
+
+            $list_account = list_account($keyword,$email_acc, $starItem, $itemNum);
             include $account_path . 'list.php';
            
         } elseif (isset($_GET['listadmin'])) {
@@ -472,7 +490,18 @@ switch ($ql) {
             $keyword='';
             $email_acc='';
            }
-            $list_account_admin = list_account_admin($keyword,$email_acc);
+
+            // Panigition
+            $itemNum = 10;
+            $starItem = 0;
+            if (isset($_GET['page'])) {
+                $starItem = ($_GET['page'] - 1) * $itemNum;
+            }
+
+            $countList = list_account_admin_count();
+            $pageNum = pagination($itemNum, $countList);
+
+            $list_account_admin = list_account_admin($keyword,$email_acc, $starItem, $itemNum);
 
             include $account_path . 'listadmin.php';
         } elseif (isset($_GET['add'])) {
@@ -522,49 +551,43 @@ switch ($ql) {
         // Bill Confirmateda
     case 'tourBill':
         if (isset($_GET['list'])) {
-            if (isset($_SESSION['account'])) {
-                $ma_taikhoan = $_SESSION['account']['ma_taikhoan'];
-
-
-                // Panigition
-                $itemNum = 6;
-                $starItem = 0;
-                if (isset($_GET['page'])) {
-                    $starItem = ($_GET['page'] - 1) * $itemNum;
-                }
-
-                $countList = get_bill_by_ma_tk_count($_SESSION['account']['ma_taikhoan']);
-
-                $pageNum = pagination($itemNum, $countList);
-
-                $listBillConFirm = get_bill_by_ma_tk($_SESSION['account']['ma_taikhoan'], $starItem, $itemNum);
+            $keyW = '';
+            if(isset($_POST['findIdBill'])) {
+                $keyW = $_POST['idBillFd'];
             }
 
+            // Panigition
+            $itemNum = 10;
+            $starItem = 0;
+            if (isset($_GET['page'])) {
+                $starItem = ($_GET['page'] - 1) * $itemNum;
+            }
+
+            $countList = get_all_bill_count();
+
+            $pageNum = pagination($itemNum, $countList);
+            $listBillConFirm = get_all_bill($keyW, $starItem, $itemNum);
             include './hoadon/list.php';
         } elseif (isset($_GET['detials'])) {
             // lấy mã hóa đơn 
             if (isset($_GET['ma_hd']) && ($_GET['ma_hd'] > 0)) {
                 $listBill = get_all_one($_GET['ma_hd']);
-                $listTicket = get_one_Ticket($_GET['ma_hd']);
-            }
-            // session
-            if (isset($_SESSION['account'])) {
-                $ma_taikhoan = $_SESSION['account']['ma_taikhoan'];
+                
 
                 // Panigition
-                $itemNum = 6;
+                $itemNum = 10;
                 $starItem = 0;
                 if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
 
-                $countList = get_bill_by_ma_tk_count($ma_taikhoan);
+                $countList = get_one_Ticket_count($_GET['ma_hd']);
 
                 $pageNum = pagination($itemNum, $countList);
 
-                $listBillConFirm = get_bill_by_ma_tk($ma_taikhoan, $starItem, $itemNum);
+                $listTicket = get_one_Ticket($_GET['ma_hd'], $starItem, $itemNum);
+                include './hoadon/billDetails.php';
             }
-            include './hoadon/billDetails.php';
         }
 
         break;
@@ -572,44 +595,43 @@ switch ($ql) {
         // Ticket
     case 'tourTicket':
         if (isset($_GET['list'])) {
-            if (isset($_GET['ticket'])) {
-                // Panigition
-                $itemNum = 6;
-                $starItem = 0;
-                if (isset($_GET['page'])) {
-                    $starItem = ($_GET['page'] - 1) * $itemNum;
-                }
-                $countList = get_bill_by_ma_tk_count($ma_taikhoan);
-
-                $pageNum = pagination($itemNum, $countList);
-
-                $listBillConFirm = get_bill_by_ma_tk($ma_taikhoan, $starItem, $itemNum);
+            $selectTourCate = 0;
+            $tourID = '';
+            if(isset($_POST['findTourItem'])) {
+                $tourID = $_POST['tourID'];
             }
 
+            // Panigation
+            $itemNum = 10;
+            $starItem = 0;
+            if (isset($_GET['page'])) {
+                $starItem = ($_GET['page'] - 1) * $itemNum;
+            }
+            $countList = load_all_tour_trip_count();
+            $pageNum = pagination($itemNum, $countList);
+
+            $list_Ticket_All = get_tour_trip($starItem, $itemNum, $selectTourCate, $tourID);
+
             include './datve/list.php';
+
         } elseif (isset($_GET['details'])) {
             // láy mã tour
             if (isset($_GET['matour']) && ($_GET['matour'] > 0)) {
-                $list_ticket = get_one_Ticket_mt($_GET['matour']);
-                $list_ticket_mt = get_one_Ticket_mtm($_GET['matour']);
-            }
-            // session
-            if (isset($_SESSION['account'])) {
-                $ma_taikhoan = $_SESSION['account']['ma_taikhoan'];
-
+                $ma_tour = $_GET['matour'];
                 // Panigition
-                $itemNum = 6;
+                $itemNum = 10;
                 $starItem = 0;
                 if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
-
-                $countList = get_bill_by_ma_tk_count($ma_taikhoan);
-
+    
+                $countList = get_one_Ticket_mt_count($_GET['matour']);
+    
                 $pageNum = pagination($itemNum, $countList);
-
-                $listBillConFirm = get_bill_by_ma_tk($ma_taikhoan, $starItem, $itemNum);
+    
+                $list_ticket = get_one_Ticket_mt($_GET['matour'], $starItem, $itemNum);
             }
+
 
             include './datve/ticketDetails.php';
         }

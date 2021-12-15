@@ -19,7 +19,12 @@
     }
 
     // Load All tour 
-    function load_all_tour_trip() {
+    function load_all_tour_trip($startItem, $showItem) {
+        $sql = "SELECT * FROM tour_du_lich ORDER BY ma_tour DESC LIMIT $startItem,$showItem";
+        return pdo_query($sql);
+    }
+
+    function load_all_tour_trip_count() {
         $sql = "SELECT * FROM tour_du_lich ORDER BY ma_tour DESC";
         return pdo_query($sql);
     }
@@ -27,11 +32,11 @@
     function get_tour_trip($startItem, $showItem, $tourCate, $tourID) {
         if($tourCate > 0) {
             $sql = "SELECT * FROM tour_du_lich WHERE loai_tour = $tourCate ORDER BY ma_tour DESC LIMIT $startItem,$showItem";
-
-        } elseif(empty($tourID) != 1) {
+        } elseif($tourID != '' && $tourID > 0) {
             $sql = "SELECT * FROM tour_du_lich WHERE ma_tour = $tourID ORDER BY ma_tour DESC LIMIT $startItem,$showItem";
+        } else {
+            $sql = "SELECT * FROM tour_du_lich WHERE 1 ORDER BY ma_tour DESC LIMIT $startItem,$showItem";
         }
-        $sql = "SELECT * FROM tour_du_lich WHERE 1 ORDER BY ma_tour DESC LIMIT $startItem,$showItem";
         return pdo_query($sql);
     }
 
@@ -71,7 +76,7 @@
     }
 
     function get_tour_info_by_cate($loai_tour , $startItem, $showItem) {
-        $sql = "SELECT * FROM tour_du_lich WHERE loai_tour   = $loai_tour  LIMIT $startItem,$showItem";
+        $sql = "SELECT * FROM tour_du_lich WHERE loai_tour = $loai_tour  LIMIT $startItem,$showItem";
         return pdo_query($sql);
     }
 

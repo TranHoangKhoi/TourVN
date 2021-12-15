@@ -22,8 +22,6 @@ function get_bill_by_ma_tk_count($ma_taikhoan)
     return pdo_query($sql);
 }
 
-
-
 // By mã tài khoản
 function get_bill_by_ma_tk($ma_taikhoan, $startItem, $showItem)
 {
@@ -43,14 +41,22 @@ function get_ticket_by_ma_hd($ma_hd)
 
 // alll hoa đon
 
-function get_all_bill()
+function get_all_bill($keyW, $startItem, $showItem)
 {
-    $sql = "SELECT * FROM hoa_don ORDER BY ma_hd DESC ";
+    $sql = "SELECT * FROM hoa_don ";
+    if($keyW != '' && $keyW > 0) {
+        $sql.=" WHERE ma_hd = $keyW ";
+    }
+    $sql.=" ORDER BY ma_hd DESC LIMIT $startItem,$showItem";
     return pdo_query($sql);
 }
 
 
-
+function get_all_bill_count()
+{
+    $sql = "SELECT * FROM hoa_don ORDER BY ma_hd DESC ";
+    return pdo_query($sql);
+}
 
 
 // load 1 chi tiếc mã khách hàng
@@ -68,21 +74,29 @@ function get_all_Ticket()
 }
 
 // load số vé đc đăng kí bằng mahd
-function get_one_Ticket($ma_hd)
+function get_one_Ticket($ma_hd, $startItem, $showItem)
+{
+    $sql = "SELECT * FROM ve WHERE ma_hd  = $ma_hd LIMIT $startItem,$showItem";
+    return pdo_query($sql);
+}
+
+function get_one_Ticket_count($ma_hd)
 {
     $sql = "SELECT * FROM ve WHERE ma_hd  = $ma_hd";
     return pdo_query($sql);
 }
+
+
 // chi tiết load hóa đơn đăng ký 
 // load số vé đc đăng kí bằng ma tour
-function get_one_Ticket_mt($ma_tour)
+function get_one_Ticket_mt($ma_tour, $startItem, $showItem)
+{
+    $sql = "SELECT * FROM ve WHERE ma_tour = $ma_tour ORDER BY ma_ve DESC LIMIT $startItem,$showItem";
+    return pdo_query($sql);
+}
+
+function get_one_Ticket_mt_count($ma_tour)
 {
     $sql = "SELECT * FROM ve WHERE ma_tour = $ma_tour";
     return pdo_query($sql);
-}
-// lấy mã tour
-function get_one_Ticket_mtm($ma_tour)
-{
-    $sql = "SELECT * FROM ve WHERE ma_tour = $ma_tour";
-    return pdo_query_one($sql);
 }

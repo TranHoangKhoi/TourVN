@@ -30,7 +30,12 @@
      pdo_execute($sql);
     }//gọi danh sách
 
-    function list_account($keyword,$email_acc) {
+    function list_account_count() {
+      $sql="SELECT * FROM tai_khoan WHERE 1 AND vai_tro = 0";
+      return pdo_query($sql);
+    }
+
+    function list_account($keyword,$email_acc, $starItem, $showItem) {
       $sql="SELECT * FROM tai_khoan WHERE 1 AND vai_tro=0";
       if($keyword!=""){
         $sql.=" AND hoten LIKE '%$keyword%'";
@@ -38,10 +43,16 @@
       if($email_acc!=""){
         $sql.=" AND email LIKE '%$email_acc%'";
       }
-      $sql.=" ORDER BY hoten DESC ";
+      $sql.=" ORDER BY hoten DESC LIMIT $starItem,$showItem";
       return pdo_query($sql);
   }
-  function list_account_admin($keyword,$email_acc) {
+
+  function list_account_admin_count() {
+    $sql="SELECT * FROM tai_khoan WHERE 1 AND vai_tro=1";
+    return pdo_query($sql);
+  }
+
+  function list_account_admin($keyword,$email_acc, $starItem, $showItem) {
     $sql="SELECT * FROM tai_khoan WHERE 1 AND vai_tro=1 ";
     if($keyword!=""){
       $sql.=" AND hoten LIKE '%$keyword%'";
@@ -49,7 +60,7 @@
     if($email_acc!=""){
       $sql.=" AND email LIKE '%$email_acc%'";
     }
-    $sql.=" ORDER BY hoten DESC ";
+    $sql.=" ORDER BY hoten DESC LIMIT $starItem,$showItem";
     
     return pdo_query($sql);
   }
