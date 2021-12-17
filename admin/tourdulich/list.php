@@ -52,8 +52,6 @@
                             <?php 
                                 foreach($list_tour as $tourItem){
                                     extract($tourItem);
-                                    $tourCateOne = load_one_tour($ma_loai);
-                                    extract($tourCateOne);
                             ?>
                             <tr>
                                 <td><?php echo ++$starItem ?></td>
@@ -63,6 +61,10 @@
                                         <?php echo $tieu_de ?>
                                     </div>
                                 </td>
+                                    <?php
+                                        $tourCateOne = load_one_tour($loai_tour);
+                                        extract($tourCateOne);
+                                    ?>
                                 <td><?php echo $ten_loai ?></td>
                                 <td><?php echo $goi_ngay ?></td>
                                 <td><?php echo $ngay_khoihanh ?></td>

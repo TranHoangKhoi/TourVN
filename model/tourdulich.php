@@ -24,8 +24,14 @@
         return pdo_query($sql);
     }
 
-    function load_all_tour_trip_count() {
-        $sql = "SELECT * FROM tour_du_lich ORDER BY ma_tour DESC";
+    function load_all_tour_trip_count($selectTourCate, $tourID) {
+        if($selectTourCate > 0) {
+            $sql = "SELECT * FROM tour_du_lich WHERE loai_tour = $selectTourCate ORDER BY ma_tour DESC";
+        } elseif($tourID != '' && $tourID > 0) {
+            $sql = "SELECT * FROM tour_du_lich WHERE ma_tour = $tourID ORDER BY ma_tour DESC";
+        } else {
+            $sql = "SELECT * FROM tour_du_lich ORDER BY ma_tour DESC ";
+        }
         return pdo_query($sql);
     }
 

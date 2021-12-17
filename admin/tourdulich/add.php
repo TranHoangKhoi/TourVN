@@ -102,7 +102,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourPriceAdult" class="form-label">Giá vé người lớn</label>
-                                <input type="number" required id="tourPriceAdult" name="tourPriceAdult" class="input-control" placeholder="Viết liền không kí tự đặc biệt (VD: 2490000)">
+                                <input type="number" required id="tourPriceAdult" min="1" name="tourPriceAdult" class="input-control" placeholder="Viết liền không kí tự đặc biệt (VD: 2490000)">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -110,7 +110,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourPriceKid" class="form-label">Giá vé trẻ em</label>
-                                <input type="number" required id="tourPriceKid" name="tourPriceKid" class="input-control" placeholder="Viết liền không kí tự đặc biệt (VD: 220000)">
+                                <input type="number" required id="tourPriceKid" min="0" name="tourPriceKid" class="input-control" placeholder="Viết liền không kí tự đặc biệt (VD: 220000)">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -118,7 +118,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourNumppl" class="form-label">Số lượng người đi</label>
-                                <input type="number" required id="tourNumppl" name="tourNumppl" class="input-control" placeholder="VD: 7">
+                                <input type="number" required id="tourNumppl" name="tourNumppl" min="1" class="input-control" placeholder="VD: 7">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -126,7 +126,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="tourSales" class="form-label">Khuyến mãi(%)</label>
-                                <input type="number" required id="tourSales" name="tourSales" class="input-control" placeholder="VD: 10">
+                                <input type="number" required id="tourSales" name="tourSales" min="0" max="100" class="input-control" placeholder="VD: 10">
                             </div>
                             <span class="test-masage"></span>
                         </div>
@@ -428,6 +428,17 @@
                         <div class="form-group">
                             <button name="addTour" class="btn btn-form">Thêm</button>
                         </div>
+
+                        <?php
+                        if(isset($mess) && $mess != '') {
+                        ?>
+                            <div class="mess-form success">
+                                <span>
+                                    <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                    <?php echo $mess?>
+                                </span>
+                            </div>
+                        <?php } ?>
                     </form>
                 </div>
             </div>
