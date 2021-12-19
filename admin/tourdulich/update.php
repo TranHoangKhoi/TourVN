@@ -200,7 +200,7 @@
                                 <select name="localTourSelectUD[]" required id="localTourSelect" class="input-control-select">
                                     <option value="">Chọn địa điểm</option>
                                     <?php   
-                                        $localList = load_all_local('');
+                                        $localList = load_all_local_count('');
                                         foreach ($localList as $localItem) {
                                             extract($localItem);
                                             if($ma_diadiem == $ma_dia_diem) {
@@ -389,8 +389,19 @@
                     </div>
 
                     <div class="form-group">
-                        <button name="updateTourbtn" class="btn btn-form">Thêm</button>
+                        <button name="updateTourbtn" class="btn btn-form">Cập nhật</button>
                     </div>
+
+                    <?php
+                        if(isset($mess) && $mess != '') {
+                    ?>
+                            <div class="mess-form success">
+                                <span>
+                                    <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                    <?php echo $mess?>
+                                </span>
+                            </div>
+                    <?php } ?>
                 </form>
                 </div>
             </div>

@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <div class="form-field">
                                 <label for="adminPass" class="form-label">Mật khẩu</label>
-                                <input type="text" required id="adminPass" name="matkhau" value="<?php echo $matkhau?>" class="input-control" placeholder="VD: AZ123456">
+                                <input type="password" required id="adminPass" name="matkhau" value="<?php echo $matkhau?>" class="input-control" placeholder="VD: AZ123456">
                             </div>
                             <span class="test-masage"></span>
                         </div>

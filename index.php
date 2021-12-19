@@ -14,7 +14,7 @@ include './model/diachi.php';
 include './model/taikhoan.php';
 include './model/check.php';
 include './model/hoadon&ve.php';
-include $view_path . 'header.php';
+include './view/header.php';
 
 
 if (isset($_GET['call']) && ($_GET['call'] != '')) {
@@ -70,14 +70,14 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 $listTour = find($keyW, $starItem, $itemNum);
             }
 
-            include $view_path . 'tourList.php';
+            include './view/tourList.php';
             break;
             // Tour Details
         case 'tourDetails':
             if (isset($_GET['ma_tour'])) {
                 $tourDetail = get_tour_info($_GET['ma_tour']);
 
-                include $view_path . 'tourDetail.php';
+                include './view/tourDetail.php';
             }
             break;
 
@@ -95,7 +95,7 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 $pageNum = pagination($itemNum, $countList);
 
                 $listNews = get_news($starItem, $itemNum, $_GET['ma_loai_tin']);
-                include $view_path . 'newsList.php';
+                include './view/newsList.php';
             }
             break;
 
@@ -103,7 +103,7 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
         case 'newsDetails':
             if (isset($_GET['ma_tin'])) {
                 $newItem = load_one_news($_GET['ma_tin']);
-                include $view_path . 'newsDetail.php';
+                include './view/newsDetail.php';
             }
             break;
 
@@ -195,7 +195,7 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                     }
 
                     $tourInfo = get_tour_info($_GET['ma_tour']);
-                    include $view_path . 'bookTicket.php';
+                    include './view/bookTicket.php';
                 }
             } else {
                 header('location: index.php?call=login');
@@ -204,12 +204,12 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
 
             // Introduce
         case 'intro':
-            include $view_path . 'introduce.php';
+            include './view/introduce.php';
             break;
 
             // Contact
         case 'hotline':
-            include $view_path . 'hotLine.php';
+            include './view/hotLine.php';
             break;
 
             //acount
@@ -278,7 +278,7 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                 session_unset();
                 header("location: index.php");
             }
-            include $view_path . 'account.php';
+            include './view/account.php';
             break;
 
             // Form Login
@@ -328,25 +328,25 @@ if (isset($_GET['call']) && ($_GET['call'] != '')) {
                     $_SESSION['account'] = $check_account;
                     header("Location: index.php");
                     // $mess_success="Bạn đã đăng nhập thành công";
-                    // include $view_path.'account.php';
+                    // include c./view/count.php';
                     // break;      
                 } else {
                     $mess_fail = "Tài khoản này không tồn tại. Vui lòng kiểm tra hoặc đăng ký!";
                 }
             }
-            include $view_path . 'loginAndRes.php';
+            include './view/loginAndRes.php';
             break;
 
             // Home
         default:
-            include $view_path . 'home.php';
+            include './view/home.php';
             break;
     }
 } else {
     if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
         header('location: index.php?call=listTour&timkiem&keyword=' . $_GET['keyword']);
     }
-    include $view_path . 'home.php';
+    include './view/home.php';
 }
 
 include './view/footer.php';

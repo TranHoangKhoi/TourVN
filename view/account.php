@@ -187,7 +187,7 @@
                         <div class="account__right
                             <?php if(isset($_GET['updatePass'])) echo 'active'?>
                         ">
-                            <form action="" method="post">
+                            <form action="" method="post" id="formUpdatePass">
                                 <div class="form-group">
                                     <div class="form-field">
                                         <label for="passOld" class="form-label">Mật khẩu cũ</label>

@@ -47,7 +47,7 @@
                                 </td>
                               
                                 <td>
-                                    <a href="index.php?ql=tourCate&updateCate&ma_loai=<?php echo $ma_loai ?>" class="btn btn__tbl">Sữa</a>
+                                    <a href="index.php?ql=tourCate&updateCate&ma_loai=<?php echo $ma_loai ?>" class="btn btn__tbl">Sửa</a>
                                 </td>
                                 <td>
                                     <a href="index.php?ql=tourCate&listCate&deleteCate&ma_loai=<?php echo $ma_loai ?>" class="btn btn__tbl">Xóa</a>

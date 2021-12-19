@@ -148,44 +148,62 @@
 
     <script>
         // Validate Form Login
-    Validator({
-        form: '#formLogin',
-        formGroupElement: '.form-group',
-        errorElement: '.test-masage', 
-        rules: [
-            Validator.isRequired('#emailLG', 'Mời bạn nhập vào Email'),
-            Validator.isEmail('#emailLG'),
-            Validator.isRequired('#matkhauLG', 'Mời bạn nhập vào mật khẩu'),
-            Validator.isMinLength('#matkhauLG', 6),
-        ],
-    });
+        Validator({
+            form: '#formLogin',
+            formGroupElement: '.form-group',
+            errorElement: '.test-masage', 
+            rules: [
+                Validator.isRequired('#emailLG', 'Mời bạn nhập vào Email'),
+                Validator.isEmail('#emailLG'),
+                Validator.isRequired('#matkhauLG', 'Mời bạn nhập vào mật khẩu'),
+                Validator.isMinLength('#matkhauLG', 6),
+            ],
+        });
 
-        // Validate Form Registration
-    Validator({
-        form: '#formRegister',
-        formGroupElement: '.form-group',
-        errorElement: '.test-masage', 
-        rules: [
-            Validator.isRequired('#resUserName', 'Mời bạn nhập vào đầy đủ họ và tên'),
-            Validator.isRequired('#resCMND', 'Mời bạn nhập vào CCCD/CMND'),
-            Validator.isMinLength('#resCMND', 10),
-            Validator.isRequired('#resPhone', 'Mời bạn nhập vào số điện thoại'),
-            Validator.isMinLength('#resPhone', 10),
-            Validator.isRequired('#ressCity', 'Mời bạn chọn Tỉnh / Tp'),
-            Validator.isRequired('#ressDistrict', 'Mời bạn chọn Quận / Huyện'),
-            Validator.isRequired('#ressWard', 'Mời bạn chọn Phường / Xã'),
-            Validator.isRequired('#ressAdress', 'Mời bạn nhập vào địa chỉ'),
-            Validator.isRequired('#resEmail', 'Mời bạn nhập vào Email'),
-            Validator.isEmail('#resEmail'),
-            Validator.isRequired('#resPass', 'Mời bạn nhập vào mật khẩu'),
-            Validator.isMinLength('#resPass', 6),
-            Validator.isRequired('#resPassConFirm', 'Mời bạn nhập lại mật khẩu'),
-            Validator.isMinLength('#resPassConFirm', 6),
-            Validator.isConFirmed('#resPassConFirm',function() {
-             return document.querySelector('#formRegister #resPass').value;
-            }, 'Xác nhận mật khẩu không chính xác'),
-        ],
-    });
+            // Validate Form Registration
+        Validator({
+            form: '#formRegister',
+            formGroupElement: '.form-group',
+            errorElement: '.test-masage', 
+            rules: [
+                Validator.isRequired('#resUserName', 'Mời bạn nhập vào đầy đủ họ và tên'),
+                Validator.isRequired('#resCMND', 'Mời bạn nhập vào CCCD/CMND'),
+                Validator.isMinLength('#resCMND', 10),
+                Validator.isRequired('#resPhone', 'Mời bạn nhập vào số điện thoại'),
+                Validator.isMinLength('#resPhone', 10),
+                Validator.isRequired('#ressCity', 'Mời bạn chọn Tỉnh / Tp'),
+                Validator.isRequired('#ressDistrict', 'Mời bạn chọn Quận / Huyện'),
+                Validator.isRequired('#ressWard', 'Mời bạn chọn Phường / Xã'),
+                Validator.isRequired('#ressAdress', 'Mời bạn nhập vào địa chỉ'),
+                Validator.isRequired('#resEmail', 'Mời bạn nhập vào Email'),
+                Validator.isEmail('#resEmail'),
+                Validator.isRequired('#resPass', 'Mời bạn nhập vào mật khẩu'),
+                Validator.isMinLength('#resPass', 6),
+                Validator.isRequired('#resPassConFirm', 'Mời bạn nhập lại mật khẩu'),
+                Validator.isMinLength('#resPassConFirm', 6),
+                Validator.isConFirmed('#resPassConFirm',function() {
+                return document.querySelector('#formRegister #resPass').value;
+                }, 'Xác nhận mật khẩu không chính xác'),
+            ],
+        });
+
+        // Validator Form Update Pass
+        Validator({
+            form: '#formUpdatePass',
+            formGroupElement: '.form-group',
+            errorElement: '.test-masage', 
+            rules: [
+                Validator.isRequired('#passOld', 'Mời bạn nhập vào mật khẩu cũ'),
+                Validator.isMinLength('#passOld', 6),
+                Validator.isRequired('#passNew', 'Mời bạn nhập vào mật khẩu mới'),
+                Validator.isMinLength('#passNew', 6),
+                Validator.isRequired('#passConfirm', 'Mời bạn nhập vào xác nhận mật khẩu mới'),
+                Validator.isMinLength('#passConfirm', 6),
+                Validator.isConFirmed('#passConfirm',function() {
+                return document.querySelector('#formUpdatePass #passNew').value;
+                }, 'Xác nhận mật khẩu không chính xác'),
+            ],
+        });
     </script>
 
     <!--Start of Tawk.to Script-->

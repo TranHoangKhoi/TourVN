@@ -33,7 +33,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                foreach ($countList as $localItem) {
+                                foreach ($listLocalTbl as $localItem) {
                                     extract($localItem);
                                     $localSide = load_data($ma_mien);
                                     extract($localSide);

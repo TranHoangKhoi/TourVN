@@ -4,12 +4,21 @@ function add_local($ma_mien, $ten_diadiem, $mota, $ma_tinh, $hinh_anh, $dac_biet
     pdo_execute($sql);
 }
 
-function load_all_local($keyword) {
+function load_all_local_count($keyword) {
     $sql = "SELECT * FROM dia_diem WHERE 1 ";
        if($keyword!=''){
         $sql.=" AND ten_diadiem LIKE '%$keyword%'";
       }
       $sql.=" ORDER BY ten_diadiem DESC";
+      return pdo_query($sql);
+}
+
+function load_all_local($keyword, $startItem, $showItem) {
+    $sql = "SELECT * FROM dia_diem WHERE 1 ";
+       if($keyword!=''){
+        $sql.=" AND ten_diadiem LIKE '%$keyword%'";
+      }
+      $sql.=" ORDER BY ten_diadiem DESC LIMIT $startItem,$showItem";
       return pdo_query($sql);
 }
 

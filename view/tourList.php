@@ -1,10 +1,6 @@
 <!-- Tour List -->
 <!-- Main -->
-<?php
-    if(is_array($localItem)) {
-        extract($localItem);
-    }
-    
+<?php  
     $numTour = 0;
     foreach($countList as $item) {
         $numTour++;
@@ -77,7 +73,15 @@
                                     </li>
                                 </ul>
                             </nav> -->
-                            <?php if(isset($_GET['ma_dia_diem'])) { ?>
+                            <!-- Local -->
+                            <?php 
+                                if(isset($_GET['ma_dia_diem'])) { 
+                                
+                                if(is_array($localItem)) {
+                                    extract($localItem);
+                                }    
+                            ?>
+                                
                             <!-- Text heading -->
                                 <div class="content__text-heading">
                                     <h1 class="content__text-heading--item">DU LỊCH <?php echo $ten_diadiem ?></h1>
@@ -214,8 +218,15 @@
                                     </div>
                                 </div>
                             <?php } elseif(isset($_GET['ma_vung_mien'])) { ?>
+                                
                                 <!-- Text heading -->
                                 <div class="content__text-heading">
+                                    <?php 
+                                        $localSideItem = load_data($_GET['ma_vung_mien']);
+                                        if(is_array($localSideItem)) {
+                                            extract($localSideItem);
+                                        }
+                                    ?>
                                     <h1 class="content__text-heading--item">DU LỊCH <?php echo $ten_mien ?></h1>
                                     <div class="content__text-info">
                                         <p class="content__text-info--desc">

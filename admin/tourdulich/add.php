@@ -233,7 +233,7 @@
                         </div> -->
                         
                         <div class="tour__content">
-                            <?php $localList = load_all_local(''); ?>
+                            <?php $localList = load_all_local_count(''); ?>
                             <!-- Ngày 1 -->
                             <div class="form-group">
                                 <div class="form-field">

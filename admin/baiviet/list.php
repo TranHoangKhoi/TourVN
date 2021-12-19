@@ -37,7 +37,7 @@
                                 <th class="tbl-0-5">STT</th>
                                 <th class="tbl-1">Mã tin</th>
                                 <th class="tbl-2">Tiêu đề</th>
-                                <th class="tbl-1">loại tin</th>
+                                <th class="tbl-1">Loại tin</th>
                                 <th class="tbl-1">Người đăng</th>
                                 <th class="tbl-2">Nội dung</th>
                                 <th class="tbl-1">Ngày đăng</th>
@@ -76,7 +76,7 @@
                                     
                                 </td>
                                 <td>
-                                    <a href="?ql=newsPage&updatenewsPage&ma_tin=<?php echo $ma_tin ?>" class="btn btn__tbl">Sữa</a>
+                                    <a href="?ql=newsPage&updatenewsPage&ma_tin=<?php echo $ma_tin ?>" class="btn btn__tbl">Sửa</a>
                                 </td>
                                 <td> 
                                     <a href="index.php?ql=newsPage&listnewsPage&deleteNews&ma_tin=<?php echo $ma_tin ?>" class="btn btn__tbl">Xóa</a>

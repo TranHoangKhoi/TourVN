@@ -137,6 +137,10 @@
         min-height: unset;
     }
 
+    .home__service-body {
+        padding: 12px;
+    }
+
     footer,
     main {
         padding: 0 8px;

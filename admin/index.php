@@ -265,6 +265,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
 
                 include './tourdulich/list.php';
             } elseif (isset($_GET['updatetour'])) {
+                $mess = '';
                 if (isset($_GET['ma_tour'])) {
                     if (isset($_POST['updateTourbtn'])) {
                         // Update tour info
@@ -282,9 +283,9 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                         $tourSalesUD = $_POST['tourSalesUD'];
                         $tourDescUD = $_POST['tourDescUD'];
 
-
-                        update_tour_info($localCategoryUD, $tourNameUD, $sideTourUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourDateEndUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD, $_GET['ma_tour'], $tourDescUD);
-
+                        if(!update_tour_info($localCategoryUD, $tourNameUD, $sideTourUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourDateEndUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD, $_GET['ma_tour'], $tourDescUD)) {
+                            $mess = "Cập nhật thành công";
+                        }
                         // Update IMG
                         $hinh_anh = $_FILES['tourImageUD'];
                         for ($i = 0; $i < 9; $i++) {
@@ -663,12 +664,14 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                 }
                 if(isset($_POST['search'])&&($_POST['search'])) {
                     $keyword=$_POST['keyword'];
-            }else{
-                $keyword='';
-            }
+                }else{
+                    $keyword='';
+                }
 
-                $countList = load_all_local($keyword);
+                $countList = load_all_local_count($keyword);
                 $pageNum = pagination($itemNum, $countList);
+
+                $listLocalTbl = load_all_local($keyword, $starItem, $itemNum);
 
                 include $diadiem_path . 'list.php';
             } elseif (isset($_GET['updateLocal'])) {
