@@ -19,16 +19,15 @@ if (isset($_GET['ql'])) {
 }
 
 $ma_taikhoan = '';
-if(isset($_SESSION['account']['ma_taikhoan'])) {
+if (isset($_SESSION['account']['ma_taikhoan'])) {
     $ma_taikhoan =  $_SESSION['account']['ma_taikhoan'];
 }
-if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'] == 1)) {
+if (isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'] == 1)) {
     switch ($ql) {
 
             // Local Side 
         case 'localSide':
             if (isset($_GET['listSide'])) {
-
                 $listLocalSide = list_Side();
                 include $vungmien_path . 'list.php';
             } elseif (isset($_GET['updateSide'])) {
@@ -247,7 +246,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
 
                 $selectTourCate = 0;
                 $tourID = '';
-                if(isset($_POST['findTourItem'])) {
+                if (isset($_POST['findTourItem'])) {
                     $selectTourCate = $_POST['selectTourCate'];
                     $tourID = $_POST['tourID'];
                 }
@@ -259,6 +258,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
                 $countList = load_all_tour_trip_count($selectTourCate, $tourID);
+
                 $pageNum = pagination($itemNum, $countList);
 
                 $list_tour = get_tour_trip($starItem, $itemNum, $selectTourCate, $tourID);
@@ -283,7 +283,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                         $tourSalesUD = $_POST['tourSalesUD'];
                         $tourDescUD = $_POST['tourDescUD'];
 
-                        if(!update_tour_info($localCategoryUD, $tourNameUD, $sideTourUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourDateEndUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD, $_GET['ma_tour'], $tourDescUD)) {
+                        if (!update_tour_info($localCategoryUD, $tourNameUD, $sideTourUD, $dateNumUD, $tourDateStartUD, $tourTimeStartUD, $tourDateEndUD, $tourPriceKidUD, $tourPriceAdultUD, $tourNumpplUD, $localFocusUD, $tourSalesUD, $_GET['ma_tour'], $tourDescUD)) {
                             $mess = "Cập nhật thành công";
                         }
                         // Update IMG
@@ -342,7 +342,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                     // add_info_tour($localCategory, $tourName, $dateNum, $tourDateStart, $tourTimeStart, $tourPriceKid, $tourPriceAdult, $tourNumppl, $localFocus, $tourSales);
                     $matour = add_info_tour($localCategory, $tourName, $sideTour, $dateNum, $tourDateStart, $tourTimeStart, $tourDateEnd, $tourPriceKid, $tourPriceAdult, $tourNumppl, $localFocus, $tourSales, $tourDesc);
                     // add_info_tour($loai_tour, $tieu_de, $ma_mien, $goi_ngay, $ngay_khoihanh, $gio_khoihanh, $ngay_ve, $gia_treem, $gia_nguoilon, $soluong, $noi_tap_trung, $khuyen_mai, $gioi_thieu);
-                    if(isset($matour) && $matour > 0) {
+                    if (isset($matour) && $matour > 0) {
                         $mess = 'Thêm thành công';
                     }
 
@@ -468,27 +468,26 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                         delete_account($_GET['ma_taikhoan']);
                     }
                 }
-                if(isset($_POST['search'])&&($_POST['search'])) {
-                    $keyword=$_POST['keyword'];
-                $email_acc=$_POST['email_acc'];
-            }else{
-                    $keyword='';
-                    $email_acc='';
-            }
-            
-            // Panigition
-            $itemNum = 10;
-            $starItem = 0;
-            if (isset($_GET['page'])) {
-                $starItem = ($_GET['page'] - 1) * $itemNum;
-            }
+                if (isset($_POST['search']) && ($_POST['search'])) {
+                    $keyword = $_POST['keyword'];
+                    $email_acc = $_POST['email_acc'];
+                } else {
+                    $keyword = '';
+                    $email_acc = '';
+                }
 
-            $countList = list_account_count();
-            $pageNum = pagination($itemNum, $countList);
+                // Panigition
+                $itemNum = 10;
+                $starItem = 0;
+                if (isset($_GET['page'])) {
+                    $starItem = ($_GET['page'] - 1) * $itemNum;
+                }
 
-                $list_account = list_account($keyword,$email_acc, $starItem, $itemNum);
+                $countList = list_account_count();
+                $pageNum = pagination($itemNum, $countList);
+
+                $list_account = list_account($keyword, $email_acc, $starItem, $itemNum);
                 include $account_path . 'list.php';
-            
             } elseif (isset($_GET['listadmin'])) {
                 //xóa
                 if (isset($_GET['deleteadmin'])) {
@@ -496,13 +495,13 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                         delete_account($_GET['ma_taikhoan']);
                     }
                 }
-                if(isset($_POST['search'])&&($_POST['search'])) {
-                    $keyword=$_POST['keyword'];
-                $email_acc=$_POST['email_acc'];
-            }else{
-                $keyword='';
-                $email_acc='';
-            }
+                if (isset($_POST['search']) && ($_POST['search'])) {
+                    $keyword = $_POST['keyword'];
+                    $email_acc = $_POST['email_acc'];
+                } else {
+                    $keyword = '';
+                    $email_acc = '';
+                }
 
                 // Panigition
                 $itemNum = 10;
@@ -514,7 +513,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                 $countList = list_account_admin_count();
                 $pageNum = pagination($itemNum, $countList);
 
-                $list_account_admin = list_account_admin($keyword,$email_acc, $starItem, $itemNum);
+                $list_account_admin = list_account_admin($keyword, $email_acc, $starItem, $itemNum);
 
                 include $account_path . 'listadmin.php';
             } elseif (isset($_GET['add'])) {
@@ -565,7 +564,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
         case 'tourBill':
             if (isset($_GET['list'])) {
                 $keyW = '';
-                if(isset($_POST['findIdBill'])) {
+                if (isset($_POST['findIdBill'])) {
                     $keyW = $_POST['idBillFd'];
                 }
 
@@ -585,7 +584,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                 // lấy mã hóa đơn 
                 if (isset($_GET['ma_hd']) && ($_GET['ma_hd'] > 0)) {
                     $listBill = get_all_one($_GET['ma_hd']);
-                    
+
 
                     // Panigition
                     $itemNum = 10;
@@ -610,7 +609,7 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
             if (isset($_GET['list'])) {
                 $selectTourCate = 0;
                 $tourID = '';
-                if(isset($_POST['findTourItem'])) {
+                if (isset($_POST['findTourItem'])) {
                     $tourID = $_POST['tourID'];
                 }
 
@@ -626,7 +625,6 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                 $list_Ticket_All = get_tour_trip($starItem, $itemNum, $selectTourCate, $tourID);
 
                 include './datve/list.php';
-
             } elseif (isset($_GET['details'])) {
                 // láy mã tour
                 if (isset($_GET['matour']) && ($_GET['matour'] > 0)) {
@@ -637,11 +635,11 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                     if (isset($_GET['page'])) {
                         $starItem = ($_GET['page'] - 1) * $itemNum;
                     }
-        
+
                     $countList = get_one_Ticket_mt_count($_GET['matour']);
-        
+
                     $pageNum = pagination($itemNum, $countList);
-        
+
                     $list_ticket = get_one_Ticket_mt($_GET['matour'], $starItem, $itemNum);
                 }
 
@@ -662,10 +660,10 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
                 if (isset($_GET['page'])) {
                     $starItem = ($_GET['page'] - 1) * $itemNum;
                 }
-                if(isset($_POST['search'])&&($_POST['search'])) {
-                    $keyword=$_POST['keyword'];
-                }else{
-                    $keyword='';
+                if (isset($_POST['search']) && ($_POST['search'])) {
+                    $keyword = $_POST['keyword'];
+                } else {
+                    $keyword = '';
                 }
 
                 $countList = load_all_local_count($keyword);
@@ -723,4 +721,3 @@ if(isset($_SESSION['account']['ma_taikhoan']) && ($_SESSION['account']['vai_tro'
 }
 
 include './footer.php';
-ob_end_flush();

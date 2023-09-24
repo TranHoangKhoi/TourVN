@@ -41,6 +41,7 @@
                                  $i = 1;
                                  foreach($list_account as $account) {
                                  extract($account);
+                                 
                                 
 
                                  $hinh = $img_path . $hinh_anh;

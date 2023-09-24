@@ -17,16 +17,16 @@ $(document).ready(function() {
 })
 
 // OnInput
-$(document).ready(function() {
-    // $('.provinceAcc').change(function() {
-        var id = $('.provinceAcc').val();
-        var idQuan = $('.idDis').val();
+    $(document).ready(function() {
+        // $('.provinceAcc').change(function() {
+            var id = $('.provinceAcc').val();
+            var idQuan = $('.idDis').val();
 
-        $.post('./model/diachi.php', {provinceid: id, disid: idQuan}, function(data) {
-            $('.districtAcc').html(data);
-        });
-    // })
-})
+            $.post('./model/diachi.php', {provinceid: id, disid: idQuan}, function(data) {
+                $('.districtAcc').html(data);
+            });
+        // })
+    })
 $(document).ready(function() {
     // $('.districtAcc').change(function() {
         var id = $('.idDis').val();

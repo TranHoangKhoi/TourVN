@@ -1,19 +1,19 @@
 <?php
-    if(is_array($tourInfo)) {
-        extract($tourInfo);
-        $tour_cate = $loai_tour;
-        $sideTour = $ma_mien;
-    }
+if (is_array($tourInfo)) {
+    extract($tourInfo);
+    $tour_cate = $loai_tour;
+    $sideTour = $ma_mien;
+}
 ?>
 <main class="container">
-        <?php include'subMenu.php' ?>
+    <?php include 'subMenu.php' ?>
 
-        <div class="content__body">
-            <div class="content__tap active">
-                <div class="content__tap-heading">
-                    <h3 class="content__tap-heading-text">Cập nhật tour du lịch</h3>
-                </div>
-                <div class="content__tap-main">
+    <div class="content__body">
+        <div class="content__tap active">
+            <div class="content__tap-heading">
+                <h3 class="content__tap-heading-text">Cập nhật tour du lịch</h3>
+            </div>
+            <div class="content__tap-main">
                 <form action="" method="post" class="form-box" enctype="multipart/form-data">
 
                     <div class="form-group">
@@ -29,16 +29,17 @@
                             <label for="localCategory" class="form-label">Loại tour</label>
                             <select name="localCategoryUD" required id="" class="input-control-select">
                                 <option value="">Chọn Loại tour</option>
-                                <?php 
-                                    $listTourCate  = load_all_tour();
-                                    foreach($listTourCate as $tourCateItem) {
-                                        extract($tourCateItem);
-                                        if($loai_tour == $tour_cate) {
+                                <?php
+                                $listTourCate  = load_all_tour();
+                                foreach ($listTourCate as $tourCateItem) {
+                                    extract($tourCateItem);
+                                    if ($loai_tour == $tour_cate) {
                                 ?>
-                                <option selected value="<?php echo $ma_loai ?>"><?php echo $ten_loai ?></option>
-                                <?php }else { ?>
-                                <option  value="<?php echo $ma_loai ?>"><?php echo $ten_loai ?></option>
-                                <?php  } } ?>
+                                        <option selected value="<?php echo $ma_loai ?>"><?php echo $ten_loai ?></option>
+                                    <?php } else { ?>
+                                        <option value="<?php echo $ma_loai ?>"><?php echo $ten_loai ?></option>
+                                <?php  }
+                                } ?>
                             </select>
                         </div>
                         <span class="test-masage"></span>
@@ -57,16 +58,17 @@
                             <label for="sideTourUD" class="form-label">Vùng miền</label>
                             <select name="sideTourUD" required id="" class="input-control-select">
                                 <option value="">Chọn vùng miền</option>
-                                <?php 
-                                    $listSide  = list_Side();
-                                    foreach($listSide as $sideItem) {
-                                        extract($sideItem);
-                                        if($ma_mien == $sideTour) {
+                                <?php
+                                $listSide  = list_Side();
+                                foreach ($listSide as $sideItem) {
+                                    extract($sideItem);
+                                    if ($ma_mien == $sideTour) {
                                 ?>
-                                <option selected value="<?php echo $ma_mien ?>"><?php echo $ten_mien ?></option>
-                                <?php } else { ?>
-                                <option value="<?php echo $ma_mien ?>"><?php echo $ten_mien ?></option>
-                                <?php } } ?>
+                                        <option selected value="<?php echo $ma_mien ?>"><?php echo $ten_mien ?></option>
+                                    <?php } else { ?>
+                                        <option value="<?php echo $ma_mien ?>"><?php echo $ten_mien ?></option>
+                                <?php }
+                                } ?>
                             </select>
                         </div>
                         <span class="test-masage"></span>
@@ -143,12 +145,12 @@
                         </div>
                         <span class="test-masage"></span>
                     </div>
-                    
+
                     <?php
-                        $i = 1;
-                        foreach($tourImg as $imgItem) {
-                            extract($imgItem);
-                            $hinh = $img_path . $ten_hinh;
+                    $i = 1;
+                    foreach ($tourImg as $imgItem) {
+                        extract($imgItem);
+                        $hinh = $img_path . $ten_hinh;
                     ?>
                         <div class="form-group">
                             <div class="form-field">
@@ -184,45 +186,46 @@
                     </div> -->
 
                     <div class="tour__content">
-                        <?php 
-                            $stt = 1;
-                            foreach($tourJourneys as $journeyItem){ 
-                                extract($journeyItem);
-                                $date = $stt++;
+                        <?php
+                        $stt = 1;
+                        foreach ($tourJourneys as $journeyItem) {
+                            extract($journeyItem);
+                            $date = $stt++;
 
                         ?>
-                        <!-- Ngày 1 -->
-                        <div class="form-group">
-                            <div class="form-field">
-                                <label for="localTour" class="form-label">Ngày <?php echo $date ?></label>
-                                
-                                <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
-                                <select name="localTourSelectUD[]" required id="localTourSelect" class="input-control-select">
-                                    <option value="">Chọn địa điểm</option>
-                                    <?php   
+                            <!-- Ngày 1 -->
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <label for="localTour" class="form-label">Ngày <?php echo $date ?></label>
+
+                                    <label for="localTourSelect" class="form-sub-label">Chọn địa điểm đến</label>
+                                    <select name="localTourSelectUD[]" required id="localTourSelect" class="input-control-select">
+                                        <option value="">Chọn địa điểm</option>
+                                        <?php
                                         $localList = load_all_local_count('');
                                         foreach ($localList as $localItem) {
                                             extract($localItem);
-                                            if($ma_diadiem == $ma_dia_diem) {
-                                    ?>
-                                    <option selected value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
-                                    <?php } else { ?>
-                                    <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
-                                    <?php } }?>
-                                </select>
-                                <div class="line"></div>
-                                <label for="localTourName" class="form-sub-label">Tiêu đề ngày <?php echo $date ?></label>
-                                <textarea name="localTourNameUD[]" required  id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 1 sẽ đi đâu"><?php echo $tieu_de ?></textarea>
-                                <div class="line"></div>
-                                <label for="localDateinUD" class="form-sub-label">Ngày đến</label>
-                                <input type="date" required  id="localDateinUD" name="localDateinUD[]" value="<?php echo $ngay_di ?>" class="input-control">
-                                <div class="line"></div>
-                                <label for="localTourMainUD" class="form-sub-label">Mô tả hành trình</label>
-                                <textarea required id="content<?php echo $date ?>" name="localTourMainUD[]"  id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"><?php echo $noi_dung ?></textarea>
-                                <input type="hidden" name="journeyID[]" value="<?php echo $ma_hanh_trinh  ?>">
+                                            if ($ma_diadiem == $ma_dia_diem) {
+                                        ?>
+                                                <option selected value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
+                                        <?php }
+                                        } ?>
+                                    </select>
+                                    <div class="line"></div>
+                                    <label for="localTourName" class="form-sub-label">Tiêu đề ngày <?php echo $date ?></label>
+                                    <textarea name="localTourNameUD[]" required id="" cols="30" rows="10" class="input-control--textarea-sm" placeholder="VD: Ngày 1 sẽ đi đâu"><?php echo $tieu_de ?></textarea>
+                                    <div class="line"></div>
+                                    <label for="localDateinUD" class="form-sub-label">Ngày đến</label>
+                                    <input type="date" required id="localDateinUD" name="localDateinUD[]" value="<?php echo $ngay_di ?>" class="input-control">
+                                    <div class="line"></div>
+                                    <label for="localTourMainUD" class="form-sub-label">Mô tả hành trình</label>
+                                    <textarea required id="content<?php echo $date ?>" name="localTourMainUD[]" id="" cols="30" rows="10" class="input-control--textarea" placeholder="Mô tả hành trình cụ thể của ngày 1"><?php echo $noi_dung ?></textarea>
+                                    <input type="hidden" name="journeyID[]" value="<?php echo $ma_hanh_trinh  ?>">
+                                </div>
+                                <span class="test-masage"></span>
                             </div>
-                            <span class="test-masage"></span>
-                        </div>
                         <?php } ?>
 
                         <!-- <div class="form-group">
@@ -233,8 +236,8 @@
                                 <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
                                     <option value="">Chọn địa điểm</option>
                                     <?php
-                                        foreach ($localList as $localItem) {
-                                            extract($localItem);
+                                    foreach ($localList as $localItem) {
+                                        extract($localItem);
                                     ?>
                                     <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
                                     <?php } ?>
@@ -260,8 +263,8 @@
                                 <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
                                     <option value="">Chọn địa điểm</option>
                                     <?php
-                                        foreach ($localList as $localItem) {
-                                            extract($localItem);
+                                    foreach ($localList as $localItem) {
+                                        extract($localItem);
                                     ?>
                                     <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
                                     <?php } ?>
@@ -287,8 +290,8 @@
                                 <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
                                     <option value="">Chọn địa điểm</option>
                                     <?php
-                                        foreach ($localList as $localItem) {
-                                            extract($localItem);
+                                    foreach ($localList as $localItem) {
+                                        extract($localItem);
                                     ?>
                                     <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
                                     <?php } ?>
@@ -314,8 +317,8 @@
                                 <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
                                     <option value="">Chọn địa điểm</option>
                                     <?php
-                                        foreach ($localList as $localItem) {
-                                            extract($localItem);
+                                    foreach ($localList as $localItem) {
+                                        extract($localItem);
                                     ?>
                                     <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
                                     <?php } ?>
@@ -341,8 +344,8 @@
                                 <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
                                     <option value="">Chọn địa điểm</option>
                                     <?php
-                                        foreach ($localList as $localItem) {
-                                            extract($localItem);
+                                    foreach ($localList as $localItem) {
+                                        extract($localItem);
                                     ?>
                                     <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
                                     <?php } ?>
@@ -368,8 +371,8 @@
                                 <select name="localTourSelect[]" id="localTourSelect" class="input-control-select">
                                     <option value="">Chọn địa điểm</option>
                                     <?php
-                                        foreach ($localList as $localItem) {
-                                            extract($localItem);
+                                    foreach ($localList as $localItem) {
+                                        extract($localItem);
                                     ?>
                                     <option value="<?php echo $ma_diadiem ?>"><?php echo $ten_diadiem ?></option>
                                     <?php } ?>
@@ -393,17 +396,17 @@
                     </div>
 
                     <?php
-                        if(isset($mess) && $mess != '') {
+                    if (isset($mess) && $mess != '') {
                     ?>
-                            <div class="mess-form success">
-                                <span>
-                                    <i><ion-icon name="checkbox-outline"></ion-icon></i>
-                                    <?php echo $mess?>
-                                </span>
-                            </div>
+                        <div class="mess-form success">
+                            <span>
+                                <i><ion-icon name="checkbox-outline"></ion-icon></i>
+                                <?php echo $mess ?>
+                            </span>
+                        </div>
                     <?php } ?>
                 </form>
-                </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
